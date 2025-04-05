@@ -1,30 +1,53 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { Component, HostListener } from '@angular/core';
+import { ToggleService } from '../sidebar/toggle.service';
 import { MatButtonModule } from '@angular/material/button';
-import { NgScrollbarModule } from 'ngx-scrollbar';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
 
 @Component({
-    selector: 'app-customizer-settings',
+    selector: 'app-header',
     standalone: true,
-    imports: [RouterLink, NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule],
-    templateUrl: './customizer-settings.component.html',
-    styleUrl: './customizer-settings.component.scss'
+    imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
-export class CustomizerSettingsComponent {
+export class HeaderComponent {
+
+    // isSidebarToggled
+    isSidebarToggled = false;
 
     // isToggled
     isToggled = false;
 
     constructor(
+        private toggleService: ToggleService,
         public themeService: CustomizerSettingsService
     ) {
+        this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
+            this.isSidebarToggled = isSidebarToggled;
+        });
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });
+    }
+
+    // Burger Menu Toggle
+    toggle() {
+        this.toggleService.toggle();
+    }
+
+    // Header Sticky
+    isSticky: boolean = false;
+    @HostListener('window:scroll', ['$event'])
+    checkScroll() {
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (scrollPosition >= 50) {
+            this.isSticky = true;
+        } else {
+            this.isSticky = false;
+        }
     }
 
     // Dark Mode
@@ -57,19 +80,9 @@ export class CustomizerSettingsComponent {
         this.themeService.toggleCardBorderTheme();
     }
 
-    // Card Border Radius
-    toggleCardBorderRadiusTheme() {
-        this.themeService.toggleCardBorderRadiusTheme();
-    }
-
     // RTL Mode
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();
-    }
-
-    // Settings Button Toggle
-    toggle() {
-        this.themeService.toggle();
     }
 
 }

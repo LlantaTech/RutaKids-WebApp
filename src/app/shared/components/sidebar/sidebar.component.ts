@@ -1,31 +1,45 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { ToggleService } from './toggle.service';
+import { NgClass } from '@angular/common';
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
 
 @Component({
-    selector: 'app-customizer-settings',
+    selector: 'app-sidebar',
     standalone: true,
-    imports: [RouterLink, NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule],
-    templateUrl: './customizer-settings.component.html',
-    styleUrl: './customizer-settings.component.scss'
+    imports: [NgScrollbarModule, MatExpansionModule, RouterLinkActive, RouterModule, RouterLink, NgClass],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
 })
-export class CustomizerSettingsComponent {
+export class SidebarComponent {
+
+    // isSidebarToggled
+    isSidebarToggled = false;
 
     // isToggled
     isToggled = false;
 
     constructor(
+        private toggleService: ToggleService,
         public themeService: CustomizerSettingsService
     ) {
+        this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
+            this.isSidebarToggled = isSidebarToggled;
+        });
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });
     }
+
+    // Burger Menu Toggle
+    toggle() {
+        this.toggleService.toggle();
+    }
+
+    // Mat Expansion
+    panelOpenState = false;
 
     // Dark Mode
     toggleTheme() {
@@ -57,19 +71,9 @@ export class CustomizerSettingsComponent {
         this.themeService.toggleCardBorderTheme();
     }
 
-    // Card Border Radius
-    toggleCardBorderRadiusTheme() {
-        this.themeService.toggleCardBorderRadiusTheme();
-    }
-
     // RTL Mode
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();
-    }
-
-    // Settings Button Toggle
-    toggle() {
-        this.themeService.toggle();
     }
 
 }
