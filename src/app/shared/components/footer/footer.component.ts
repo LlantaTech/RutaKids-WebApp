@@ -1,20 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { NgScrollbarModule } from 'ngx-scrollbar';
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
 
 @Component({
-    selector: 'app-customizer-settings',
+    selector: 'app-footer',
     standalone: true,
-    imports: [RouterLink, NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule],
-    templateUrl: './customizer-settings.component.html',
-    styleUrl: './customizer-settings.component.scss'
+    imports: [RouterLink],
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.scss'
 })
-export class CustomizerSettingsComponent {
+export class FooterComponent {
 
     // isToggled
     isToggled = false;
@@ -57,19 +52,9 @@ export class CustomizerSettingsComponent {
         this.themeService.toggleCardBorderTheme();
     }
 
-    // Card Border Radius
-    toggleCardBorderRadiusTheme() {
-        this.themeService.toggleCardBorderRadiusTheme();
-    }
-
     // RTL Mode
     toggleRTLEnabledTheme() {
         this.themeService.toggleRTLEnabledTheme();
-    }
-
-    // Settings Button Toggle
-    toggle() {
-        this.themeService.toggle();
     }
 
 }

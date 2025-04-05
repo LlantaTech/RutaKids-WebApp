@@ -1,1 +1,28 @@
-<router-outlet></router-outlet>
+<div
+  [ngClass]="{
+    'dark-theme': themeService.isDark(),
+    'card-borderd-theme': themeService.isCardBorder(),
+    'card-border-radius': themeService.isCardBorderRadius(),
+    'rtl-enabled': themeService.isRTLEnabled()
+  }"
+>
+
+  <!-- Sidebar -->
+  <app-sidebar *ngIf="!isLoginPage()"></app-sidebar>
+
+  <!-- Main Content -->
+  <div
+    class="main-content transition d-flex flex-column"
+    [ngClass]="{ 'active': isSidebarToggled }"
+    [class.right-sidebar]="themeService.isRightSidebar()"
+    [class.hide-sidebar]="themeService.isHideSidebar()"
+  >
+    <app-header *ngIf="!isLoginPage()"></app-header>
+
+    <router-outlet></router-outlet>
+
+    <div class="flex-grow-1"></div>
+
+    <app-footer *ngIf="!isLoginPage()"></app-footer>
+  </div>
+</div>
