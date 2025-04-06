@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:llantatech": "node dist/llantatech/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +26,7 @@
     "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
     "@iplab/ngx-file-upload": "^17.0.0",
-    "apexcharts": "^3.45.2",
+    "apexcharts": "^3.54.1",
     "express": "^4.18.2",
     "moment": "^2.30.1",
     "ng-apexcharts": "~1.10.0",
