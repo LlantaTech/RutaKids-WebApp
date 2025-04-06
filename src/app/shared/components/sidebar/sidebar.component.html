@@ -68,6 +68,22 @@
                             Conductores
                         </span>
                     </a>
+                    <a routerLink="/vehicles" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="material-symbols-outlined">
+                            directions_bus
+                        </i>
+                        <span class="title">
+                            Vehiculos
+                        </span>
+                    </a>
+                    <a routerLink="/vehicles" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                        <i class="material-symbols-outlined">
+                            child_care
+                        </i>
+                        <span class="title">
+                            Alumnos
+                        </span>
+                    </a>
                     <span class="sub-title text-body">
                         PAGES
                     </span>
@@ -924,66 +940,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <i class="material-symbols-outlined">
-                                    unfold_more
-                                </i>
-                                <span class="title">
-                                    Multi Level Menu
-                                </span>
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <mat-accordion>
-                            <ul class="sidebar-sub-menu">
-                                <li class="sidemenu-item">
-                                    <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                        First
-                                    </a>
-                                </li>
-                                <li class="sidemenu-item">
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title>
-                                                Second
-                                            </mat-panel-title>
-                                        </mat-expansion-panel-header>
-                                        <ul class="sidebar-sub-menu">
-                                            <li class="sidemenu-item">
-                                                <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                                    Second 1
-                                                </a>
-                                            </li>
-                                            <li class="sidemenu-item">
-                                                <mat-accordion>
-                                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
-                                                        <mat-expansion-panel-header>
-                                                            <mat-panel-title>
-                                                                Second 2
-                                                            </mat-panel-title>
-                                                        </mat-expansion-panel-header>
-                                                        <ul class="sidebar-sub-menu">
-                                                            <li class="sidemenu-item">
-                                                                <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                                                    Third 1
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </mat-expansion-panel>
-                                                </mat-accordion>
-                                            </li>
-                                        </ul>
-                                    </mat-expansion-panel>
-                                </li>
-                                <li class="sidemenu-item">
-                                    <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                        Third
-                                    </a>
-                                </li>
-                            </ul>
-                        </mat-accordion>
                     </mat-expansion-panel>
                     <a routerLink="/authentication/logout" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
