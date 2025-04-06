@@ -18,6 +18,9 @@ import {SettingsComponent} from "./settings/pages/settings.component";
 import {PrivacyPolicyComponent} from "./settings/pages/privacy-policy/privacy-policy.component";
 import {TermsConditionsComponent} from "./settings/pages/terms-conditions/terms-conditions.component";
 import {ChangePasswordComponent} from "./settings/pages/change-password/change-password.component";
+import {DriversComponent} from "./drivers/pages/drivers.component";
+import {CreateDriverComponent} from "./drivers/pages/create-driver/create-driver.component";
+import {DriverCardsComponent} from "./drivers/pages/driver-cards/driver-cards.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -53,6 +56,14 @@ export const routes: Routes = [
           {path: 'change-password', component: ChangePasswordComponent},
           {path: 'privacy-policy', component: PrivacyPolicyComponent},
           {path: 'terms-conditions', component: TermsConditionsComponent},
+        ]
+      },
+      {
+        path: 'drivers',
+        component: DriversComponent,
+        children: [
+          {path: '', component: DriverCardsComponent},
+          {path: 'create-driver', component: CreateDriverComponent},
         ]
       },
       { path: '**', component: NotFoundComponent },
