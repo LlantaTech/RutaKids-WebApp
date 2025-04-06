@@ -21,6 +21,10 @@ import {ChangePasswordComponent} from "./settings/pages/change-password/change-p
 import {DriversComponent} from "./drivers/pages/drivers.component";
 import {CreateDriverComponent} from "./drivers/pages/create-driver/create-driver.component";
 import {DriverCardsComponent} from "./drivers/pages/driver-cards/driver-cards.component";
+import {VehicleComponent} from "./vehicles/pages/vehicle.component";
+import {CreateVehicleComponent} from "./vehicles/pages/create-vehicle/create-vehicle.component";
+import {EditVehicleComponent} from "./vehicles/pages/edit-vehicle/edit-vehicle.component";
+import {VehicleListComponent} from "./vehicles/pages/vehicle-list/vehicle-list.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -64,6 +68,15 @@ export const routes: Routes = [
         children: [
           {path: '', component: DriverCardsComponent},
           {path: 'create-driver', component: CreateDriverComponent},
+        ]
+      },
+      {
+        path: 'vehicles',
+        component: VehicleComponent,
+        children: [
+          {path: '', component: VehicleListComponent},
+          {path: 'create-vehicle', component: CreateVehicleComponent},
+          {path: 'edit-vehicle', component: EditVehicleComponent},
         ]
       },
       { path: '**', component: NotFoundComponent },
