@@ -14,19 +14,13 @@ import {BlankLayoutComponent} from "./shared/layouts/blank-layout/blank-layout.c
 import {DashboardComponent} from "./dashboard/pages/dashboard.component";
 import {AppComponent} from "./app.component";
 import {MainLayoutComponent} from "./shared/layouts/main-layout/main-layout.component";
+import {SettingsComponent} from "./settings/pages/settings.component";
+import {PrivacyPolicyComponent} from "./settings/pages/privacy-policy/privacy-policy.component";
+import {TermsConditionsComponent} from "./settings/pages/terms-conditions/terms-conditions.component";
+import {ChangePasswordComponent} from "./settings/pages/change-password/change-password.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
-  {
-    path: '',
-    component: MainLayoutComponent,
-    children: [
-      {path: 'dashboard', component: DashboardComponent},
-      { path: 'internal-error', component: InternalErrorComponent },
-      { path: 'blank-page', component: BlankPageComponent },
-      { path: '**', component: NotFoundComponent }
-    ]
-  },
   { path: '',
     component: BlankLayoutComponent,
     children: [
@@ -45,5 +39,23 @@ export const routes: Routes = [
         ]
       }
     ]
-  }
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {path: 'dashboard', component: DashboardComponent},
+      { path: 'internal-error', component: InternalErrorComponent },
+      { path: 'blank-page', component: BlankPageComponent },
+      { path: 'settings',
+        component: SettingsComponent,
+        children: [
+          {path: 'change-password', component: ChangePasswordComponent},
+          {path: 'privacy-policy', component: PrivacyPolicyComponent},
+          {path: 'terms-conditions', component: TermsConditionsComponent},
+        ]
+      },
+      { path: '**', component: NotFoundComponent },
+    ]
+  },
 ];
