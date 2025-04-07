@@ -25,6 +25,11 @@ import {VehicleComponent} from "./vehicles/pages/vehicle.component";
 import {CreateVehicleComponent} from "./vehicles/pages/create-vehicle/create-vehicle.component";
 import {EditVehicleComponent} from "./vehicles/pages/edit-vehicle/edit-vehicle.component";
 import {VehicleListComponent} from "./vehicles/pages/vehicle-list/vehicle-list.component";
+import {ChildrenListComponent} from "./children/pages/children-list/children-list.component";
+import {ChildrenComponent} from "./children/pages/children.component";
+import {CreateChildComponent} from "./children/pages/create-child/create-child.component";
+import {EditChildComponent} from "./children/pages/edit-child/edit-child.component";
+import {FaqPageComponent} from "./public/pages/faq-page/pages/faq-page.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -51,32 +56,42 @@ export const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      {path: 'dashboard', component: DashboardComponent},
+      { path: 'dashboard', component: DashboardComponent},
       { path: 'internal-error', component: InternalErrorComponent },
       { path: 'blank-page', component: BlankPageComponent },
+      { path: 'faq', component: FaqPageComponent},
       { path: 'settings',
         component: SettingsComponent,
         children: [
-          {path: 'change-password', component: ChangePasswordComponent},
-          {path: 'privacy-policy', component: PrivacyPolicyComponent},
-          {path: 'terms-conditions', component: TermsConditionsComponent},
+          { path: 'change-password', component: ChangePasswordComponent},
+          { path: 'privacy-policy', component: PrivacyPolicyComponent},
+          { path: 'terms-conditions', component: TermsConditionsComponent},
         ]
       },
       {
         path: 'drivers',
         component: DriversComponent,
         children: [
-          {path: '', component: DriverCardsComponent},
-          {path: 'create-driver', component: CreateDriverComponent},
+          { path: '', component: DriverCardsComponent},
+          { path: 'create-driver', component: CreateDriverComponent},
         ]
       },
       {
         path: 'vehicles',
         component: VehicleComponent,
         children: [
-          {path: '', component: VehicleListComponent},
-          {path: 'create-vehicle', component: CreateVehicleComponent},
-          {path: 'edit-vehicle', component: EditVehicleComponent},
+          { path: '', component: VehicleListComponent},
+          { path: 'create-vehicle', component: CreateVehicleComponent},
+          { path: 'edit-vehicle', component: EditVehicleComponent},
+        ]
+      },
+      {
+        path: 'children',
+        component: ChildrenComponent,
+        children: [
+          { path: '', component: ChildrenListComponent},
+          { path: 'create-child', component: CreateChildComponent},
+          { path: 'edit-child', component: EditChildComponent},
         ]
       },
       { path: '**', component: NotFoundComponent },
