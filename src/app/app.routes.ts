@@ -15,19 +15,27 @@ import {SettingsComponent} from "./settings/pages/settings.component";
 import {PrivacyPolicyComponent} from "./settings/pages/privacy-policy/privacy-policy.component";
 import {TermsConditionsComponent} from "./settings/pages/terms-conditions/terms-conditions.component";
 import {ChangePasswordComponent} from "./settings/pages/change-password/change-password.component";
-import {DriversComponent} from "./drivers/pages/drivers.component";
-import {CreateDriverComponent} from "./drivers/pages/create-driver/create-driver.component";
-import {DriverCardsComponent} from "./drivers/pages/driver-cards/driver-cards.component";
-import {VehicleComponent} from "./vehicles/pages/vehicle.component";
-import {CreateVehicleComponent} from "./vehicles/pages/create-vehicle/create-vehicle.component";
-import {EditVehicleComponent} from "./vehicles/pages/edit-vehicle/edit-vehicle.component";
-import {VehicleListComponent} from "./vehicles/pages/vehicle-list/vehicle-list.component";
 import {ChildrenListComponent} from "./children/pages/children-list/children-list.component";
 import {ChildrenComponent} from "./children/pages/children.component";
 import {CreateChildComponent} from "./children/pages/create-child/create-child.component";
 import {EditChildComponent} from "./children/pages/edit-child/edit-child.component";
 import {FaqPageComponent} from "./public/pages/faq-page/pages/faq-page.component";
 import {ComicSoonComponent} from "./public/pages/comic-soon/comic-soon.component";
+import {ProfileComponent} from "./settings/pages/profile/profile.component";
+import {MyProfileComponent} from "./settings/pages/profile/my-profile/my-profile.component";
+import {MyProfileSettingsComponent} from "./settings/pages/profile/my-profile-settings/my-profile-settings.component";
+import {AboutComponent} from "./settings/pages/profile/my-profile/about/about.component";
+import {NotificationsComponent} from "./communication/pages/notifications/notifications.component";
+import {SchoolTransportationComponent} from "./school-transportation/pages/school-transportation.component";
+import {
+  SchoolTransportationListComponent
+} from "./school-transportation/pages/school-transportation-list/school-transportation-list.component";
+import {
+  CreateSchoolTransportationComponent
+} from "./school-transportation/pages/create-school-transportation/create-school-transportation.component";
+import {
+  EditSchoolTransportationComponent
+} from "./school-transportation/pages/edit-school-transportation/edit-school-transportation.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -56,7 +64,10 @@ export const routes: Routes = [
       { path: 'internal-error', component: InternalErrorComponent },
       { path: 'blank-page', component: BlankPageComponent },
       { path: 'faq', component: FaqPageComponent},
-      { path: 'settings',
+      { path: 'comic-soon', component: ComicSoonComponent},
+      { path: 'notifications', component: NotificationsComponent},
+      {
+        path: 'settings',
         component: SettingsComponent,
         children: [
           { path: 'change-password', component: ChangePasswordComponent},
@@ -65,20 +76,12 @@ export const routes: Routes = [
         ]
       },
       {
-        path: 'drivers',
-        component: DriversComponent,
+        path: 'school-transportation',
+        component: SchoolTransportationComponent,
         children: [
-          { path: '', component: DriverCardsComponent},
-          { path: 'create-driver', component: CreateDriverComponent},
-        ]
-      },
-      {
-        path: 'vehicles',
-        component: VehicleComponent,
-        children: [
-          { path: '', component: VehicleListComponent},
-          { path: 'create-vehicle', component: CreateVehicleComponent},
-          { path: 'edit-vehicle', component: EditVehicleComponent},
+          { path: '', component: SchoolTransportationListComponent},
+          { path: 'create-driver', component: CreateSchoolTransportationComponent},
+          { path: 'edit-driver', component: EditSchoolTransportationComponent},
         ]
       },
       {
@@ -90,8 +93,19 @@ export const routes: Routes = [
           { path: 'edit-child', component: EditChildComponent},
         ]
       },
-      { path: 'my-profile', component: ComicSoonComponent},
-      { path: 'comic-soon', component: ComicSoonComponent},
+      {
+        path: 'my-profile',
+        component: ProfileComponent,
+        children: [
+          {
+            path: '', component: MyProfileComponent,
+            children: [
+              { path: '', component: AboutComponent},
+            ]
+          },
+          {path: 'settings', component: MyProfileSettingsComponent},
+        ]
+      },
       { path: '**', component: NotFoundComponent },
     ]
   },
