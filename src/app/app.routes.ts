@@ -80,8 +80,8 @@ export const routes: Routes = [
         component: SchoolTransportationComponent,
         children: [
           { path: '', component: SchoolTransportationListComponent},
-          { path: 'create-driver', component: CreateSchoolTransportationComponent},
-          { path: 'edit-driver', component: EditSchoolTransportationComponent},
+          { path: 'create-school-transportation', component: CreateSchoolTransportationComponent},
+          { path: 'edit-school-transportation', component: EditSchoolTransportationComponent},
         ]
       },
       {
