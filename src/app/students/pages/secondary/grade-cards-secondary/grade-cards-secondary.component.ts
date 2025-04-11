@@ -34,8 +34,36 @@ export class GradeCardsSecondaryComponent {
       badgeLabel: 'Secundaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '1er Grado',
-      description: 'Niños de 12 a 13 años',
-      buttonLabel: 'Ver sección'
+      description: 'Niños de 6 a 7 años',
+      navigateTo: '/students/primary/list'
     },
+    {
+      badgeLabel: 'Secundaria',
+      imageUrl: 'assets/images/cards/card1.jpg',
+      title: '2do Grado',
+      description: 'Niños de 7 a 8 años',
+      navigateTo: '/students/primary/list'
+    },
+    {
+      badgeLabel: 'Secundaria',
+      imageUrl: 'assets/images/cards/card1.jpg',
+      title: '3er Grado',
+      description: 'Niños de 7 a 8 años',
+      navigateTo: '/students/primary/list'
+    },
+    {
+      badgeLabel: 'Secundaria',
+      imageUrl: 'assets/images/cards/card1.jpg',
+      title: '4to Grado',
+      description: 'Niños de 7 a 8 años',
+      navigateTo: '/students/primary/list'
+    },
+    {
+      badgeLabel: 'Secundaria',
+      imageUrl: 'assets/images/cards/card1.jpg',
+      title: '5to Grado',
+      description: 'Niños de 7 a 8 años',
+      navigateTo: '/students/primary/list'
+    }
   ];
 }

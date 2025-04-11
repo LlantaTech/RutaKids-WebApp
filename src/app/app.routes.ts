@@ -96,20 +96,14 @@ export const routes: Routes = [
         path: 'students',
         component: StudentsComponent,
         children: [
-          { path:'primary', component: GradeCardsPrimaryComponent,
-            children: [
-              { path: 'list', component: PrimaryListComponent},
-              { path: 'create', component: CreatePrimaryComponent },
-              { path: 'edit/:id', component: EditPrimaryComponent },
-            ]
-          },
-          { path:'secondary', component: GradeCardsSecondaryComponent,
-            children: [
-              { path: 'list', component: SecondaryListComponent},
-              { path: 'create', component: CreateSecondaryComponent },
-              { path: 'edit/:id', component: EditSecondaryComponent },
-            ]
-          },
+          { path:'primary', component: GradeCardsPrimaryComponent},
+          { path: 'primary/:grade', component: PrimaryListComponent},
+          { path: 'primary/:grade/create', component: CreatePrimaryComponent },
+          { path: 'primary/:grade/edit/:id', component: EditPrimaryComponent },
+          { path:'secondary', component: GradeCardsSecondaryComponent},
+          { path: 'secondary/:grade', component: SecondaryListComponent},
+          { path: 'secondary/:grade/create', component: CreateSecondaryComponent },
+          { path: 'secondary/:grade/edit/:id', component: EditSecondaryComponent }
         ]
       },
       {
