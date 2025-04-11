@@ -1,0 +1,90 @@
+
+<!-- Student Form -->
+<mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+  [class.rtl-enabled]="themeService.isRTLEnabled()">
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Student ID</label>
+            <mat-form-field>
+              <mat-label>Enter student ID</mat-label>
+              <input matInput [(ngModel)]="student.id" name="id">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Full Name</label>
+            <mat-form-field>
+              <mat-label>Enter full name</mat-label>
+              <input matInput [(ngModel)]="student.fullName" name="fullName">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Email Address</label>
+            <mat-form-field>
+              <mat-label>Enter email address</mat-label>
+              <input matInput [(ngModel)]="student.email" name="email">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Grade</label>
+            <mat-form-field>
+              <mat-label>Select grade</mat-label>
+              <mat-select [(ngModel)]="student.grade" name="grade">
+                <mat-option value="first">First Grade</mat-option>
+                <mat-option value="second">Second Grade</mat-option>
+                <!-- Más opciones -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Status</label>
+            <mat-form-field>
+              <mat-label>Select status</mat-label>
+              <mat-select [(ngModel)]="student.status" name="status">
+                <mat-option value="active">Active</mat-option>
+                <mat-option value="inactive">Inactive</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Description</label>
+            <div class="NgxEditor__Wrapper">
+              <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+              <ngx-editor [editor]="editor" [(ngModel)]="student.description" name="description"
+                [placeholder]="'Type here...'"></ngx-editor>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Profile Image</label>
+            <file-upload class="file-uploader" [multiple]="multiple"></file-upload>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-box">
+        <button mat-button type="submit">{{ submitLabel }}</button>
+        <button mat-button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

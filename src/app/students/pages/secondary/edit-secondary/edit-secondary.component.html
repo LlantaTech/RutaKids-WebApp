@@ -1,0 +1,7 @@
+<app-student-form
+  [formTitle]="'Edit Secondary Student'"
+  [submitLabel]="'Update'"
+  [student]="selectedStudent"
+  (formSubmit)="handleUpdate($event)"
+  (cancel)="handleCancel()">
+</app-student-form>
