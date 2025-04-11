@@ -1,0 +1,10 @@
+<app-breadcrumb
+  [title]="breadcrumbTitle"
+  [paths]="breadcrumbPaths">
+</app-breadcrumb>
+<app-student-form
+  [formTitle]="'Create Primary Student'"
+  [submitLabel]="'Create'"
+  (formSubmit)="handleCreate($event)"
+  (cancel)="handleCancel()">
+</app-student-form>

@@ -1,0 +1,12 @@
+<ng-container *ngIf="showCards">
+  <app-grade-card
+    *ngFor="let grade of grades"
+    [badgeLabel]="grade.badgeLabel"
+    [imageUrl]="grade.imageUrl"
+    [title]="grade.title"
+    [description]="grade.description"
+    [routerLink]="['/students/secondary/list']">
+  </app-grade-card>
+</ng-container>
+
+<router-outlet></router-outlet>

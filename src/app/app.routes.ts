@@ -15,10 +15,6 @@ import {SettingsComponent} from "./settings/pages/settings.component";
 import {PrivacyPolicyComponent} from "./settings/pages/privacy-policy/privacy-policy.component";
 import {TermsConditionsComponent} from "./settings/pages/terms-conditions/terms-conditions.component";
 import {ChangePasswordComponent} from "./settings/pages/change-password/change-password.component";
-import {ChildrenListComponent} from "./children/pages/children-list/children-list.component";
-import {ChildrenComponent} from "./children/pages/children.component";
-import {CreateChildComponent} from "./children/pages/create-child/create-child.component";
-import {EditChildComponent} from "./children/pages/edit-child/edit-child.component";
 import {FaqPageComponent} from "./public/pages/faq-page/pages/faq-page.component";
 import {ComicSoonComponent} from "./public/pages/comic-soon/comic-soon.component";
 import {ProfileComponent} from "./settings/pages/profile/profile.component";
@@ -36,6 +32,18 @@ import {
 import {
   EditSchoolTransportationComponent
 } from "./school-transportation/pages/edit-school-transportation/edit-school-transportation.component";
+import {GradeCardsPrimaryComponent} from "./students/pages/primary/grade-cards-primary/grade-cards-primary.component";
+import {StudentsComponent} from "./students/pages/students.component";
+import {CreatePrimaryComponent} from "./students/pages/primary/create-primary/create-primary.component";
+import {
+  GradeCardsSecondaryComponent
+} from "./students/pages/secondary/grade-cards-secondary/grade-cards-secondary.component";
+import {CreateSecondaryComponent} from "./students/pages/secondary/create-secondary/create-secondary.component";
+import {StudentFormComponent} from "./students/components/student-form/student-form.component";
+import {EditPrimaryComponent} from "./students/pages/primary/edit-primary/edit-primary.component";
+import {PrimaryListComponent} from "./students/pages/primary/primary-list/primary-list.component";
+import {SecondaryListComponent} from "./students/pages/secondary/secondary-list/secondary-list.component";
+import {EditSecondaryComponent} from "./students/pages/secondary/edit-secondary/edit-secondary.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -80,17 +88,28 @@ export const routes: Routes = [
         component: SchoolTransportationComponent,
         children: [
           { path: '', component: SchoolTransportationListComponent},
-          { path: 'create-school-transportation', component: CreateSchoolTransportationComponent},
-          { path: 'edit-school-transportation', component: EditSchoolTransportationComponent},
+          { path: 'create', component: CreateSchoolTransportationComponent},
+          { path: 'edit/:id', component: EditSchoolTransportationComponent},
         ]
       },
       {
-        path: 'children',
-        component: ChildrenComponent,
+        path: 'students',
+        component: StudentsComponent,
         children: [
-          { path: '', component: ChildrenListComponent},
-          { path: 'create-child', component: CreateChildComponent},
-          { path: 'edit-child', component: EditChildComponent},
+          { path:'primary', component: GradeCardsPrimaryComponent,
+            children: [
+              { path: 'list', component: PrimaryListComponent},
+              { path: 'create', component: CreatePrimaryComponent },
+              { path: 'edit/:id', component: EditPrimaryComponent },
+            ]
+          },
+          { path:'secondary', component: GradeCardsSecondaryComponent,
+            children: [
+              { path: 'list', component: SecondaryListComponent},
+              { path: 'create', component: CreateSecondaryComponent },
+              { path: 'edit/:id', component: EditSecondaryComponent },
+            ]
+          },
         ]
       },
       {
@@ -106,6 +125,7 @@ export const routes: Routes = [
           {path: 'settings', component: MyProfileSettingsComponent},
         ]
       },
+      { path: 'hola', component: CreatePrimaryComponent},
       { path: '**', component: NotFoundComponent },
     ]
   },
