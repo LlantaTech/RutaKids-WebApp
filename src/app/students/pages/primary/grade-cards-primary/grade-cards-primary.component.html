@@ -1,14 +1,15 @@
-
-<ng-container *ngIf="showCards">
-  <app-grade-card
-    *ngFor="let grade of grades"
-    [badgeLabel]="grade.badgeLabel"
-    [imageUrl]="grade.imageUrl"
-    [title]="grade.title"
-    [description]="grade.description"
-    [routerLink]="['/students/primary/list']">
-  </app-grade-card>
+<ng-container>
+  <div class="row">
+    <div class="col-lg-4 col-md-6" *ngFor="let grade of grades">
+      <app-grade-card
+        [badgeLabel]="grade.badgeLabel"
+        [imageUrl]="grade.imageUrl"
+        [title]="grade.title"
+        [description]="grade.description"
+        [grade]="grade.grade"
+        (cardClick)="goToGrade($event)">
+      </app-grade-card>
+    </div>
+  </div>
 </ng-container>
-
 <router-outlet></router-outlet>
-

@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router, RouterLink} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
@@ -19,4 +19,12 @@ export class GradeCardComponent {
   @Input() imageUrl: string = '';
   @Input() title: string = '';
   @Input() description: string = '';
+  @Input() grade: string = '';
+
+  @Output() cardClick = new EventEmitter<string>();
+
+  onCardClick() {
+    this.cardClick.emit(this.grade);
+  }
+
 }

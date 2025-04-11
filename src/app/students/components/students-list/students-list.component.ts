@@ -51,6 +51,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
 })
 export class StudentsListComponent {
 
+    @Input() students: any[] = [];
     @Input() createLink: string = '';
     @Input() editLinkBase: string = '';
 
@@ -61,26 +62,9 @@ export class StudentsListComponent {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     ngOnInit(): void {
-      // Dummy data temporal
-      this.dataSource.data = [
-        {
-          id: 'S001',
-          name: 'María Pérez',
-          img: 'assets/images/users/user-1.png',
-          email: 'maria@example.com',
-          grade: '1st Grade',
-          status: 'active'
-        },
-        {
-          id: 'S002',
-          name: 'Luis Gómez',
-          img: 'assets/images/users/user-2.png',
-          email: 'luis@example.com',
-          grade: '2nd Grade',
-          status: 'inactive'
-        }
-      ];
+      this.dataSource.data = this.students;
     }
+
 
     ngAfterViewInit() {
       if (this.paginator) {
