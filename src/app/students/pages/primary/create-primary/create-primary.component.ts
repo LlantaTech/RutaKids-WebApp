@@ -14,8 +14,8 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
 })
 export class CreatePrimaryComponent {
 
-    breadcrumbTitle = 'Crear Estudiante Primaria';
-    breadcrumbPaths = ['Project Management', 'Users List'];
+    breadcrumbTitle = 'Crear Estudiante Nivel Primario';
+    breadcrumbPaths = ['Primaria', 'Grado', 'Crear Estudiante'];
 
 
     handleCreate(student: any) {
