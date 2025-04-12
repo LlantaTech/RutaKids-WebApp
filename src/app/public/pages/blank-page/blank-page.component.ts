@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
     selector: 'app-blank-page',
     standalone: true,
-    imports: [RouterLink],
+    imports: [RouterLink, BreadcrumbComponent],
     templateUrl: './blank-page.component.html',
     styleUrl: './blank-page.component.scss'
 })
-export class BlankPageComponent {}
+export class BlankPageComponent {
+  breadcrumbTitle = 'Blank Page';
+  breadcrumbPaths = ['Blank Page'];
+}

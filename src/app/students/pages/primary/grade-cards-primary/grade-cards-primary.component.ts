@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {GradeCardComponent} from "../../../components/grade-card/grade-card.component";
 import {NgForOf, NgIf} from "@angular/common";
 import {ActivatedRoute, Router, RouterLink, RouterOutlet} from "@angular/router";
+import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-grade-cards-primary',
@@ -10,12 +11,16 @@ import {ActivatedRoute, Router, RouterLink, RouterOutlet} from "@angular/router"
     GradeCardComponent,
     NgForOf,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    BreadcrumbComponent
   ],
   templateUrl: './grade-cards-primary.component.html',
   styleUrl: './grade-cards-primary.component.scss'
 })
 export class GradeCardsPrimaryComponent {
+
+  breadcrumbTitle = 'Grados del Nivel Primario';
+  breadcrumbPaths = ['Primaria'];
 
   constructor(private router: Router) {
   }
