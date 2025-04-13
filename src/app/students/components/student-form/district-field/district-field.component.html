@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Selecciona el Distrito</mat-label>
+  <mat-select [value]="value" (selectionChange)="updateValue($event.value)">
+    <mat-option *ngFor="let district of districts" [value]="district.value">
+      {{ district.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
