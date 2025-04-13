@@ -2,10 +2,5 @@
   [title]="breadcrumbTitle"
   [paths]="breadcrumbPaths">
 </app-breadcrumb>
-<app-student-form
-  [formTitle]="'Edit Primary Student'"
-  [submitLabel]="'Update'"
-  [student]="selectedStudent"
-  (formSubmit)="handleUpdate($event)"
-  (cancel)="handleCancel()">
+<app-student-form>
 </app-student-form>
