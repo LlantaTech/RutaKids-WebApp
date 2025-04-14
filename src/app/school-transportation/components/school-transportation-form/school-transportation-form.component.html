@@ -1,0 +1,165 @@
+<form (ngSubmit)="onSubmit()">
+
+  <!-- School-Transportation Form -->
+  <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+            [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+    <mat-card-header>
+      <mat-card-title>
+        <h5 class="mt-0 mb-0">
+          Movilidad
+        </h5>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">DNI</label>
+            <mat-form-field>
+              <mat-label>Ingresar DNI</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.dni" name="dni">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Nº de Licencia</label>
+            <mat-form-field>
+              <mat-label>Ej. Q71058278</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.licenseCode" name="licenseCode">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Nombre Completo</label>
+            <mat-form-field>
+              <mat-label>Ingresar Nombre Completo</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.firstName" name="firstName">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>
+            <mat-form-field>
+              <mat-label>Ingresar Apellido Paterno</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.paternalLastName" name="paternalLastName">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Apellido Materno</label>
+            <mat-form-field>
+              <mat-label>Ingresar Apellido Materno</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.maternalLastName" name="maternalLastName">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Número Telefónico</label>
+            <mat-form-field>
+              <mat-label>Ingresar Número</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.phone" name="phone">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>
+            <mat-form-field>
+              <mat-label>Ingresar Correo (Opcional)</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.email" name="email">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
+            <mat-form-field>
+              <mat-label>Ej. Jiron San Ignacio 204</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.address" name="address">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Placa del Vehículo</label>
+            <mat-form-field>
+              <mat-label>Ej. P2D-286</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.vehiclePlate" name="vehiclePlate">
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Marca del Vehículo</label>
+            <mat-form-field>
+              <mat-label>Ingresar Marca del Vehículo</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.vehicleBrand" name="vehicleBrand">
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Modelo del Vehículo</label>
+            <mat-form-field>
+              <mat-label>Ingresar Modelo del Vehículo</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.vehicleModel" name="vehicleModel">
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Color del Vehículo</label>
+            <mat-form-field>
+              <mat-label>Ingresar Color del Vehículo</mat-label>
+              <input matInput [(ngModel)]="schoolTransportation.vehicleColor" name="vehicleColor">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Foto del Vehículo</label>
+            <file-upload class="file-uploader"
+                         [multiple]="multiple"
+                         [control]="vehicleControl"
+            ></file-upload>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-sm-12">
+          <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Foto del Chofer</label>
+            <file-upload class="file-uploader"
+                         [multiple]="multiple"
+                         [control]="driverControl"
+            ></file-upload>
+          </div>
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</form>
