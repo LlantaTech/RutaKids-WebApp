@@ -3,7 +3,6 @@ import {Editor, Toolbar} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import { EventEmitter } from '@angular/core';
 
-import {Student} from "../../model/student";
 import {FormsModule} from "@angular/forms";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
@@ -14,6 +13,7 @@ import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {FileUploadComponent} from "@iplab/ngx-file-upload";
 import {NgForOf, NgIf} from "@angular/common";
+import {Student} from "../../model/student";
 
 @Component({
   selector: 'app-student-form',
@@ -44,7 +44,6 @@ export class StudentFormComponent {
     @Input() formTitle: string = 'Create Student';
     @Input() submitLabel: string = 'Save';
     @Input() student: Student = {
-      id: '',
       dni: '',
       firstName: '',
       paternalLastName: '',
@@ -58,7 +57,17 @@ export class StudentFormComponent {
       hasMobility: false,
       parents: [
         {
-          id: '',
+          type: '',
+          dni: '',
+          firstName: '',
+          paternalLastName: '',
+          maternalLastName: '',
+          email: '',
+          phone: '',
+          address: '',
+          district: ''
+        },
+        {
           type: '',
           dni: '',
           firstName: '',

@@ -136,7 +136,7 @@
                   <label class="main-label d-block lh-1 text-black">Tipo de Pariente</label>
                   <mat-form-field>
                     <mat-label>Selecciona el Tipo</mat-label>
-                    <mat-select [(ngModel)]="parent.type" name="type">
+                    <mat-select [(ngModel)]="parent.type" name="'type' + i">
                       <mat-option value="father">Padre</mat-option>
                       <mat-option value="mother">Madre</mat-option>
                       <mat-option value="guardian">Tutor</mat-option>
@@ -149,7 +149,7 @@
                     <label class="main-label d-block lh-1 text-black">DNI</label>
                     <mat-form-field>
                       <mat-label>Ingresar DNI</mat-label>
-                      <input matInput [(ngModel)]="parent.dni" name="dni">
+                      <input matInput [(ngModel)]="parent.dni" name="dni{{i}}">
                     </mat-form-field>
                   </div>
               </div>
@@ -159,7 +159,7 @@
                     <label class="main-label d-block lh-1 text-black">Nombre Completo</label>
                     <mat-form-field>
                       <mat-label>Ingresar Nombre Completo</mat-label>
-                      <input matInput [(ngModel)]="parent.firstName" name="firstName">
+                      <input matInput [(ngModel)]="parent.firstName" name="firstName{{i}}">
                     </mat-form-field>
                   </div>
               </div>
@@ -169,7 +169,7 @@
                   <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>
                     <mat-form-field>
                       <mat-label>Ingresar Apellido Paterno</mat-label>
-                      <input matInput [(ngModel)]="parent.paternalLastName" name="paternalLastName">
+                      <input matInput [(ngModel)]="parent.paternalLastName" name="paternalLastName{{i}}">
                     </mat-form-field>
                 </div>
               </div>
@@ -179,7 +179,7 @@
                   <label class="main-label d-block lh-1 text-black">Apellido Materno</label>
                     <mat-form-field>
                       <mat-label>Ingresar Apellido Materno</mat-label>
-                      <input matInput [(ngModel)]="parent.maternalLastName" name="maternalLastName">
+                      <input matInput [(ngModel)]="parent.maternalLastName" name="maternalLastName{{i}}">
                     </mat-form-field>
                 </div>
               </div>
@@ -189,7 +189,7 @@
                   <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>
                     <mat-form-field>
                       <mat-label>Ingresar Correo</mat-label>
-                      <input matInput [(ngModel)]="parent.email" name="email">
+                      <input matInput [(ngModel)]="parent.email" name="email{{i}}">
                     </mat-form-field>
                 </div>
               </div>
@@ -199,7 +199,7 @@
                   <label class="main-label d-block lh-1 text-black">Número Telefónico</label>
                     <mat-form-field>
                       <mat-label>Ingresar Número</mat-label>
-                      <input matInput [(ngModel)]="parent.phone" name="phone">
+                      <input matInput [(ngModel)]="parent.phone" name="phone{{i}}">
                     </mat-form-field>
                   </div>
               </div>
@@ -209,7 +209,7 @@
                     <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
                     <mat-form-field>
                       <mat-label>Ej. Jiron San Ignacio 204</mat-label>
-                      <input matInput [(ngModel)]="parent.address" name="address">
+                      <input matInput [(ngModel)]="parent.address" name="address{{i}}">
                     </mat-form-field>
                 </div>
               </div>
@@ -217,7 +217,7 @@
               <div class="col-md-4 col-sm-6">
                   <div class="mb-25">
                     <label class="main-label d-block lh-1 text-black">Distrito</label>
-                    <app-district-field [(ngModel)]="parent.district" name="district"></app-district-field>
+                    <app-district-field [(ngModel)]="parent.district" name="district{{i}}"></app-district-field>
                   </div>
               </div>
           </div>
@@ -238,7 +238,7 @@
                       <label class="main-label d-block lh-1 text-black">Tipo de Pariente</label>
                       <mat-form-field>
                         <mat-label>Selecciona el Tipo</mat-label>
-                        <mat-select [(ngModel)]="parent.type" name="type">
+                        <mat-select [(ngModel)]="parent.type" name="type{{i}}">
                           <mat-option value="father">Padre</mat-option>
                           <mat-option value="mother">Madre</mat-option>
                           <mat-option value="guardian">Tutor</mat-option>
@@ -252,7 +252,7 @@
                         <label class="main-label d-block lh-1 text-black">DNI</label>
                           <mat-form-field>
                             <mat-label>Ingresar DNI</mat-label>
-                            <input matInput [(ngModel)]="parent.dni" name="dni">
+                            <input matInput [(ngModel)]="parent.dni" name="dni{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -262,7 +262,7 @@
                         <label class="main-label d-block lh-1 text-black">Nombre Completo</label>
                           <mat-form-field>
                               <mat-label>Ingresar Nombre Completo</mat-label>
-                              <input matInput [(ngModel)]="parent.firstName" name="firstName">
+                              <input matInput [(ngModel)]="parent.firstName" name="firstName{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -272,7 +272,7 @@
                         <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>
                           <mat-form-field>
                               <mat-label>Ingresar Apellido Paterno</mat-label>
-                              <input matInput [(ngModel)]="parent.paternalLastName" name="paternalLastName">
+                              <input matInput [(ngModel)]="parent.paternalLastName" name="paternalLastName{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -282,7 +282,7 @@
                         <label class="main-label d-block lh-1 text-black">Apellido Materno</label>
                           <mat-form-field>
                               <mat-label>Ingresar Apellido Materno</mat-label>
-                              <input matInput [(ngModel)]="parent.maternalLastName" name="maternalLastName">
+                              <input matInput [(ngModel)]="parent.maternalLastName" name="maternalLastName{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -292,7 +292,7 @@
                         <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>
                           <mat-form-field>
                               <mat-label>Ingresar Correo</mat-label>
-                              <input matInput [(ngModel)]="parent.email" name="email">
+                              <input matInput [(ngModel)]="parent.email" name="email{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -302,7 +302,7 @@
                         <label class="main-label d-block lh-1 text-black">Número Telefónico</label>
                           <mat-form-field>
                               <mat-label>Ingresar Número</mat-label>
-                              <input matInput [(ngModel)]="parent.phone" name="phone">
+                              <input matInput [(ngModel)]="parent.phone" name="phone{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -312,7 +312,7 @@
                         <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
                           <mat-form-field>
                               <mat-label>Ej. Jiron San Ignacio 204</mat-label>
-                              <input matInput [(ngModel)]="parent.address" name="address">
+                              <input matInput [(ngModel)]="parent.address" name="address{{i}}">
                           </mat-form-field>
                       </div>
                 </div>
@@ -320,7 +320,7 @@
                 <div class="col-md-4 col-sm-6">
                       <div class="mb-25">
                         <label class="main-label d-block lh-1 text-black">Distrito</label>
-                        <app-district-field [(ngModel)]="parent.district" name="district"></app-district-field>
+                        <app-district-field [(ngModel)]="parent.district" name="district{{i}}"></app-district-field>
                       </div>
                 </div>
 

@@ -1,6 +1,4 @@
-export interface Parents {
-  [key: string]: any;
-  id: string;
+export interface Parent {
   type: string;
   dni: string;
   firstName: string;
@@ -13,7 +11,6 @@ export interface Parents {
 }
 
 export interface Student {
-  id: string;
   dni: string;
   firstName: string;
   paternalLastName: string;
@@ -25,5 +22,5 @@ export interface Student {
   address: string;
   district: string;
   hasMobility: boolean;
-  parents: Parents[];
+  parents: Parent[];
 }
