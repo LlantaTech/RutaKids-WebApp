@@ -1,12 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Editor, Toolbar} from "ngx-editor";
+import {Editor} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
-import {SchoolTransportation} from "../../model /school-transportation";
 import {FormsModule} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FileUploadControl, FileUploadModule} from "@iplab/ngx-file-upload";
+import {SchoolTransportation} from "../../model/school-transportation";
 
 @Component({
   selector: 'app-school-transportation-form',
