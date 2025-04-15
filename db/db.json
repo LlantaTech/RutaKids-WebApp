@@ -1,0 +1,19 @@
+{
+  "school-transportation": [
+    {
+      "id": "1ef5",
+      "dni": "HOLA133",
+      "licenseCode": "HOLA23",
+      "firstName": "HOLA2",
+      "paternalLastName": "HOLA",
+      "maternalLastName": "HOLA",
+      "phone": "HOLA",
+      "email": "HOLA",
+      "address": "HOLA",
+      "vehiclePlate": "HOLA",
+      "vehicleBrand": "HOLA",
+      "vehicleModel": "HOLA",
+      "vehicleColor": "HOLA3"
+    }
+  ]
+}

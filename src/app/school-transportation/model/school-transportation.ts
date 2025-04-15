@@ -1,4 +1,5 @@
 export interface SchoolTransportation {
+  id?: string;
   dni: string;
   licenseCode: string;
   firstName: string;
@@ -13,6 +14,6 @@ export interface SchoolTransportation {
   vehicleModel: string;
   vehicleColor: string;
 
-  driverPhoto: string;
-  vehiclePhoto: string;
+  driverPhoto?: string;
+  vehiclePhoto?: string;
 }
