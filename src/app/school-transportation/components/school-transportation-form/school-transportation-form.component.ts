@@ -7,11 +7,16 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FileUploadControl, FileUploadModule} from "@iplab/ngx-file-upload";
 import {SchoolTransportation} from "../../model/school-transportation";
+import {CommonModule} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-school-transportation-form',
   standalone: true,
   imports: [
+    CommonModule,
+    HttpClientModule,
     FormsModule,
     MatCard,
     MatCardContent,
@@ -20,7 +25,8 @@ import {SchoolTransportation} from "../../model/school-transportation";
     MatFormField,
     MatInput,
     MatLabel,
-    FileUploadModule
+    FileUploadModule,
+    MatButton
   ],
   templateUrl: './school-transportation-form.component.html',
   styleUrl: './school-transportation-form.component.scss'
@@ -30,41 +36,13 @@ export class SchoolTransportationFormComponent {
   driverControl = new FileUploadControl();
   vehicleControl = new FileUploadControl();
 
-  @Input() schoolTransportation: SchoolTransportation = {
-    dni: '',
-    licenseCode: '',
-    firstName: '',
-    paternalLastName: '',
-    maternalLastName: '',
-    phone: '',
-    email: '',
-    address: '',
-    vehiclePlate: '',
-    vehicleBrand: '',
-    vehicleModel: '',
-    vehicleColor: '',
-    driverPhoto: '',
-    vehiclePhoto: ''
-  };
-
-  @Output() formSubmit = new EventEmitter<any>();
-  @Output() cancel = new EventEmitter<void>();
-
-  getDriverFile(): File | null {
-    const items = this.driverControl.value as File[];
-    return items && items.length > 0 ? items[0] : null;
-  }
-
-  getVehicleFile(): File | null {
-    const items = this.vehicleControl.value as File[];
-    return items && items.length > 0 ? items[0] : null;
-  }
-
-  editor: Editor = new Editor();
+  @Input() schoolTransportation: SchoolTransportation;
+  @Output() submitClicked = new EventEmitter<void>();
+  @Output() cancelClicked = new EventEmitter<void>();
 
   multiple: boolean = false;
 
-  onSubmit() {
+  getFormData(): FormData {
     const formData = new FormData();
 
     Object.entries(this.schoolTransportation).forEach(([key, value]) => {
@@ -77,19 +55,17 @@ export class SchoolTransportationFormComponent {
     const vehicleFile = this.getVehicleFile();
     if (vehicleFile) formData.append('vehiclePhoto', vehicleFile);
 
-    this.formSubmit.emit(formData);
+    return formData;
   }
 
-  onCancel() {
-    this.cancel.emit();
+  private getDriverFile(): File | null {
+    const items = this.driverControl.value as File[];
+    return items?.[0] ?? null;
   }
 
-  ngOnDestroy(): void {
-    this.editor.destroy();
-  }
-
-  ngOnInit(): void {
-    this.editor = new Editor();
+  private getVehicleFile(): File | null {
+    const items = this.vehicleControl.value as File[];
+    return items?.[0] ?? null;
   }
 
   // isToggled

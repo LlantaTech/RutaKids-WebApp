@@ -1,5 +1,4 @@
 import {Component, Input, Output} from '@angular/core';
-import {Editor, Toolbar} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import { EventEmitter } from '@angular/core';
 
@@ -11,9 +10,10 @@ import {DistrictFieldComponent} from "./district-field/district-field.component"
 import {MatButton} from "@angular/material/button";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
-import {FileUploadComponent} from "@iplab/ngx-file-upload";
+import {FileUploadComponent, FileUploadControl} from "@iplab/ngx-file-upload";
 import {NgForOf, NgIf} from "@angular/common";
 import {Student} from "../../model/student";
+
 
 @Component({
   selector: 'app-student-form',
@@ -40,9 +40,8 @@ import {Student} from "../../model/student";
 })
 export class StudentFormComponent {
     showSecondParent: boolean = false;
+    studentControl = new FileUploadControl();
 
-    @Input() formTitle: string = 'Create Student';
-    @Input() submitLabel: string = 'Save';
     @Input() student: Student = {
       dni: '',
       firstName: '',
@@ -81,38 +80,36 @@ export class StudentFormComponent {
       ]
     };
 
+    @Output() submitClicked = new EventEmitter<void>();
+    @Output() cancelClicked = new EventEmitter<void>();
 
-    @Output() formSubmit = new EventEmitter<any>();
-    @Output() cancel = new EventEmitter<void>();
+    getFormData(): FormData {
+      const formData = new FormData();
 
-    editor: Editor = new Editor();
-    toolbar: Toolbar = [
-      ['bold', 'italic'],
-      ['underline', 'strike'],
-      ['code', 'blockquote'],
-      ['ordered_list', 'bullet_list'],
-      ['link', 'image'],
-      ['text_color', 'background_color'],
-      ['align_left', 'align_center', 'align_right']
-    ];
+      for (const [key, value] of Object.entries(this.student)) {
+        if (key === 'parents') continue; // evitamos por ahora los parents
+        if (typeof value === 'string' || typeof value === 'boolean') {
+          formData.append(key, value.toString());
+        }
+      }
+
+      formData.append('parents', JSON.stringify(this.student.parents));
+
+      const photoFile = this.getPhotoFile();
+      if (photoFile) {
+        formData.append('studentPhoto', photoFile);
+      }
+
+      return formData;
+    }
+
+
+    private getPhotoFile(): File | null {
+        const items = this.studentControl.value as File[];
+        return items?.[0] ?? null;
+    }
 
     multiple: boolean = false;
-
-    onSubmit() {
-      this.formSubmit.emit(this.student);
-    }
-
-    onCancel() {
-      this.cancel.emit();
-    }
-
-    ngOnDestroy(): void {
-      this.editor.destroy();
-    }
-
-    ngOnInit(): void {
-        this.editor = new Editor();
-    }
 
     // isToggled
     isToggled = false;

@@ -1,5 +1,4 @@
-<form (ngSubmit)="onSubmit()">
-
+<form>
   <!-- School-Transportation Form -->
   <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
             [class.rtl-enabled]="themeService.isRTLEnabled()">
@@ -157,9 +156,15 @@
             ></file-upload>
           </div>
         </div>
-
       </div>
+
+        <mat-card-content class="buttons">
+          <div class="btn-box">
+            <button mat-button type="submit" (click)="submitClicked.emit()">Guardar</button>
+            <button mat-button type="button" (click)="cancelClicked.emit()">Cancelar</button>
+          </div>
+        </mat-card-content>
+
     </mat-card-content>
   </mat-card>
-
 </form>

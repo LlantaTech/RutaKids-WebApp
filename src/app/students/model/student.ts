@@ -1,14 +1,4 @@
-export interface Parent {
-  type: string;
-  dni: string;
-  firstName: string;
-  paternalLastName: string;
-  maternalLastName: string;
-  email: string;
-  phone: string;
-  address: string;
-  district: string;
-}
+import {Parent} from "./parent";
 
 export interface Student {
   dni: string;
@@ -21,6 +11,7 @@ export interface Student {
   phone?: string;
   address: string;
   district: string;
+  photo?: string;
   hasMobility: boolean;
   parents: Parent[];
 }

@@ -1,66 +1,63 @@
-import { Component } from '@angular/core';
-import {Editor, NgxEditorModule, Toolbar} from "ngx-editor";
+import {Component, ViewChild} from '@angular/core';
+import {Editor, NgxEditorModule} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
-import {RouterLink} from "@angular/router";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatCard, MatCardContent} from "@angular/material/card";
-import {MatOption} from "@angular/material/autocomplete";
-import {MatSelect} from "@angular/material/select";
-import {FileUploadComponent} from "@iplab/ngx-file-upload";
-import {MatButton} from "@angular/material/button";
-import {MatInput} from "@angular/material/input";
+import {Router} from "@angular/router";
+import {SchoolTransportationService} from "../../services/school-transportation.service";
+import {SchoolTransportationFormComponent} from "../../components/school-transportation-form/school-transportation-form.component";
+import {HttpClientModule} from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-create-school-transportation',
   standalone: true,
   imports: [
-    RouterLink,
-    MatFormField,
-    MatCardContent,
-    MatCard,
-    MatOption,
-    MatSelect,
+    CommonModule,
     NgxEditorModule,
-    FileUploadComponent,
-    MatButton,
-    MatInput,
-    MatLabel
+    HttpClientModule,
+    SchoolTransportationFormComponent
   ],
   templateUrl: './create-school-transportation.component.html',
   styleUrl: './create-school-transportation.component.scss'
 })
 export class CreateSchoolTransportationComponent {
 
-    // Text Editor
-    editor: Editor;
-    toolbar: Toolbar = [
-        ['bold', 'italic'],
-        ['underline', 'strike'],
-        ['code', 'blockquote'],
-        ['ordered_list', 'bullet_list'],
-        [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
-        ['link', 'image'],
-        ['text_color', 'background_color'],
-        ['align_left', 'align_center', 'align_right', 'align_justify'],
-    ];
+    @ViewChild('formRef') formComponent!: SchoolTransportationFormComponent;
 
-    ngOnInit(): void {
-        this.editor = new Editor();
+    formData = {
+        dni: '',
+        licenseCode: '',
+        firstName: '',
+        paternalLastName: '',
+        maternalLastName: '',
+        phone: '',
+        email: '',
+        address: '',
+        vehiclePlate: '',
+        vehicleBrand: '',
+        vehicleModel: '',
+        vehicleColor: '',
+        driverPhoto: '',
+        vehiclePhoto: ''
+    };
+
+    onSubmit(): void {
+      this.schoolTransportationService.create(this.formData).subscribe({
+        next: () => this.router.navigate(['/school-transportation']),
+        error: err => console.error('Error al guardar movilidad:', err)
+      });
     }
 
-    // make sure to destory the editor
-    ngOnDestroy(): void {
-        this.editor.destroy();
+    onCancel(): void {
+        this.router.navigate(['/school-transportation']);
     }
-
-    // File Uploader
-    public multiple: boolean = false;
 
     // isToggled
     isToggled = false;
 
     constructor(
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private schoolTransportationService: SchoolTransportationService,
+        private router: Router
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;

@@ -122,7 +122,7 @@ export const routes: Routes = [
           {path: 'settings', component: MyProfileSettingsComponent},
         ]
       },
-      { path: 'hola', component: SchoolTransportationFormComponent},
+      { path: 'hola', component: StudentFormComponent},
       { path: '**', component: NotFoundComponent },
     ]
   },

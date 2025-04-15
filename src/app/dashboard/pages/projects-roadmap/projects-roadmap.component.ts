@@ -1,8 +1,7 @@
-import {Component, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
 
 import {
     ApexAxisChartSeries,
@@ -15,6 +14,7 @@ import {
     ApexGrid,
     ApexYAxis
 } from "ng-apexcharts";
+import {MatDatepicker} from "@angular/material/datepicker";
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -30,7 +30,7 @@ export type ChartOptions = {
 @Component({
     selector: 'app-projects-roadmap:not(p)',
     standalone: true,
-    imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, NgApexchartsModule],
+    imports: [MatCardModule, MatMenuModule, MatButtonModule, MatDatepicker, NgApexchartsModule],
     templateUrl: './projects-roadmap.component.html',
     styleUrl: './projects-roadmap.component.scss'
 })
