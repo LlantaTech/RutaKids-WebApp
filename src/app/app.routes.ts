@@ -47,6 +47,7 @@ import {EditSecondaryComponent} from "./students/pages/secondary/edit-secondary/
 import {
   SchoolTransportationFormComponent
 } from "./school-transportation/components/school-transportation-form/school-transportation-form.component";
+import {StudentsListComponent} from "./students/components/students-list/students-list.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -122,7 +123,7 @@ export const routes: Routes = [
           {path: 'settings', component: MyProfileSettingsComponent},
         ]
       },
-      { path: 'hola', component: StudentFormComponent},
+      { path: 'hola', component: StudentsListComponent},
       { path: '**', component: NotFoundComponent },
     ]
   },

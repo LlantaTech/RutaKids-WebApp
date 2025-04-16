@@ -1,16 +1,16 @@
-<!-- Student Table -->
-<mat-card class="daxa-card users-card mb-25 border-radius bg-white border-none d-block" [class.rtl-enabled]="themeService.isRTLEnabled()">
+<mat-card class="daxa-card users-card mb-25 border-radius bg-white border-none d-block"
+          [class.rtl-enabled]="themeService.isRTLEnabled()">
+
   <mat-card-header>
     <mat-card-title>
       <form class="search-box position-relative">
         <i class="material-symbols-outlined">search</i>
-        <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search student..." (keyup)="applyFilter($event)" #input>
+        <input type="text" class="input-search d-block w-100 border-none outline-0"
+               placeholder="Buscar estudiante..." (keyup)="applyFilter($event)" #input>
       </form>
     </mat-card-title>
     <mat-card-subtitle>
-      <a mat-button class="add-new-btn" [routerLink]="createLink">
-        + Add New Student
-      </a>
+      <a mat-button class="add-new-btn" [routerLink]="addLink">+ Agregar Estudiante</a>
     </mat-card-subtitle>
   </mat-card-header>
 
@@ -18,74 +18,77 @@
     <div class="users-table">
       <div class="table-responsive">
         <table mat-table [dataSource]="dataSource">
-
           <!-- Checkbox Column -->
           <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>
-              <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                            [checked]="selection.hasValue() && isAllSelected()"
-                            [indeterminate]="selection.hasValue() && !isAllSelected()"
-                            [aria-label]="checkboxLabel()">
+              <mat-checkbox
+                (change)="$event ? toggleAllRows() : null"
+                [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                [aria-label]="checkboxLabel()"
+              >
               </mat-checkbox>
             </th>
             <td mat-cell *matCellDef="let row">
-              <mat-checkbox (click)="$event.stopPropagation()"
-                            (change)="$event ? selection.toggle(row) : null"
-                            [checked]="selection.isSelected(row)"
-                            [aria-label]="checkboxLabel(row)">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)"
+              >
               </mat-checkbox>
             </td>
           </ng-container>
-
-          <!-- Student ID -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>Student ID</th>
-            <td mat-cell *matCellDef="let student">{{ student.id }}</td>
+          <!-- DNI -->
+          <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef>DNI</th>
+            <td mat-cell *matCellDef="let element">{{element.dni}}</td>
           </ng-container>
 
-          <!-- Name -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Full Name</th>
-            <td mat-cell *matCellDef="let student">
-              <div class="info d-flex align-items-center">
-                <div class="image">
-                  <img [src]="student.img" alt="student">
-                </div>
-                <span class="d-block fw-medium">{{ student.name }}</span>
-              </div>
+          <!-- Nombre completo -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Nombre completo</th>
+            <td mat-cell *matCellDef="let element">
+              {{element.firstName}} {{element.paternalLastName}} {{element.maternalLastName}}
             </td>
           </ng-container>
 
-          <!-- Email -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>Email</th>
-            <td mat-cell *matCellDef="let student">{{ student.email }}</td>
+          <!-- Nivel -->
+          <ng-container matColumnDef="level">
+            <th mat-header-cell *matHeaderCellDef>Nivel</th>
+            <td mat-cell *matCellDef="let element">{{element.level}}</td>
           </ng-container>
 
-          <!-- Grade -->
+          <!-- Grado -->
           <ng-container matColumnDef="grade">
-            <th mat-header-cell *matHeaderCellDef>Grade</th>
-            <td mat-cell *matCellDef="let student">{{ student.grade }}</td>
+            <th mat-header-cell *matHeaderCellDef>Grado</th>
+            <td mat-cell *matCellDef="let element">{{element.grade}}</td>
           </ng-container>
 
-          <!-- Status -->
-          <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let student">
-              <span class="daxa-badge active d-inline-block" *ngIf="student.status === 'active'">Active</span>
-              <span class="daxa-badge deactive d-inline-block" *ngIf="student.status === 'inactive'">Inactive</span>
-            </td>
+          <!-- Dirección -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let element">{{element.address}}</td>
           </ng-container>
 
-          <!-- Actions -->
+          <!-- Distrito -->
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef>Distrito</th>
+            <td mat-cell *matCellDef="let element">{{element.district}}</td>
+          </ng-container>
+
+          <!-- Acción -->
           <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>Action</th>
-            <td mat-cell *matCellDef="let student">
+            <th mat-header-cell *matHeaderCellDef>Acción</th>
+            <td mat-cell *matCellDef="let element">
               <div class="action-info">
-                <a mat-button [routerLink]="[editLinkBase, student.id]" matTooltip="Edit Student">
+                <button mat-button matTooltip="Ver" matTooltipPosition="above">
+                  <i class="material-symbols-outlined">visibility</i>
+                </button>
+                <a mat-button (click)="editClicked.emit(element)" matTooltip="Editar" matTooltipPosition="above">
                   <i class="material-symbols-outlined">edit</i>
                 </a>
-                <button mat-button (click)="deleteStudent(student.id)" matTooltip="Delete Student">
+                <button mat-button (click)="deleteClicked.emit(element)" matTooltip="Eliminar" matTooltipPosition="above">
                   <i class="material-symbols-outlined">delete</i>
                 </button>
               </div>
@@ -96,8 +99,9 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="6">No data matching the filter "{{ input.value }}"</td>
+            <td class="mat-cell" colspan="6">No hay datos que coincidan con "{{input.value}}"</td>
           </tr>
+
         </table>
       </div>
       <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
