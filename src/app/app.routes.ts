@@ -123,7 +123,7 @@ export const routes: Routes = [
           {path: 'settings', component: MyProfileSettingsComponent},
         ]
       },
-      { path: 'hola', component: StudentsListComponent},
+      { path: 'hola', component: PrimaryListComponent },
       { path: '**', component: NotFoundComponent },
     ]
   },

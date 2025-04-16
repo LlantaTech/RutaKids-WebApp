@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {StudentsListComponent} from "../../../components/students-list/students-list.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatTableDataSource} from "@angular/material/table";
+import {Student} from "../../../model/student";
+import {StudentService} from "../../../services/student.service";
 
 @Component({
   selector: 'app-primary-list',
@@ -14,37 +16,39 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 export class PrimaryListComponent implements OnInit {
 
-  grade: string = '';
-  students: any[] = [];
-  createLink: string = '';
-  editLinkBase: string = '';
+  dataSource = new MatTableDataSource<Student>();
+  addLink = '';
+  level: string = '';
+  gradeId: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: StudentService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
-    const level = 'primary'; // fijo para primaria
-    const grade = this.route.snapshot.paramMap.get('grade') || '';
+    this.level = 'primary';
 
-    this.createLink = `/students/primary/${this.grade}/create`;
-    this.editLinkBase = `/students/primary/${this.grade}/edit/`;
+    this.gradeId = this.route.snapshot.paramMap.get('grade') || '';
+    this.addLink = `/students/${this.level}/${this.gradeId}/create`;
 
-    this.loadStudents(level, grade);
+    this.service.getAll().subscribe((data: Student[]) => {
+      const filtered = data.filter(s =>
+        s.level.toLowerCase() === 'primaria' && s.grade === +this.gradeId
+      );
+      this.dataSource.data = filtered;
+    });
   }
 
-  loadStudents(level: string, grade: string) {
-    // Temporal: data mock
-    const mockData = [
-      { id: '1', name: 'Ana Díaz', email: 'ana@example.com', grade: '1', level: 'primary', img: 'assets/images/users/user-1.png', status: 'active' },
-      { id: '2', name: 'Carlos Pérez', email: 'carlos@example.com', grade: '2', level: 'primary', img: 'assets/images/users/user-2.png', status: 'inactive' },
-      { id: '3', name: 'Lucía Ríos', email: 'lucia@example.com', grade: '1', level: 'secondary', img: 'assets/images/users/user-3.png', status: 'active' },
-      { id: '4', name: 'Mateo Vilchez', email: 'lucia@example.com', grade: '1', level: 'primary', img: 'assets/images/users/user-3.png', status: 'active' }
-
-    ];
-
-    this.students = mockData.filter(
-      student => student.level === level && student.grade === grade
-    );
+  editStudent(student: Student): void {
+    this.router.navigate([`/students/${this.level}/${this.gradeId}/edit`, student.id]);
   }
 
+  deleteStudent(student: Student): void {
+    this.service.delete(student.id!).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(s => s.id !== student.id);
+    });
+  }
 }
 

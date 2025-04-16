@@ -19,9 +19,9 @@ export class GradeCardComponent {
   @Input() imageUrl: string = '';
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() grade: string = '';
+  @Input() grade: number = 0;
 
-  @Output() cardClick = new EventEmitter<string>();
+  @Output() cardClick = new EventEmitter<number>();
 
   onCardClick() {
     this.cardClick.emit(this.grade);

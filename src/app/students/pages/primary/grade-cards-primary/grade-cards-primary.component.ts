@@ -32,46 +32,46 @@ export class GradeCardsPrimaryComponent {
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '1er Grado',
       description: 'Niños de 6 a 7 años',
-      grade: '1',
+      grade: 1
     },
     {
       badgeLabel: 'Primaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '2do Grado',
       description: 'Niños de 7 a 8 años',
-      grade: '2'
+      grade: 2
     },
     {
       badgeLabel: 'Primaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '3er Grado',
       description: 'Niños de 7 a 8 años',
-      grade: '3'
+      grade: 3
     },
     {
       badgeLabel: 'Primaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '4to Grado',
       description: 'Niños de 7 a 8 años',
-      grade: '4'
+      grade: 4
     },
     {
       badgeLabel: 'Primaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '5to Grado',
       description: 'Niños de 7 a 8 años',
-      grade: '5'
+      grade: 5
     },
     {
       badgeLabel: 'Primaria',
       imageUrl: 'assets/images/cards/card1.jpg',
       title: '6to Grado',
       description: 'Niños de 7 a 8 años',
-      grade: '6'
+      grade: 6
     }
   ];
 
-  goToGrade(grade: string) {
+  goToGrade(grade: number) {
     this.router.navigate(['/students/primary', grade]);
   }
 }
