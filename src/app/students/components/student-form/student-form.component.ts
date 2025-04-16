@@ -48,7 +48,7 @@ export class StudentFormComponent {
       paternalLastName: '',
       maternalLastName: '',
       level: '',
-      grade: '',
+      grade: 0,
       email: '',
       phone: '',
       address: '',
