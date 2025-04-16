@@ -1,4 +1,4 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {
   MatCell,
   MatCellDef, MatColumnDef,
@@ -10,13 +10,14 @@ import {
 } from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatAnchor, MatButton} from "@angular/material/button";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {MatTooltip} from "@angular/material/tooltip";
-import {NgIf} from "@angular/common";
 import {MatCard, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
-import {MatCheckbox} from "@angular/material/checkbox";
 import {SelectionModel} from "@angular/cdk/collections";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
+import {Student} from "../../model/student";
+import {StudentService} from "../../services/student.service";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 @Component({
   selector: 'app-students-list',
@@ -35,35 +36,38 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
     MatHeaderCellDef,
     MatColumnDef,
     MatTooltip,
-    NgIf,
     MatTable,
     MatCardContent,
     MatCardHeader,
-    MatCheckbox,
     MatCard,
     MatRowDef,
     MatButton,
     MatCardSubtitle,
-    MatCardTitle
+    MatCardTitle,
+    MatCheckbox
   ],
   templateUrl: './students-list.component.html',
   styleUrl: './students-list.component.scss'
 })
-export class StudentsListComponent {
+export class StudentsListComponent{
+    @Input() dataSource = new MatTableDataSource<Student>([]);
+    @Input() addLink: string = '';
+    @Output() deleteClicked = new EventEmitter<Student>();
+    @Output() editClicked = new EventEmitter<Student>();
 
-    @Input() students: any[] = [];
-    @Input() createLink: string = '';
-    @Input() editLinkBase: string = '';
+    displayedColumns: string[] = [
+      'select',
+      'dni',
+      'fullName',
+      'level',
+      'grade',
+      'address',
+      'district',
+      'action'
+    ];
 
-    displayedColumns: string[] = ['select', 'id', 'name', 'email', 'grade', 'status', 'action'];
-    dataSource = new MatTableDataSource<any>();
-    selection = new SelectionModel<any>(true, []);
-
+    selection = new SelectionModel<Student>(true, []);
     @ViewChild(MatPaginator) paginator: MatPaginator;
-
-    ngOnInit(): void {
-      this.dataSource.data = this.students;
-    }
 
 
     ngAfterViewInit() {
@@ -71,7 +75,6 @@ export class StudentsListComponent {
         this.dataSource.paginator = this.paginator;
       }
     }
-
 
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
@@ -94,17 +97,14 @@ export class StudentsListComponent {
       return row ? `${this.selection.isSelected(row) ? 'deselect' : 'select'} row` : 'select all';
     }
 
-    deleteStudent(id: string) {
-      // Temporal: solo elimina del array local
-      this.dataSource.data = this.dataSource.data.filter(student => student.id !== id);
-      // Aquí luego va la llamada real al servicio de eliminación
-    }
-
     // isToggled
     isToggled = false;
 
     constructor(
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private service: StudentService
     ) {
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
