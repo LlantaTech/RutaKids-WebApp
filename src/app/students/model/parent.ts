@@ -1,3 +1,5 @@
+import {Coordinates} from "../../shared/model/coordinates";
+
 export interface Parent {
   type: string;
   dni: string;
@@ -7,5 +9,5 @@ export interface Parent {
   email: string;
   phone: string;
   address: string;
-  district: string;
+  coordinates: Coordinates[];
 }

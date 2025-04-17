@@ -16,7 +16,10 @@
             &.create-user-card {
                 .mat-mdc-card-content {
                     .file-uploader {
-                        min-height: 212px;
+                        width: 300px;
+                        height: 300px;
+                        border-radius: 8px;
+                        box-sizing: border-box;
                     }
                     .btn-box {
                         .mat-mdc-button {

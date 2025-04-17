@@ -75,6 +75,26 @@
 
           <div class="col-md-4 col-sm-6">
             <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Nivel Académico</label>
+                <mat-form-field class="mb-25">
+                    <mat-label>Nivel (deshabilitado)</mat-label>
+                    <input matInput disabled [value]="level">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Grado Académico</label>
+                <mat-form-field class="mb-25">
+                    <mat-label>Grado (deshabilitado)</mat-label>
+                    <input matInput disabled [value]="grade">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
               <label class="main-label d-block lh-1 text-black">Movilidad</label>
               <mat-form-field>
                 <mat-label>Movilidad</mat-label>
@@ -89,21 +109,13 @@
           <div class="col-md-4 col-sm-6">
             <div class="mb-25">
               <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
-              <mat-form-field>
-                <mat-label>Ej. Jiron San Ignacio 204</mat-label>
-                <input matInput [(ngModel)]="student.address" name="address">
-              </mat-form-field>
+              <app-map-selector>
+                  (addressSelected)="student.address = $event"
+              </app-map-selector>
             </div>
           </div>
 
           <div class="col-md-4 col-sm-6">
-            <div class="mb-25">
-              <label class="main-label d-block lh-1 text-black">Distrito</label>
-              <app-district-field [model]="student.district" controlName="district"></app-district-field>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-12">
             <div class="mb-25">
               <label class="main-label d-block lh-1 text-black">Foto</label>
               <file-upload class="file-uploader"
@@ -229,12 +241,6 @@
                   </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6">
-                  <div class="mb-25">
-                    <label class="main-label d-block lh-1 text-black">Distrito</label>
-                    <app-district-field [(ngModel)]="parent.district" name="district{{i}}"></app-district-field>
-                  </div>
-                </div>
               </div>
             </mat-card-content>
           </mat-card>
