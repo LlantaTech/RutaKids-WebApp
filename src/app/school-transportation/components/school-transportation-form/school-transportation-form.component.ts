@@ -36,7 +36,7 @@ export class SchoolTransportationFormComponent {
   driverControl = new FileUploadControl();
   vehicleControl = new FileUploadControl();
 
-  @Input() schoolTransportation: SchoolTransportation;
+  @Input() schoolTransportation!: SchoolTransportation;
   @Output() submitClicked = new EventEmitter<void>();
   @Output() cancelClicked = new EventEmitter<void>();
 

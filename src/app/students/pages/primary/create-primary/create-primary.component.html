@@ -3,3 +3,10 @@
   [paths]="breadcrumbPaths">
 </app-breadcrumb>
 
+<app-student-form
+  [level]="level"
+  [grade]="grade"
+  [student]="student"
+  (submitClicked)="onSubmit()"
+  (cancelClicked)="onCancel()"
+></app-student-form>

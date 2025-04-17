@@ -6,13 +6,13 @@ import {FormsModule} from "@angular/forms";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
-import {DistrictFieldComponent} from "./district-field/district-field.component";
 import {MatButton} from "@angular/material/button";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {FileUploadComponent, FileUploadControl} from "@iplab/ngx-file-upload";
 import {NgForOf, NgIf} from "@angular/common";
 import {Student} from "../../model/student";
+import {MapSelectorComponent} from "../../../shared/components/map-selector/map-selector.component";
 
 
 @Component({
@@ -25,7 +25,6 @@ import {Student} from "../../model/student";
     MatCardHeader,
     MatCard,
     MatCardContent,
-    DistrictFieldComponent,
     MatButton,
     MatOption,
     MatSelect,
@@ -33,7 +32,8 @@ import {Student} from "../../model/student";
     NgForOf,
     NgIf,
     MatLabel,
-    MatCardTitle
+    MatCardTitle,
+    MapSelectorComponent
   ],
   templateUrl: './student-form.component.html',
   styleUrl: './student-form.component.scss'
@@ -42,43 +42,9 @@ export class StudentFormComponent {
     showSecondParent: boolean = false;
     studentControl = new FileUploadControl();
 
-    @Input() student: Student = {
-      dni: '',
-      firstName: '',
-      paternalLastName: '',
-      maternalLastName: '',
-      level: '',
-      grade: 0,
-      email: '',
-      phone: '',
-      address: '',
-      district: '',
-      hasMobility: false,
-      parents: [
-        {
-          type: '',
-          dni: '',
-          firstName: '',
-          paternalLastName: '',
-          maternalLastName: '',
-          email: '',
-          phone: '',
-          address: '',
-          district: ''
-        },
-        {
-          type: '',
-          dni: '',
-          firstName: '',
-          paternalLastName: '',
-          maternalLastName: '',
-          email: '',
-          phone: '',
-          address: '',
-          district: ''
-        }
-      ]
-    };
+    @Input() student!: Student;
+    @Input() grade!: number;
+    @Input() level!: string;
 
     @Output() submitClicked = new EventEmitter<void>();
     @Output() cancelClicked = new EventEmitter<void>();
