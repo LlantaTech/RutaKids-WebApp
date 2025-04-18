@@ -58,6 +58,12 @@ export class SchoolTransportationListComponent implements OnInit {
             delete: 'delete'
           }
         }));
+        this.dataSource.filterPredicate = (data: SchoolTransportation, filter: string) => {
+          const fullName = `${data.firstName} ${data.paternalLastName} ${data.maternalLastName}`.toLowerCase();
+          return (
+            fullName.includes(filter.trim().toLowerCase()));
+        };
+
         this.dataSource.paginator = this.paginator;
       });
     }

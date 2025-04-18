@@ -33,7 +33,7 @@ export class StudentService {
   }
 
   // Update student
-  update(id: string, student: FormData): Observable<any> {
+  update(id: string, student: Student): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, student);
   }
 

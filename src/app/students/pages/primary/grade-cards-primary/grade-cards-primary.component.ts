@@ -29,49 +29,13 @@ export class GradeCardsPrimaryComponent {
     this.router.navigate(['/students/primary', grade]);
   }
 
-  grades = [
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/QFcp8B8g/1er.png',
-      title: '1er Grado',
-      description: 'Niños de 6 a 7 años',
-      grade: 1
-    },
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/Cp97wMgq/2do.png',
-      title: '2do Grado',
-      description: 'Niños de 7 a 8 años',
-      grade: 2
-    },
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/SwNvmtmB/3er.png',
-      title: '3er Grado',
-      description: 'Niños de 7 a 8 años',
-      grade: 3
-    },
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/3yYFVJ1q/4to.png',
-      title: '4to Grado',
-      description: 'Niños de 7 a 8 años',
-      grade: 4
-    },
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/hJLxJwBp/5to.png',
-      title: '5to Grado',
-      description: 'Niños de 7 a 8 años',
-      grade: 5
-    },
-    {
-      badgeLabel: 'Primaria',
-      imageUrl: 'https://i.ibb.co/PzrSy3bf/6to.png',
-      title: '6to Grado',
-      description: 'Niños de 7 a 8 años',
-      grade: 6
-    }
-  ];
+  grades = Array.from({ length: 6 }, (_, i) => ({
+    badgeLabel: 'Primaria',
+    imageUrl: `https://i.ibb.co/${['cKVzkFkV/1er', 'sSxF5f0/2do', '60wPTRzn/3er', 'LdjPxbwK/4to', 'R4j7qsLw/5to', 'XZNP9sry/6to'][i]}.png`,
+    title: `${i + 1}er Grado`.replace('1er', '1er').replace('2er', '2do').replace('3er', '3er').replace('4er', '4to').replace('5er', '5to').replace('6er', '6to'),
+    description: `Niños de ${6 + i} a ${7 + i} años`,
+    grade: i + 1
+  }));
+
 }
 

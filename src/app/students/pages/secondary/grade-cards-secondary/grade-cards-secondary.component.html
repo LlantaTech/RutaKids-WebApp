@@ -1,13 +1,18 @@
-<ng-container *ngIf="showCards">
+<app-breadcrumb
+  [title]="breadcrumbTitle"
+  [paths]="breadcrumbPaths">
+</app-breadcrumb>
+<ng-container>
   <div class="row">
     <div class="col-lg-4 col-md-6" *ngFor="let grade of grades">
       <app-grade-card
         [badgeLabel]="grade.badgeLabel"
         [imageUrl]="grade.imageUrl"
         [title]="grade.title"
-        [description]="grade.description">
+        [description]="grade.description"
+        [grade]="grade.grade"
+        (cardClick)="goToGrade($event)">
       </app-grade-card>
     </div>
   </div>
 </ng-container>
-<router-outlet></router-outlet>

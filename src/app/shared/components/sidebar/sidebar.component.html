@@ -10,7 +10,7 @@
 >
     <div class="logo bg-white">
         <a routerLink="/dashboard" class="d-flex align-items-center">
-            <img src="assets/images/logo-icon.svg" alt="logo-icon">
+            <img ngSrc="assets/images/logo-icon.svg" alt="logo-icon" height="30" width="30">
             <span class="fw-semibold">RutaKids</span>
         </a>
     </div>
@@ -28,7 +28,7 @@
             <div class="sidebar-menu">
                 <mat-accordion>
                   <span class="sub-title text-body">
-                        APPS
+                        PRINCIPAL
                   </span>
                   <a routerLink="/dashboard" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
@@ -39,7 +39,7 @@
                         </span>
                   </a>
                   <span class="sub-title text-body">
-                        HOLA
+                        COLEGIO
                    </span>
                   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
@@ -70,7 +70,7 @@
                             directions_bus
                         </i>
                         <span class="title">
-                            Movilidad Escolar
+                            Movilidad
                         </span>
                     </a>
                     <span class="sub-title text-body">
@@ -81,7 +81,7 @@
                           location_on
                       </i>
                       <span class="title">
-                          Monitoreo Escolar
+                          Monitoreo
                       </span>
                     </a>
                     <a routerLink="/**" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -93,16 +93,8 @@
                       </span>
                     </a>
                     <span class="sub-title text-body">
-                        PAGES
+                        COMUNICACIÓN
                     </span>
-                    <a routerLink="/maps" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                        <i class="material-symbols-outlined">
-                            map
-                        </i>
-                        <span class="title">
-                            Maps
-                        </span>
-                    </a>
                     <a routerLink="/notifications" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             notifications

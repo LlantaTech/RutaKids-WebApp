@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {GradeCardComponent} from "../../../components/grade-card/grade-card.component";
-import {ActivatedRoute, RouterLink, RouterOutlet} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink, RouterOutlet} from "@angular/router";
+import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-grade-cards-primary',
@@ -11,59 +12,31 @@ import {ActivatedRoute, RouterLink, RouterOutlet} from "@angular/router";
     GradeCardComponent,
     NgIf,
     RouterOutlet,
-    RouterLink
+    RouterLink,
+    BreadcrumbComponent
   ],
   templateUrl: './grade-cards-secondary.component.html',
   styleUrl: './grade-cards-secondary.component.scss'
 })
 export class GradeCardsSecondaryComponent {
 
-  showCards: boolean = true;
+    breadcrumbTitle = 'Grados del Nivel Secundario';
+    breadcrumbPaths = ['Secundaria'];
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.route.url.subscribe(() => {
-      // Mostrar cards solo si no hay ruta hija
-      this.showCards = this.route.snapshot.firstChild === null;
-    });
-  }
-
-  grades = [
-    {
-      badgeLabel: 'Secundaria',
-      imageUrl: 'assets/images/cards/card1.jpg',
-      title: '1er Grado',
-      description: 'Niños de 6 a 7 años',
-      navigateTo: '/students/primary/list'
-    },
-    {
-      badgeLabel: 'Secundaria',
-      imageUrl: 'assets/images/cards/card1.jpg',
-      title: '2do Grado',
-      description: 'Niños de 7 a 8 años',
-      navigateTo: '/students/primary/list'
-    },
-    {
-      badgeLabel: 'Secundaria',
-      imageUrl: 'assets/images/cards/card1.jpg',
-      title: '3er Grado',
-      description: 'Niños de 7 a 8 años',
-      navigateTo: '/students/primary/list'
-    },
-    {
-      badgeLabel: 'Secundaria',
-      imageUrl: 'assets/images/cards/card1.jpg',
-      title: '4to Grado',
-      description: 'Niños de 7 a 8 años',
-      navigateTo: '/students/primary/list'
-    },
-    {
-      badgeLabel: 'Secundaria',
-      imageUrl: 'assets/images/cards/card1.jpg',
-      title: '5to Grado',
-      description: 'Niños de 7 a 8 años',
-      navigateTo: '/students/primary/list'
+    constructor(private router: Router) {
     }
-  ];
+
+    goToGrade(grade: number) {
+      this.router.navigate(['/students/secondary', grade]);
+    }
+
+    grades = Array.from({ length: 5 }, (_, i) => ({
+      badgeLabel: 'Secundaria',
+      imageUrl: `https://i.ibb.co/${['zT6cMjXd/1erA', 'LDWDH5dT/2doA', 'NgJbKzjB/3erA', 'JWRrCs1w/4toA', 'NgV7k6LS/5toA'
+      ][i]}.png`,
+      title: `${i + 1}er Año`.replace('1er', '1er').replace('2er', '2do').replace('3er', '3er').replace('4er', '4to').replace('5er', '5to'),
+      description: `Adolescentes de ${12 + i} a ${13 + i} años`,
+      grade: i + 1
+    }));
+
 }
