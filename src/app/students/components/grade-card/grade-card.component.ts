@@ -15,7 +15,7 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './grade-card.component.scss'
 })
 export class GradeCardComponent {
-  @Input() badgeLabel: string = 'Info';
+  @Input() badgeLabel: string = '';
   @Input() imageUrl: string = '';
   @Input() title: string = '';
   @Input() description: string = '';

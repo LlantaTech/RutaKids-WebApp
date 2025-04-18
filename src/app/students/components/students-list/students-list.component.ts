@@ -74,6 +74,12 @@ export class StudentsListComponent{
       if (this.paginator) {
         this.dataSource.paginator = this.paginator;
       }
+      this.dataSource.filterPredicate = (data: Student, filter: string) => {
+        const fullName = `${data.firstName} ${data.paternalLastName} ${data.maternalLastName}`.toLowerCase();
+        return(
+          fullName.includes(filter.trim().toLowerCase())
+        );
+      };
     }
 
     applyFilter(event: Event) {

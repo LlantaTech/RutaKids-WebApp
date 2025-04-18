@@ -1,0 +1,13 @@
+<!-- <Breadcrumb> -->
+<app-breadcrumb
+  [title]="breadcrumbTitle"
+  [paths]="breadcrumbPaths">
+</app-breadcrumb>
+<!-- <app-edit-school-transportation-form> -->
+<app-student-form
+  [student]="student"
+  [level]="level"
+  [grade]="grade"
+  (submitClicked)="onSubmit()"
+  (cancelClicked)="onCancel()">
+</app-student-form>

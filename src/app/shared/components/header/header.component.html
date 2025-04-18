@@ -19,6 +19,12 @@
                 <span class="middle-bar d-block bg-black transition"></span>
                 <span class="bottom-bar d-block bg-black transition"></span>
             </div>
+            <button mat-icon-button class="back-btn" (click)="goBack()">
+                    <i class="material-symbols-outlined">
+                        arrow_back
+                    </i>
+            </button>
+
         </div>
         <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
             <li>
@@ -35,7 +41,7 @@
                         <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
                             <li>
                                 <button mat-button>
-                                    <img src="assets/images/flags/usa.png" alt="flag">
+                                    <img ngSrc="assets/images/flags/usa.png" alt="flag" height="30" width="30">
                                     English
                                 </button>
                             </li>
@@ -206,7 +212,7 @@
                             <img src="assets/images/admin.png" alt="profile-image">
                             <div class="title">
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
-                                    Mateo Luca
+                                    Mateo "El Temible Teus"
                                 </a>
                                 <span class="designation d-block text-body">
                                     Admin
