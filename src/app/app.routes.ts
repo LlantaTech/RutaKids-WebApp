@@ -49,6 +49,7 @@ import {
 } from "./school-transportation/components/school-transportation-form/school-transportation-form.component";
 import {StudentsListComponent} from "./students/components/students-list/students-list.component";
 import {MapSelectorComponent} from "./shared/components/map-selector/map-selector.component";
+import {SchoolRoutesFormComponent} from "./school-routes/components/school-routes-form/school-routes-form.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -79,6 +80,7 @@ export const routes: Routes = [
       { path: 'faq', component: FaqPageComponent},
       { path: 'comic-soon', component: ComicSoonComponent},
       { path: 'notifications', component: NotificationsComponent},
+      { path: 'routes', component: SchoolRoutesFormComponent},
       {
         path: 'settings',
         component: SettingsComponent,
@@ -124,8 +126,7 @@ export const routes: Routes = [
           {path: 'settings', component: MyProfileSettingsComponent},
         ]
       },
-      { path: 'hola', component: MapSelectorComponent },
-      { path: 'hola1', component: CreatePrimaryComponent },
+      { path: 'hola', component: SchoolRoutesFormComponent },
       { path: '**', component: NotFoundComponent },
     ]
   },

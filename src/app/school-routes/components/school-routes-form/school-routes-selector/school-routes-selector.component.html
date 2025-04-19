@@ -1,0 +1,66 @@
+<mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+            [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+  <mat-card-header>
+    <mat-card-title>
+      <h5 class="mt-0 mb-0">
+          Rutas Escolares
+      </h5>
+      </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="row">
+
+      <div class="mb-25">
+        <label class="main-label d-block lh-1 text-black">Movilidad</label>
+        <mat-form-field>
+          <mat-label>Seleccione al Conductor</mat-label>
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            @for (option of filteredOptions | async; track option) {
+                        <mat-option [value]="option">{{option.name}}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-25">
+          <label class="main-label d-block lh-1 text-black">Nivel</label>
+          <mat-form-field>
+            <mat-label>Selecciona Nivel</mat-label>
+            <mat-select>
+              @for (food of foods; track food) {
+                      <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div class="mb-25">
+        <label class="main-label d-block lh-1 text-black">Grado</label>
+        <mat-form-field>
+          <mat-label>Selecciona Grado</mat-label>
+          <mat-select>
+            @for (food of foods; track food) {
+                        <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-25">
+            <label class="main-label d-block lh-1 text-black">Alumnos</label>
+              <mat-form-field>
+                  <mat-label>Seleccionar Alumno</mat-label>
+                  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                      @for (option of filteredOptions | async; track option) {
+                          <mat-option [value]="option">{{option.name}}</mat-option>
+                      }
+                  </mat-autocomplete>
+              </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
