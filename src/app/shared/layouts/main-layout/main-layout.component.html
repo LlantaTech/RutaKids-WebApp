@@ -9,6 +9,8 @@
     <!-- Sidebar -->
     <app-sidebar></app-sidebar>
 
+
+
     <!-- Main Content -->
     <div
         class="main-content transition d-flex flex-column"
@@ -17,10 +19,13 @@
         [class.hide-sidebar]="themeService.isHideSidebar()"
     >
         <app-header></app-header>
+        <app-global-alert></app-global-alert>
         <router-outlet></router-outlet>
         <div class="flex-grow-1"></div>
         <app-footer></app-footer>
     </div>
+
+
 
     <!--don't use-->
     <!-- Customizer Settings -->
