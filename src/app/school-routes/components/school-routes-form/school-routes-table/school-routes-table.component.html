@@ -2,63 +2,65 @@
 
 
 <!-- tablita pe -->
-
-<mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block">
+<mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block"
+          [class.rtl-enabled]="themeService.isRTLEnabled()">
 
   <mat-card-header>
         <mat-card-title>
             <h5 class="mt-0 mb-0">
-                Table of Selection
+                Tabla de Ruta
             </h5>
         </mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
-    <div class="demo-button-container">
-        <button mat-flat-button class="daxa" (click)="addData()">
-            Agregar Alumno
-        </button>
-        <button
-            mat-flat-button
-            color="warn"
-            [disabled]="!dataSource.length"
-            (click)="removeData()"
-        >
-            Eliminar Alumno
-        </button>
+    <div class="demo-button-container mb-20">
+      <button mat-flat-button color="warn">
+        Eliminar Seleccionado
+      </button>
     </div>
 
     <!-- Table -->
     <div class="table-responsive">
         <table mat-table [dataSource]="conductorDataSource">
 
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef>No.</th>
-                <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox
+                  (change)="toggleAllConductorRows()"
+                  [checked]="isAllConductorSelected()"
+                  [indeterminate]="selectionConductor.hasValue() && !isAllConductorSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (change)="selectionConductor.toggle(row)"
+                  [checked]="selectionConductor.isSelected(row)"
+                  [aria-label]="checkboxLabelConductor(row)">
+                </mat-checkbox>
+              </td>
             </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name del Conductor ps</th>
-                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef>Nombre del Conductor</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.firstName }} {{ element.paternalLastName }} {{ element.maternalLastName }}
+              </td>
             </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-                <th mat-header-cell *matHeaderCellDef>Weight</th>
-                <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+            <ng-container matColumnDef="dni">
+              <th mat-header-cell *matHeaderCellDef>DNI</th>
+              <td mat-cell *matCellDef="let element">{{ element.dni }}</td>
             </ng-container>
 
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-                <th mat-header-cell *matHeaderCellDef>Symbol</th>
-                <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+            <ng-container matColumnDef="vehiclePlate">
+              <th mat-header-cell *matHeaderCellDef>Placa</th>
+              <td mat-cell *matCellDef="let element">{{ element.vehiclePlate }}</td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+            <tr mat-header-row *matHeaderRowDef="conductorDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: conductorDisplayedColumns;"></tr>
         </table>
     </div>
   </mat-card-content>
@@ -67,35 +69,54 @@
 
     <!-- Table -->
     <div class="table-responsive">
-        <table mat-table [dataSource]="dataSource">
+        <table mat-table [dataSource]="studentDataSource">
 
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef>No.</th>
-                <td mat-cell *matCellDef="let element">{{element.position}}</td>
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox
+                  (change)="toggleAllStudentRows()"
+                  [checked]="isAllStudentsSelected()"
+                  [indeterminate]="selectionStudents.hasValue() && !isAllStudentsSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="selectionStudents.toggle(row)"
+                  [checked]="selectionStudents.isSelected(row)"
+                  [aria-label]="checkboxLabelStudent(row)">
+                </mat-checkbox>
+              </td>
             </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            <!-- Nombre -->
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef>Nombre del Alumno</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.firstName }} {{ element.paternalLastName }} {{ element.maternalLastName }}
+              </td>
             </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-                <th mat-header-cell *matHeaderCellDef>Weight</th>
-                <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+            <!-- DNI -->
+            <ng-container matColumnDef="dni">
+              <th mat-header-cell *matHeaderCellDef>DNI</th>
+              <td mat-cell *matCellDef="let element">{{ element.dni }}</td>
             </ng-container>
 
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-                <th mat-header-cell *matHeaderCellDef>Symbol</th>
-                <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+            <!-- Nivel -->
+            <ng-container matColumnDef="level">
+              <th mat-header-cell *matHeaderCellDef>Nivel</th>
+              <td mat-cell *matCellDef="let element">{{ element.level }}</td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <!-- Grado -->
+            <ng-container matColumnDef="grade">
+              <th mat-header-cell *matHeaderCellDef>Grado</th>
+              <td mat-cell *matCellDef="let element">{{ element.grade }}</td>
+            </ng-container>
 
+            <tr mat-header-row *matHeaderRowDef="studentDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: studentDisplayedColumns;"></tr>
         </table>
     </div>
   </mat-card-content>

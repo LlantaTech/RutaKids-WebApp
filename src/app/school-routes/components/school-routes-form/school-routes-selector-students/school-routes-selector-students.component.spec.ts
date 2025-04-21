@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SchoolRoutesSelectorComponent } from './school-routes-selector.component';
+import { SchoolRoutesSelectorStudentsComponent } from './school-routes-selector-students.component';
 
 describe('SchoolRoutesSelectorComponent', () => {
-  let component: SchoolRoutesSelectorComponent;
-  let fixture: ComponentFixture<SchoolRoutesSelectorComponent>;
+  let component: SchoolRoutesSelectorStudentsComponent;
+  let fixture: ComponentFixture<SchoolRoutesSelectorStudentsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SchoolRoutesSelectorComponent]
+      imports: [SchoolRoutesSelectorStudentsComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(SchoolRoutesSelectorComponent);
+
+    fixture = TestBed.createComponent(SchoolRoutesSelectorStudentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
