@@ -1,0 +1,30 @@
+.example-alerts {
+    margin-bottom: -15px;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .alert {
+      min-width: 320px;
+      max-width: 480px;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      word-wrap: break-word;
+
+    }
+
+}
+.component-dark-theme {
+    .alert {
+        &:not(.alert-secondary, .alert-light) {
+            .close {
+                color: var(--whiteColor);
+            }
+        }
+    }
+}

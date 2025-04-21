@@ -1,5 +1,4 @@
 import {SidebarComponent} from "../../components/sidebar/sidebar.component";
-
 declare let $: any;
 import { Component } from '@angular/core';
 import { filter } from 'rxjs/operators';
@@ -10,13 +9,12 @@ import {FooterComponent} from "../../components/footer/footer.component";
 import {CustomizerSettingsComponent} from "../../components/customizer-settings/customizer-settings.component";
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
 import {ToggleService} from "../../components/sidebar/toggle.service";
-
-
+import {GlobalAlertComponent} from "../../components/global-alert/global-alert.component";
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, FooterComponent, RouterLink, CustomizerSettingsComponent],
+  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, FooterComponent, RouterLink, CustomizerSettingsComponent, GlobalAlertComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
   providers: [
@@ -27,7 +25,7 @@ import {ToggleService} from "../../components/sidebar/toggle.service";
   ]
 })
 export class MainLayoutComponent {
-  title = 'Aberu - Angular Enterprise Template';
+    title = 'RutaKis - LlantaTech';
     routerSubscription: any;
     location: any;
 
