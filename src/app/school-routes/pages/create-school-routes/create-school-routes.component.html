@@ -1,1 +1,12 @@
-<p>create-school-routes works!</p>
+<app-school-routes-form
+  [studentOptions]="students"
+  [transportationOptions]="transportations"
+  [selectedStudents]="selectedStudents"
+  [selectedTransportation]="selectedTransportation"
+  (addStudent)="onAddStudent($event)"
+  (addTransportation)="onAddTransportation($event)"
+  (deleteSelectedStudents)="onDeleteStudents($event)"
+  (deleteSelectedConductor)="onDeleteTransportation()"
+  (submitForm)="onCreateRoute()"
+>
+</app-school-routes-form>

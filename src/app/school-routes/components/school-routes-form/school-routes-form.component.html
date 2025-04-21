@@ -4,10 +4,35 @@
 <!-- School-Routes-Form -->
 <div class="row">
   <div class="col-lg-6">
-    <app-school-routes-selector></app-school-routes-selector>
+
+    <app-school-routes-selector-school-transportation
+      [options]="transportationOptions"
+      (selectedTransportation)="onAddTransportation($event)">
+    </app-school-routes-selector-school-transportation>
+
+    <app-school-routes-selector-students
+      [students]="studentOptions"
+      (selectedStudent)="onAddStudent($event)">
+    </app-school-routes-selector-students>
+
+    <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+              [class.rtl-enabled]="themeService.isRTLEnabled()" >
+      <mat-card-content class="buttons">
+          <div class="btn-box">
+            <button mat-button type="submit" >Guardar</button>
+            <button mat-button type="button">Cancelar</button>
+          </div>
+      </mat-card-content>
+    </mat-card>
+
   </div>
   <div class="col-lg-6">
-    <app-school-routes-table></app-school-routes-table>
+    <app-school-routes-table
+      [studentData]="selectedStudents"
+      [conductorData]="selectedTransportation ? [selectedTransportation] : []"
+      (deleteSelectedStudents)="onDeleteStudents($event)"
+      (deleteSelectedConductor)="onDeleteTransportation()">
+    </app-school-routes-table>
   </div>
 
 </div>

@@ -1,4 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {CustomizerSettingsService} from "../../../../shared/services/customizer-settings/customizer-settings.service";
 import {
   MatCell,
@@ -7,40 +16,17 @@ import {
   MatHeaderCell,
   MatHeaderCellDef,
   MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
-  MatTable
+  MatTable, MatTableDataSource, MatTableModule
 } from "@angular/material/table";
-import {MatButton} from "@angular/material/button";
-import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
-
-export interface PeriodicElement {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-}
-export interface ConductorElement {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    {position: 1, name: 'Alumno', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Alumno', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Alumno', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Alumno', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Alumno', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Alumno', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Alumno', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Alumno', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Alumno', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Alumno', weight: 20.1797, symbol: 'Ne'},
-];
-
-const Conductor: ConductorElement[] = [
-    {position: 1, name: 'Condcutro', weight: 1.0079, symbol: 'H'},
-];
+import {MatButton, MatButtonModule} from "@angular/material/button";
+import {MatCard, MatCardContent, MatCardHeader, MatCardModule, MatCardTitle} from "@angular/material/card";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {SelectionModel} from "@angular/cdk/collections";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatMenuModule} from "@angular/material/menu";
+import {Student} from "../../../../students/model/student";
+import {SchoolTransportation} from "../../../../school-transportation/model/school-transportation";
 
 @Component({
   selector: 'app-school-routes-table',
@@ -60,44 +46,109 @@ const Conductor: ConductorElement[] = [
     MatCard,
     MatCardHeader,
     MatCardContent,
-    MatCardTitle
+    MatCardTitle,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatTooltipModule
   ],
   templateUrl: './school-routes-table.component.html',
   styleUrl: './school-routes-table.component.scss'
 })
-export class SchoolRoutesTableComponent {
+export class SchoolRoutesTableComponent implements AfterViewInit, OnChanges{
+  // Entradas desde el form padre
+  @Input() studentData: Student[] = [];
+  @Input() conductorData: SchoolTransportation[] = [];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = [...ELEMENT_DATA];
-  conductorDataSource = [...Conductor];
+  @Output() deleteSelectedStudents = new EventEmitter<Student[]>();
+  @Output() deleteSelectedConductor = new EventEmitter<SchoolTransportation[]>();
 
-  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+  studentDataSource = new MatTableDataSource<Student>();
+  conductorDataSource = new MatTableDataSource<SchoolTransportation>();
 
-  addData() {
-        const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-        this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-        this.table.renderRows();
+  selectionStudents = new SelectionModel<Student>(true, []);
+  selectionConductor = new SelectionModel<SchoolTransportation>(true, []);
+
+  conductorDisplayedColumns: string[] = ['select', 'fullName', 'dni', 'vehiclePlate'];
+  studentDisplayedColumns: string[] = ['select', 'fullName', 'dni', 'level', 'grade'];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatTable) table!: MatTable<any>;
+
+  constructor(public themeService: CustomizerSettingsService) {}
+
+  ngAfterViewInit() {
+    this.studentDataSource.paginator = this.paginator;
   }
 
-  removeData() {
-        this.dataSource.pop();
-        this.table.renderRows();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['studentData']) {
+      this.studentDataSource.data = this.studentData;
+    }
+    if (changes['conductorData']) {
+      this.conductorDataSource.data = this.conductorData;
+    }
+
   }
 
-  // isToggled
+  isAllConductorSelected() {
+    return this.selectionConductor.selected.length === this.conductorDataSource.data.length;
+  }
+
+  toggleAllConductorRows() {
+    this.isAllConductorSelected()
+      ? this.selectionConductor.clear()
+      : this.conductorDataSource.data.forEach(row => this.selectionConductor.select(row));
+  }
+
+  checkboxLabelConductor(row?: SchoolTransportation): string {
+    return row
+      ? `${this.selectionConductor.isSelected(row) ? 'deselect' : 'select'} conductor`
+      : 'select conductor';
+  }
+
+  isAllStudentsSelected() {
+    return this.selectionStudents.selected.length === this.studentDataSource.data.length;
+  }
+
+  toggleAllStudentRows() {
+    this.isAllStudentsSelected()
+      ? this.selectionStudents.clear()
+      : this.studentDataSource.data.forEach(row => this.selectionStudents.select(row));
+  }
+
+  checkboxLabelStudent(row?: Student): string {
+    return row
+      ? `${this.selectionStudents.isSelected(row) ? 'deselect' : 'select'} student`
+      : 'select all';
+  }
+
+  deleteSelected() {
+    const remainingStudents = this.studentDataSource.data.filter(
+      s => !this.selectionStudents.isSelected(s)
+    );
+    const remainingConductor = this.conductorDataSource.data.filter(
+      c => !this.selectionConductor.isSelected(c)
+    );
+
+    this.deleteSelectedStudents.emit(this.selectionStudents.selected);
+    this.deleteSelectedConductor.emit(this.selectionConductor.selected);
+
+    this.selectionStudents.clear();
+    this.selectionConductor.clear();
+
+    this.studentDataSource.data = remainingStudents;
+    this.conductorDataSource.data = remainingConductor;
+  }
+
   isToggled = false;
-
-  constructor(
-    public themeService: CustomizerSettingsService
-  ) {
-    this.themeService.isToggled$.subscribe(isToggled => {
-      this.isToggled = isToggled;
-    });
-  }
-
-  // RTL Mode
   toggleRTLEnabledTheme() {
     this.themeService.toggleRTLEnabledTheme();
   }
-
 }
+

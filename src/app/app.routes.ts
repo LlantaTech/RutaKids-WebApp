@@ -50,6 +50,8 @@ import {
 import {StudentsListComponent} from "./students/components/students-list/students-list.component";
 import {MapSelectorComponent} from "./shared/components/map-selector/map-selector.component";
 import {SchoolRoutesFormComponent} from "./school-routes/components/school-routes-form/school-routes-form.component";
+import {CreateSchoolRoutesComponent} from "./school-routes/pages/create-school-routes/create-school-routes.component";
+import {EditSchoolRoutesComponent} from "./school-routes/pages/edit-school-routes/edit-school-routes.component";
 
 export const routes: Routes = [
   { path: '',redirectTo: 'authentication', pathMatch: 'full' },
@@ -127,6 +129,8 @@ export const routes: Routes = [
         ]
       },
       { path: 'hola', component: SchoolRoutesFormComponent },
+      { path: 'hola1', component: CreateSchoolRoutesComponent },
+      { path: 'hola2', component: EditSchoolRoutesComponent },
       { path: '**', component: NotFoundComponent },
     ]
   },
