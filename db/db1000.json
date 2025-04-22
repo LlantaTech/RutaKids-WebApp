@@ -1679,22 +1679,6 @@
       "parents": []
     },
     {
-      "id": "c0639085",
-      "dni": "95953349",
-      "firstName": "José Mari",
-      "paternalLastName": "Escalona",
-      "maternalLastName": "Fabra",
-      "level": "Secundaria",
-      "grade": 1,
-      "email": "adora50@yahoo.com",
-      "phone": "+34 914420583",
-      "address": "Pasaje Ángeles Guardia 51 Apt. 14 ",
-      "coordinates": [],
-      "photo": null,
-      "hasMobility": false,
-      "parents": []
-    },
-    {
       "id": "4face533",
       "dni": "86370412",
       "firstName": "Ámbar",
@@ -1916,22 +1900,6 @@
       "coordinates": [],
       "photo": null,
       "hasMobility": true,
-      "parents": []
-    },
-    {
-      "id": "cda0bc4e",
-      "dni": "63064116",
-      "firstName": "Baudelio",
-      "paternalLastName": "Jódar",
-      "maternalLastName": "Alonso",
-      "level": "Secundaria",
-      "grade": 1,
-      "email": "maristelaruiz@vazquez-guardia.com",
-      "phone": "+34709774383",
-      "address": "Pasadizo de Jose Manuel Marco 6",
-      "coordinates": [],
-      "photo": null,
-      "hasMobility": false,
       "parents": []
     },
     {
@@ -2265,22 +2233,6 @@
       "email": "fulgencio08@oller.com",
       "phone": "+34748 23 17 79",
       "address": "Vial de Gertrudis Barros 67 Piso 0 ",
-      "coordinates": [],
-      "photo": null,
-      "hasMobility": true,
-      "parents": []
-    },
-    {
-      "id": "d977503a",
-      "dni": "92523761",
-      "firstName": "Nicodemo",
-      "paternalLastName": "Pedro",
-      "maternalLastName": "Barrera",
-      "level": "Secundaria",
-      "grade": 1,
-      "email": "fabiolaballesteros@gmail.com",
-      "phone": "+34 719 06 02 71",
-      "address": "Plaza Clementina Sabater 56",
       "coordinates": [],
       "photo": null,
       "hasMobility": true,

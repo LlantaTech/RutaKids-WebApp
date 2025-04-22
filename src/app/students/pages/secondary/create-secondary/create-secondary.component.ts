@@ -50,7 +50,7 @@ breadcrumbTitle = 'Crear Estudiante Nivel Secundaria';
           email: '',
           phone: '',
           address: '',
-          coordinates: [],
+          district: '',
         },
         {
           type: '',
@@ -61,7 +61,7 @@ breadcrumbTitle = 'Crear Estudiante Nivel Secundaria';
           email: '',
           phone: '',
           address: '',
-          coordinates: []
+          district: '',
         }
       ]
     };

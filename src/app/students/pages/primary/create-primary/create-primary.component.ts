@@ -51,7 +51,7 @@ export class CreatePrimaryComponent implements OnInit {
           email: '',
           phone: '',
           address: '',
-          coordinates: [],
+          district: '',
         },
         {
           type: '',
@@ -62,7 +62,7 @@ export class CreatePrimaryComponent implements OnInit {
           email: '',
           phone: '',
           address: '',
-          coordinates: []
+          district: '',
         }
       ]
     };
