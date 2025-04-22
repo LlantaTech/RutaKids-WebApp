@@ -13,7 +13,7 @@ import {FileUploadComponent, FileUploadControl} from "@iplab/ngx-file-upload";
 import {NgForOf, NgIf} from "@angular/common";
 import {Student} from "../../model/student";
 import {MapSelectorComponent} from "../../../shared/components/map-selector/map-selector.component";
-
+import {DistrictFieldComponent} from "./district-field/district-field.component";
 
 @Component({
   selector: 'app-student-form',
@@ -33,7 +33,8 @@ import {MapSelectorComponent} from "../../../shared/components/map-selector/map-
     NgIf,
     MatLabel,
     MatCardTitle,
-    MapSelectorComponent
+    MapSelectorComponent,
+    DistrictFieldComponent
   ],
   templateUrl: './student-form.component.html',
   styleUrl: './student-form.component.scss'
