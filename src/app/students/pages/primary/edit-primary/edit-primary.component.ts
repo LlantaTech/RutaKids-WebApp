@@ -18,8 +18,8 @@ import {StudentService} from "../../../services/student.service";
 })
 export class EditPrimaryComponent implements OnInit {
 
-    breadcrumbTitle = 'Editar Alumno Nivel Primario';
-    breadcrumbPaths = ['Primaria', 'Grado', 'Editar Alumno'];
+    breadcrumbTitle = 'Editar Estudiante Nivel Primario';
+    breadcrumbPaths = ['Primaria', 'Grado', 'Editar Estudiante'];
 
     student!: Student;
     grade!: number;

@@ -13,17 +13,21 @@ import {MatMenuModule} from "@angular/material/menu";
 import {SchoolTransportation} from "../../model/school-transportation";
 import {SchoolTransportationService} from "../../services/school-transportation.service";
 import {MatIcon} from "@angular/material/icon";
+import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-school-transportation-list',
   standalone: true,
-  imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatCheckboxModule, MatTooltipModule, MatIcon],
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatCheckboxModule, MatTooltipModule, MatIcon, BreadcrumbComponent],
   templateUrl: './school-transportation-list.component.html',
   styleUrl: './school-transportation-list.component.scss'
 })
 export class SchoolTransportationListComponent implements OnInit {
 
-    displayedColumns: string[] = [
+  breadcrumbTitle = 'Lista de Movilidades';
+  breadcrumbPaths = ['Movilidades', 'Lista'];
+
+  displayedColumns: string[] = [
       'select',
       'licenseCode',
       'fullName',

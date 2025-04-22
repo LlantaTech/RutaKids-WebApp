@@ -18,15 +18,19 @@ import {SchoolTransportation} from "../../model/school-transportation";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import {SchoolTransportationService} from "../../services/school-transportation.service";
 import {NgIf} from "@angular/common";
+import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-edit-school-transportation',
   standalone: true,
-  imports: [MatCardModule, MatMenuModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, NgxEditorModule, SchoolTransportationFormComponent, NgIf],
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, NgxEditorModule, SchoolTransportationFormComponent, NgIf, BreadcrumbComponent],
   templateUrl: './edit-school-transportation.component.html',
   styleUrl: './edit-school-transportation.component.scss'
 })
 export class EditSchoolTransportationComponent implements OnInit {
+
+    breadcrumbTitle = 'Editar Movilidad';
+    breadcrumbPaths = ['Movilidad', 'Editar'];
 
     @ViewChild('formRef') formComponent: SchoolTransportationFormComponent;
 

@@ -4,19 +4,24 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Student} from "../../../model/student";
 import {ActivatedRoute, Router} from "@angular/router";
 import {StudentService} from "../../../services/student.service";
+import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-primary-list',
   standalone: true,
   imports: [
-    StudentsListComponent
+    StudentsListComponent,
+    BreadcrumbComponent
   ],
   templateUrl: './secondary-list.component.html',
   styleUrl: './secondary-list.component.scss'
 })
 export class SecondaryListComponent implements OnInit {
 
-    dataSource = new MatTableDataSource<Student>();
+  breadcrumbTitle = 'Lista de Estudiantes Nivel Secundario';
+  breadcrumbPaths = ['Secundaria', 'Lista de Estudiantes'];
+
+  dataSource = new MatTableDataSource<Student>();
     addLink = '';
     level: string = '';
     gradeId: string = '';

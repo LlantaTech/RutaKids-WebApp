@@ -6,6 +6,7 @@ import {SchoolTransportationService} from "../../services/school-transportation.
 import {SchoolTransportationFormComponent} from "../../components/school-transportation-form/school-transportation-form.component";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
+import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-create-school-transportation',
@@ -14,14 +15,18 @@ import {CommonModule} from "@angular/common";
     CommonModule,
     NgxEditorModule,
     HttpClientModule,
-    SchoolTransportationFormComponent
+    SchoolTransportationFormComponent,
+    BreadcrumbComponent
   ],
   templateUrl: './create-school-transportation.component.html',
   styleUrl: './create-school-transportation.component.scss'
 })
 export class CreateSchoolTransportationComponent {
 
-    @ViewChild('formRef') formComponent!: SchoolTransportationFormComponent;
+  breadcrumbTitle = 'Crear Movilidad';
+  breadcrumbPaths = ['Movilidad', 'Crear'];
+
+  @ViewChild('formRef') formComponent!: SchoolTransportationFormComponent;
 
     formData = {
         dni: '',

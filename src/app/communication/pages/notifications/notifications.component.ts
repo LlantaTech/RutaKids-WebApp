@@ -6,17 +6,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import { Notification} from "../model/notifications";
+import { Notification} from "../../model/notifications";
 import {GlobalAlertService} from "../../../shared/services/global-alert/global-alert.service";
+import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-notifications',
   standalone: true,
-  imports: [MatCardModule, MatMenuModule, MatButtonModule, MatTableModule, NgIf, MatCheckboxModule, MatTooltipModule],
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, MatTableModule, NgIf, MatCheckboxModule, MatTooltipModule, BreadcrumbComponent],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss'
 })
 export class NotificationsComponent implements OnInit {
+
+  breadcrumbTitle = 'Notificaciones';
+  breadcrumbPaths = ['Notificaciones'];
 
   constructor(private globalAlertService: GlobalAlertService) {}
 
@@ -37,7 +41,7 @@ export class NotificationsComponent implements OnInit {
 
     setInterval(() => {
       this.addRandomNotification();
-    }, 15000); // ← cambia a 900000 para 15 minutos reales
+    }, 15000); // Cambiar a 900000 para 15 minutos reales
   }
 
   getInitialMockData(): Notification[] {
@@ -67,7 +71,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   addRandomNotification() {
-    const types = ['Information', 'Alert', 'Announcement'] as const;
+    const types: Notification['type'][] = ['Information', 'Alert', 'Announcement'];
     const contents = [
       'Nuevo parche disponible.',
       'Reunión urgente a las 4pm.',
@@ -86,11 +90,18 @@ export class NotificationsComponent implements OnInit {
     this.notifications.unshift(newNotification);
     this.updateTable();
 
-    // Mostrar alerta visual global
-    const alertType = types[index] === 'Alert' ? 'danger' :
-                      types[index] === 'Information' ? 'daxa' : 'success';
-
+    const alertType = this.mapNotificationTypeToAlertType(newNotification.type);
     this.globalAlertService.showAlert(alertType, newNotification.content);
+  }
+
+  mapNotificationTypeToAlertType(type: Notification['type']): 'daxa' | 'success' | 'danger' | 'primary' {
+    switch (type) {
+      case 'Information': return 'daxa';
+      case 'Announcement': return 'success';
+      case 'Alert': return 'danger';
+      case 'Mail': return 'primary';
+      default: return 'daxa';
+    }
   }
 
   updateTable() {
