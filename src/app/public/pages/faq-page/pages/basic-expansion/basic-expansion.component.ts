@@ -12,7 +12,7 @@ import {RouterLink} from "@angular/router";
   standalone: true,
   imports: [MatCardModule, MatButtonModule, RouterLink, MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle],
   templateUrl: './basic-expansion.component.html',
-  styleUrl: './basic-expansion.component.scss'
+  styleUrls: ['./basic-expansion.component.scss']
 })
 export class BasicExpansionComponent {
 

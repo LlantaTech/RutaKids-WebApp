@@ -20,7 +20,7 @@ import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcr
   standalone: true,
   imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatCheckboxModule, MatTooltipModule, MatIcon, BreadcrumbComponent],
   templateUrl: './school-transportation-list.component.html',
-  styleUrl: './school-transportation-list.component.scss'
+  styleUrls: ['./school-transportation-list.component.scss']
 })
 export class SchoolTransportationListComponent implements OnInit {
 

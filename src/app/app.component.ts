@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
   imports: [
     RouterOutlet
   ]

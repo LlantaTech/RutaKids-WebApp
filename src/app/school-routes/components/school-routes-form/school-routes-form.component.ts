@@ -24,7 +24,7 @@ import {Student} from "../../../students/model/student";
     MatCard
   ],
   templateUrl: './school-routes-form.component.html',
-  styleUrl: './school-routes-form.component.scss'
+  styleUrls: ['./school-routes-form.component.scss']
 })
 
 export class SchoolRoutesFormComponent {

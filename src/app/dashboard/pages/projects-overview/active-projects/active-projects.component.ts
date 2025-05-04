@@ -9,7 +9,7 @@ import {SchoolTransportationService} from "../../../../school-transportation/ser
     standalone: true,
     imports: [MatCardModule, RouterLink],
     templateUrl: './active-projects.component.html',
-    styleUrl: './active-projects.component.scss'
+    styleUrls: ['./active-projects.component.scss']
 })
 export class ActiveProjectsComponent implements OnInit {
 

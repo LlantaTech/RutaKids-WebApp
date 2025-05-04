@@ -14,7 +14,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
     BreadcrumbComponent
   ],
   templateUrl: './secondary-list.component.html',
-  styleUrl: './secondary-list.component.scss'
+  styleUrls: ['./secondary-list.component.scss']
 })
 export class SecondaryListComponent implements OnInit {
 

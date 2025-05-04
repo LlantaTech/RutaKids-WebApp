@@ -8,6 +8,6 @@ import { RouterLink } from '@angular/router';
     standalone: true,
     imports: [RouterLink, MatCardModule, MatButtonModule],
     templateUrl: './internal-error.component.html',
-    styleUrl: './internal-error.component.scss'
+    styleUrls: ['./internal-error.component.scss']
 })
 export class InternalErrorComponent {}

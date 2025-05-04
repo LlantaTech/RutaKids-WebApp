@@ -32,7 +32,7 @@ import {Student} from "../../../../students/model/student";
     NgForOf
   ],
   templateUrl: './school-routes-selector-students.component.html',
-  styleUrl: './school-routes-selector-students.component.scss'
+  styleUrls: ['./school-routes-selector-students.component.scss']
 })
 export class SchoolRoutesSelectorStudentsComponent implements OnInit{
 

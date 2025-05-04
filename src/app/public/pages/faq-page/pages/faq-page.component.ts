@@ -12,7 +12,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
     BreadcrumbComponent
   ],
   templateUrl: './faq-page.component.html',
-  styleUrl: './faq-page.component.scss'
+  styleUrls: ['./faq-page.component.scss']
 })
 export class FaqPageComponent {
   breadcrumbTitle = 'FAQ';

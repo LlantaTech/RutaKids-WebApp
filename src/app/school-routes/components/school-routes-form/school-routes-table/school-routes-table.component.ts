@@ -58,7 +58,7 @@ import {SchoolTransportation} from "../../../../school-transportation/model/scho
     MatTooltipModule
   ],
   templateUrl: './school-routes-table.component.html',
-  styleUrl: './school-routes-table.component.scss'
+  styleUrls: ['./school-routes-table.component.scss']
 })
 export class SchoolRoutesTableComponent implements AfterViewInit, OnChanges{
   // Entradas desde el form padre

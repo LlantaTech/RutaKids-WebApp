@@ -8,7 +8,7 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
 

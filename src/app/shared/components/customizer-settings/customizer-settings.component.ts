@@ -12,7 +12,7 @@ import {CustomizerSettingsService} from "../../services/customizer-settings/cust
     standalone: true,
     imports: [RouterLink, NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule],
     templateUrl: './customizer-settings.component.html',
-    styleUrl: './customizer-settings.component.scss'
+    styleUrls: ['./customizer-settings.component.scss']
 })
 export class CustomizerSettingsComponent {
 

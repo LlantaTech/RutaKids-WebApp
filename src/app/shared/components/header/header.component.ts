@@ -10,9 +10,9 @@ import {Location} from "@angular/common";
 @Component({
     selector: 'app-header',
     standalone: true,
-  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive, NgOptimizedImage],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+    imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive, NgOptimizedImage],
+      templateUrl: './header.component.html',
+      styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 

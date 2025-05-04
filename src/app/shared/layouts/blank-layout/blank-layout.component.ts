@@ -8,7 +8,7 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './blank-layout.component.html',
-  styleUrl: './blank-layout.component.scss'
+  styleUrls: ['./blank-layout.component.scss']
 })
 export class BlankLayoutComponent {
 

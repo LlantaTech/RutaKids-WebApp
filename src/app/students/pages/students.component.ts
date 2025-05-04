@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterOutlet} from "@angular/router";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -8,7 +8,7 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './students.component.html',
-  styleUrl: './students.component.scss'
+  styleUrls: ['./students.component.scss']
 })
 export class StudentsComponent {
 

@@ -12,7 +12,7 @@ import {MatInputModule} from "@angular/material/input";
   standalone: true,
   imports: [RouterLink, MatButtonModule, MatMenuModule, MatFormFieldModule, MatInputModule],
   templateUrl: './comic-soon.component.html',
-  styleUrl: './comic-soon.component.scss'
+  styleUrls: ['./comic-soon.component.scss']
 })
 export class ComicSoonComponent implements OnInit, OnDestroy {
 

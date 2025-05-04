@@ -14,7 +14,7 @@ import {StudentService} from "../../../services/student.service";
         BreadcrumbComponent
     ],
   templateUrl: './edit-primary.component.html',
-  styleUrl: './edit-primary.component.scss'
+  styleUrls: ['./edit-primary.component.scss']
 })
 export class EditPrimaryComponent implements OnInit {
 

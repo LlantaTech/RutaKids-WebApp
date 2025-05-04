@@ -7,7 +7,7 @@ import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcr
     standalone: true,
     imports: [RouterLink, BreadcrumbComponent],
     templateUrl: './blank-page.component.html',
-    styleUrl: './blank-page.component.scss'
+    styleUrls: ['./blank-page.component.scss']
 })
 export class BlankPageComponent {
   breadcrumbTitle = 'Blank Page';

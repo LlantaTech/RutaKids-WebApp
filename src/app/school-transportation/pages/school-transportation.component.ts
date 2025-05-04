@@ -8,7 +8,7 @@ import {RouterOutlet} from "@angular/router";
         RouterOutlet
     ],
   templateUrl: './school-transportation.component.html',
-  styleUrl: './school-transportation.component.scss'
+  styleUrls: ['./school-transportation.component.scss']
 })
 export class SchoolTransportationComponent {
 

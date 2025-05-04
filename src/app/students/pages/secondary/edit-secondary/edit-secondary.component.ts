@@ -14,7 +14,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
     BreadcrumbComponent
   ],
   templateUrl: './edit-secondary.component.html',
-  styleUrl: './edit-secondary.component.scss'
+  styleUrls: ['./edit-secondary.component.scss']
 })
 export class EditSecondaryComponent implements OnInit {
   breadcrumbTitle = 'Editar Alumno Nivel Secundaria';

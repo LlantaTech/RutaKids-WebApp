@@ -34,7 +34,7 @@ export type ChartOptions = {
     standalone: true,
     imports: [MatCardModule, MatMenuModule, MatButtonModule, MatDatepicker, NgApexchartsModule],
     templateUrl: './projects-roadmap.component.html',
-    styleUrl: './projects-roadmap.component.scss'
+    styleUrls: ['./projects-roadmap.component.scss']
 })
 export class ProjectsRoadmapComponent implements OnInit {
 

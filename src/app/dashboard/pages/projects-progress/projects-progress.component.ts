@@ -32,7 +32,7 @@ export type ChartOptions = {
     standalone: true,
     imports: [MatCardModule, MatMenuModule, MatButtonModule, MatDatepicker, NgApexchartsModule],
     templateUrl: './projects-progress.component.html',
-    styleUrl: './projects-progress.component.scss'
+    styleUrls: ['./projects-progress.component.scss']
 })
 export class ProjectsProgressComponent {
 

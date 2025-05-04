@@ -37,7 +37,7 @@ import {DistrictFieldComponent} from "./district-field/district-field.component"
     DistrictFieldComponent
   ],
   templateUrl: './student-form.component.html',
-  styleUrl: './student-form.component.scss'
+  styleUrls: ['./student-form.component.scss']
 })
 export class StudentFormComponent {
     showSecondParent: boolean = false;

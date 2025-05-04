@@ -25,7 +25,7 @@ import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcr
   standalone: true,
   imports: [MatCardModule, MatMenuModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, NgxEditorModule, SchoolTransportationFormComponent, NgIf, BreadcrumbComponent],
   templateUrl: './edit-school-transportation.component.html',
-  styleUrl: './edit-school-transportation.component.scss'
+  styleUrls: ['./edit-school-transportation.component.scss']
 })
 export class EditSchoolTransportationComponent implements OnInit {
 

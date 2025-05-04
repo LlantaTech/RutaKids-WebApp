@@ -18,7 +18,7 @@ import {BreadcrumbComponent} from "../../shared/components/breadcrumb/breadcrumb
         BreadcrumbComponent
     ],
   templateUrl: './settings.component.html',
-  styleUrl: './settings.component.scss'
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
 
