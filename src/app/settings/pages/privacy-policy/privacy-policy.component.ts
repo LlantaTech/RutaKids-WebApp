@@ -8,7 +8,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
     standalone: true,
     imports: [RouterLink, MatButtonModule],
     templateUrl: './privacy-policy.component.html',
-    styleUrl: './privacy-policy.component.scss'
+    styleUrls: ['./privacy-policy.component.scss']
 })
 export class PrivacyPolicyComponent {
 

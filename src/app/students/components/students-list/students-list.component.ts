@@ -47,7 +47,7 @@ import {MatCheckbox} from "@angular/material/checkbox";
     MatCheckbox
   ],
   templateUrl: './students-list.component.html',
-  styleUrl: './students-list.component.scss'
+  styleUrls: ['./students-list.component.scss']
 })
 export class StudentsListComponent{
     @Input() dataSource = new MatTableDataSource<Student>([]);

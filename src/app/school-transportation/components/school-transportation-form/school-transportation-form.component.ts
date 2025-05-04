@@ -29,7 +29,7 @@ import {MatButton} from "@angular/material/button";
     MatButton
   ],
   templateUrl: './school-transportation-form.component.html',
-  styleUrl: './school-transportation-form.component.scss'
+  styleUrls: ['./school-transportation-form.component.scss']
 })
 export class SchoolTransportationFormComponent {
 

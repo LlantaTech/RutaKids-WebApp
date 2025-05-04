@@ -11,7 +11,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
     standalone: true,
     imports: [RouterLink, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule],
     templateUrl: './change-password.component.html',
-    styleUrl: './change-password.component.scss'
+    styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent {
 

@@ -16,7 +16,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
     BreadcrumbComponent
   ],
   templateUrl: './grade-cards-secondary.component.html',
-  styleUrl: './grade-cards-secondary.component.scss'
+  styleUrls: ['./grade-cards-secondary.component.scss']
 })
 export class GradeCardsSecondaryComponent {
 

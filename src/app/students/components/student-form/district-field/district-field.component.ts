@@ -15,7 +15,7 @@ import {NgForOf} from "@angular/common";
     NgForOf
   ],
   templateUrl: './district-field.component.html',
-  styleUrl: './district-field.component.scss'
+  styleUrls: ['./district-field.component.scss']
 })
 export class DistrictFieldComponent implements ControlValueAccessor {
   @Input() model: any;

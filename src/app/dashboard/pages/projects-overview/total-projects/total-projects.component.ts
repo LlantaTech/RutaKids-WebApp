@@ -8,7 +8,7 @@ import {StudentService} from "../../../../students/services/student.service";
     standalone: true,
     imports: [MatCardModule],
     templateUrl: './total-projects.component.html',
-    styleUrl: './total-projects.component.scss'
+    styleUrls: ['./total-projects.component.scss']
 })
 export class TotalProjectsComponent implements OnInit {
     // Variables

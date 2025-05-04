@@ -12,7 +12,7 @@ import {SchoolTransportationService} from "../../../school-transportation/servic
     SchoolRoutesFormComponent
   ],
   templateUrl: './create-school-routes.component.html',
-  styleUrl: './create-school-routes.component.scss'
+  styleUrls: ['./create-school-routes.component.scss']
 })
 export class CreateSchoolRoutesComponent {
  students: Student[] = [];

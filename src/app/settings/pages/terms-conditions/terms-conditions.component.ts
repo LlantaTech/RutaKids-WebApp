@@ -8,7 +8,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
     standalone: true,
     imports: [RouterLink, MatButtonModule],
     templateUrl: './terms-conditions.component.html',
-    styleUrl: './terms-conditions.component.scss'
+    styleUrls: ['./terms-conditions.component.scss']
 })
 export class TermsConditionsComponent {
 

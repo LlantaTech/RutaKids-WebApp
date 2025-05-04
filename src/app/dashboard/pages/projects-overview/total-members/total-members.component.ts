@@ -8,7 +8,7 @@ import {CustomizerSettingsService} from "../../../../shared/services/customizer-
     standalone: true,
     imports: [MatCardModule, RouterLink],
     templateUrl: './total-members.component.html',
-    styleUrl: './total-members.component.scss'
+    styleUrls: ['./total-members.component.scss']
 })
 export class TotalMembersComponent {
 

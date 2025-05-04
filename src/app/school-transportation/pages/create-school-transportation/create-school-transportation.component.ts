@@ -19,7 +19,7 @@ import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcr
     BreadcrumbComponent
   ],
   templateUrl: './create-school-transportation.component.html',
-  styleUrl: './create-school-transportation.component.scss'
+  styleUrls: ['./create-school-transportation.component.scss']
 })
 export class CreateSchoolTransportationComponent {
 

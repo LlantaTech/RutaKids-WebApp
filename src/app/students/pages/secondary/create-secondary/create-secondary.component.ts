@@ -14,7 +14,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
     BreadcrumbComponent
   ],
   templateUrl: './create-secondary.component.html',
-  styleUrl: './create-secondary.component.scss'
+  styleUrls: ['./create-secondary.component.scss']
 })
 export class CreateSecondaryComponent implements OnInit {
 breadcrumbTitle = 'Crear Estudiante Nivel Secundaria';

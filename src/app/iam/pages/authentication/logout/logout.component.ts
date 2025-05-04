@@ -8,7 +8,7 @@ import {CustomizerSettingsService} from "../../../../shared/services/customizer-
     standalone: true,
     imports: [RouterLink, MatButtonModule],
     templateUrl: './logout.component.html',
-    styleUrl: './logout.component.scss'
+    styleUrls: ['./logout.component.scss']
 })
 export class LogoutComponent {
 

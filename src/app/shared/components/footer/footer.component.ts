@@ -7,7 +7,7 @@ import {CustomizerSettingsService} from "../../services/customizer-settings/cust
     standalone: true,
     imports: [RouterLink],
     templateUrl: './footer.component.html',
-    styleUrl: './footer.component.scss'
+    styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
 

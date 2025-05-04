@@ -12,7 +12,7 @@ import {CustomizerSettingsService} from "../../services/customizer-settings/cust
     NgClass
   ],
   templateUrl: './global-alert.component.html',
-  styleUrl: './global-alert.component.scss'
+  styleUrls: ['./global-alert.component.scss']
 })
 export class GlobalAlertComponent implements OnInit {
   alerts: GlobalAlert[] = [];

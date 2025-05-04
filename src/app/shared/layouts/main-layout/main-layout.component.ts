@@ -16,7 +16,7 @@ import {GlobalAlertComponent} from "../../components/global-alert/global-alert.c
   standalone: true,
   imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, FooterComponent, RouterLink, CustomizerSettingsComponent, GlobalAlertComponent],
   templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.scss',
+  styleUrls: ['./main-layout.component.scss'],
   providers: [
     Location, {
       provide: LocationStrategy,

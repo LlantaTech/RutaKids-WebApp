@@ -11,13 +11,13 @@ import {GlobalAlertService} from "../../../shared/services/global-alert/global-a
 import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
-  selector: 'app-notifications',
+  selector: 'app-notifications-list',
   standalone: true,
   imports: [MatCardModule, MatMenuModule, MatButtonModule, MatTableModule, NgIf, MatCheckboxModule, MatTooltipModule, BreadcrumbComponent],
-  templateUrl: './notifications.component.html',
-  styleUrl: './notifications.component.scss'
+  templateUrl: './notifications-list.component.html',
+  styleUrls: ['./notifications-list.component.scss']
 })
-export class NotificationsComponent implements OnInit {
+export class NotificationsListComponent implements OnInit {
 
   breadcrumbTitle = 'Notificaciones';
   breadcrumbPaths = ['Notificaciones'];

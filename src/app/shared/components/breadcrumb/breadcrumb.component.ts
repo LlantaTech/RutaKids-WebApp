@@ -11,7 +11,7 @@ import {NgForOf, NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './breadcrumb.component.html',
-  styleUrl: './breadcrumb.component.scss'
+  styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent {
     @Input() title: string = '';

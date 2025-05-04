@@ -8,6 +8,6 @@ import { RouterLink } from '@angular/router';
     standalone: true,
     imports: [RouterLink, MatCardModule, MatButtonModule],
     templateUrl: './not-found.component.html',
-    styleUrl: './not-found.component.scss'
+    styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {}

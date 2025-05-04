@@ -14,7 +14,7 @@ import {CustomizerSettingsService} from "../../../../shared/services/customizer-
     standalone: true,
     imports: [RouterLink, MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, NgIf],
     templateUrl: './sign-in.component.html',
-    styleUrl: './sign-in.component.scss'
+    styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
 

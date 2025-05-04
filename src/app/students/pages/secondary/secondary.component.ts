@@ -8,7 +8,7 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './secondary.component.html',
-  styleUrl: './secondary.component.scss'
+  styleUrls: ['./secondary.component.scss']
 })
 export class SecondaryComponent {
 

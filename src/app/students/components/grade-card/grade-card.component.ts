@@ -12,7 +12,7 @@ import {NgOptimizedImage} from "@angular/common";
   standalone: true,
   imports: [RouterLink, MatCardModule, MatButtonModule, MatIconModule, MatProgressBarModule, MatDividerModule, NgOptimizedImage],
   templateUrl: './grade-card.component.html',
-  styleUrl: './grade-card.component.scss'
+  styleUrls: ['./grade-card.component.scss']
 })
 export class GradeCardComponent {
   @Input() badgeLabel: string = '';

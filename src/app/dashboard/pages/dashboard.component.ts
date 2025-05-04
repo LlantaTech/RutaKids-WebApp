@@ -14,7 +14,7 @@ import {ProjectsOverviewComponent} from "./projects-overview/projects-overview.c
     ProjectsOverviewComponent,
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
 

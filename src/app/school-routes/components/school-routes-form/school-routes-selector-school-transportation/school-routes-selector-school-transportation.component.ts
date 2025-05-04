@@ -32,7 +32,7 @@ import {SchoolTransportation} from "../../../../school-transportation/model/scho
     NgForOf
   ],
   templateUrl: './school-routes-selector-school-transportation.component.html',
-  styleUrl: './school-routes-selector-school-transportation.component.scss'
+  styleUrls: ['./school-routes-selector-school-transportation.component.scss']
 })
 export class SchoolRoutesSelectorSchoolTransportationComponent implements OnInit, OnChanges {
 

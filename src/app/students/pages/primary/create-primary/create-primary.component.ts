@@ -14,7 +14,7 @@ import {Student} from "../../../model/student";
     BreadcrumbComponent
   ],
   templateUrl: './create-primary.component.html',
-  styleUrl: './create-primary.component.scss'
+  styleUrls: ['./create-primary.component.scss']
 })
 export class CreatePrimaryComponent implements OnInit {
 

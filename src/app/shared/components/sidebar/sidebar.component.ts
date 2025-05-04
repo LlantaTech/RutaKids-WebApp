@@ -11,7 +11,7 @@ import {CustomizerSettingsService} from "../../services/customizer-settings/cust
     standalone: true,
   imports: [NgScrollbarModule, MatExpansionModule, RouterLinkActive, RouterModule, RouterLink, NgClass, NgOptimizedImage],
     templateUrl: './sidebar.component.html',
-    styleUrl: './sidebar.component.scss'
+    styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
 
