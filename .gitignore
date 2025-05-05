@@ -44,3 +44,6 @@ Thumbs.db
 #googleMapsApiKey
 /src/environments/environment.ts
 
+#db
+/db/
+
