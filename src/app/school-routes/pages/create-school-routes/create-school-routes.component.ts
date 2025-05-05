@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {SchoolRoutesFormComponent} from "../../components/school-routes-form/school-routes-form.component";
 import {Student} from "../../../students/model/student";
 import {SchoolTransportation} from "../../../school-transportation/model/school-transportation";
-import {StudentService} from "../../../students/services/student.service";
+import {StudentService} from "../../../students/shared/services/student.service";
 import {SchoolTransportationService} from "../../../school-transportation/services/school-transportation.service";
 
 @Component({

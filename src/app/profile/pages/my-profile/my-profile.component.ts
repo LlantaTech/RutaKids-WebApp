@@ -14,7 +14,7 @@ import {MatCardModule} from "@angular/material/card";
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent {
-      // isToggled
+    // isToggled
     isToggled = false;
 
     constructor(

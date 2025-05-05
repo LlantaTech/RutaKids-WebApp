@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {CustomizerSettingsService} from "../../../../shared/services/customizer-settings/customizer-settings.service";
-import {StudentService} from "../../../../students/services/student.service";
+import {StudentService} from "../../../../students/shared/services/student.service";
 
 @Component({
     selector: 'app-total-projects',

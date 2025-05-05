@@ -4,17 +4,15 @@ export const PROFILE_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('../shared/layouts/main-layout/main-layout.component').then(
-        (m) => m.MainLayoutComponent
+      import('./pages/my-profile/my-profile.component').then(
+        (m) => m.MyProfileComponent
       ),
-    children: [
-      {
-        path: '',
-        loadComponent: () =>
-          import('./pages/profile.component').then(
-            (m) => m.ProfileComponent
-          ),
-      },
-    ],
+  },
+  {
+    path: 'settings',
+    loadComponent: () =>
+      import('./pages/my-profile-settings/my-profile-settings.component').then(
+        (m) => m.MyProfileSettingsComponent
+      ),
   },
 ];
