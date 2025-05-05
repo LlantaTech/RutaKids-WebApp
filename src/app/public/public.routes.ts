@@ -9,13 +9,6 @@ export const PUBLIC_ROUTES: Routes = [
       ),
     children: [
       {
-        path: 'faq',
-        loadComponent: () =>
-          import('./pages/faq-page/pages/faq-page.component').then(
-            (m) => m.FaqPageComponent
-          ),
-      },
-      {
         path: 'internal-error',
         loadComponent: () =>
           import('./pages/internal-error/internal-error.component').then(
@@ -36,13 +29,13 @@ export const PUBLIC_ROUTES: Routes = [
             (m) => m.ComicSoonComponent
           ),
       },
+      {
+        path: '**',
+        loadComponent: () =>
+          import('./pages/not-found/not-found.component').then(
+            (m) => m.NotFoundComponent
+          ),
+      },
     ],
-  },
-  {
-    path: '**',
-    loadComponent: () =>
-      import('./pages/not-found/not-found.component').then(
-        (m) => m.NotFoundComponent
-      ),
   },
 ];

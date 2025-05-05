@@ -15,7 +15,7 @@ import {
     ApexYAxis
 } from "ng-apexcharts";
 import {MatDatepicker} from "@angular/material/datepicker";
-import {StudentService} from "../../../students/services/student.service";
+import {StudentService} from "../../../students/shared/services/student.service";
 import {Student} from "../../../students/model/student";
 
 export type ChartOptions = {
