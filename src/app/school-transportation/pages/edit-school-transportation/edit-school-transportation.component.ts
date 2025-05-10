@@ -6,7 +6,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule, } from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
-import {Editor, NgxEditorModule} from "ngx-editor";
+import {NgxEditorModule} from "ngx-editor";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -17,13 +17,12 @@ import {
 import {SchoolTransportation} from "../../model/school-transportation";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import {SchoolTransportationService} from "../../services/school-transportation.service";
-import {NgIf} from "@angular/common";
 import {BreadcrumbComponent} from "../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-edit-school-transportation',
   standalone: true,
-  imports: [MatCardModule, MatMenuModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, NgxEditorModule, SchoolTransportationFormComponent, NgIf, BreadcrumbComponent],
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, NgxEditorModule, SchoolTransportationFormComponent, BreadcrumbComponent],
   templateUrl: './edit-school-transportation.component.html',
   styleUrls: ['./edit-school-transportation.component.scss']
 })

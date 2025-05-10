@@ -7,8 +7,7 @@ import {NgForOf, NgIf} from "@angular/common";
   standalone: true,
   imports: [
     RouterLink,
-    NgForOf,
-    NgIf
+    NgForOf
   ],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']

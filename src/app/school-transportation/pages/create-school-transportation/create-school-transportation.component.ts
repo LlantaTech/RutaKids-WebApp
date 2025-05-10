@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Editor, NgxEditorModule} from "ngx-editor";
+import {NgxEditorModule} from "ngx-editor";
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import {Router} from "@angular/router";
 import {SchoolTransportationService} from "../../services/school-transportation.service";
