@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git checkout -B documentation
-          git add docs/compodoc
+          git add -f docs/compodoc
           git commit -m "Auto: update docs from develop"
           git push origin documentation --force
 
