@@ -38,7 +38,11 @@
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js"
             ],
-            "ssr": false
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "server": "src/main.server.ts",
+            "prerender": true
           },
           "configurations": {
             "production": {

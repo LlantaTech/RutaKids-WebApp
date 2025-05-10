@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:ssr": "ng build && ng run llantatech:server",
+    "serve:ssr": "node dist/llantatech/server/main.js",
+    "dev:ssr": "ng run llantatech:serve"
   },
   "private": true,
   "dependencies": {
