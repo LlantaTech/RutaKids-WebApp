@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -18,10 +19,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Generate Compodoc
-        run: npm run docs
+        run: npx compodoc -p tsconfig.docs.json -d docs/compodoc -e scss
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=docs/compodoc --branch=gh-pages --base-href=/RutaKids-WebApp/Documentation/
+        run: npx angular-cli-ghpages --dir=docs/compodoc --branch=documentation
