@@ -37,7 +37,7 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "prerender": true
+            "prerender": false
           },
           "configurations": {
             "production": {
@@ -73,7 +73,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/llantatech-server",
-            "main": "src/main.server.ts",
+            "main": "src/server.ts",
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {

@@ -3,14 +3,17 @@ import { CommonEngine } from '@angular/ssr';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import bootstrap from './main.server';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+
+  console.log('✅ Iniciando server.ts');
+
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+  const indexHtml = join(serverDistFolder, 'index.html');
 
   const commonEngine = new CommonEngine();
 
@@ -44,7 +47,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = process.env['PORT'] || 3000;
 
   // Start up the Node server
   const server = app();

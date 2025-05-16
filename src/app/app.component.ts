@@ -1,6 +1,7 @@
 import {RouterOutlet} from "@angular/router";
 
-declare let $: any;
+// declare let $: any;
+
 import { Component } from '@angular/core';
 
 @Component({

@@ -15,4 +15,5 @@ export const appConfigServer: ApplicationConfig = {
     provideNoopAnimations(),
     { provide: API_URL, useValue: environment.apiUrl }
   ]
+
 };
