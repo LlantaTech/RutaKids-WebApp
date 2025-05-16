@@ -1,93 +1,73 @@
-import {NgClass, NgOptimizedImage} from '@angular/common';
+import { NgClass, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
-import { Component, HostListener } from '@angular/core';
+import { Component, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ToggleService } from '../sidebar/toggle.service';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
-import {Location} from "@angular/common";
+import { RouterLink } from '@angular/router';
+import { CustomizerSettingsService } from "../../services/customizer-settings/customizer-settings.service";
+import { Location } from "@angular/common";
+import { WindowRef } from "../../../core/services/window-ref.service";
 
 @Component({
-    selector: 'app-header',
-    standalone: true,
-    imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive, NgOptimizedImage],
-      templateUrl: './header.component.html',
-      styleUrls: ['./header.component.scss']
+  selector: 'app-header',
+  standalone: true,
+  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, NgOptimizedImage],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-    // isSidebarToggled
-    isSidebarToggled = false;
+  isSidebarToggled = false;
+  isToggled = false;
+  isSticky: boolean = false;
+  private win: Window | undefined;
+  private isBrowser = false;
 
-    // isToggled
-    isToggled = false;
+  constructor(
+    private toggleService: ToggleService,
+    public themeService: CustomizerSettingsService,
+    private location: Location,
+    private windowRef: WindowRef,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId); // 👈 AQUÍ DEBE IR
 
-    constructor(
-        private toggleService: ToggleService,
-        public themeService: CustomizerSettingsService,
-        private location: Location
-    ) {
-        this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
-            this.isSidebarToggled = isSidebarToggled;
-        });
-        this.themeService.isToggled$.subscribe(isToggled => {
-            this.isToggled = isToggled;
-        });
+    this.toggleService.isSidebarToggled$.subscribe(value => this.isSidebarToggled = value);
+    this.themeService.isToggled$.subscribe(value => this.isToggled = value);
+  }
+
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.win = this.windowRef.nativeWindow;
+      this.win?.addEventListener('scroll', this.checkScroll);
     }
+  }
 
-    // Burger Menu Toggle
-    toggle() {
-        this.toggleService.toggle();
+  ngOnDestroy() {
+    if (this.isBrowser) {
+      this.win?.removeEventListener('scroll', this.checkScroll);
     }
+  }
 
-    // Header Sticky
-    isSticky: boolean = false;
-    @HostListener('window:scroll', ['$event'])
-    checkScroll() {
-        const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        if (scrollPosition >= 50) {
-            this.isSticky = true;
-        } else {
-            this.isSticky = false;
-        }
-    }
+  checkScroll = () => {
+    if (!this.isBrowser) return;
 
-    // Dark Mode
-    toggleTheme() {
-        this.themeService.toggleTheme();
-    }
+    const scrollPosition =
+      this.win?.scrollY ||
+      (typeof document !== 'undefined' && document.documentElement?.scrollTop) ||
+      (typeof document !== 'undefined' && document.body?.scrollTop) ||
+      0;
 
-    // Sidebar Dark
-    toggleSidebarTheme() {
-        this.themeService.toggleSidebarTheme();
-    }
+    this.isSticky = scrollPosition >= 50;
+  };
 
-    // Right Sidebar
-    toggleRightSidebarTheme() {
-        this.themeService.toggleRightSidebarTheme();
-    }
-
-    // Hide Sidebar
-    toggleHideSidebarTheme() {
-        this.themeService.toggleHideSidebarTheme();
-    }
-
-    // Header Dark Mode
-    toggleHeaderTheme() {
-        this.themeService.toggleHeaderTheme();
-    }
-
-    // Card Border
-    toggleCardBorderTheme() {
-        this.themeService.toggleCardBorderTheme();
-    }
-
-    // RTL Mode
-    toggleRTLEnabledTheme() {
-        this.themeService.toggleRTLEnabledTheme();
-    }
-
-    goBack() {
-      this.location.back();
-    }
+  toggle() { this.toggleService.toggle(); }
+  toggleTheme() { this.themeService.toggleTheme(); }
+  toggleSidebarTheme() { this.themeService.toggleSidebarTheme(); }
+  toggleRightSidebarTheme() { this.themeService.toggleRightSidebarTheme(); }
+  toggleHideSidebarTheme() { this.themeService.toggleHideSidebarTheme(); }
+  toggleHeaderTheme() { this.themeService.toggleHeaderTheme(); }
+  toggleCardBorderTheme() { this.themeService.toggleCardBorderTheme(); }
+  toggleRTLEnabledTheme() { this.themeService.toggleRTLEnabledTheme(); }
+  goBack() { this.location.back(); }
 }

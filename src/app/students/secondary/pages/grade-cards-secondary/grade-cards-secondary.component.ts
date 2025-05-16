@@ -5,7 +5,7 @@ import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/brea
 import {GradeCardComponent} from "../../../shared/components/grade-card/grade-card.component";
 
 @Component({
-  selector: 'app-grade-cards-primary',
+  selector: 'app-grade-cards-secondary',
   standalone: true,
   imports: [
     NgForOf,

@@ -1,6 +1,7 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
+import {StorageRef} from "../../../core/services/storage-ref.service";
 
 @Injectable({
   providedIn: 'root'
@@ -17,31 +18,30 @@ export class CustomizerSettingsService {
   private isCardBorderRadiusTheme = false;
   private isRTLEnabledTheme = false;
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private storageRef: StorageRef) {
     this.isBrowser = isPlatformBrowser(platformId);
 
-    if (this.isBrowser) {
-      this.isDarkTheme = this.getBool('isDarkTheme');
-      this.isSidebarDarkTheme = this.getBool('isSidebarDarkTheme');
-      this.isRightSidebarTheme = this.getBool('isRightSidebarTheme');
-      this.isHideSidebarTheme = this.getBool('isHideSidebarTheme');
-      this.isHeaderDarkTheme = this.getBool('isHeaderDarkTheme');
-      this.isCardBorderTheme = this.getBool('isCardBorderTheme');
-      this.isCardBorderRadiusTheme = this.getBool('isCardBorderRadiusTheme');
-      this.isRTLEnabledTheme = this.getBool('isRTLEnabledTheme');
-    }
+      if (this.isBrowser) {
+        this.isDarkTheme = this.getBool('isDarkTheme');
+        this.isSidebarDarkTheme = this.getBool('isSidebarDarkTheme');
+        this.isRightSidebarTheme = this.getBool('isRightSidebarTheme');
+        this.isHideSidebarTheme = this.getBool('isHideSidebarTheme');
+        this.isHeaderDarkTheme = this.getBool('isHeaderDarkTheme');
+        this.isCardBorderTheme = this.getBool('isCardBorderTheme');
+        this.isCardBorderRadiusTheme = this.getBool('isCardBorderRadiusTheme');
+        this.isRTLEnabledTheme = this.getBool('isRTLEnabledTheme');
+      }
   }
 
   private getBool(key: string): boolean {
-    if (!this.isBrowser) return false;
-    const value = localStorage.getItem(key);
+    const storage = this.storageRef.localStorage;
+    const value = storage?.getItem(key);
     return value ? JSON.parse(value) : false;
   }
 
   private setBool(key: string, value: boolean): void {
-    if (this.isBrowser) {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
+    const storage = this.storageRef.localStorage;
+    storage?.setItem(key, JSON.stringify(value));
   }
 
   toggleTheme() {

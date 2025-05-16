@@ -7,7 +7,7 @@ import {StudentService} from "../../../shared/services/student.service";
 import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
-  selector: 'app-primary-list',
+  selector: 'app-secondary-list',
   standalone: true,
   imports: [
     StudentsListComponent,
