@@ -12,7 +12,7 @@ import {CustomizerSettingsService} from "../../../../shared/services/customizer-
     standalone: true,
     imports: [RouterLink, MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule],
     templateUrl: './reset-password.component.html',
-    styleUrl: './reset-password.component.scss'
+    styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent {
 

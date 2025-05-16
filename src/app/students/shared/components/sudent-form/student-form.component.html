@@ -1,0 +1,273 @@
+<form>
+<!-- Student Form -->
+  <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+    [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+    <mat-card-header>
+      <mat-card-title>
+        <h5 class="mt-0 mb-0">
+          Alumno
+        </h5>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">DNI</label>
+              <mat-form-field>
+                <mat-label>Ingresar DNI</mat-label>
+                <input matInput [(ngModel)]="student.dni" name="dni">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Nombre Completo</label>
+              <mat-form-field>
+                <mat-label>Ingresar Nombre Completo</mat-label>
+                <input matInput [(ngModel)]="student.firstName" name="firstName">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>
+              <mat-form-field>
+                <mat-label>Ingresar Apellido Paterno</mat-label>
+                <input matInput [(ngModel)]="student.paternalLastName" name="paternalLastName">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Apellido Materno</label>
+              <mat-form-field>
+                <mat-label>Ingresar Apellido Materno</mat-label>
+                <input matInput [(ngModel)]="student.maternalLastName" name="maternalLastName">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>
+              <mat-form-field>
+                <mat-label>Ingresar Correo (Opcional)</mat-label>
+                <input matInput [(ngModel)]="student.email" name="email">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Número Telefónico</label>
+              <mat-form-field>
+                <mat-label>Ingresar Número (Opcional)</mat-label>
+                <input matInput [(ngModel)]="student.phone" name="phone">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Nivel Académico</label>
+                <mat-form-field class="mb-25">
+                    <mat-label>Nivel (deshabilitado)</mat-label>
+                    <input matInput disabled [value]="level">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Grado Académico</label>
+                <mat-form-field class="mb-25">
+                    <mat-label>Grado (deshabilitado)</mat-label>
+                    <input matInput disabled [value]="grade">
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Movilidad</label>
+              <mat-form-field>
+                <mat-label>Movilidad</mat-label>
+                <mat-select [(ngModel)]="student.hasMobility" name="hasMobility">
+                  <mat-option [value]="true">Si</mat-option>
+                  <mat-option [value]="false">No</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
+              <app-map-selector>
+                  (addressSelected)="student.address = $event"
+              </app-map-selector>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="mb-25">
+              <label class="main-label d-block lh-1 text-black">Foto</label>
+              <file-upload class="file-uploader"
+                           [multiple]="multiple"
+                           [control]="studentControl"
+              ></file-upload>
+            </div>
+          </div>
+
+        </div>
+    </mat-card-content>
+  </mat-card>
+<!-- Parent Form -->
+  <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+    [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+    <mat-card-header>
+        <mat-card-title>
+          <h5 class="mt-0 mb-0">
+            Apoderado
+          </h5>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <div *ngFor="let parent of student.parents; let i = index">
+        <ng-container *ngIf="i === 0 || (i === 1 && showSecondParent)">
+          <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+                    [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+            <mat-card-header>
+              <mat-card-title>
+                <h5 class="mt-0 mb-0">
+                  {{ i === 0 ? 'Apoderado' : 'Apoderado (Opcional)' }}
+                </h5>
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="row">
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Tipo de Pariente</label>
+                    <mat-form-field>
+                      <mat-label>Selecciona el Tipo</mat-label>
+                      <mat-select [(ngModel)]="parent.type" name="type{{i}}">
+                        <mat-option value="father">Padre</mat-option>
+                        <mat-option value="mother">Madre</mat-option>
+                        <mat-option value="guardian">Tutor</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">DNI</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar DNI</mat-label>
+                      <input matInput [(ngModel)]="parent.dni" name="dni{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Nombre Completo</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar Nombre Completo</mat-label>
+                      <input matInput [(ngModel)]="parent.firstName" name="firstName{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar Apellido Paterno</mat-label>
+                      <input matInput [(ngModel)]="parent.paternalLastName" name="paternalLastName{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Apellido Materno</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar Apellido Materno</mat-label>
+                      <input matInput [(ngModel)]="parent.maternalLastName" name="maternalLastName{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar Correo</mat-label>
+                      <input matInput [(ngModel)]="parent.email" name="email{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Número Telefónico</label>
+                    <mat-form-field>
+                      <mat-label>Ingresar Número</mat-label>
+                      <input matInput [(ngModel)]="parent.phone" name="phone{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>
+                    <mat-form-field>
+                      <mat-label>Ej. Jiron San Ignacio 204</mat-label>
+                      <input matInput [(ngModel)]="parent.address" name="address{{i}}">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="mb-25">
+                    <label class="main-label d-block lh-1 text-black">Distrito</label>
+                    <app-district-field
+                      [(ngModel)]="parent.district"
+                      name="district{{i}}"
+                      [themeService]="themeService">
+                    </app-district-field>
+                  </div>
+                </div>
+
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+      </div>
+      <mat-card-content class="buttons">
+        <div class="btn-box">
+          <button mat-stroked-button class="basic" (click)="showSecondParent = !showSecondParent">
+                      {{ showSecondParent ? '− Quitar Apoderado' : '+ Agregar Apoderado' }}
+          </button>
+        </div>
+        <div class="btn-box">
+          <button mat-button type="submit" (click)="submitClicked.emit()">Guardar</button>
+          <button mat-button type="button" (click)="cancelClicked.emit()">Cancel</button>
+        </div>
+      </mat-card-content>
+    </mat-card-content>
+  </mat-card>
+</form>

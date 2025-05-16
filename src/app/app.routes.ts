@@ -1,85 +1,60 @@
-import { Routes } from '@angular/router';
-import {AuthenticationComponent} from "./iam/pages/authentication/authentication.component";
-import {ConfirmEmailComponent} from "./iam/pages/authentication/confirm-email/confirm-email.component";
-import {LockScreenComponent} from "./iam/pages/authentication/lock-screen/lock-screen.component";
-import {LogoutComponent} from "./iam/pages/authentication/logout/logout.component";
-import {ResetPasswordComponent} from "./iam/pages/authentication/reset-password/reset-password.component";
-import {SignInComponent} from "./iam/pages/authentication/sign-in/sign-in.component";
-import {SignUpComponent} from "./iam/pages/authentication/sign-up/sign-up.component";
-import {ForgotPasswordComponent} from "./iam/pages/authentication/forgot-password/forgot-password.component";
-import {NotFoundComponent} from "./public/pages/not-found/not-found.component";
-import {InternalErrorComponent} from "./public/pages/internal-error/internal-error.component";
-import {BlankPageComponent} from "./public/pages/blank-page/blank-page.component";
-import {BlankLayoutComponent} from "./shared/layouts/blank-layout/blank-layout.component";
-import {DashboardComponent} from "./dashboard/pages/dashboard.component";
-import {AppComponent} from "./app.component";
-import {MainLayoutComponent} from "./shared/layouts/main-layout/main-layout.component";
-import {SettingsComponent} from "./settings/pages/settings.component";
-import {PrivacyPolicyComponent} from "./settings/pages/privacy-policy/privacy-policy.component";
-import {TermsConditionsComponent} from "./settings/pages/terms-conditions/terms-conditions.component";
-import {ChangePasswordComponent} from "./settings/pages/change-password/change-password.component";
-import {DriversComponent} from "./drivers/pages/drivers.component";
-import {CreateDriverComponent} from "./drivers/pages/create-driver/create-driver.component";
-import {DriverCardsComponent} from "./drivers/pages/driver-cards/driver-cards.component";
-import {VehicleComponent} from "./vehicles/pages/vehicle.component";
-import {CreateVehicleComponent} from "./vehicles/pages/create-vehicle/create-vehicle.component";
-import {EditVehicleComponent} from "./vehicles/pages/edit-vehicle/edit-vehicle.component";
-import {VehicleListComponent} from "./vehicles/pages/vehicle-list/vehicle-list.component";
+import {Routes} from '@angular/router';
 
 export const routes: Routes = [
-  { path: '',redirectTo: 'authentication', pathMatch: 'full' },
-  { path: '',
-    component: BlankLayoutComponent,
+  {
+    path: '',
+    redirectTo: 'authentication/sign-in',
+    pathMatch: 'full'
+  },
+  {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./iam/iam.routes').then((m) => m.IAM_ROUTES)
+  },
+  {
+    path: '',
+    loadComponent:() =>
+      import('./shared/layouts/main-layout/main-layout.component').then((m) => m.MainLayoutComponent),
     children: [
       {
-        path: 'authentication',
-        component: AuthenticationComponent,
-        children: [
-          {path: '', redirectTo: 'sign-in', pathMatch: 'full'},
-          {path: 'sign-in', component: SignInComponent},
-          {path: 'sign-up', component: SignUpComponent},
-          {path: 'forgot-password', component: ForgotPasswordComponent},
-          {path: 'reset-password', component: ResetPasswordComponent},
-          {path: 'lock-screen', component: LockScreenComponent},
-          {path: 'confirm-email', component: ConfirmEmailComponent},
-          {path: 'logout', component: LogoutComponent},
-        ]
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES)
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./profile/profile.routes').then((m) => m.PROFILE_ROUTES)
+      },
+      {
+        path: 'students',
+        loadChildren: () =>
+          import('./students/students.routes').then((m) => m.STUDENTS_ROUTES)
+      },
+      {
+        path: 'school-transportation',
+        loadChildren: () =>
+          import('./school-transportation/school-transportation.routes').then((m) => m.SCHOOL_TRANSPORTATION_ROUTES)
+      },
+      {
+        path: 'notifications',
+        loadChildren: () =>
+          import('./notifications/notifications.routes').then((m) => m.NOTIFICATIONS_ROUTES)
+      },
+      { path: 'settings',
+        loadChildren:() =>
+          import('./settings/settings.routes').then((m) => m.SETTINGS_ROUTES)
+      },
+      {
+        path: 'faq',
+        loadChildren: () =>
+          import('./public/faq/faq.routes').then((m) => m.FAQ_ROUTES)
       }
     ]
   },
   {
     path: '',
-    component: MainLayoutComponent,
-    children: [
-      {path: 'dashboard', component: DashboardComponent},
-      { path: 'internal-error', component: InternalErrorComponent },
-      { path: 'blank-page', component: BlankPageComponent },
-      { path: 'settings',
-        component: SettingsComponent,
-        children: [
-          {path: 'change-password', component: ChangePasswordComponent},
-          {path: 'privacy-policy', component: PrivacyPolicyComponent},
-          {path: 'terms-conditions', component: TermsConditionsComponent},
-        ]
-      },
-      {
-        path: 'drivers',
-        component: DriversComponent,
-        children: [
-          {path: '', component: DriverCardsComponent},
-          {path: 'create-driver', component: CreateDriverComponent},
-        ]
-      },
-      {
-        path: 'vehicles',
-        component: VehicleComponent,
-        children: [
-          {path: '', component: VehicleListComponent},
-          {path: 'create-vehicle', component: CreateVehicleComponent},
-          {path: 'edit-vehicle', component: EditVehicleComponent},
-        ]
-      },
-      { path: '**', component: NotFoundComponent },
-    ]
-  },
+    loadChildren: () =>
+      import('./public/public.routes').then((m) => m.PUBLIC_ROUTES)
+  }
 ];

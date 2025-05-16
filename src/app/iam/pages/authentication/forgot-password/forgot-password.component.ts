@@ -12,7 +12,7 @@ import {CustomizerSettingsService} from "../../../../shared/services/customizer-
     standalone: true,
     imports: [RouterLink, MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule],
     templateUrl: './forgot-password.component.html',
-    styleUrl: './forgot-password.component.scss'
+    styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent {
 

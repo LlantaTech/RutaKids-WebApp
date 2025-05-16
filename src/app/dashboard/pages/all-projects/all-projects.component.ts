@@ -14,7 +14,7 @@ import {CustomizerSettingsService} from "../../../shared/services/customizer-set
     standalone: true,
     imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatTooltipModule],
     templateUrl: './all-projects.component.html',
-    styleUrl: './all-projects.component.scss'
+    styleUrls: ['./all-projects.component.scss']
 })
 export class AllProjectsComponent {
 

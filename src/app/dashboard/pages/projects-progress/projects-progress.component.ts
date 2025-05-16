@@ -14,7 +14,7 @@ import {
     ApexDataLabels,
     ApexTooltip
 } from "ng-apexcharts";
-import {isPlatformBrowser} from "@angular/common";
+import {MatDatepicker} from "@angular/material/datepicker";
 
 export type ChartOptions = {
     series: ApexNonAxisChartSeries;
@@ -30,9 +30,9 @@ export type ChartOptions = {
 @Component({
     selector: 'app-projects-progress:not(p)',
     standalone: true,
-    imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, NgApexchartsModule],
+    imports: [MatCardModule, MatMenuModule, MatButtonModule, MatDatepicker, NgApexchartsModule],
     templateUrl: './projects-progress.component.html',
-    styleUrl: './projects-progress.component.scss'
+    styleUrls: ['./projects-progress.component.scss']
 })
 export class ProjectsProgressComponent {
 

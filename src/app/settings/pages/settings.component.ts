@@ -3,22 +3,28 @@ import {CustomizerSettingsService} from "../../shared/services/customizer-settin
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {MatAnchor} from "@angular/material/button";
+import {BreadcrumbComponent} from "../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [
-    RouterLinkActive,
-    MatCardContent,
-    MatCard,
-    RouterOutlet,
-    RouterLink,
-    MatAnchor
-  ],
+    imports: [
+        RouterLinkActive,
+        MatCardContent,
+        MatCard,
+        RouterOutlet,
+        RouterLink,
+        MatAnchor,
+        BreadcrumbComponent
+    ],
   templateUrl: './settings.component.html',
-  styleUrl: './settings.component.scss'
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
+
+    breadcrumbTitle = 'Settings';
+    breadcrumbPaths = ['Settings'];
+
     // isToggled
     isToggled = false;
 

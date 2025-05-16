@@ -5,7 +5,6 @@
     [class.card-border-radius]="themeService.isCardBorderRadius()"
     [class.rtl-enabled]="themeService.isRTLEnabled()"
 >
-
     <!-- Sidebar -->
     <app-sidebar></app-sidebar>
 
@@ -17,6 +16,7 @@
         [class.hide-sidebar]="themeService.isHideSidebar()"
     >
         <app-header></app-header>
+        <app-global-alert></app-global-alert>
         <router-outlet></router-outlet>
         <div class="flex-grow-1"></div>
         <app-footer></app-footer>

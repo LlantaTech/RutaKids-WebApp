@@ -11,7 +11,7 @@ describe('BlankLayoutComponent', () => {
       imports: [BlankLayoutComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BlankLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +20,11 @@ describe('BlankLayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('debe contener un <router-outlet>', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+  });
+
+
 });

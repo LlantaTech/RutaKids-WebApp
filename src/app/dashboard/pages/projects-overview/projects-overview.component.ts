@@ -11,6 +11,6 @@ import { RouterLink } from '@angular/router';
     standalone: true,
     imports: [MatCardModule, TotalProjectsComponent, ActiveProjectsComponent, CompletedProjectsComponent, TotalMembersComponent, RouterLink],
     templateUrl: './projects-overview.component.html',
-    styleUrl: './projects-overview.component.scss'
+    styleUrls: ['./projects-overview.component.scss']
 })
 export class ProjectsOverviewComponent {}

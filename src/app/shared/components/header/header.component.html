@@ -19,12 +19,12 @@
                 <span class="middle-bar d-block bg-black transition"></span>
                 <span class="bottom-bar d-block bg-black transition"></span>
             </div>
-            <form class="search-box position-relative">
-                <i class="material-symbols-outlined">
-                    search
-                </i>
-                <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search here...">
-            </form>
+            <button mat-icon-button class="back-btn" (click)="goBack()">
+                    <i class="material-symbols-outlined">
+                        arrow_back
+                    </i>
+            </button>
+
         </div>
         <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">
             <li>
@@ -41,32 +41,8 @@
                         <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">
                             <li>
                                 <button mat-button>
-                                    <img src="assets/images/flags/usa.png" alt="flag">
+                                    <img ngSrc="assets/images/flags/usa.png" alt="flag" height="30" width="30">
                                     English
-                                </button>
-                            </li>
-                            <li>
-                                <button mat-button>
-                                    <img src="assets/images/flags/australia.png" alt="flag">
-                                    Australian
-                                </button>
-                            </li>
-                            <li>
-                                <button mat-button>
-                                    <img src="assets/images/flags/spain.png" alt="flag">
-                                    Spanish
-                                </button>
-                            </li>
-                            <li>
-                                <button mat-button>
-                                    <img src="assets/images/flags/france.png" alt="flag">
-                                    French
-                                </button>
-                            </li>
-                            <li>
-                                <button mat-button>
-                                    <img src="assets/images/flags/germany.png" alt="flag">
-                                    German
                                 </button>
                             </li>
                         </ul>
@@ -85,13 +61,6 @@
                 </button>
             </li>
             <li>
-                <a routerLink="/calendar" mat-icon-button class="calendar-menu-btn p-0">
-                    <i class="material-symbols-outlined">
-                        calendar_today
-                    </i>
-                </a>
-            </li>
-            <li>
                 <button mat-icon-button [matMenuTriggerFor]="messagesMenu" class="messages-menu-btn p-0">
                     <i class="material-symbols-outlined">
                         mail
@@ -106,7 +75,7 @@
                     >
                         <div class="title d-flex align-items-center justify-content-between">
                             <span class="fw-medium">
-                                Messages 
+                                Messages
                                 <span class="text-body fw-normal">(05)</span>
                             </span>
                             <a routerLink="/chat" class="link-btn text-daxa">
@@ -243,7 +212,7 @@
                             <img src="assets/images/admin.png" alt="profile-image">
                             <div class="title">
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
-                                    Mateo Luca
+                                    Mateo "El Temible Teus"
                                 </a>
                                 <span class="designation d-block text-body">
                                     Admin
@@ -267,10 +236,10 @@
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">
-                                    info
+                                    help
                                 </i>
-                                Support
-                                <a routerLink="/settings/connections" class="link-btn d-block position-absolute"></a>
+                                FAQ
+                                <a routerLink="/faq" class="link-btn d-block position-absolute"></a>
                             </li>
                             <li class="position-relative transition fw-medium">
                                 <i class="material-symbols-outlined">

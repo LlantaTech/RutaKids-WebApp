@@ -1,17 +1,18 @@
-import { NgClass } from '@angular/common';
+import {NgClass, NgOptimizedImage} from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { Component, HostListener } from '@angular/core';
 import { ToggleService } from '../sidebar/toggle.service';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'app-header',
     standalone: true,
-    imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+    imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, RouterLinkActive, NgOptimizedImage],
+      templateUrl: './header.component.html',
+      styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 
@@ -23,7 +24,8 @@ export class HeaderComponent {
 
     constructor(
         private toggleService: ToggleService,
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        private location: Location
     ) {
         this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
             this.isSidebarToggled = isSidebarToggled;
@@ -85,4 +87,7 @@ export class HeaderComponent {
         this.themeService.toggleRTLEnabledTheme();
     }
 
+    goBack() {
+      this.location.back();
+    }
 }
