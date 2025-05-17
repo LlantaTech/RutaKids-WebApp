@@ -8,7 +8,7 @@ import {SchoolTransportation} from "../model/school-transportation";
 })
 export class SchoolTransportationService {
 
-  private apiUrl = 'http://localhost:3000/school-transportation';
+  private apiUrl = 'https://fakeapi-gopw.onrender.com/school-transportation';
 
   constructor(private http: HttpClient) { }
 
