@@ -1,5 +1,4 @@
 export const environment = {
   production: false,
-  googleMapsApiKey: 'AIzaSyDAGVpe6gsBRF7AmIgnWQQ6nxb41zZkvk4',
-  apiUrl: 'https://fakeapi-gopw.onrender.com'
+  googleMapsApiKey: 'AIzaSyDAGVpe6gsBRF7AmIgnWQQ6nxb41zZkvk4'
 };

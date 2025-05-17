@@ -35,8 +35,7 @@ describe('ComicSoonComponent', () => {
   });
 
   it('debe limpiar el intervalo al destruirse', () => {
-    const win = typeof window !== 'undefined' ? window : { clearInterval: () => {} };
-    const clearSpy = spyOn(win, 'clearInterval');
+    const clearSpy = spyOn(window, 'clearInterval');
     component.ngOnDestroy();
     expect(clearSpy).toHaveBeenCalled();
   });

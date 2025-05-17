@@ -1,65 +1,87 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import {isPlatformBrowser, NgComponentOutlet, NgIf} from '@angular/common';
+import {Component, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
+
 import {
-  DonutChartOptions
-} from '../../../dashboard/components/chart-donut.component';
-import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card"; // asegúrate de importar desde el archivo correcto
+    ChartComponent,
+    ApexNonAxisChartSeries,
+    ApexResponsive,
+    ApexChart,
+    ApexLegend,
+    NgApexchartsModule,
+    ApexDataLabels,
+    ApexTooltip
+} from "ng-apexcharts";
+import {MatDatepicker} from "@angular/material/datepicker";
+
+export type ChartOptions = {
+    series: ApexNonAxisChartSeries;
+    chart: ApexChart;
+    dataLabels: ApexDataLabels;
+    legend: ApexLegend;
+    responsive: ApexResponsive[];
+    labels: any;
+    tooltip: ApexTooltip;
+    colors: string[];
+};
 
 @Component({
-  selector: 'app-projects-progress:not(p)',
-  standalone: true,
-  imports: [
-    MatCardContent,
-    MatCardHeader,
-    MatCard,
-    MatCardTitle,
-    NgIf,
-    NgComponentOutlet
-  ],
-  templateUrl: './projects-progress.component.html',
-  styleUrls: ['./projects-progress.component.scss']
+    selector: 'app-projects-progress:not(p)',
+    standalone: true,
+    imports: [MatCardModule, MatMenuModule, MatButtonModule, MatDatepicker, NgApexchartsModule],
+    templateUrl: './projects-progress.component.html',
+    styleUrls: ['./projects-progress.component.scss']
 })
 export class ProjectsProgressComponent {
-  chartOptions: DonutChartOptions | null = null;
-  isBrowser = false;
-  chartComponent: any = null;
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+    @ViewChild("chart") chart: ChartComponent;
+    public chartOptions: Partial<ChartOptions>;
 
-  async ngOnInit() {
-    if (this.isBrowser) {
-      const { ChartDonutComponent } = await import('../../../dashboard/components/chart-donut.component');
-
-      this.chartComponent = ChartDonutComponent;
-      this.chartOptions = {
-        series: [60, 30, 10],
-        chart: {
-          height: 450,
-          type: "donut"
-        },
-        labels: ["In Progress", "Not Started", "Completed"],
-        legend: {
-          offsetY: 11,
-          fontSize: "14px",
-          position: "bottom",
-          horizontalAlign: "center",
-          labels: { colors: "#919aa3" },
-          itemMargin: { horizontal: 12, vertical: 7 }
-        },
-        dataLabels: {
-          enabled: false,
-          style: { fontSize: '14px' },
-          dropShadow: { enabled: false }
-        },
-        colors: ["#00cae3", "#0e7aee", "#796df6"],
-        tooltip: {
-          y: {
-            formatter: (val: number) => `${val}%`
-          }
-        }
-      };
+    constructor() {
+        this.chartOptions = {
+            series: [60, 30, 10],
+            chart: {
+                height: 450,
+                type: "donut"
+            },
+            labels: [
+                "In Progress", "Not Started", "Completed"
+            ],
+            legend: {
+                offsetY: 11,
+                fontSize: "14px",
+                position: "bottom",
+                horizontalAlign: "center",
+                labels: {
+                    colors: "#919aa3",
+                },
+                itemMargin: {
+                    horizontal: 12,
+                    vertical: 7
+                }
+            },
+            dataLabels: {
+                enabled: false,
+                style: {
+                    fontSize: '14px'
+                },
+                dropShadow: {
+                    enabled: false
+                }
+            },
+            colors: [
+                "#00cae3", "#0e7aee", "#796df6"
+            ],
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + "%";
+                    }
+                }
+            }
+        };
     }
-  }
+
 }

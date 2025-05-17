@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-import {CreateSchoolRoutesComponent} from "./school-routes/pages/create-school-routes/create-school-routes.component";
 
 export const routes: Routes = [
   {
@@ -50,9 +49,6 @@ export const routes: Routes = [
         path: 'faq',
         loadChildren: () =>
           import('./public/faq/faq.routes').then((m) => m.FAQ_ROUTES)
-      },
-      {
-        path:'routes', component: CreateSchoolRoutesComponent
       }
     ]
   },

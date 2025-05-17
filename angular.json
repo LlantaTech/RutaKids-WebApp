@@ -35,7 +35,12 @@
               "node_modules/remixicon/fonts/remixicon.css",
               "src/styles/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/apexcharts/dist/apexcharts.min.js"
+            ],
+            "ssr": {
+              "entry": "server.ts"
+            },
             "server": "src/main.server.ts",
             "prerender": true
           },
@@ -54,39 +59,16 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": {
-                "scripts": true,
-                "styles": true,
-                "vendor": true
-              },
-              "extractLicenses": true
+                "optimization": true,
+                "sourceMap": false,
+                "extractLicenses": true,
             },
             "development": {
               "optimization": false,
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production",
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/llantatech-server",
-            "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "sourceMap": false,
-              "optimization": true
-            },
-            "development": {
-              "sourceMap": true,
-              "optimization": false
-            }
-          }
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

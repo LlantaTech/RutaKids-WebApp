@@ -1,14 +1,17 @@
 import {
-  AfterViewInit, Component, ElementRef, ViewChild, Output, EventEmitter, Inject
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChild,
+  Output,
+  EventEmitter
 } from '@angular/core';
-import { isPlatformBrowser, CommonModule } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { environment } from "../../../../environments/environment";
-import { DocumentRef } from "../../../core/services/document-ref.service"; // <-- agregado
+import {environment} from "../../../../environments/environment";
 
 declare const google: any;
 
@@ -26,49 +29,31 @@ declare const google: any;
   styleUrls: ['./map-selector.component.scss']
 })
 export class MapSelectorComponent implements AfterViewInit {
-
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
+
   @Output() addressSelected = new EventEmitter<{
     address: string;
     coordinates: { lat: number; lng: number };
   }>();
 
   address: string = '';
-  private isBrowser: boolean;
-
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private documentRef: DocumentRef
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
 
   ngAfterViewInit(): void {
-    if (!this.isBrowser) return;
-
-    const doc = this.documentRef.nativeDocument;
-    if (!doc) return;
-
-    const script = doc.createElement('script');
+    const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=places`;
     script.defer = true;
     script.onload = () => this.initMap();
-    doc.head.appendChild(script);
+    document.head.appendChild(script);
   }
 
   initMap(): void {
-    if (!this.isBrowser) return;
-
-    const doc = this.documentRef.nativeDocument;
-    if (!doc) return;
-
-    const mapElement = doc.getElementById('map') as HTMLElement;
-    if (!mapElement) return;
-
-    const map = new google.maps.Map(mapElement, {
-      center: { lat: -12.0464, lng: -77.0428 },
-      zoom: 12
-    });
+    const map = new google.maps.Map(
+      document.getElementById('map') as HTMLElement,
+      {
+        center: { lat: -12.0464, lng: -77.0428 },
+        zoom: 12
+      }
+    );
 
     const autocomplete = new google.maps.places.Autocomplete(
       this.searchInput.nativeElement,
@@ -82,7 +67,7 @@ export class MapSelectorComponent implements AfterViewInit {
 
     autocomplete.addListener('place_changed', () => {
       const place = autocomplete.getPlace();
-      if (!place.geometry?.location) {
+      if (!place.geometry || !place.geometry.location) {
         alert('No se encontró la ubicación seleccionada');
         return;
       }
@@ -99,6 +84,8 @@ export class MapSelectorComponent implements AfterViewInit {
         address: this.address,
         coordinates: { lat, lng }
       });
+
+      console.log('📍 Coordenadas:', lat, lng);
     });
   }
 }

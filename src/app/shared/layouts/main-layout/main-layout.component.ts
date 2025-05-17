@@ -1,86 +1,109 @@
-import { SidebarComponent } from "../../components/sidebar/sidebar.component";
+import {SidebarComponent} from "../../components/sidebar/sidebar.component";
 declare let $: any;
-import {Component, OnDestroy, OnInit, Inject, PLATFORM_ID} from '@angular/core';
+import { Component } from '@angular/core';
 import { filter } from 'rxjs/operators';
-import { CommonModule, Location, LocationStrategy, PathLocationStrategy, isPlatformBrowser } from '@angular/common';
+import { CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { RouterOutlet, Router, NavigationCancel, NavigationEnd, RouterLink } from '@angular/router';
-import { HeaderComponent } from "../../components/header/header.component";
-import { FooterComponent } from "../../components/footer/footer.component";
-import { CustomizerSettingsService } from "../../services/customizer-settings/customizer-settings.service";
-import { ToggleService } from "../../components/sidebar/toggle.service";
-import { GlobalAlertComponent } from "../../components/global-alert/global-alert.component";
-import { WindowRef } from "../../../core/services/window-ref.service";
+import {HeaderComponent} from "../../components/header/header.component";
+import {FooterComponent} from "../../components/footer/footer.component";
+import {CustomizerSettingsComponent} from "../../components/customizer-settings/customizer-settings.component";
+import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
+import {ToggleService} from "../../components/sidebar/toggle.service";
+import {GlobalAlertComponent} from "../../components/global-alert/global-alert.component";
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    SidebarComponent,
-    HeaderComponent,
-    FooterComponent,
-    GlobalAlertComponent
-  ],
+  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, FooterComponent, RouterLink, CustomizerSettingsComponent, GlobalAlertComponent],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
   providers: [
-    Location,
-    {
+    Location, {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     }
   ]
 })
-export class MainLayoutComponent implements OnInit, OnDestroy {
+export class MainLayoutComponent {
+    title = 'RutaKis - LlantaTech';
+    routerSubscription: any;
+    location: any;
 
-  title = 'RutaKis - LlantaTech';
-  routerSubscription: any;
-  location: any;
-  isSidebarToggled = false;
-  isToggled = false;
+    // isSidebarToggled
+    isSidebarToggled = false;
 
-  constructor(
-    public router: Router,
-    private toggleService: ToggleService,
-    public themeService: CustomizerSettingsService,
-    private windowRef: WindowRef,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    this.toggleService.isSidebarToggled$.subscribe(value => this.isSidebarToggled = value);
-    this.themeService.isToggled$.subscribe(value => this.isToggled = value);
-  }
+    // isToggled
+    isToggled = false;
 
-  ngOnInit() {
-    this.recallJsFunctions();
-  }
+    constructor(
+        public router: Router,
+        private toggleService: ToggleService,
+        public themeService: CustomizerSettingsService
+    ) {
+        this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
+            this.isSidebarToggled = isSidebarToggled;
+        });
+        this.themeService.isToggled$.subscribe(isToggled => {
+            this.isToggled = isToggled;
+        });
+    }
 
-  ngOnDestroy() {
-    this.routerSubscription?.unsubscribe();
-  }
+    // ngOnInit
+    ngOnInit(){
+        this.recallJsFuntions();
+    }
 
-  recallJsFunctions() {
-    this.routerSubscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
-      .subscribe(event => {
-        this.location = this.router.url;
+    // recallJsFuntions
+    recallJsFuntions() {
+        this.routerSubscription = this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
+        .subscribe(event => {
+            this.location = this.router.url;
+            if (!(event instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+        });
+    }
 
-        if (!(event instanceof NavigationEnd)) return;
+    // Dark Mode
+    toggleTheme() {
+        this.themeService.toggleTheme();
+    }
 
-        if (isPlatformBrowser(this.platformId)) {
-          const win = this.windowRef.nativeWindow;
-          win?.scrollTo(0, 0);
-        }
-      });
-  }
+    // Sidebar Dark
+    toggleSidebarTheme() {
+        this.themeService.toggleSidebarTheme();
+    }
 
-  toggleTheme() { this.themeService.toggleTheme(); }
-  toggleSidebarTheme() { this.themeService.toggleSidebarTheme(); }
-  toggleRightSidebarTheme() { this.themeService.toggleRightSidebarTheme(); }
-  toggleHideSidebarTheme() { this.themeService.toggleHideSidebarTheme(); }
-  toggleHeaderTheme() { this.themeService.toggleHeaderTheme(); }
-  toggleCardBorderTheme() { this.themeService.toggleCardBorderTheme(); }
-  toggleCardBorderRadiusTheme() { this.themeService.toggleCardBorderRadiusTheme(); }
-  toggleRTLEnabledTheme() { this.themeService.toggleRTLEnabledTheme(); }
+    // Right Sidebar
+    toggleRightSidebarTheme() {
+        this.themeService.toggleRightSidebarTheme();
+    }
+
+    // Hide Sidebar
+    toggleHideSidebarTheme() {
+        this.themeService.toggleHideSidebarTheme();
+    }
+
+    // Header Dark Mode
+    toggleHeaderTheme() {
+        this.themeService.toggleHeaderTheme();
+    }
+
+    // Card Border
+    toggleCardBorderTheme() {
+        this.themeService.toggleCardBorderTheme();
+    }
+
+    // Card Border Radius
+    toggleCardBorderRadiusTheme() {
+        this.themeService.toggleCardBorderRadiusTheme();
+    }
+
+    // RTL Mode
+    toggleRTLEnabledTheme() {
+        this.themeService.toggleRTLEnabledTheme();
+    }
 
 }
