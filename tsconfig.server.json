@@ -4,7 +4,7 @@
     "outDir": "./out-tsc/server",
     "types": ["node"]
   },
-  "files": ["src/server.ts", "src/main.server.ts"],
+  "files": ["src/main.server.ts"],
   "angularCompilerOptions": {
     "enableIvy": true
   }
