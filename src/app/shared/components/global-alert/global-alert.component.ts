@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NgClass, NgForOf} from "@angular/common";
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser, NgClass, NgForOf} from "@angular/common";
 import {GlobalAlert} from "../../model/global-alert";
 import {GlobalAlertService} from "../../services/global-alert/global-alert.service";
 import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
@@ -17,6 +17,7 @@ import {CustomizerSettingsService} from "../../services/customizer-settings/cust
 export class GlobalAlertComponent implements OnInit {
   alerts: GlobalAlert[] = [];
   private nextId = 0;
+  private isBrowser: boolean;
 
   ngOnInit(): void {
     this.alertService.alert$.subscribe(({ type, message }) => {
@@ -42,8 +43,11 @@ export class GlobalAlertComponent implements OnInit {
 
   constructor(
         public themeService: CustomizerSettingsService,
-        private alertService: GlobalAlertService
+        private alertService: GlobalAlertService,
+        @Inject(PLATFORM_ID) private platformId: Object
   ) {
+    this.isBrowser = isPlatformBrowser(this.platformId)
+
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;
         });

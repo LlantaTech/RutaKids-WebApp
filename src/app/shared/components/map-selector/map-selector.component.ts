@@ -4,14 +4,16 @@ import {
   ElementRef,
   ViewChild,
   Output,
-  EventEmitter
+  EventEmitter,
+  Inject,
+  PLATFORM_ID
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import {environment} from "../../../../environments/environment";
+import { environment } from '../../../../environments/environment';
 
 declare const google: any;
 
@@ -37,8 +39,15 @@ export class MapSelectorComponent implements AfterViewInit {
   }>();
 
   address: string = '';
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngAfterViewInit(): void {
+    if (!this.isBrowser) return;
+
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=places`;
     script.defer = true;
@@ -47,6 +56,8 @@ export class MapSelectorComponent implements AfterViewInit {
   }
 
   initMap(): void {
+    if (!this.isBrowser) return;
+
     const map = new google.maps.Map(
       document.getElementById('map') as HTMLElement,
       {

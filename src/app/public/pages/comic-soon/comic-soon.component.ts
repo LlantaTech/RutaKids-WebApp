@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 
 import {RouterLink} from "@angular/router";
@@ -6,6 +6,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-comic-soon',
@@ -16,6 +17,7 @@ import {MatInputModule} from "@angular/material/input";
 })
 export class ComicSoonComponent implements OnInit, OnDestroy {
 
+    private isBrowser: boolean;
     private countdownInterval: any;
     public countdown: { days: number, hours: number, minutes: number, seconds: number };
 
@@ -23,8 +25,10 @@ export class ComicSoonComponent implements OnInit, OnDestroy {
     isToggled = false;
 
     constructor(
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        @Inject(PLATFORM_ID) private platformId: Object
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
         this.countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
         this.themeService.isToggled$.subscribe(isToggled => {
             this.isToggled = isToggled;

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: llantatech-ssr
+    env: node
+    buildCommand: npm install && npm run build:ssr
+    startCommand: npm run serve:ssr
+    rootDir: .
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20

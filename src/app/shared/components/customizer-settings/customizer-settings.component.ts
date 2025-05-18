@@ -1,75 +1,66 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
+import { CustomizerSettingsService } from '../../services/customizer-settings/customizer-settings.service';
+import {PlatformService} from "../../services/platform/platform.service";
 
 @Component({
-    selector: 'app-customizer-settings',
-    standalone: true,
-    imports: [RouterLink, NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule],
-    templateUrl: './customizer-settings.component.html',
-    styleUrls: ['./customizer-settings.component.scss']
+  selector: 'app-customizer-settings',
+  standalone: true,
+  imports: [NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule, NgIf],
+  templateUrl: './customizer-settings.component.html',
+  styleUrls: ['./customizer-settings.component.scss']
 })
 export class CustomizerSettingsComponent {
+  isToggled = false;
 
-    // isToggled
-    isToggled = false;
-
-    constructor(
-        public themeService: CustomizerSettingsService
-    ) {
-        this.themeService.isToggled$.subscribe(isToggled => {
-            this.isToggled = isToggled;
-        });
+  constructor(
+    public themeService: CustomizerSettingsService,
+    public platform: PlatformService
+  ) {
+    if (this.platform.isBrowser) {
+      this.themeService.isToggled$.subscribe(isToggled => {
+        this.isToggled = isToggled;
+      });
     }
+  }
 
-    // Dark Mode
-    toggleTheme() {
-        this.themeService.toggleTheme();
-    }
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
 
-    // Sidebar Dark
-    toggleSidebarTheme() {
-        this.themeService.toggleSidebarTheme();
-    }
+  toggleSidebarTheme() {
+    this.themeService.toggleSidebarTheme();
+  }
 
-    // Right Sidebar
-    toggleRightSidebarTheme() {
-        this.themeService.toggleRightSidebarTheme();
-    }
+  toggleRightSidebarTheme() {
+    this.themeService.toggleRightSidebarTheme();
+  }
 
-    // Hide Sidebar
-    toggleHideSidebarTheme() {
-        this.themeService.toggleHideSidebarTheme();
-    }
+  toggleHideSidebarTheme() {
+    this.themeService.toggleHideSidebarTheme();
+  }
 
-    // Header Dark Mode
-    toggleHeaderTheme() {
-        this.themeService.toggleHeaderTheme();
-    }
+  toggleHeaderTheme() {
+    this.themeService.toggleHeaderTheme();
+  }
 
-    // Card Border
-    toggleCardBorderTheme() {
-        this.themeService.toggleCardBorderTheme();
-    }
+  toggleCardBorderTheme() {
+    this.themeService.toggleCardBorderTheme();
+  }
 
-    // Card Border Radius
-    toggleCardBorderRadiusTheme() {
-        this.themeService.toggleCardBorderRadiusTheme();
-    }
+  toggleCardBorderRadiusTheme() {
+    this.themeService.toggleCardBorderRadiusTheme();
+  }
 
-    // RTL Mode
-    toggleRTLEnabledTheme() {
-        this.themeService.toggleRTLEnabledTheme();
-    }
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
 
-    // Settings Button Toggle
-    toggle() {
-        this.themeService.toggle();
-    }
-
+  toggle() {
+    this.themeService.toggle();
+  }
 }

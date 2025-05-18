@@ -1,8 +1,8 @@
 import {SidebarComponent} from "../../components/sidebar/sidebar.component";
 declare let $: any;
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import { filter } from 'rxjs/operators';
-import { CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {CommonModule, isPlatformBrowser, Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { RouterOutlet, Router, NavigationCancel, NavigationEnd, RouterLink } from '@angular/router';
 import {HeaderComponent} from "../../components/header/header.component";
 import {FooterComponent} from "../../components/footer/footer.component";
@@ -25,9 +25,17 @@ import {GlobalAlertComponent} from "../../components/global-alert/global-alert.c
   ]
 })
 export class MainLayoutComponent {
+    // title
     title = 'RutaKis - LlantaTech';
+
+    // routerSubscription
     routerSubscription: any;
+
+    // location
     location: any;
+
+    // isBrowser
+    isBrowser: boolean;
 
     // isSidebarToggled
     isSidebarToggled = false;
@@ -38,8 +46,11 @@ export class MainLayoutComponent {
     constructor(
         public router: Router,
         private toggleService: ToggleService,
-        public themeService: CustomizerSettingsService
+        public themeService: CustomizerSettingsService,
+        @Inject(PLATFORM_ID) private platformId: Object
     ) {
+        this.isBrowser = isPlatformBrowser(this.platformId);
+
         this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
             this.isSidebarToggled = isSidebarToggled;
         });

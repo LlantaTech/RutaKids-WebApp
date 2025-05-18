@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BreadcrumbComponent} from "../../../../shared/components/breadcrumb/breadcrumb.component";
 
 @Component({
-  selector: 'app-edit-primary',
+  selector: 'app-edit-secondary',
   standalone: true,
   imports: [
     StudentFormComponent,
