@@ -37,7 +37,7 @@ export class CustomizerSettingsService {
     this.isBrowser = isPlatformBrowser(platformId);
 
     if (this.isBrowser) {
-      this.loadSettings();
+      setTimeout(() => this.loadSettings());
     }
   }
 
