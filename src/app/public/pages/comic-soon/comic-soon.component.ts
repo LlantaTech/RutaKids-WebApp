@@ -6,12 +6,12 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {isPlatformBrowser} from "@angular/common";
+import {isPlatformBrowser, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-comic-soon',
   standalone: true,
-  imports: [RouterLink, MatButtonModule, MatMenuModule, MatFormFieldModule, MatInputModule],
+  imports: [RouterLink, MatButtonModule, MatMenuModule, MatFormFieldModule, MatInputModule, NgOptimizedImage],
   templateUrl: './comic-soon.component.html',
   styleUrls: ['./comic-soon.component.scss']
 })

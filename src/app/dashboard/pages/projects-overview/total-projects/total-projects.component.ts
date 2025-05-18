@@ -3,11 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { CustomizerSettingsService } from '../../../../shared/services/customizer-settings/customizer-settings.service';
 import { StudentService } from '../../../../students/shared/services/student.service';
 import {PlatformService} from "../../../../shared/services/platform/platform.service";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-total-projects',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, NgOptimizedImage],
   templateUrl: './total-projects.component.html',
   styleUrls: ['./total-projects.component.scss']
 })

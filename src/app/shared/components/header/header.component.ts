@@ -1,4 +1,4 @@
-import {isPlatformBrowser, NgClass} from '@angular/common';
+import {isPlatformBrowser, NgClass, NgOptimizedImage} from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import {Component, HostListener, Inject, PLATFORM_ID} from '@angular/core';
 import { ToggleService } from '../sidebar/toggle.service';
@@ -10,7 +10,7 @@ import {Location} from "@angular/common";
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink],
+  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, NgOptimizedImage],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

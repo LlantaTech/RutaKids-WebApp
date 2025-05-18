@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgClass, NgIf} from '@angular/common';
+import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,7 +10,7 @@ import {PlatformService} from "../../services/platform/platform.service";
 @Component({
   selector: 'app-customizer-settings',
   standalone: true,
-  imports: [NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule, NgIf],
+  imports: [NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule, NgIf, NgOptimizedImage],
   templateUrl: './customizer-settings.component.html',
   styleUrls: ['./customizer-settings.component.scss']
 })

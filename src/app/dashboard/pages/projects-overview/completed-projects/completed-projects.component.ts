@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { CustomizerSettingsService } from '../../../../shared/services/customizer-settings/customizer-settings.service';
 import { PlatformService } from '../../../../shared/services/platform/platform.service';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-completed-projects',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [MatCardModule, NgOptimizedImage],
   templateUrl: './completed-projects.component.html',
   styleUrls: ['./completed-projects.component.scss']
 })

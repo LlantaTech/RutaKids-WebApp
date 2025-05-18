@@ -4,11 +4,12 @@ import { RouterLink } from '@angular/router';
 import { CustomizerSettingsService } from '../../../../shared/services/customizer-settings/customizer-settings.service';
 import { SchoolTransportationService } from '../../../../school-transportation/services/school-transportation.service';
 import {PlatformService} from "../../../../shared/services/platform/platform.service";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-active-projects',
   standalone: true,
-  imports: [MatCardModule, RouterLink],
+  imports: [MatCardModule, RouterLink, NgOptimizedImage],
   templateUrl: './active-projects.component.html',
   styleUrls: ['./active-projects.component.scss']
 })
