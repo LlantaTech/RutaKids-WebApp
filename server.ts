@@ -8,8 +8,9 @@ import bootstrap from './src/main.server';
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = join(serverDistFolder, '../llantatech/browser');
+  const browserDistFolder = join(process.cwd(), 'dist', 'llantatech', 'browser');
   const indexHtml = join(browserDistFolder, 'index.html');
+
 
   const commonEngine = new CommonEngine();
 
