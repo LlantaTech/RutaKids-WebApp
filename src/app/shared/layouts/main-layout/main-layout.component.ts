@@ -1,120 +1,100 @@
-import {SidebarComponent} from "../../components/sidebar/sidebar.component";
-declare let $: any;
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router, NavigationCancel, NavigationEnd, RouterOutlet, RouterLink } from '@angular/router';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { CustomizerSettingsComponent } from '../../components/customizer-settings/customizer-settings.component';
+import { CustomizerSettingsService } from '../../services/customizer-settings/customizer-settings.service';
+import { ToggleService } from '../../components/sidebar/toggle.service';
+import { GlobalAlertComponent } from '../../components/global-alert/global-alert.component';
 import { filter } from 'rxjs/operators';
-import {CommonModule, isPlatformBrowser, Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
-import { RouterOutlet, Router, NavigationCancel, NavigationEnd, RouterLink } from '@angular/router';
-import {HeaderComponent} from "../../components/header/header.component";
-import {FooterComponent} from "../../components/footer/footer.component";
-import {CustomizerSettingsComponent} from "../../components/customizer-settings/customizer-settings.component";
-import {CustomizerSettingsService} from "../../services/customizer-settings/customizer-settings.service";
-import {ToggleService} from "../../components/sidebar/toggle.service";
-import {GlobalAlertComponent} from "../../components/global-alert/global-alert.component";
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarComponent, HeaderComponent, FooterComponent, RouterLink, CustomizerSettingsComponent, GlobalAlertComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    SidebarComponent,
+    HeaderComponent,
+    FooterComponent,
+    CustomizerSettingsComponent,
+    GlobalAlertComponent
+  ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
   providers: [
-    Location, {
+    Location,
+    {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
     }
   ]
 })
 export class MainLayoutComponent {
-    // title
-    title = 'RutaKis - LlantaTech';
+  title = 'RutaKis - LlantaTech';
+  routerSubscription: any;
+  isBrowser: boolean;
+  isSidebarToggled = false;
+  isToggled = false;
 
-    // routerSubscription
-    routerSubscription: any;
+  constructor(
+    public router: Router,
+    private toggleService: ToggleService,
+    public themeService: CustomizerSettingsService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
 
-    // location
-    location: any;
+    this.toggleService.isSidebarToggled$.subscribe(value => {
+      this.isSidebarToggled = value;
+    });
 
-    // isBrowser
-    isBrowser: boolean;
+    this.themeService.isToggled$.subscribe(value => {
+      this.isToggled = value;
+    });
+  }
 
-    // isSidebarToggled
-    isSidebarToggled = false;
+  ngOnInit() {
+    this.recallJsFunctions();
+  }
 
-    // isToggled
-    isToggled = false;
+  recallJsFunctions() {
+    if (!this.isBrowser) return;
 
-    constructor(
-        public router: Router,
-        private toggleService: ToggleService,
-        public themeService: CustomizerSettingsService,
-        @Inject(PLATFORM_ID) private platformId: Object
-    ) {
-        this.isBrowser = isPlatformBrowser(this.platformId);
+    this.routerSubscription = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
+      .subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          window.scrollTo(0, 0);
+        }
+      });
+  }
 
-        this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled => {
-            this.isSidebarToggled = isSidebarToggled;
-        });
-        this.themeService.isToggled$.subscribe(isToggled => {
-            this.isToggled = isToggled;
-        });
-    }
+  isBlankPage(): boolean {
+    if (!this.isBrowser) return false;
+    const url = this.router.url;
+    return [
+      '/authentication',
+      '/authentication/sign-up',
+      '/authentication/forgot-password',
+      '/authentication/reset-password',
+      '/authentication/lock-screen',
+      '/authentication/logout',
+      '/authentication/confirm-email',
+      '/coming-soon'
+    ].includes(url);
+  }
 
-    // ngOnInit
-    ngOnInit(){
-        this.recallJsFuntions();
-    }
-
-    // recallJsFuntions
-    recallJsFuntions() {
-        this.routerSubscription = this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
-        .subscribe(event => {
-            this.location = this.router.url;
-            if (!(event instanceof NavigationEnd)) {
-                return;
-            }
-            window.scrollTo(0, 0);
-        });
-    }
-
-    // Dark Mode
-    toggleTheme() {
-        this.themeService.toggleTheme();
-    }
-
-    // Sidebar Dark
-    toggleSidebarTheme() {
-        this.themeService.toggleSidebarTheme();
-    }
-
-    // Right Sidebar
-    toggleRightSidebarTheme() {
-        this.themeService.toggleRightSidebarTheme();
-    }
-
-    // Hide Sidebar
-    toggleHideSidebarTheme() {
-        this.themeService.toggleHideSidebarTheme();
-    }
-
-    // Header Dark Mode
-    toggleHeaderTheme() {
-        this.themeService.toggleHeaderTheme();
-    }
-
-    // Card Border
-    toggleCardBorderTheme() {
-        this.themeService.toggleCardBorderTheme();
-    }
-
-    // Card Border Radius
-    toggleCardBorderRadiusTheme() {
-        this.themeService.toggleCardBorderRadiusTheme();
-    }
-
-    // RTL Mode
-    toggleRTLEnabledTheme() {
-        this.themeService.toggleRTLEnabledTheme();
-    }
-
+  // Métodos de toggle
+  toggleTheme() { this.themeService.toggleTheme(); }
+  toggleSidebarTheme() { this.themeService.toggleSidebarTheme(); }
+  toggleRightSidebarTheme() { this.themeService.toggleRightSidebarTheme(); }
+  toggleHideSidebarTheme() { this.themeService.toggleHideSidebarTheme(); }
+  toggleHeaderTheme() { this.themeService.toggleHeaderTheme(); }
+  toggleCardBorderTheme() { this.themeService.toggleCardBorderTheme(); }
+  toggleCardBorderRadiusTheme() { this.themeService.toggleCardBorderRadiusTheme(); }
+  toggleRTLEnabledTheme() { this.themeService.toggleRTLEnabledTheme(); }
 }

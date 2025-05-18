@@ -51,20 +51,25 @@ export class MapSelectorComponent implements AfterViewInit {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=places`;
     script.defer = true;
-    script.onload = () => this.initMap();
-    document.head.appendChild(script);
+    script.onload = () => {
+      if (this.isBrowser) this.initMap();
+    };
+
+    if (this.isBrowser) {
+      document.head.appendChild(script);
+    }
   }
 
   initMap(): void {
     if (!this.isBrowser) return;
 
-    const map = new google.maps.Map(
-      document.getElementById('map') as HTMLElement,
-      {
-        center: { lat: -12.0464, lng: -77.0428 },
-        zoom: 12
-      }
-    );
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+
+    const map = new google.maps.Map(mapElement, {
+      center: { lat: -12.0464, lng: -77.0428 },
+      zoom: 12
+    });
 
     const autocomplete = new google.maps.places.Autocomplete(
       this.searchInput.nativeElement,

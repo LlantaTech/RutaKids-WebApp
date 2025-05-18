@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class CustomizerSettingsService {
   private readonly isBrowser: boolean;
 
-  // Estado local de cada configuración
   private isDarkTheme = false;
   private isSidebarDarkTheme = false;
   private isRightSidebarTheme = false;
@@ -18,7 +17,6 @@ export class CustomizerSettingsService {
   private isCardBorderRadiusTheme = false;
   private isRTLEnabledTheme = false;
 
-  // Claves centralizadas para localStorage
   private readonly keys = {
     dark: 'isDarkTheme',
     sidebarDark: 'isSidebarDarkTheme',
@@ -30,26 +28,35 @@ export class CustomizerSettingsService {
     rtl: 'isRTLEnabledTheme'
   };
 
+  private isToggled = new BehaviorSubject<boolean>(false);
+  get isToggled$() {
+    return this.isToggled.asObservable();
+  }
+
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
 
     if (this.isBrowser) {
-      this.isDarkTheme = this.getBool(this.keys.dark);
-      this.isSidebarDarkTheme = this.getBool(this.keys.sidebarDark);
-      this.isRightSidebarTheme = this.getBool(this.keys.rightSidebar);
-      this.isHideSidebarTheme = this.getBool(this.keys.hideSidebar);
-      this.isHeaderDarkTheme = this.getBool(this.keys.headerDark);
-      this.isCardBorderTheme = this.getBool(this.keys.cardBorder);
-      this.isCardBorderRadiusTheme = this.getBool(this.keys.cardRadius);
-      this.isRTLEnabledTheme = this.getBool(this.keys.rtl);
+      this.loadSettings();
     }
   }
 
-  // Métodos seguros para localStorage
+  private loadSettings() {
+    this.isDarkTheme = this.getBool(this.keys.dark);
+    this.isSidebarDarkTheme = this.getBool(this.keys.sidebarDark);
+    this.isRightSidebarTheme = this.getBool(this.keys.rightSidebar);
+    this.isHideSidebarTheme = this.getBool(this.keys.hideSidebar);
+    this.isHeaderDarkTheme = this.getBool(this.keys.headerDark);
+    this.isCardBorderTheme = this.getBool(this.keys.cardBorder);
+    this.isCardBorderRadiusTheme = this.getBool(this.keys.cardRadius);
+    this.isRTLEnabledTheme = this.getBool(this.keys.rtl);
+  }
+
   private getBool(key: string): boolean {
     if (!this.isBrowser) return false;
     try {
-      return JSON.parse(localStorage.getItem(key) || 'false');
+      const value = localStorage.getItem(key);
+      return value ? JSON.parse(value) : false;
     } catch {
       return false;
     }
@@ -57,11 +64,14 @@ export class CustomizerSettingsService {
 
   private setBool(key: string, value: boolean): void {
     if (this.isBrowser) {
-      localStorage.setItem(key, JSON.stringify(value));
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch {
+        // Evitar errores de SSR en modos restringidos
+      }
     }
   }
 
-  // Métodos públicos para cada configuración
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
     this.setBool(this.keys.dark, this.isDarkTheme);
@@ -109,12 +119,6 @@ export class CustomizerSettingsService {
     this.setBool(this.keys.rtl, this.isRTLEnabledTheme);
   }
   isRTLEnabled() { return this.isRTLEnabledTheme; }
-
-  // Toggle de apertura del panel derecho
-  private isToggled = new BehaviorSubject<boolean>(false);
-  get isToggled$() {
-    return this.isToggled.asObservable();
-  }
 
   toggle() {
     this.isToggled.next(!this.isToggled.value);
