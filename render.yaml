@@ -2,10 +2,11 @@ services:
   - type: web
     name: llantatech-ssr
     env: node
+    plan: free
+    region: oregon
+    rootDir: .
     buildCommand: npm install --legacy-peer-deps && npm run build:ssr
     startCommand: npm run serve:ssr
-    rootDir: .
-    plan: free
     envVars:
       - key: NODE_VERSION
         value: 20

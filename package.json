@@ -9,7 +9,7 @@
     "test": "ng test",
     "docs": "npx compodoc -p tsconfig.docs.json -d docs/compodoc",
     "docs:serve": "npx compodoc -s -d docs/compodoc",
-    "build:ssr": "ng build && ng run llantatech:server",
+    "build:ssr": "ng build --configuration production --output-hashing=none && ng run llantatech:server:production",
     "serve:ssr": "node dist/llantatech-server/main.js",
     "dev:ssr": "ng run llantatech:serve"
   },
