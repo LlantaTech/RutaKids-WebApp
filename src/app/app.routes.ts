@@ -52,7 +52,9 @@ export const routes: Routes = [
           import('./faq/faq.routes').then((m) => m.FAQ_ROUTES)
       },
       {
-        path: 'routes', component: CreateSchoolRoutesComponent
+        path: 'school-routes',
+        loadChildren: () =>
+          import('./school-routes/school-routes.routes').then((m) => m.SCHOOL_TRANSPORTATION_ROUTES)
       }
     ]
   },
