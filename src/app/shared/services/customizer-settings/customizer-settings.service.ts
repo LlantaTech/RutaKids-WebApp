@@ -2,100 +2,115 @@ import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class CustomizerSettingsService {
   private isBrowser: boolean;
 
-  private isDarkTheme = false;
-  private isSidebarDarkTheme = false;
-  private isRightSidebarTheme = false;
-  private isHideSidebarTheme = false;
-  private isHeaderDarkTheme = false;
-  private isCardBorderTheme = false;
-  private isCardBorderRadiusTheme = false;
-  private isRTLEnabledTheme = false;
+  private readonly keys = {
+    dark: 'isDarkTheme',
+    sidebarDark: 'isSidebarDarkTheme',
+    rightSidebar: 'isRightSidebarTheme',
+    hideSidebar: 'isHideSidebarTheme',
+    headerDark: 'isHeaderDarkTheme',
+    cardBorder: 'isCardBorderTheme',
+    cardRadius: 'isCardBorderRadiusTheme',
+    rtl: 'isRTLEnabledTheme'
+  };
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-
-    if (this.isBrowser) {
-      this.isDarkTheme = this.getBool('isDarkTheme');
-      this.isSidebarDarkTheme = this.getBool('isSidebarDarkTheme');
-      this.isRightSidebarTheme = this.getBool('isRightSidebarTheme');
-      this.isHideSidebarTheme = this.getBool('isHideSidebarTheme');
-      this.isHeaderDarkTheme = this.getBool('isHeaderDarkTheme');
-      this.isCardBorderTheme = this.getBool('isCardBorderTheme');
-      this.isCardBorderRadiusTheme = this.getBool('isCardBorderRadiusTheme');
-      this.isRTLEnabledTheme = this.getBool('isRTLEnabledTheme');
-    }
-  }
-
-  private getBool(key: string): boolean {
-    if (!this.isBrowser) return false;
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : false;
-  }
-
-  private setBool(key: string, value: boolean): void {
-    if (this.isBrowser) {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-  }
-
-  toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.setBool('isDarkTheme', this.isDarkTheme);
-  }
-  isDark() { return this.isDarkTheme; }
-
-  toggleSidebarTheme() {
-    this.isSidebarDarkTheme = !this.isSidebarDarkTheme;
-    this.setBool('isSidebarDarkTheme', this.isSidebarDarkTheme);
-  }
-  isSidebarDark() { return this.isSidebarDarkTheme; }
-
-  toggleRightSidebarTheme() {
-    this.isRightSidebarTheme = !this.isRightSidebarTheme;
-    this.setBool('isRightSidebarTheme', this.isRightSidebarTheme);
-  }
-  isRightSidebar() { return this.isRightSidebarTheme; }
-
-  toggleHideSidebarTheme() {
-    this.isHideSidebarTheme = !this.isHideSidebarTheme;
-    this.setBool('isHideSidebarTheme', this.isHideSidebarTheme);
-  }
-  isHideSidebar() { return this.isHideSidebarTheme; }
-
-  toggleHeaderTheme() {
-    this.isHeaderDarkTheme = !this.isHeaderDarkTheme;
-    this.setBool('isHeaderDarkTheme', this.isHeaderDarkTheme);
-  }
-  isHeaderDark() { return this.isHeaderDarkTheme; }
-
-  toggleCardBorderTheme() {
-    this.isCardBorderTheme = !this.isCardBorderTheme;
-    this.setBool('isCardBorderTheme', this.isCardBorderTheme);
-  }
-  isCardBorder() { return this.isCardBorderTheme; }
-
-  toggleCardBorderRadiusTheme() {
-    this.isCardBorderRadiusTheme = !this.isCardBorderRadiusTheme;
-    this.setBool('isCardBorderRadiusTheme', this.isCardBorderRadiusTheme);
-  }
-  isCardBorderRadius() { return this.isCardBorderRadiusTheme; }
-
-  toggleRTLEnabledTheme() {
-    this.isRTLEnabledTheme = !this.isRTLEnabledTheme;
-    this.setBool('isRTLEnabledTheme', this.isRTLEnabledTheme);
-  }
-  isRTLEnabled() { return this.isRTLEnabledTheme; }
+  private settings = {
+    isDarkTheme: false,
+    isSidebarDarkTheme: false,
+    isRightSidebarTheme: false,
+    isHideSidebarTheme: false,
+    isHeaderDarkTheme: false,
+    isCardBorderTheme: false,
+    isCardBorderRadiusTheme: false,
+    isRTLEnabledTheme: false
+  };
 
   private isToggled = new BehaviorSubject<boolean>(false);
   get isToggled$() {
     return this.isToggled.asObservable();
   }
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+
+    if (this.isBrowser) {
+      setTimeout(() => this.loadSettings(), 0);
+    }
+  }
+
+  private loadSettings() {
+    for (const [key, value] of Object.entries(this.keys)) {
+      this.settings[key as keyof typeof this.settings] = this.getBool(value);
+    }
+  }
+
+  private getBool(key: string): boolean {
+    try {
+      return this.isBrowser ? JSON.parse(localStorage.getItem(key) || 'false') : false;
+    } catch {
+      return false;
+    }
+  }
+
+  private setBool(key: string, value: boolean): void {
+    if (!this.isBrowser) return;
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch {}
+  }
+
+  // Métodos públicos de acceso seguro
+  isDark() { return this.settings.isDarkTheme; }
+  toggleTheme() {
+    this.settings.isDarkTheme = !this.settings.isDarkTheme;
+    this.setBool(this.keys.dark, this.settings.isDarkTheme);
+  }
+
+  isSidebarDark() { return this.settings.isSidebarDarkTheme; }
+  toggleSidebarTheme() {
+    this.settings.isSidebarDarkTheme = !this.settings.isSidebarDarkTheme;
+    this.setBool(this.keys.sidebarDark, this.settings.isSidebarDarkTheme);
+  }
+
+  isRightSidebar() { return this.settings.isRightSidebarTheme; }
+  toggleRightSidebarTheme() {
+    this.settings.isRightSidebarTheme = !this.settings.isRightSidebarTheme;
+    this.setBool(this.keys.rightSidebar, this.settings.isRightSidebarTheme);
+  }
+
+  isHideSidebar() { return this.settings.isHideSidebarTheme; }
+  toggleHideSidebarTheme() {
+    this.settings.isHideSidebarTheme = !this.settings.isHideSidebarTheme;
+    this.setBool(this.keys.hideSidebar, this.settings.isHideSidebarTheme);
+  }
+
+  isHeaderDark() { return this.settings.isHeaderDarkTheme; }
+  toggleHeaderTheme() {
+    this.settings.isHeaderDarkTheme = !this.settings.isHeaderDarkTheme;
+    this.setBool(this.keys.headerDark, this.settings.isHeaderDarkTheme);
+  }
+
+  isCardBorder() { return this.settings.isCardBorderTheme; }
+  toggleCardBorderTheme() {
+    this.settings.isCardBorderTheme = !this.settings.isCardBorderTheme;
+    this.setBool(this.keys.cardBorder, this.settings.isCardBorderTheme);
+  }
+
+  isCardBorderRadius() { return this.settings.isCardBorderRadiusTheme; }
+  toggleCardBorderRadiusTheme() {
+    this.settings.isCardBorderRadiusTheme = !this.settings.isCardBorderRadiusTheme;
+    this.setBool(this.keys.cardRadius, this.settings.isCardBorderRadiusTheme);
+  }
+
+  isRTLEnabled() { return this.settings.isRTLEnabledTheme; }
+  toggleRTLEnabledTheme() {
+    this.settings.isRTLEnabledTheme = !this.settings.isRTLEnabledTheme;
+    this.setBool(this.keys.rtl, this.settings.isRTLEnabledTheme);
+  }
+
   toggle() {
     this.isToggled.next(!this.isToggled.value);
   }

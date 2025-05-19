@@ -7,42 +7,60 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
+import { CustomizerSettingsService } from '../../../shared/services/customizer-settings/customizer-settings.service';
+import {PlatformService} from "../../../shared/services/platform/platform.service";
 
 @Component({
-    selector: 'app-all-projects',
-    standalone: true,
-    imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatTooltipModule],
-    templateUrl: './all-projects.component.html',
-    styleUrls: ['./all-projects.component.scss']
+  selector: 'app-all-projects',
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    RouterLink,
+    MatTableModule,
+    MatPaginatorModule,
+    NgIf,
+    MatTooltipModule
+  ],
+  templateUrl: './all-projects.component.html',
+  styleUrls: ['./all-projects.component.scss']
 })
 export class AllProjectsComponent {
+  displayedColumns: string[] = [
+    'id',
+    'projectName',
+    'client',
+    'startDate',
+    'endDate',
+    'budget',
+    'status',
+    'action'
+  ];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-    displayedColumns: string[] = ['id', 'projectName', 'client', 'startDate', 'endDate', 'budget', 'status', 'action'];
-    dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+  isToggled = false;
 
-    ngAfterViewInit() {
-        this.dataSource.paginator = this.paginator;
+  constructor(
+    public themeService: CustomizerSettingsService,
+    public platform: PlatformService
+  ) {
+    this.themeService.isToggled$.subscribe((isToggled) => {
+      this.isToggled = isToggled;
+    });
+  }
+
+  ngAfterViewInit() {
+    if (this.platform.isBrowser) {
+      this.dataSource.paginator = this.paginator;
     }
+  }
 
-    // isToggled
-    isToggled = false;
-
-    constructor(
-        public themeService: CustomizerSettingsService
-    ) {
-        this.themeService.isToggled$.subscribe(isToggled => {
-            this.isToggled = isToggled;
-        });
-    }
-
-    // RTL Mode
-    toggleRTLEnabledTheme() {
-        this.themeService.toggleRTLEnabledTheme();
-    }
-
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [

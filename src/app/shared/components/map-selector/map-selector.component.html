@@ -2,11 +2,19 @@
   <div class="mb-25">
     <mat-form-field appearance="fill" class="w-100">
       <mat-label>Ej. Jirón San Ignacio 204</mat-label>
-      <input matInput #searchInput [(ngModel)]="address" placeholder="Buscar dirección..." />
+      <input
+        matInput
+        #searchInput
+        [(ngModel)]="address"
+        placeholder="Buscar dirección..."
+      />
     </mat-form-field>
   </div>
-  <div style="display: flex; justify-content: center">
-    <div id="map" style="height: 300px; width: 300px; border-radius: 8px;"></div>
+
+  <div *ngIf="isBrowser" style="display: flex; justify-content: center">
+    <div
+      id="map"
+      style="height: 300px; width: 300px; border-radius: 8px;"
+    ></div>
   </div>
 </mat-card-content>
-

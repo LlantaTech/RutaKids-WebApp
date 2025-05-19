@@ -84,7 +84,7 @@
                         </div>
                         <ul class="menu-body pl-0 mt-0 list-unstyled">
                             <li class="position-relative">
-                                <img src="assets/images/users/user1.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
+                                <img ngSrc="assets/images/users/user1.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
                                 <span class="sub-title d-block fw-medium">
                                     Jacob Liwiski <span class="text-body fw-normal">35 mins ago</span>
                                 </span>
@@ -95,7 +95,7 @@
                                 <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>
                             </li>
                             <li class="position-relative">
-                                <img src="assets/images/users/user2.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
+                                <img ngSrc="assets/images/users/user2.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
                                 <span class="sub-title d-block fw-medium">
                                     Angela Carter <span class="text-body fw-normal">1 day ago</span>
                                 </span>
@@ -105,7 +105,7 @@
                                 <a routerLink="/chat" class="d-block link-btn position-absolute"></a>
                             </li>
                             <li class="position-relative">
-                                <img src="assets/images/users/user3.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
+                                <img ngSrc="assets/images/users/user3.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">
                                 <span class="sub-title d-block fw-medium">
                                     Brad Traversy  <span class="text-body fw-normal">2 days ago</span>
                                 </span>
@@ -201,7 +201,7 @@
             </li>
             <li>
                 <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">
-                    <img src="assets/images/admin.png" alt="profile-image">
+                    <img ngSrc="assets/images/admin.png" alt="profile-image" height="320" width="320">
                     <span class="status d-inline-block rounded-circle position-absolute"></span>
                 </button>
                 <mat-menu class="profile-menu-dropdown" #profileMenu="matMenu" xPosition="before">
@@ -209,7 +209,7 @@
                         [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"
                     >
                         <div class="menu-header d-flex align-items-center">
-                            <img src="assets/images/admin.png" alt="profile-image">
+                            <img ngSrc="assets/images/admin.png" width="320" height="320" alt="admin">
                             <div class="title">
                                 <a routerLink="/my-profile" class="d-inline-block fw-medium">
                                     Mateo "El Temible Teus"

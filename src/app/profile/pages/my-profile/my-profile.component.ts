@@ -4,12 +4,13 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import {NgOptimizedImage} from "@angular/common";
 
 
 @Component({
   selector: 'app-my-profile',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, MatMenuModule, MatButtonModule, MatCardModule, RouterLinkActive],
+  imports: [RouterLink, RouterOutlet, MatMenuModule, MatButtonModule, MatCardModule, RouterLinkActive, NgOptimizedImage],
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })

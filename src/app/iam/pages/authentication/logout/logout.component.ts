@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import {CustomizerSettingsService} from "../../../../shared/services/customizer-settings/customizer-settings.service";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
     selector: 'app-logout',
     standalone: true,
-    imports: [RouterLink, MatButtonModule],
+  imports: [RouterLink, MatButtonModule, NgOptimizedImage],
     templateUrl: './logout.component.html',
     styleUrls: ['./logout.component.scss']
 })

@@ -4,14 +4,16 @@ import {
   ElementRef,
   ViewChild,
   Output,
-  EventEmitter
+  EventEmitter,
+  Inject,
+  PLATFORM_ID
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import {environment} from "../../../../environments/environment";
+import { environment } from '../../../../environments/environment';
 
 declare const google: any;
 
@@ -37,23 +39,37 @@ export class MapSelectorComponent implements AfterViewInit {
   }>();
 
   address: string = '';
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngAfterViewInit(): void {
+    if (!this.isBrowser) return;
+
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=places`;
     script.defer = true;
-    script.onload = () => this.initMap();
-    document.head.appendChild(script);
+    script.onload = () => {
+      if (this.isBrowser) this.initMap();
+    };
+
+    if (this.isBrowser) {
+      document.head.appendChild(script);
+    }
   }
 
   initMap(): void {
-    const map = new google.maps.Map(
-      document.getElementById('map') as HTMLElement,
-      {
-        center: { lat: -12.0464, lng: -77.0428 },
-        zoom: 12
-      }
-    );
+    if (!this.isBrowser) return;
+
+    const mapElement = document.getElementById('map');
+    if (!mapElement) return;
+
+    const map = new google.maps.Map(mapElement, {
+      center: { lat: -12.0464, lng: -77.0428 },
+      zoom: 12
+    });
 
     const autocomplete = new google.maps.places.Autocomplete(
       this.searchInput.nativeElement,
