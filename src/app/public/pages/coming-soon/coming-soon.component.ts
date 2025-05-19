@@ -9,13 +9,13 @@ import {MatInputModule} from "@angular/material/input";
 import {isPlatformBrowser, NgOptimizedImage} from "@angular/common";
 
 @Component({
-  selector: 'app-comic-soon',
+  selector: 'app-coming-soon',
   standalone: true,
   imports: [RouterLink, MatButtonModule, MatMenuModule, MatFormFieldModule, MatInputModule, NgOptimizedImage],
-  templateUrl: './comic-soon.component.html',
-  styleUrls: ['./comic-soon.component.scss']
+  templateUrl: './coming-soon.component.html',
+  styleUrls: ['./coming-soon.component.scss']
 })
-export class ComicSoonComponent implements OnInit, OnDestroy {
+export class ComingSoonComponent implements OnInit, OnDestroy {
 
     private isBrowser: boolean;
     private countdownInterval: any;
