@@ -2,7 +2,7 @@ services:
   - type: web
     name: llantatech-ssr
     env: node
-    buildCommand: npm install && npm run build:ssr
+    buildCommand: npm install --legacy-peer-deps && npm run build:ssr
     startCommand: npm run serve:ssr
     rootDir: .
     plan: free
