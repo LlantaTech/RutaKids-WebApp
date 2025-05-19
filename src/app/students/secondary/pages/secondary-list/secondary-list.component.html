@@ -1,0 +1,14 @@
+<!-- <Breadcrumb> -->
+<app-breadcrumb
+  [title]="breadcrumbTitle"
+  [paths]="breadcrumbPaths">
+</app-breadcrumb>
+
+<!-- This is the template for the primary list component -->
+<app-students-list
+  [dataSource]="dataSource"
+  [addLink]="addLink"
+  (editClicked)="editStudent($event)"
+  (deleteClicked)="deleteStudent($event)">
+</app-students-list>
+

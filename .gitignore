@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#googleMapsApiKey
+/src/environments/environment.ts
+
+#db
+/db/
+
+#Documentation
+/docs/

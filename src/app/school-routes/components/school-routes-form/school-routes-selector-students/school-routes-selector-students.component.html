@@ -1,0 +1,55 @@
+<mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"
+            [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+  <mat-card-header>
+    <mat-card-title>
+      <h5 class="mt-0 mb-0">
+          Estudiantes
+      </h5>
+      </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="row">
+
+      <div class="mb-25">
+        <label class="main-label d-block lh-1 text-black">Nivel</label>
+        <mat-form-field>
+          <mat-label>Selecciona Nivel</mat-label>
+          <mat-select [formControl]="levelControl">
+            <mat-option *ngFor="let option of levels" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-25">
+        <label class="main-label d-block lh-1 text-black">Grado</label>
+        <mat-form-field>
+          <mat-label>Selecciona Grado</mat-label>
+          <mat-select [formControl]="gradeControl">
+            <mat-option *ngFor="let grade of grades" [value]="grade">{{ grade }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="mb-25">
+        <label class="main-label d-block lh-1 text-black">Alumnos</label>
+        <mat-form-field>
+          <mat-label>Seleccionar Alumno</mat-label>
+          <input type="text" matInput [formControl]="studentControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+            <mat-option *ngFor="let option of filteredStudents | async" [value]="option">
+              {{ option.firstName }} {{ option.paternalLastName }} {{ option.maternalLastName }} - {{ option.dni }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+    <ng-container>
+      <div class="btn-box">
+            <button mat-stroked-button class="daxa" type="submit" (click)="onAddStudent()" >Agregar Estudiante</button>
+      </div>
+    </ng-container>
+
+  </mat-card-content>
+</mat-card>

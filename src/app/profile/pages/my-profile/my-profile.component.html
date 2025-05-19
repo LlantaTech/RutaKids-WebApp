@@ -1,0 +1,238 @@
+<!-- Breadcrumb -->
+
+<!-- Profile -->
+<div class="row">
+    <div class="col-xxxl-9 col-md-12">
+        <mat-card
+            class="daxa-card profile-card mb-25 p-0 border-radius bg-white border-none d-block"
+            [class.component-dark-theme]="themeService.isDark()"
+            [class.rtl-enabled]="themeService.isRTLEnabled()"
+        >
+            <mat-card-content>
+                <div class="cover-image position-relative border-top-radius">
+                    <img src="../../../../assets/images/profile-cover.jpg" class="border-top-radius" alt="cover-image">
+                    <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editCoverPhotoMenu">
+                        Edit Cover Photo
+                    </button>
+                    <mat-menu #editCoverPhotoMenu="matMenu" class="card-header-menu" xPosition="after">
+                        <button mat-menu-item>
+                            Upload Photo
+                        </button>
+                        <button mat-menu-item>
+                            Reposition
+                        </button>
+                        <button mat-menu-item>
+                            Remove
+                        </button>
+                    </mat-menu>
+                </div>
+                <div class="profile-content">
+                    <div class="d-md-flex align-items-end justify-content-between">
+                        <div class="d-md-flex align-items-end">
+                            <div class="image position-relative">
+                                <img src="../../../../assets/images/profile.jpg" class="rounded-circle" alt="profile-image">
+                                <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editProfilePhotoMenu">
+                                    <i class="material-symbols-outlined">
+                                        photo_camera
+                                    </i>
+                                </button>
+                                <mat-menu #editProfilePhotoMenu="matMenu" class="card-header-menu" xPosition="after">
+                                    <button mat-menu-item>
+                                        See Photo
+                                    </button>
+                                    <button mat-menu-item>
+                                        Upload Photo
+                                    </button>
+                                    <button mat-menu-item>
+                                        Remove
+                                    </button>
+                                </mat-menu>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Micheal Collins
+                                </span>
+                                <span class="d-block text-body">
+                                    micheal&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-box">
+                            <button mat-button routerLink="/my-profile/settings" class="btn">
+                                Editar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <mat-card
+                    class="daxa-card friends-card mb-25 border-radius bg-white border-none d-block"
+                    [class.component-dark-theme]="themeService.isDark()"
+                    [class.rtl-enabled]="themeService.isRTLEnabled()"
+                >
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h5 class="mt-0 mb-0">
+                                Friends
+                            </h5>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <form class="search-box position-relative">
+                            <i class="material-symbols-outlined">
+                                search
+                            </i>
+                            <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search...">
+                        </form>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user15.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Marcia Baker
+                                </span>
+                                <span class="d-block text-body">
+                                    baker&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user16.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Carolyn Barnes
+                                </span>
+                                <span class="d-block text-body">
+                                    barnes&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user17.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Donna Miller
+                                </span>
+                                <span class="d-block text-body">
+                                    miller&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user14.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Barbara Cross
+                                </span>
+                                <span class="d-block text-body">
+                                    cross&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user13.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Rebecca Block
+                                </span>
+                                <span class="d-block text-body">
+                                    block&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user12.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Ramiro McCarty
+                                </span>
+                                <span class="d-block text-body">
+                                    mccarty&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user11.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Robert Fairweather
+                                </span>
+                                <span class="d-block text-body">
+                                    fairweather&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user10.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Marcelino Haddock
+                                </span>
+                                <span class="d-block text-body">
+                                    haddock&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user9.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Thomas Wilson
+                                </span>
+                                <span class="d-block text-body">
+                                    wilson&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user d-flex align-items-center">
+                            <div class="img position-relative">
+                                <img src="assets/images/users/user8.jpg" class="rounded-circle" alt="user-image">
+                                <span class="active-status off"></span>
+                            </div>
+                            <div class="title">
+                                <span class="d-block fw-medium">
+                                    Nathaniel Hulsey
+                                </span>
+                                <span class="d-block text-body">
+                                    hulsey&#64;gmail.com
+                                </span>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

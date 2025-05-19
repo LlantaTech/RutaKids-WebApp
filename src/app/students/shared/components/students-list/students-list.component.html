@@ -1,0 +1,110 @@
+<mat-card class="daxa-card users-card mb-25 border-radius bg-white border-none d-block"
+          [class.rtl-enabled]="themeService.isRTLEnabled()">
+
+  <mat-card-header>
+    <mat-card-title>
+      <form class="search-box position-relative">
+        <i class="material-symbols-outlined">search</i>
+        <input type="text" class="input-search d-block w-100 border-none outline-0"
+               placeholder="Buscar estudiante..." (keyup)="applyFilter($event)" #input>
+      </form>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <a mat-button class="add-new-btn" [routerLink]="addLink">+ Agregar Estudiante</a>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="users-table">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource">
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox
+                (change)="$event ? toggleAllRows() : null"
+                [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                [aria-label]="checkboxLabel()"
+              >
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)"
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <!-- DNI -->
+          <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef>DNI</th>
+            <td mat-cell *matCellDef="let element">{{element.dni}}</td>
+          </ng-container>
+
+          <!-- Nombre completo -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef>Nombre completo</th>
+            <td mat-cell *matCellDef="let element">
+              {{element.firstName}} {{element.paternalLastName}} {{element.maternalLastName}}
+            </td>
+          </ng-container>
+
+          <!-- Nivel -->
+          <ng-container matColumnDef="level">
+            <th mat-header-cell *matHeaderCellDef>Nivel</th>
+            <td mat-cell *matCellDef="let element">{{element.level}}</td>
+          </ng-container>
+
+          <!-- Grado -->
+          <ng-container matColumnDef="grade">
+            <th mat-header-cell *matHeaderCellDef>Grado</th>
+            <td mat-cell *matCellDef="let element">{{element.grade}}</td>
+          </ng-container>
+
+          <!-- Dirección -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Dirección</th>
+            <td mat-cell *matCellDef="let element">{{element.address}}</td>
+          </ng-container>
+
+          <!-- Distrito -->
+          <ng-container matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef>Distrito</th>
+            <td mat-cell *matCellDef="let element">{{element.district}}</td>
+          </ng-container>
+
+          <!-- Acción -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Acción</th>
+            <td mat-cell *matCellDef="let element">
+              <div class="action-info">
+                <button mat-button matTooltip="Ver" matTooltipPosition="above">
+                  <i class="material-symbols-outlined">visibility</i>
+                </button>
+                <a mat-button (click)="editClicked.emit(element)" matTooltip="Editar" matTooltipPosition="above">
+                  <i class="material-symbols-outlined">edit</i>
+                </a>
+                <button mat-button (click)="deleteClicked.emit(element)" matTooltip="Eliminar" matTooltipPosition="above">
+                  <i class="material-symbols-outlined">delete</i>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="6">No hay datos que coincidan con "{{input.value}}"</td>
+          </tr>
+
+        </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

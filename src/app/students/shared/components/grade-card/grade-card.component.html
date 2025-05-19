@@ -1,0 +1,9 @@
+<mat-card class="daxa-card mb-25 border-radius bg-white border-none d-block"
+          (click)="onCardClick()">
+  <mat-card-content>
+    <span class="badge text-bg-daxa mr-15">{{ badgeLabel }}</span>
+    <img [src]="imageUrl" class="border-radius mt-15" alt="card" height="355" width="680" />
+    <h5 class="mb-10 mt-15">{{ title }}</h5>
+    <p>{{ description }}</p>
+  </mat-card-content>
+</mat-card>
