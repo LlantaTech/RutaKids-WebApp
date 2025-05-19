@@ -2,7 +2,7 @@
 
 <!-- Profile -->
 <div class="row">
-    <div class="col-xxxl-9 col-md-12">
+    <div class="col-xxxl-12 col-md-12">
         <mat-card
             class="daxa-card profile-card mb-25 p-0 border-radius bg-white border-none d-block"
             [class.component-dark-theme]="themeService.isDark()"
@@ -10,7 +10,7 @@
         >
             <mat-card-content>
                 <div class="cover-image position-relative border-top-radius">
-                    <img ngSrc="assets/images/profile-cover.jpg" width="1200" height="300" alt="profile-cover">
+                    <img ngSrc="assets/images/profile-cover.jpg" width="1810" height="300" alt="profile-cover">
                     <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editCoverPhotoMenu">
                         Edit Cover Photo
                     </button>
@@ -30,7 +30,7 @@
                     <div class="d-md-flex align-items-end justify-content-between">
                         <div class="d-md-flex align-items-end">
                             <div class="image position-relative">
-                                <img ngSrc="assets/images/admin.png" width="200" height="200" alt="profile">
+                                <img ngSrc="assets/images/admin.png" width="320" height="320" alt="profile">
                                 <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editProfilePhotoMenu">
                                     <i class="material-symbols-outlined">
                                         photo_camera
