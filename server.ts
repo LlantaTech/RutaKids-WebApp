@@ -9,7 +9,7 @@ export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = join(process.cwd(), 'dist', 'llantatech', 'browser');
-  const indexHtml = join(browserDistFolder, 'index.html');
+  const indexHtml = join(browserDistFolder, 'index.csr.html');
 
 
   const commonEngine = new CommonEngine();
