@@ -5,7 +5,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterLink } from '@angular/router';
 import {
   CustomizerSettingsService
-} from "../../../../../shared/services/customizer-settings/customizer-settings.service";
+} from "../../../shared/services/customizer-settings/customizer-settings.service";
 
 @Component({
   selector: 'app-about',
