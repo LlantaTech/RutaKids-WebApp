@@ -23,10 +23,10 @@ export const PUBLIC_ROUTES: Routes = [
           ),
       },
       {
-        path: 'comic-soon',
+        path: 'coming-soon',
         loadComponent: () =>
-          import('./pages/comic-soon/comic-soon.component').then(
-            (m) => m.ComicSoonComponent
+          import('./pages/coming-soon/coming-soon.component').then(
+            (m) => m.ComingSoonComponent
           ),
       },
       {

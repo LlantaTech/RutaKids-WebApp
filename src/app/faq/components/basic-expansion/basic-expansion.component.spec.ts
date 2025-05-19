@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BasicExpansionComponent } from './basic-expansion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomizerSettingsService } from '../../../../../shared/services/customizer-settings/customizer-settings.service';
+import { CustomizerSettingsService } from '../../../shared/services/customizer-settings/customizer-settings.service';
 import { of } from 'rxjs';
 
 describe('BasicExpansionComponent', () => {

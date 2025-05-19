@@ -49,7 +49,7 @@ export const routes: Routes = [
       {
         path: 'faq',
         loadChildren: () =>
-          import('./public/faq/faq.routes').then((m) => m.FAQ_ROUTES)
+          import('./faq/faq.routes').then((m) => m.FAQ_ROUTES)
       },
       {
         path: 'routes', component: CreateSchoolRoutesComponent

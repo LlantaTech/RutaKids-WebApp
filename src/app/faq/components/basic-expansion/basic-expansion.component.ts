@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
 import {
   CustomizerSettingsService
-} from "../../../../../shared/services/customizer-settings/customizer-settings.service";
+} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import {MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle} from "@angular/material/expansion";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
