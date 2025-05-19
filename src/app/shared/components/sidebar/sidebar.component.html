@@ -35,11 +35,11 @@
                             dashboard
                         </i>
                         <span class="title">
-                            Dashboard
+                            Panel de Control
                         </span>
                   </a>
                   <span class="sub-title text-body">
-                        COLEGIO
+                        ADMINISTRACIÓN
                    </span>
                   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
@@ -100,10 +100,10 @@
                             notifications
                         </i>
                         <span class="title">
-                            Notifications
+                            Notificaciones
                         </span>
                     </a>
-                    <a routerLink="/members" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="/mailbox" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             mail
                         </i>
@@ -112,14 +112,14 @@
                         </span>
                     </a>
                     <span class="sub-title text-body">
-                        OTHERS
+                        OTROS
                     </span>
                     <a routerLink="/profile" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                         <i class="material-symbols-outlined">
                             account_circle
                         </i>
                         <span class="title">
-                            My Profile
+                            Mi Perfil
                         </span>
                     </a>
                     <a routerLink="/faq" class="sidebar-menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
@@ -127,7 +127,7 @@
                             help
                         </i>
                         <span class="title">
-                            FAQ
+                          FAQ
                         </span>
                     </a>
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
@@ -137,24 +137,24 @@
                                     settings
                                 </i>
                                 <span class="title">
-                                    Settings
+                                    Configuración
                                 </span>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ul class="sidebar-sub-menu">
                             <li class="sidemenu-item">
                                 <a routerLink="/settings/change-password" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Change Password
+                                    Cambiar Contraseña
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/settings/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Privacy Policy
+                                    Política de Privacidad
                                 </a>
                             </li>
                             <li class="sidemenu-item">
                                 <a routerLink="/settings/terms-conditions" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link">
-                                    Terms & Conditions
+                                    Términos y Condiciones
                                 </a>
                             </li>
                         </ul>
@@ -163,7 +163,7 @@
                         <i class="material-symbols-outlined">
                             logout
                         </i>
-                        <span class="title">Logout</span>
+                        <span class="title">Cerrar Sesión</span>
                     </a>
                 </mat-accordion>
             </div>
