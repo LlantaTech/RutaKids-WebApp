@@ -1,0 +1,2917 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/header/header.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>RouterLink</code>
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isBrowser" >isBrowser</a>
+                            </li>
+                            <li>
+                                <a href="#isSidebarToggled" >isSidebarToggled</a>
+                            </li>
+                            <li>
+                                <a href="#isSticky" >isSticky</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#checkScroll" >checkScroll</a>
+                            </li>
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#toggle" >toggle</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCardBorderTheme" >toggleCardBorderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHeaderTheme" >toggleHeaderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHideSidebarTheme" >toggleHideSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRightSidebarTheme" >toggleRightSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebarTheme" >toggleSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#window:scroll" >window:scroll</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(toggleService: <a href="../injectables/ToggleService.html" target="_self">ToggleService</a>, themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>, location: Location, platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/header/header.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>toggleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>location</td>
+                                                  
+                                                        <td>
+                                                                    <code>Location</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>platformId</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="window:scroll"></a>
+                    <span class="name">
+                        <span ><b>window:scroll</b></span>
+                        <a href="#window:scroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>window:scroll()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkScroll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>checkScroll</b></span>
+                        <a href="#checkScroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkScroll()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;window:scroll&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggle"></a>
+                    <span class="name">
+                        <span ><b>toggle</b></span>
+                        <a href="#toggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCardBorderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleCardBorderTheme</b></span>
+                        <a href="#toggleCardBorderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCardBorderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHeaderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHeaderTheme</b></span>
+                        <a href="#toggleHeaderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHeaderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHideSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHideSidebarTheme</b></span>
+                        <a href="#toggleHideSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHideSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRightSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRightSidebarTheme</b></span>
+                        <a href="#toggleRightSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRightSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebarTheme</b></span>
+                        <a href="#toggleSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/shared/components/header/header.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBrowser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isBrowser</b></span>
+                        <a href="#isBrowser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/header/header.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSidebarToggled"></a>
+                    <span class="name">
+                        <span ><b>isSidebarToggled</b></span>
+                        <a href="#isSidebarToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/header/header.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSticky"></a>
+                    <span class="name">
+                        <span ><b>isSticky</b></span>
+                        <a href="#isSticky"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/header/header.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/components/header/header.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/components/header/header.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {isPlatformBrowser, NgClass, NgOptimizedImage} from &#x27;@angular/common&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import {Component, HostListener, Inject, PLATFORM_ID} from &#x27;@angular/core&#x27;;
+import { ToggleService } from &#x27;../sidebar/toggle.service&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import {CustomizerSettingsService} from &quot;../../services/customizer-settings/customizer-settings.service&quot;;
+import {Location} from &quot;@angular/common&quot;;
+
+@Component({
+  selector: &#x27;app-header&#x27;,
+  standalone: true,
+  imports: [NgClass, MatMenuModule, MatButtonModule, RouterLink, NgOptimizedImage],
+  templateUrl: &#x27;./header.component.html&#x27;,
+  styleUrls: [&#x27;./header.component.scss&#x27;]
+})
+export class HeaderComponent {
+  isSidebarToggled &#x3D; false;
+  isToggled &#x3D; false;
+  isSticky &#x3D; false;
+  private readonly isBrowser: boolean;
+
+  constructor(
+    private toggleService: ToggleService,
+    public themeService: CustomizerSettingsService,
+    private location: Location,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser &#x3D; isPlatformBrowser(this.platformId);
+
+    this.toggleService.isSidebarToggled$.subscribe(isSidebarToggled &#x3D;&gt; {
+      this.isSidebarToggled &#x3D; isSidebarToggled;
+    });
+
+    this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+      this.isToggled &#x3D; isToggled;
+    });
+  }
+
+  // Burger Menu Toggle
+  toggle() {
+    this.toggleService.toggle();
+  }
+
+  // Sticky header: solo si estamos en navegador
+  @HostListener(&#x27;window:scroll&#x27;, [&#x27;$event&#x27;])
+  checkScroll() {
+    if (!this.isBrowser) return;
+
+    const scrollPosition &#x3D; window.scrollY
+      || document.documentElement.scrollTop
+      || document.body.scrollTop
+      || 0;
+
+    this.isSticky &#x3D; scrollPosition &gt;&#x3D; 50;
+  }
+
+  // Theme Toggles
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
+  toggleSidebarTheme() {
+    this.themeService.toggleSidebarTheme();
+  }
+
+  toggleRightSidebarTheme() {
+    this.themeService.toggleRightSidebarTheme();
+  }
+
+  toggleHideSidebarTheme() {
+    this.themeService.toggleHideSidebarTheme();
+  }
+
+  toggleHeaderTheme() {
+    this.themeService.toggleHeaderTheme();
+  }
+
+  toggleCardBorderTheme() {
+    this.themeService.toggleCardBorderTheme();
+  }
+
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
+
+  goBack() {
+    this.location.back();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header
+    class&#x3D;&quot;header-area bg-white border-radius transition&quot;
+    [ngClass]&#x3D;&quot;{&#x27;active&#x27;: isSidebarToggled, &#x27;sticky&#x27;: isSticky}&quot;
+    [class.component-dark-theme]&#x3D;&quot;themeService.isDark()&quot;
+    [class.right-sidebar]&#x3D;&quot;themeService.isRightSidebar()&quot;
+    [class.hide-sidebar]&#x3D;&quot;themeService.isHideSidebar()&quot;
+    [class.dark-header]&#x3D;&quot;themeService.isHeaderDark()&quot;
+    [class.card-borderd-theme]&#x3D;&quot;themeService.isCardBorder()&quot;
+    [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+&gt;
+    &lt;div class&#x3D;&quot;d-md-flex align-items-center justify-content-between&quot;&gt;
+        &lt;div class&#x3D;&quot;header-left-side d-flex align-items-center&quot;&gt;
+            &lt;div
+                class&#x3D;&quot;burger-menu cursor-pointer transition d-xl-none&quot;
+                [ngClass]&#x3D;&quot;{&#x27;active&#x27;: isSidebarToggled}&quot;
+                (click)&#x3D;&quot;toggle()&quot;
+            &gt;
+                &lt;span class&#x3D;&quot;top-bar d-block bg-black transition&quot;&gt;&lt;/span&gt;
+                &lt;span class&#x3D;&quot;middle-bar d-block bg-black transition&quot;&gt;&lt;/span&gt;
+                &lt;span class&#x3D;&quot;bottom-bar d-block bg-black transition&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;button mat-icon-button class&#x3D;&quot;back-btn&quot; (click)&#x3D;&quot;goBack()&quot;&gt;
+                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                        arrow_back
+                    &lt;/i&gt;
+            &lt;/button&gt;
+
+        &lt;/div&gt;
+        &lt;ul class&#x3D;&quot;header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled&quot;&gt;
+            &lt;li&gt;
+                &lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;languageMenu&quot; class&#x3D;&quot;language-menu-btn&quot;&gt;
+                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                        translate
+                    &lt;/i&gt;
+                &lt;/button&gt;
+                &lt;mat-menu class&#x3D;&quot;language-menu-dropdown&quot; #languageMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+                    &lt;div
+                        [class.dark-menu]&#x3D;&quot;themeService.isDark() || themeService.isHeaderDark()&quot;
+                    &gt;
+                        &lt;span class&#x3D;&quot;title fw-medium d-block&quot;&gt;Choose Language&lt;/span&gt;
+                        &lt;ul class&#x3D;&quot;menu-body pl-0 mb-0 mt-0 list-unstyled&quot;&gt;
+                            &lt;li&gt;
+                                &lt;button mat-button&gt;
+                                    &lt;img ngSrc&#x3D;&quot;assets/images/flags/usa.png&quot; alt&#x3D;&quot;flag&quot; height&#x3D;&quot;30&quot; width&#x3D;&quot;30&quot;&gt;
+                                    English
+                                &lt;/button&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/mat-menu&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;button
+                    mat-button
+                    class&#x3D;&quot;dark-swtich-btn&quot;
+                    (click)&#x3D;&quot;toggleTheme()&quot;
+                &gt;
+                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                        dark_mode
+                    &lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;messagesMenu&quot; class&#x3D;&quot;messages-menu-btn p-0&quot;&gt;
+                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                        mail
+                    &lt;/i&gt;
+                    &lt;span class&#x3D;&quot;daxa-badge&quot;&gt;
+                        5
+                    &lt;/span&gt;
+                &lt;/button&gt;
+                &lt;mat-menu class&#x3D;&quot;messages-menu-dropdown&quot; #messagesMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+                    &lt;div
+                        [class.dark-menu]&#x3D;&quot;themeService.isDark() || themeService.isHeaderDark()&quot;
+                    &gt;
+                        &lt;div class&#x3D;&quot;title d-flex align-items-center justify-content-between&quot;&gt;
+                            &lt;span class&#x3D;&quot;fw-medium&quot;&gt;
+                                Messages
+                                &lt;span class&#x3D;&quot;text-body fw-normal&quot;&gt;(05)&lt;/span&gt;
+                            &lt;/span&gt;
+                            &lt;a routerLink&#x3D;&quot;/chat&quot; class&#x3D;&quot;link-btn text-daxa&quot;&gt;
+                                Mark all as read
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;ul class&#x3D;&quot;menu-body pl-0 mt-0 list-unstyled&quot;&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user1.jpg&quot; width&#x3D;&quot;44&quot; height&#x3D;&quot;44&quot; class&#x3D;&quot;rounded-circle position-absolute&quot; alt&#x3D;&quot;user&quot;&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block fw-medium&quot;&gt;
+                                    Jacob Liwiski &lt;span class&#x3D;&quot;text-body fw-normal&quot;&gt;35 mins ago&lt;/span&gt;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;message d-block text-body&quot;&gt;
+                                    Hey Victor! Could you please...
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/chat&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                                &lt;span class&#x3D;&quot;unread d-inline-block rounded-circle bg-daxa position-absolute&quot;&gt;&lt;/span&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user2.jpg&quot; width&#x3D;&quot;44&quot; height&#x3D;&quot;44&quot; class&#x3D;&quot;rounded-circle position-absolute&quot; alt&#x3D;&quot;user&quot;&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block fw-medium&quot;&gt;
+                                    Angela Carter &lt;span class&#x3D;&quot;text-body fw-normal&quot;&gt;1 day ago&lt;/span&gt;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;message d-block text-body&quot;&gt;
+                                    How are you Angela? Would you please...
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/chat&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user3.jpg&quot; width&#x3D;&quot;44&quot; height&#x3D;&quot;44&quot; class&#x3D;&quot;rounded-circle position-absolute&quot; alt&#x3D;&quot;user&quot;&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block fw-medium&quot;&gt;
+                                    Brad Traversy  &lt;span class&#x3D;&quot;text-body fw-normal&quot;&gt;2 days ago&lt;/span&gt;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;message d-block text-body&quot;&gt;
+                                    Hey Brad Traversy! Could you please...
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/chat&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div class&#x3D;&quot;menu-footer text-center&quot;&gt;
+                            &lt;a routerLink&#x3D;&quot;/chat&quot; class&#x3D;&quot;link-btn text-daxa d-inline-block fw-medium&quot;&gt;
+                                View All Messages
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/mat-menu&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;notificationsMenu&quot; class&#x3D;&quot;notifications-menu-btn p-0&quot;&gt;
+                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                        notifications
+                    &lt;/i&gt;
+                    &lt;span class&#x3D;&quot;daxa-badge&quot;&gt;
+                        3
+                    &lt;/span&gt;
+                &lt;/button&gt;
+                &lt;mat-menu class&#x3D;&quot;notifications-menu-dropdown&quot; #notificationsMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+                    &lt;div
+                        [class.dark-menu]&#x3D;&quot;themeService.isDark() || themeService.isHeaderDark()&quot;
+                    &gt;
+                        &lt;div class&#x3D;&quot;title d-flex align-items-center justify-content-between&quot;&gt;
+                            &lt;span class&#x3D;&quot;fw-medium&quot;&gt;
+                                Notifications
+                                &lt;span class&#x3D;&quot;text-body fw-normal&quot;&gt;(03)&lt;/span&gt;
+                            &lt;/span&gt;
+                            &lt;a routerLink&#x3D;&quot;/notifications&quot; class&#x3D;&quot;link-btn text-daxa&quot;&gt;
+                                Clear All
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;ul class&#x3D;&quot;menu-body pl-0 mt-0 list-unstyled&quot;&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;div class&#x3D;&quot;icon rounded-circle position-absolute text-center transition&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        sms
+                                    &lt;/i&gt;
+                                &lt;/div&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block&quot;&gt;
+                                    You have requested to &lt;strong class&#x3D;&quot;fw-medium&quot;&gt;withdrawal&lt;/strong&gt;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;time d-block text-body&quot;&gt;
+                                    2 hrs ago
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/notifications&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                                &lt;span class&#x3D;&quot;unread d-inline-block rounded-circle bg-daxa position-absolute&quot;&gt;&lt;/span&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;div class&#x3D;&quot;icon rounded-circle position-absolute text-center transition&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        person
+                                    &lt;/i&gt;
+                                &lt;/div&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block&quot;&gt;
+                                    &lt;strong class&#x3D;&quot;fw-medium&quot;&gt;A new user&lt;/strong&gt; added in Daxa
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;time d-block text-body&quot;&gt;
+                                    3 hrs ago
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/notifications&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                                &lt;span class&#x3D;&quot;unread d-inline-block rounded-circle bg-daxa position-absolute&quot;&gt;&lt;/span&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative&quot;&gt;
+                                &lt;div class&#x3D;&quot;icon rounded-circle position-absolute text-center transition&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        mark_email_unread
+                                    &lt;/i&gt;
+                                &lt;/div&gt;
+                                &lt;span class&#x3D;&quot;sub-title d-block&quot;&gt;
+                                    You have requested to &lt;strong class&#x3D;&quot;fw-medium&quot;&gt;withdrawal&lt;/strong&gt;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;time d-block text-body&quot;&gt;
+                                    1 day ago
+                                &lt;/span&gt;
+                                &lt;a routerLink&#x3D;&quot;/notifications&quot; class&#x3D;&quot;d-block link-btn position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;div class&#x3D;&quot;menu-footer text-center&quot;&gt;
+                            &lt;a routerLink&#x3D;&quot;/notifications&quot; class&#x3D;&quot;link-btn text-daxa d-inline-block fw-medium&quot;&gt;
+                                See All Notifications
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/mat-menu&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;button mat-button [matMenuTriggerFor]&#x3D;&quot;profileMenu&quot; class&#x3D;&quot;profile-menu-btn&quot;&gt;
+                    &lt;img ngSrc&#x3D;&quot;assets/images/admin.png&quot; alt&#x3D;&quot;profile-image&quot; height&#x3D;&quot;320&quot; width&#x3D;&quot;320&quot;&gt;
+                    &lt;span class&#x3D;&quot;status d-inline-block rounded-circle position-absolute&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;mat-menu class&#x3D;&quot;profile-menu-dropdown&quot; #profileMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+                    &lt;div
+                        [class.dark-menu]&#x3D;&quot;themeService.isDark() || themeService.isHeaderDark()&quot;
+                    &gt;
+                        &lt;div class&#x3D;&quot;menu-header d-flex align-items-center&quot;&gt;
+                            &lt;img ngSrc&#x3D;&quot;assets/images/admin.png&quot; width&#x3D;&quot;320&quot; height&#x3D;&quot;320&quot; alt&#x3D;&quot;admin&quot;&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;a routerLink&#x3D;&quot;/profile&quot; class&#x3D;&quot;d-inline-block fw-medium&quot;&gt;
+                                    Mateo &quot;El Temible Teus&quot;
+                                &lt;/a&gt;
+                                &lt;span class&#x3D;&quot;designation d-block text-body&quot;&gt;
+                                    Admin
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;ul class&#x3D;&quot;menu-body pl-0 mb-0 mt-0 list-unstyled&quot;&gt;
+                            &lt;li class&#x3D;&quot;position-relative transition fw-medium&quot;&gt;
+                                &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                    person
+                                &lt;/i&gt;
+                                My Profile
+                                &lt;a routerLink&#x3D;&quot;/my-profile&quot; class&#x3D;&quot;link-btn d-block position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative transition fw-medium&quot;&gt;
+                                &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                    settings
+                                &lt;/i&gt;
+                                Settings
+                                &lt;a routerLink&#x3D;&quot;/settings&quot; class&#x3D;&quot;link-btn d-block position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative transition fw-medium&quot;&gt;
+                                &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                    help
+                                &lt;/i&gt;
+                                FAQ
+                                &lt;a routerLink&#x3D;&quot;/faq&quot; class&#x3D;&quot;link-btn d-block position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li class&#x3D;&quot;position-relative transition fw-medium&quot;&gt;
+                                &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                    logout
+                                &lt;/i&gt;
+                                Logout
+                                &lt;a routerLink&#x3D;&quot;/authentication/logout&quot; class&#x3D;&quot;link-btn d-block position-absolute&quot;&gt;&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/mat-menu&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./header.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">::ng-deep {
+    .header-area {
+        top: 25px;
+        left: 282px;
+        right: 25px;
+        z-index: 101;
+        height: auto;
+        padding: 12px;
+        position: fixed;
+    
+        .header-left-side {
+            .burger-menu {
+                margin-right: 15px;
+    
+                span {
+                    height: 1px;
+                    width: 25px;
+                    margin: 6px 0;
+                }
+                &amp;.active {
+                    span {
+                        &amp;.top-bar {
+                            transform: rotate(45deg);
+                            transform-origin: 10% 10%;
+                        }
+                        &amp;.middle-bar {
+                            opacity: 0;
+                        }
+                        &amp;.bottom-bar {
+                            transform: rotate(-45deg);
+                            transform-origin: 10% 90%;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+            .search-box {
+                width: 360px;
+    
+                i {
+                    transform: translateY(-50%);
+                    color: var(--blackColor);
+                    position: absolute;
+                    font-size: 18px;
+                    left: 13px;
+                    top: 50%;
+                }
+                .input-search {
+                    height: 40px;
+                    font-size: 14px;
+                    border-radius: 3px;
+                    background: #f4f6fc;
+                    color: var(--blackColor);
+                    padding: {
+                        left: 40px;
+                        right: 15px;
+                    };
+                    &amp;::placeholder {
+                        font-weight: 300;
+                        color: var(--bodyColor);
+                        transition: var(--transition);
+                    }
+                    &amp;:focus {
+                        &amp;::placeholder {
+                            color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        .header-right-side {
+            position: relative;
+            top: 2px;
+
+            li {
+                .language-menu-btn {
+                    width: auto;
+                    height: auto;
+                    border-radius: 0;
+                    margin-right: 18px;
+                    padding: 0 20px 0 0;
+
+                    i {
+                        font-size: 18px;
+                        color: var(--blackColor);
+                    }
+                    &amp;::after {
+                        top: 50%;
+                        right: 0;
+                        margin-top: -2px;
+                        content: &quot;\ea4e&quot;;
+                        position: absolute;
+                        color: var(--blackColor);
+                        transform: translateY(-50%);
+                        font-family: remixicon !important;
+                    }
+                    &amp;.mat-mdc-icon-button {
+                        .mat-mdc-button-persistent-ripple {
+                            border-radius: 0;
+                        }
+                    }
+                }
+                .dark-swtich-btn {
+                    &amp;.mat-mdc-button {
+                        min-width: auto;
+                        height: auto;
+                        width: auto;
+                        padding: 0;
+            
+                        i {
+                            font-size: 20px;
+                            color: var(--blackColor);
+                        }
+                    }
+                }
+                .calendar-menu-btn {
+                    width: auto;
+                    height: auto;
+                    line-height: 1;
+                    border-radius: 0;
+                    margin: {
+                        left: 22px;
+                        top: -3px;
+                    };
+                    i {
+                        font-size: 19px;
+                        color: var(--blackColor);
+                    }
+                    &amp;.mat-mdc-icon-button {
+                        .mat-mdc-button-persistent-ripple {
+                            border-radius: 0;
+                        }
+                    }
+                }
+                .messages-menu-btn {
+                    width: auto;
+                    height: auto;
+                    border-radius: 0;
+                    margin-left: 23px;
+
+                    i {
+                        font-size: 20px;
+                        margin-right: -7px;
+                        color: var(--blackColor);
+                    }
+                    &amp;.mat-mdc-icon-button {
+                        .mat-mdc-button-persistent-ripple {
+                            border-radius: 0;
+                        }
+                    }
+                    .daxa-badge {
+                        top: -15px;
+                        width: 17px;
+                        height: 17px;
+                        line-height: 17px;
+                        position: relative;
+                        border-radius: 50%;
+                        display: inline-block;
+                        color: var(--whiteColor);
+                        background-color: var(--daxaColor);
+                        font: {
+                            size: 10px;
+                            weight: 500;
+                        };
+                    }
+                }
+                .notifications-menu-btn {
+                    width: auto;
+                    height: auto;
+                    border-radius: 0;
+                    margin-left: 19px;
+
+                    i {
+                        font-size: 20px;
+                        margin-right: -10px;
+                        color: var(--blackColor);
+                    }
+                    &amp;.mat-mdc-icon-button {
+                        .mat-mdc-button-persistent-ripple {
+                            border-radius: 0;
+                        }
+                    }
+                    .daxa-badge {
+                        top: -15px;
+                        width: 17px;
+                        height: 17px;
+                        line-height: 17px;
+                        position: relative;
+                        border-radius: 50%;
+                        display: inline-block;
+                        color: var(--whiteColor);
+                        background-color: var(--dangerColor);
+                        font: {
+                            size: 10px;
+                            weight: 500;
+                        };
+                    }
+                }
+                .profile-menu-btn {
+                    top: -2px;
+                    width: auto;
+                    height: auto;
+                    min-width: auto;
+                    margin-left: 20px;
+                    position: relative;
+                    padding: 0 18px 0 0;
+
+                    img {
+                        width: 40px;
+                        border-radius: 50%;
+                    }
+                    &amp;::after {
+                        top: 50%;
+                        right: -3px;
+                        content: &quot;\ea4e&quot;;
+                        position: absolute;
+                        color: var(--blackColor);
+                        transform: translateY(-50%);
+                        font-family: remixicon !important;
+                    }
+                    &amp;.mat-mdc-icon-button {
+                        .mat-mdc-button-persistent-ripple {
+                            border-radius: 0;
+                        }
+                    }
+                    .status {
+                        right: 0;
+                        bottom: 3px;
+                        width: 11px;
+                        height: 11px;
+                        border: 2px solid var(--whiteColor);
+                        background-color: #2ecc71;
+                    }
+                }
+            }
+        }
+        &amp;.sticky {
+            top: 0;
+            box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
+        }
+        &amp;.active, &amp;.hide-sidebar {
+            left: 85px;
+        }
+        &amp;.right-sidebar {
+            left: 25px;
+            right: 282px;
+
+            &amp;.active, &amp;.hide-sidebar {
+                right: 85px;
+            }
+        }
+        &amp;.card-borderd-theme {
+            box-shadow: var(--borderBoxShadow) !important;
+        }
+        &amp;.component-dark-theme, &amp;.dark-header {
+            .header-left-side {
+                .burger-menu {
+                    span {
+                        background: var(--whiteColor) !important;
+                    }
+                }
+                .search-box {
+                    i {
+                        color: var(--whiteColor);
+                    }
+                    .input-search {
+                        background: rgba(255, 255, 255, .07);
+                        color: var(--whiteColor);
+                        
+                        &amp;::placeholder {
+                            color: rgba(255, 255, 255, .50);
+                        }
+                        &amp;:focus {
+                            &amp;::placeholder {
+                                color: transparent;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-right-side {
+                li {
+                    .language-menu-btn {
+                        i {
+                            color: var(--whiteColor);
+                        }
+                        &amp;::after {
+                            color: var(--whiteColor);
+                        }
+                    }
+                    .dark-swtich-btn {
+                        &amp;.mat-mdc-button {
+                            i {
+                                color: var(--whiteColor);
+                            }
+                        }
+                    }
+                    .calendar-menu-btn {
+                        i {
+                            color: var(--whiteColor);
+                        }
+                    }
+                    .messages-menu-btn {
+                        i {
+                            color: var(--whiteColor);
+                        }
+                    }
+                    .notifications-menu-btn {
+                        i {
+                            color: var(--whiteColor);
+                        }
+                    }
+                    .profile-menu-btn {
+                        &amp;::after {
+                            color: var(--whiteColor);
+                        }
+                    }
+                }
+            }
+        }
+        &amp;.dark-header {
+            &amp;.bg-white {
+                background-color: #1b232d !important;
+            }
+        }
+        &amp;.rtl-enabled {
+            left: 25px;
+            right: 282px;
+
+            .header-left-side {
+                .burger-menu {
+                    margin: {
+                        left: 15px;
+                        right: 0;
+                    };
+                }
+                .search-box {
+                    i {
+                        right: 13px;
+                        left: auto;
+                    }
+                    .input-search {
+                        padding: {
+                            right: 40px;
+                            left: 15px;
+                        };
+                    }
+                }
+            }
+            .header-right-side {
+                padding-right: 0;
+                
+                li {
+                    .language-menu-btn {
+                        padding: 0 0 0 20px;
+                        margin: {
+                            right: 0;
+                            left: 18px;
+                        };
+                        &amp;::after {
+                            right: auto;
+                            left: 0;
+                        }
+                    }
+                    .calendar-menu-btn {
+                        margin: {
+                            right: 22px;
+                            left: 0;
+                        };
+                    }
+                    .messages-menu-btn {
+                        margin: {
+                            left: 0;
+                            right: 23px;
+                        };
+                        i {
+                            margin: {
+                                right: 0;
+                                left: -7px;
+                            };
+                        }
+                    }
+                    .notifications-menu-btn {
+                        margin: {
+                            left: 0;
+                            right: 19px;
+                        };
+                        i {
+                            margin: {
+                                left: -10px;
+                                right: 0;
+                            };
+                        }
+                    }
+                    .profile-menu-btn {
+                        padding: 0 0 0 18px;
+                        margin: {
+                            left: 0;
+                            right: 20px;
+                        };
+                        &amp;::after {
+                            right: auto;
+                            left: -3px;
+                        }
+                        .status {
+                            right: auto;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+            &amp;.active, &amp;.hide-sidebar {
+                left: 25px;
+                right: 85px;
+            }
+            &amp;.right-sidebar {
+                right: 25px;
+                left: 282px;
+    
+                &amp;.active, &amp;.hide-sidebar {
+                    left: 85px;
+                }
+            }
+        }
+    }
+    .mat-mdc-menu-panel {
+        &amp;.language-menu-dropdown {
+            width: 220px;
+            height: auto;
+            max-width: 220px;
+            overflow: hidden;
+            margin-top: 10px;
+            padding: 20px 0 0;
+            border-radius: 15px;
+            box-shadow: 0px 4px 34px rgba(101, 96, 240, 0.1);
+
+            .mat-mdc-menu-content {
+                padding: 0;
+            }
+            .title {
+                padding: 0 25px 20px;
+            }
+            .menu-body {
+                li {
+                    border-bottom: 1px dashed #e7e2e2;
+
+                    .mdc-button {
+                        padding: 0;
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                        padding: 14px 25px;
+                        
+                        .mdc-button__label {
+                            display: flex;
+                            align-items: center;
+                            color: var(--blackColor);
+                            font: {
+                                size: 15px;
+                                weight: 500;
+                            };
+                            img {
+                                margin-right: 10px;
+                                width: 30px;
+                            }
+                        }
+                    }
+                    &amp;:first-child {
+                        border-top: 1px dashed #e7e2e2;
+                    }
+                    &amp;:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+            &amp;:has(.dark-menu) {
+                box-shadow: unset !important;
+                background-color: #1b232d !important;
+
+                .title {
+                    color: var(--whiteColor);
+                }
+                .text-body {
+                    color: rgba(255, 255, 255, .50) !important;
+                }
+                .menu-body {
+                    li {
+                        border-color: rgba(255, 255, 255, 0.09);
+    
+                        .mdc-button {
+                            .mdc-button__label {
+                                color: var(--whiteColor);
+                            }
+                            .mat-mdc-button-persistent-ripple {
+                                &amp;::before {
+                                    --mat-text-button-state-layer-color: var(--whiteColor);
+                                }
+                            }
+                        }
+                        &amp;:first-child {
+                            border-color: rgba(255, 255, 255, 0.09);
+                        }
+                    }
+                }
+                a {
+                    color: var(--whiteColor);
+
+                    &amp;:hover {
+                        color: var(--daxaColor);
+                    }
+                }
+            }
+        }
+        &amp;.messages-menu-dropdown {
+            width: 375px;
+            height: auto;
+            padding: 25px 0;
+            max-width: 375px;
+            overflow: hidden;
+            margin-top: 10px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 34px rgba(101, 96, 240, 0.1);
+
+            .title {
+                padding: {
+                    left: 25px;
+                    right: 25px;
+                    bottom: 25px;
+                };
+                .link-btn {
+                    font-size: 15px;
+                }
+            }
+            .menu-body {
+                margin-bottom: 25px;
+
+                li {
+                    border-bottom: 1px dashed #e7e2e2;
+                    padding: 18px 25px 18px 80px;
+
+                    img {
+                        top: 50%;
+                        left: 25px;
+                        transform: translateY(-50%);
+                    }
+                    .sub-title {
+                        margin-bottom: 5px;
+                        
+                        span {
+                            font-size: 14.5px;
+                            margin-left: 5px;
+                        }
+                    }
+                    .message {
+                        font-size: 14.5px;
+                    }
+                    .unread {
+                        top: 50%;
+                        width: 7px;
+                        right: 25px;
+                        height: 7px;
+                        transform: translateY(-50%);
+                    }
+                    .link-btn {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 1;
+                    }
+                    &amp;:first-child {
+                        border-top: 1px dashed #e7e2e2;
+                    }
+                }
+            }
+            .menu-footer {
+                a {
+                    font-size: 15px;
+                    text-decoration: underline;
+                }
+            }
+            .mat-mdc-menu-content {
+                padding: 0;
+            }
+            &amp;:has(.dark-menu) {
+                box-shadow: unset !important;
+                background-color: #1b232d !important;
+
+                .title {
+                    color: var(--whiteColor);
+                }
+                .text-body {
+                    color: rgba(255, 255, 255, .50) !important;
+                }
+                .menu-body {
+                    li {
+                        border-color: rgba(255, 255, 255, 0.09);
+                        color: var(--whiteColor);
+                        
+                        &amp;:first-child {
+                            border-color: rgba(255, 255, 255, 0.09);
+                        }
+                    }
+                }
+                a {
+                    color: var(--whiteColor);
+
+                    &amp;:hover {
+                        color: var(--daxaColor);
+                    }
+                }
+            }
+        }
+        &amp;.notifications-menu-dropdown {
+            width: 375px;
+            height: auto;
+            padding: 25px 0;
+            max-width: 375px;
+            overflow: hidden;
+            margin-top: 10px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 34px rgba(101, 96, 240, 0.1);
+
+            .title {
+                padding: {
+                    left: 25px;
+                    right: 25px;
+                    bottom: 25px;
+                };
+                .link-btn {
+                    font-size: 15px;
+                }
+            }
+            .menu-body {
+                margin-bottom: 25px;
+
+                li {
+                    border-bottom: 1px dashed #e7e2e2;
+                    padding: 18px 25px 18px 80px;
+
+                    .icon {
+                        top: 50%;
+                        left: 25px;
+                        width: 44px;
+                        height: 44px;
+                        background: #f5f5f5;
+                        color: var(--daxaColor);
+                        transform: translateY(-50%);
+
+                        i {
+                            left: 0;
+                            right: 0;
+                            top: 50%;
+                            line-height: 1;
+                            font-size: 21px;
+                            position: absolute;
+                            transform: translateY(-50%);
+                            margin: {
+                                left: auto;
+                                right: auto;
+                            };
+                        }
+                    }
+                    .sub-title {
+                        margin-bottom: 5px;
+                    }
+                    .unread {
+                        top: 50%;
+                        width: 7px;
+                        right: 25px;
+                        height: 7px;
+                        transform: translateY(-50%);
+                    }
+                    .time {
+                        font-size: 14.5px;
+                    }
+                    .link-btn {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 1;
+                    }
+                    &amp;:hover {
+                        .icon {
+                            background-color: var(--daxaColor) !important;
+                            color: var(--whiteColor) !important;
+                        }
+                    }
+                    &amp;:first-child {
+                        border-top: 1px dashed #e7e2e2;
+                    }
+                    &amp;:nth-child(2) {
+                        .icon {
+                            color: #39b2de;
+                        }
+                    }
+                    &amp;:nth-child(3) {
+                        .icon {
+                            color: #06b48a;
+                        }
+                    }
+                }
+            }
+            .menu-footer {
+                a {
+                    font-size: 15px;
+                    text-decoration: underline;
+                }
+            }
+            .mat-mdc-menu-content {
+                padding: 0;
+            }
+            &amp;:has(.dark-menu) {
+                box-shadow: unset !important;
+                background-color: #1b232d !important;
+
+                .title {
+                    color: var(--whiteColor);
+                }
+                .text-body {
+                    color: rgba(255, 255, 255, .50) !important;
+                }
+                .menu-body {
+                    li {
+                        border-color: rgba(255, 255, 255, 0.09);
+                        color: var(--whiteColor);
+                        
+                        .icon {
+                            background: #293542;
+                        }
+                        &amp;:first-child {
+                            border-color: rgba(255, 255, 255, 0.09);
+                        }
+                    }
+                }
+                a {
+                    color: var(--whiteColor);
+
+                    &amp;:hover {
+                        color: var(--daxaColor);
+                    }
+                }
+            }
+        }
+        &amp;.profile-menu-dropdown {
+            width: 220px;
+            padding: 20px 0;
+            min-width: auto;
+            max-width: 100%;
+            overflow: hidden;
+            margin-top: 10px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 34px rgba(101, 96, 240, 0.1);
+
+            .menu-header {
+                border-bottom: 1px dashed #e7e2e2;
+                margin-bottom: 10px;
+                padding: {
+                    left: 20px;
+                    right: 20px;
+                    bottom: 20px;
+                };
+                img {
+                    width: 40px;
+                    border-radius: 50%;
+                }
+                .title {
+                    margin-left: 12px;
+
+                    a {
+                        font-size: 17px;
+                    }
+                    .designation {
+                        margin-top: 4px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .menu-body {
+                li {
+                    padding: 10px 20px 10px 48px;
+                    font-size: 15px;
+
+                    i {
+                        top: 50%;
+                        left: 20px;
+                        line-height: 1;
+                        font-size: 20px;
+                        margin-top: -0.2px;
+                        position: absolute;
+                        color: var(--daxaColor);
+                        transform: translateY(-50%);
+                    }
+                    .link-btn {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 1;
+                    }
+                    &amp;:hover {
+                        background-color: #f2f1f9;
+                        color: var(--daxaColor);
+                    }
+                }
+            }
+            .mat-mdc-menu-content {
+                padding: 0;
+            }
+            &amp;:has(.dark-menu) {
+                color: var(--whiteColor);
+                box-shadow: unset !important;
+                background-color: #1b232d !important;
+
+                a {
+                    color: var(--whiteColor);
+
+                    &amp;:hover {
+                        color: var(--daxaColor);
+                    }
+                }
+                .menu-header {
+                    border-color: rgba(255, 255, 255, 0.09);
+                }
+                .text-body {
+                    color: rgba(255, 255, 255, .50) !important;
+                }
+                .menu-body {
+                    li {
+                        &amp;:hover {
+                            background-color: #2c343e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    ::ng-deep {
+        .header-area {
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            padding: 15px 15px 12px;
+        
+            .header-left-side {
+                justify-content: center;
+
+                .search-box {
+                    width: 280px;
+        
+                    i {
+                        font-size: 18px;
+                    }
+                    .input-search {
+                        padding: {
+                            left: 38px;
+                            right: 15px;
+                        };
+                    }
+                }
+            }
+            .header-right-side {
+                top: 0;
+                justify-content: center;
+                margin-top: 15px !important;
+    
+                li {
+                    .language-menu-btn {
+                        margin-right: 10px;
+                        padding: 0 15px 0 0;
+
+                        &amp;::after {
+                            font-size: 14px;
+                        }
+                    }
+                    .calendar-menu-btn {
+                        margin: {
+                            left: 15px;
+                            top: -3px;
+                        };
+                    }
+                    .messages-menu-btn {
+                        margin-left: 15px;
+    
+                        i {
+                            margin-right: -7px;
+                        }
+                        .daxa-badge {
+                            width: 15px;
+                            height: 15px;
+                            font-size: 9px;
+                            line-height: 15px;
+                        }
+                    }
+                    .notifications-menu-btn {
+                        margin-left: 12px;
+    
+                        i {
+                            margin-right: -10px;
+                        }
+                        .daxa-badge {
+                            width: 15px;
+                            height: 15px;
+                            font-size: 9px;
+                            line-height: 15px;
+                        }
+                    }
+                    .profile-menu-btn {
+                        margin-left: 13px;
+                        padding: 0 15px 0 0;
+    
+                        img {
+                            width: 35px;
+                        }
+                        &amp;::after {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            &amp;.sticky {
+                top: 0;
+            }
+            &amp;.active, &amp;.hide-sidebar {
+                left: 15px;
+            }
+            &amp;.right-sidebar {
+                left: 15px;
+                right: 15px;
+    
+                &amp;.active, &amp;.hide-sidebar {
+                    right: 15px;
+                }
+            }
+            &amp;.rtl-enabled {
+                left: 15px;
+                right: 15px;
+
+                .header-left-side {
+                    .search-box {
+                        .input-search {
+                            padding: {
+                                right: 38px;
+                                left: 15px;
+                            };
+                        }
+                    }
+                }
+                .header-right-side {
+                    li {
+                        .language-menu-btn {
+                            padding: 0 0 0 15px;
+                            margin: {
+                                left: 10px;
+                                right: 0;
+                            };
+                        }
+                        .calendar-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 15px;
+                            };
+                        }
+                        .messages-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 15px;
+                            };
+                            i {
+                                margin: {
+                                    left: -7px;
+                                    right: 0;
+                                };
+                            }
+                        }
+                        .notifications-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 12px;
+                            };
+                            i {
+                                margin: {
+                                    right: 0;
+                                    left: -10px;
+                                };
+                            }
+                        }
+                        .profile-menu-btn {
+                            padding: 0 0 0 15px;
+                            margin: {
+                                left: 0;
+                                right: 13px;
+                            };
+                        }
+                    }
+                }
+                &amp;.active, &amp;.hide-sidebar {
+                    left: 15px;
+                    right: 15px;
+                }
+                &amp;.right-sidebar {
+                    right: 15px;
+                    left: 15px;
+        
+                    &amp;.active, &amp;.hide-sidebar {
+                        left: 15px;
+                    }
+                }
+            }
+        }
+        .mat-mdc-menu-panel {
+            &amp;.language-menu-dropdown {
+                width: 200px;
+                max-width: 200px;
+                padding: 15px 0 0;
+    
+                .title {
+                    padding: 0 15px 15px;
+                }
+                .menu-body {
+                    li {
+                        .mdc-button {
+                            padding: 13px 15px;
+                            
+                            .mdc-button__label {
+                                font-size: 14px;
+
+                                img {
+                                    margin-right: 9px;
+                                    width: 27px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.messages-menu-dropdown {
+                width: 300px;
+                padding: 15px 0;
+                max-width: 300px;
+    
+                .title {
+                    padding: {
+                        left: 15px;
+                        right: 15px;
+                        bottom: 15px;
+                    };
+                    .link-btn {
+                        font-size: 13px;
+                    }
+                }
+                .menu-body {
+                    margin-bottom: 15px;
+    
+                    li {
+                        padding: 16px 15px 16px 69px;
+    
+                        img {
+                            left: 15px;
+                        }
+                        .sub-title {
+                            margin-bottom: 5px;
+                            
+                            span {
+                                font-size: 13px;
+                            }
+                        }
+                        .message {
+                            font-size: 13px;
+                        }
+                        .unread {
+                            width: 6px;
+                            right: 15px;
+                            height: 6px;
+                        }
+                    }
+                }
+                .menu-footer {
+                    a {
+                        font-size: 13px;
+                    }
+                }
+            }
+            &amp;.notifications-menu-dropdown {
+                width: 300px;
+                padding: 15px 0;
+                max-width: 300px;
+    
+                .title {
+                    padding: {
+                        left: 15px;
+                        right: 15px;
+                        bottom: 15px;
+                    };
+                    .link-btn {
+                        font-size: 13px;
+                    }
+                }
+                .menu-body {
+                    margin-bottom: 15px;
+    
+                    li {
+                        padding: 15px 15px 15px 64px;
+    
+                        .icon {
+                            left: 15px;
+                            width: 40px;
+                            height: 40px;
+    
+                            i {
+                                font-size: 18px;
+                            }
+                        }
+                        .unread {
+                            width: 6px;
+                            right: 15px;
+                            height: 6px;
+                        }
+                        .time {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .menu-footer {
+                    a {
+                        font-size: 13px;
+                    }
+                }
+            }
+            &amp;.profile-menu-dropdown {
+                padding: 15px 0;
+    
+                .menu-header {
+                    margin-bottom: 8px;
+                    padding: {
+                        left: 15px;
+                        right: 15px;
+                        bottom: 15px;
+                    };
+                    .title {
+                        margin-left: 11px;
+    
+                        a {
+                            font-size: 15px;
+                        }
+                        .designation {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .menu-body {
+                    li {
+                        padding: 8px 15px 8px 41px;
+                        font-size: 14px;
+    
+                        i {
+                            left: 15px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    ::ng-deep {
+        .header-area {
+            left: 25px;
+            right: 25px;
+            padding: 12px 15px;
+        
+            .header-left-side {
+                .burger-menu {
+                    margin-right: 20px;
+                }
+                .search-box {
+                    width: 290px;
+                }
+            }
+            .header-right-side {
+                li {
+                    .language-menu-btn {
+                        margin-right: 14px;
+                        padding: 0 18px 0 0;
+                    }
+                    .calendar-menu-btn {
+                        margin-left: 19px;
+                    }
+                    .messages-menu-btn {
+                        margin-left: 20px;
+                    }
+                    .notifications-menu-btn {
+                        margin-left: 17px;
+                    }
+                    .profile-menu-btn {
+                        margin-left: 18px;
+    
+                        img {
+                            width: 35px;
+                        }
+                    }
+                }
+            }
+            &amp;.active, &amp;.hide-sidebar {
+                left: 25px;
+            }
+            &amp;.right-sidebar {
+                right: 25px;
+    
+                &amp;.active, &amp;.hide-sidebar {
+                    right: 25px;
+                }
+            }
+            &amp;.rtl-enabled {
+                left: 25px;
+                right: 25px;
+        
+                .header-left-side {
+                    .burger-menu {
+                        margin: {
+                            left: 20px;
+                            right: 0;
+                        };
+                    }
+                }
+                .header-right-side {
+                    li {
+                        .language-menu-btn {
+                            padding: 0 0 0 18px;
+                            margin: {
+                                right: 0;
+                                left: 14px;
+                            };
+                        }
+                        .calendar-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 19px;
+                            };
+                        }
+                        .messages-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 20px;
+                            };
+                        }
+                        .notifications-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 17px;
+                            };
+                        }
+                        .profile-menu-btn {
+                            margin: {
+                                left: 0;
+                                right: 18px;
+                            };
+                        }
+                    }
+                }
+                &amp;.active, &amp;.hide-sidebar {
+                    left: 25px;
+                    right: 25px;
+                }
+                &amp;.right-sidebar {
+                    right: 25px;
+                    left: 25px;
+        
+                    &amp;.active, &amp;.hide-sidebar {
+                        left: 25px;
+                    }
+                }
+            }
+        }
+        .mat-mdc-menu-panel {
+            &amp;.language-menu-dropdown {
+                padding: 18px 0 0;
+    
+                .title {
+                    padding: 0 20px 18px;
+                }
+                .menu-body {
+                    li {
+                        .mdc-button {
+                            padding: 13px 20px;
+                            
+                            .mdc-button__label {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.messages-menu-dropdown {
+                width: 350px;
+                padding: 20px 0;
+                max-width: 350px;
+    
+                .title {
+                    padding: {
+                        left: 20px;
+                        right: 20px;
+                        bottom: 20px;
+                    };
+                    .link-btn {
+                        font-size: 14px;
+                    }
+                }
+                .menu-body {
+                    margin-bottom: 20px;
+    
+                    li {
+                        padding: 18px 20px 18px 75px;
+    
+                        img {
+                            left: 20px;
+                        }
+                        .sub-title {
+                            span {
+                                font-size: 13.5px;
+                            }
+                        }
+                        .message {
+                            font-size: 13.5px;
+                        }
+                        .unread {
+                            right: 20px;
+                        }
+                    }
+                }
+                .menu-footer {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+            &amp;.notifications-menu-dropdown {
+                width: 350px;
+                padding: 20px 0;
+                max-width: 350px;
+    
+                .title {
+                    padding: {
+                        left: 20px;
+                        right: 20px;
+                        bottom: 20px;
+                    };
+                    .link-btn {
+                        font-size: 14px;
+                    }
+                }
+                .menu-body {
+                    margin-bottom: 20px;
+    
+                    li {
+                        padding: 17px 20px 17px 74px;
+    
+                        .icon {
+                            left: 20px;
+                        }
+                        .unread {
+                            right: 20px;
+                        }
+                        .time {
+                            font-size: 13.5px;
+                        }
+                    }
+                }
+                .menu-footer {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+            &amp;.profile-menu-dropdown {
+                .menu-header {
+                    margin-bottom: 8px;
+                    
+                    .title {
+                        margin-left: 11px;
+    
+                        a {
+                            font-size: 16px;
+                        }
+                        .designation {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .menu-body {
+                    li {
+                        padding: 10px 20px 10px 47px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    ::ng-deep {
+        .header-area {
+            left: 25px;
+        
+            .header-left-side {
+                .search-box {
+                    width: 320px;
+                }
+            }
+            &amp;.active, &amp;.hide-sidebar {
+                left: 25px;
+            }
+            &amp;.right-sidebar {
+                right: 25px;
+    
+                &amp;.active, &amp;.hide-sidebar {
+                    right: 25px;
+                }
+            }
+            &amp;.rtl-enabled {
+                left: 25px;
+                right: 25px;
+
+                &amp;.active, &amp;.hide-sidebar {
+                    left: 25px;
+                    right: 25px;
+                }
+                &amp;.right-sidebar {
+                    right: 25px;
+                    left: 25px;
+        
+                    &amp;.active, &amp;.hide-sidebar {
+                        left: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    ::ng-deep {
+        .header-area {
+            left: 262px;
+
+            &amp;.active, &amp;.hide-sidebar {
+                left: 85px;
+            }
+            &amp;.right-sidebar {
+                right: 262px;
+    
+                &amp;.active, &amp;.hide-sidebar {
+                    right: 85px;
+                }
+            }
+            &amp;.rtl-enabled {
+                left: 25px;
+                right: 262px;
+
+                &amp;.active, &amp;.hide-sidebar {
+                    left: 25px;
+                    right: 85px;
+                }
+                &amp;.right-sidebar {
+                    right: 25px;
+                    left: 262px;
+        
+                    &amp;.active, &amp;.hide-sidebar {
+                        left: 85px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header    class="header-area bg-white border-radius transition"    [ngClass]="{\'active\': isSidebarToggled, \'sticky\': isSticky}"    [class.component-dark-theme]="themeService.isDark()"    [class.right-sidebar]="themeService.isRightSidebar()"    [class.hide-sidebar]="themeService.isHideSidebar()"    [class.dark-header]="themeService.isHeaderDark()"    [class.card-borderd-theme]="themeService.isCardBorder()"    [class.rtl-enabled]="themeService.isRTLEnabled()">    <div class="d-md-flex align-items-center justify-content-between">        <div class="header-left-side d-flex align-items-center">            <div                class="burger-menu cursor-pointer transition d-xl-none"                [ngClass]="{\'active\': isSidebarToggled}"                (click)="toggle()"            >                <span class="top-bar d-block bg-black transition"></span>                <span class="middle-bar d-block bg-black transition"></span>                <span class="bottom-bar d-block bg-black transition"></span>            </div>            <button mat-icon-button class="back-btn" (click)="goBack()">                    <i class="material-symbols-outlined">                        arrow_back                    </i>            </button>        </div>        <ul class="header-right-side d-flex align-items-center mt-0 mb-0 pl-0 list-unstyled">            <li>                <button mat-icon-button [matMenuTriggerFor]="languageMenu" class="language-menu-btn">                    <i class="material-symbols-outlined">                        translate                    </i>                </button>                <mat-menu class="language-menu-dropdown" #languageMenu="matMenu" xPosition="before">                    <div                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"                    >                        <span class="title fw-medium d-block">Choose Language</span>                        <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">                            <li>                                <button mat-button>                                    <img ngSrc="assets/images/flags/usa.png" alt="flag" height="30" width="30">                                    English                                </button>                            </li>                        </ul>                    </div>                </mat-menu>            </li>            <li>                <button                    mat-button                    class="dark-swtich-btn"                    (click)="toggleTheme()"                >                    <i class="material-symbols-outlined">                        dark_mode                    </i>                </button>            </li>            <li>                <button mat-icon-button [matMenuTriggerFor]="messagesMenu" class="messages-menu-btn p-0">                    <i class="material-symbols-outlined">                        mail                    </i>                    <span class="daxa-badge">                        5                    </span>                </button>                <mat-menu class="messages-menu-dropdown" #messagesMenu="matMenu" xPosition="before">                    <div                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"                    >                        <div class="title d-flex align-items-center justify-content-between">                            <span class="fw-medium">                                Messages                                <span class="text-body fw-normal">(05)</span>                            </span>                            <a routerLink="/chat" class="link-btn text-daxa">                                Mark all as read                            </a>                        </div>                        <ul class="menu-body pl-0 mt-0 list-unstyled">                            <li class="position-relative">                                <img ngSrc="assets/images/users/user1.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">                                <span class="sub-title d-block fw-medium">                                    Jacob Liwiski <span class="text-body fw-normal">35 mins ago</span>                                </span>                                <span class="message d-block text-body">                                    Hey Victor! Could you please...                                </span>                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>                            </li>                            <li class="position-relative">                                <img ngSrc="assets/images/users/user2.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">                                <span class="sub-title d-block fw-medium">                                    Angela Carter <span class="text-body fw-normal">1 day ago</span>                                </span>                                <span class="message d-block text-body">                                    How are you Angela? Would you please...                                </span>                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>                            </li>                            <li class="position-relative">                                <img ngSrc="assets/images/users/user3.jpg" width="44" height="44" class="rounded-circle position-absolute" alt="user">                                <span class="sub-title d-block fw-medium">                                    Brad Traversy  <span class="text-body fw-normal">2 days ago</span>                                </span>                                <span class="message d-block text-body">                                    Hey Brad Traversy! Could you please...                                </span>                                <a routerLink="/chat" class="d-block link-btn position-absolute"></a>                            </li>                        </ul>                        <div class="menu-footer text-center">                            <a routerLink="/chat" class="link-btn text-daxa d-inline-block fw-medium">                                View All Messages                            </a>                        </div>                    </div>                </mat-menu>            </li>            <li>                <button mat-icon-button [matMenuTriggerFor]="notificationsMenu" class="notifications-menu-btn p-0">                    <i class="material-symbols-outlined">                        notifications                    </i>                    <span class="daxa-badge">                        3                    </span>                </button>                <mat-menu class="notifications-menu-dropdown" #notificationsMenu="matMenu" xPosition="before">                    <div                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"                    >                        <div class="title d-flex align-items-center justify-content-between">                            <span class="fw-medium">                                Notifications                                <span class="text-body fw-normal">(03)</span>                            </span>                            <a routerLink="/notifications" class="link-btn text-daxa">                                Clear All                            </a>                        </div>                        <ul class="menu-body pl-0 mt-0 list-unstyled">                            <li class="position-relative">                                <div class="icon rounded-circle position-absolute text-center transition">                                    <i class="material-symbols-outlined">                                        sms                                    </i>                                </div>                                <span class="sub-title d-block">                                    You have requested to <strong class="fw-medium">withdrawal</strong>                                </span>                                <span class="time d-block text-body">                                    2 hrs ago                                </span>                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>                            </li>                            <li class="position-relative">                                <div class="icon rounded-circle position-absolute text-center transition">                                    <i class="material-symbols-outlined">                                        person                                    </i>                                </div>                                <span class="sub-title d-block">                                    <strong class="fw-medium">A new user</strong> added in Daxa                                </span>                                <span class="time d-block text-body">                                    3 hrs ago                                </span>                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>                                <span class="unread d-inline-block rounded-circle bg-daxa position-absolute"></span>                            </li>                            <li class="position-relative">                                <div class="icon rounded-circle position-absolute text-center transition">                                    <i class="material-symbols-outlined">                                        mark_email_unread                                    </i>                                </div>                                <span class="sub-title d-block">                                    You have requested to <strong class="fw-medium">withdrawal</strong>                                </span>                                <span class="time d-block text-body">                                    1 day ago                                </span>                                <a routerLink="/notifications" class="d-block link-btn position-absolute"></a>                            </li>                        </ul>                        <div class="menu-footer text-center">                            <a routerLink="/notifications" class="link-btn text-daxa d-inline-block fw-medium">                                See All Notifications                            </a>                        </div>                    </div>                </mat-menu>            </li>            <li>                <button mat-button [matMenuTriggerFor]="profileMenu" class="profile-menu-btn">                    <img ngSrc="assets/images/admin.png" alt="profile-image" height="320" width="320">                    <span class="status d-inline-block rounded-circle position-absolute"></span>                </button>                <mat-menu class="profile-menu-dropdown" #profileMenu="matMenu" xPosition="before">                    <div                        [class.dark-menu]="themeService.isDark() || themeService.isHeaderDark()"                    >                        <div class="menu-header d-flex align-items-center">                            <img ngSrc="assets/images/admin.png" width="320" height="320" alt="admin">                            <div class="title">                                <a routerLink="/profile" class="d-inline-block fw-medium">                                    Mateo "El Temible Teus"                                </a>                                <span class="designation d-block text-body">                                    Admin                                </span>                            </div>                        </div>                        <ul class="menu-body pl-0 mb-0 mt-0 list-unstyled">                            <li class="position-relative transition fw-medium">                                <i class="material-symbols-outlined">                                    person                                </i>                                My Profile                                <a routerLink="/my-profile" class="link-btn d-block position-absolute"></a>                            </li>                            <li class="position-relative transition fw-medium">                                <i class="material-symbols-outlined">                                    settings                                </i>                                Settings                                <a routerLink="/settings" class="link-btn d-block position-absolute"></a>                            </li>                            <li class="position-relative transition fw-medium">                                <i class="material-symbols-outlined">                                    help                                </i>                                FAQ                                <a routerLink="/faq" class="link-btn d-block position-absolute"></a>                            </li>                            <li class="position-relative transition fw-medium">                                <i class="material-symbols-outlined">                                    logout                                </i>                                Logout                                <a routerLink="/authentication/logout" class="link-btn d-block position-absolute"></a>                            </li>                        </ul>                    </div>                </mat-menu>            </li>        </ul>    </div></header></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1739 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SchoolTransportationListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-school-transportation-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatCardModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>RouterLink</code>
+                            <code>MatTableModule</code>
+                            <code>MatPaginatorModule</code>
+                            <code>NgIf</code>
+                            <code>MatCheckboxModule</code>
+                            <code>MatTooltipModule</code>
+                            <code>MatIcon</code>
+                                <code><a href="../components/BreadcrumbComponent.html" target="_self" >BreadcrumbComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./school-transportation-list.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./school-transportation-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#breadcrumbPaths" >breadcrumbPaths</a>
+                            </li>
+                            <li>
+                                <a href="#breadcrumbTitle" >breadcrumbTitle</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns" >displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#paginator" >paginator</a>
+                            </li>
+                            <li>
+                                <a href="#selection" >selection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter" >applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#checkboxLabel" >checkboxLabel</a>
+                            </li>
+                            <li>
+                                <a href="#isAllSelected" >isAllSelected</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onEdit" >onEdit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleAllRows" >toggleAllRows</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>, service: <a href="../injectables/SchoolTransportationService.html" target="_self">SchoolTransportationService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:110</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolTransportationService.html" target="_self" >SchoolTransportationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <span ><b>applyFilter</b></span>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkboxLabel"></a>
+                    <span class="name">
+                        <span ><b>checkboxLabel</b></span>
+                        <a href="#checkboxLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkboxLabel(row?: <a href="../interfaces/SchoolTransportation.html" target="_self">SchoolTransportation</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>The label for the checkbox on the passed row</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../interfaces/SchoolTransportation.html" target="_self" >SchoolTransportation</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllSelected"></a>
+                    <span class="name">
+                        <span ><b>isAllSelected</b></span>
+                        <a href="#isAllSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAllSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Whether the number of selected elements matches the total number of rows.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <span ><b>onDelete</b></span>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDelete(element: <a href="../interfaces/SchoolTransportation.html" target="_self">SchoolTransportation</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>element</td>
+                                            <td>
+                                                            <code><a href="../interfaces/SchoolTransportation.html" target="_self" >SchoolTransportation</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEdit"></a>
+                    <span class="name">
+                        <span ><b>onEdit</b></span>
+                        <a href="#onEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEdit(element: <a href="../interfaces/SchoolTransportation.html" target="_self">SchoolTransportation</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>element</td>
+                                            <td>
+                                                            <code><a href="../interfaces/SchoolTransportation.html" target="_self" >SchoolTransportation</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleAllRows"></a>
+                    <span class="name">
+                        <span ><b>toggleAllRows</b></span>
+                        <a href="#toggleAllRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleAllRows()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Selects all rows if they are not all selected; otherwise clear selection.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="breadcrumbPaths"></a>
+                    <span class="name">
+                        <span ><b>breadcrumbPaths</b></span>
+                        <a href="#breadcrumbPaths"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;Movilidades&#x27;, &#x27;Lista&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="breadcrumbTitle"></a>
+                    <span class="name">
+                        <span ><b>breadcrumbTitle</b></span>
+                        <a href="#breadcrumbTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Lista de Movilidades&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MatTableDataSource&lt;SchoolTransportation&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <span ><b>displayedColumns</b></span>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+      &#x27;select&#x27;,
+      &#x27;licenseCode&#x27;,
+      &#x27;fullName&#x27;,
+      &#x27;phone&#x27;,
+      &#x27;vehiclePlate&#x27;,
+      &#x27;vehicleBrand&#x27;,
+      &#x27;vehicleModel&#x27;,
+      &#x27;vehicleColor&#x27;,
+      &#x27;action&#x27;
+    ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginator"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>paginator</b></span>
+                        <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatPaginator</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatPaginator)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selection"></a>
+                    <span class="name">
+                        <span ><b>selection</b></span>
+                        <a href="#selection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new SelectionModel&lt;SchoolTransportation&gt;(true, [])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/school-transportation/pages/school-transportation-list/school-transportation-list.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
+import {MatButtonModule} from &quot;@angular/material/button&quot;;
+import {MatCardModule} from &quot;@angular/material/card&quot;;
+import {MatTableDataSource, MatTableModule} from &quot;@angular/material/table&quot;;
+import {MatCheckboxModule} from &quot;@angular/material/checkbox&quot;;
+import {MatPaginator, MatPaginatorModule} from &quot;@angular/material/paginator&quot;;
+import {MatTooltipModule} from &quot;@angular/material/tooltip&quot;;
+import {NgIf} from &quot;@angular/common&quot;;
+import {Router, RouterLink} from &quot;@angular/router&quot;;
+import {SelectionModel} from &quot;@angular/cdk/collections&quot;;
+import {CustomizerSettingsService} from &quot;../../../shared/services/customizer-settings/customizer-settings.service&quot;;
+import {MatMenuModule} from &quot;@angular/material/menu&quot;;
+import {SchoolTransportation} from &quot;../../model/school-transportation&quot;;
+import {SchoolTransportationService} from &quot;../../services/school-transportation.service&quot;;
+import {MatIcon} from &quot;@angular/material/icon&quot;;
+import {BreadcrumbComponent} from &quot;../../../shared/components/breadcrumb/breadcrumb.component&quot;;
+
+@Component({
+  selector: &#x27;app-school-transportation-list&#x27;,
+  standalone: true,
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, MatTableModule, MatPaginatorModule, NgIf, MatCheckboxModule, MatTooltipModule, MatIcon, BreadcrumbComponent],
+  templateUrl: &#x27;./school-transportation-list.component.html&#x27;,
+  styleUrls: [&#x27;./school-transportation-list.component.scss&#x27;]
+})
+export class SchoolTransportationListComponent implements OnInit {
+
+  breadcrumbTitle &#x3D; &#x27;Lista de Movilidades&#x27;;
+  breadcrumbPaths &#x3D; [&#x27;Movilidades&#x27;, &#x27;Lista&#x27;];
+
+  displayedColumns: string[] &#x3D; [
+      &#x27;select&#x27;,
+      &#x27;licenseCode&#x27;,
+      &#x27;fullName&#x27;,
+      &#x27;phone&#x27;,
+      &#x27;vehiclePlate&#x27;,
+      &#x27;vehicleBrand&#x27;,
+      &#x27;vehicleModel&#x27;,
+      &#x27;vehicleColor&#x27;,
+      &#x27;action&#x27;
+    ];
+    dataSource &#x3D; new MatTableDataSource&lt;SchoolTransportation&gt;([]);
+    selection &#x3D; new SelectionModel&lt;SchoolTransportation&gt;(true, []);
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
+    onDelete(element: SchoolTransportation): void {
+      this.service.delete(element.id!).subscribe(() &#x3D;&gt; this.ngOnInit());
+    }
+
+    onEdit(element: SchoolTransportation): void {
+      this.router.navigate([&#x27;/school-transportation/edit&#x27;, element.id]);
+    }
+
+    ngOnInit(): void {
+      this.service.getAll().subscribe(data &#x3D;&gt; {
+        this.dataSource.data &#x3D; data.map(item &#x3D;&gt; ({
+          ...item,
+          action: {
+            view: &#x27;visibility&#x27;,
+            edit: &#x27;edit&#x27;,
+            delete: &#x27;delete&#x27;
+          }
+        }));
+        this.dataSource.filterPredicate &#x3D; (data: SchoolTransportation, filter: string) &#x3D;&gt; {
+          const fullName &#x3D; &#x60;${data.firstName} ${data.paternalLastName} ${data.maternalLastName}&#x60;.toLowerCase();
+          return (
+            fullName.includes(filter.trim().toLowerCase()));
+        };
+
+        this.dataSource.paginator &#x3D; this.paginator;
+      });
+    }
+
+    ngAfterViewInit() {
+        this.dataSource.paginator &#x3D; this.paginator;
+    }
+
+    /** Whether the number of selected elements matches the total number of rows. */
+    isAllSelected() {
+        const numSelected &#x3D; this.selection.selected.length;
+        const numRows &#x3D; this.dataSource.data.length;
+        return numSelected &#x3D;&#x3D;&#x3D; numRows;
+    }
+
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    toggleAllRows() {
+        if (this.isAllSelected()) {
+            this.selection.clear();
+            return;
+        }
+        this.selection.select(...this.dataSource.data);
+    }
+
+    /** The label for the checkbox on the passed row */
+    checkboxLabel(row?: SchoolTransportation): string {
+        if (!row) {
+            return &#x60;${this.isAllSelected() ? &#x27;deselect&#x27; : &#x27;select&#x27;} all&#x60;;
+        }
+        return &#x60;${this.selection.isSelected(row) ? &#x27;deselect&#x27; : &#x27;select&#x27;} row ${row.firstName + 1}&#x60;;
+    }
+
+    // Search Filter
+    applyFilter(event: Event) {
+        const filterValue &#x3D; (event.target as HTMLInputElement).value;
+        this.dataSource.filter &#x3D; filterValue.trim().toLowerCase();
+    }
+
+    // isToggled
+    isToggled &#x3D; false;
+
+    constructor(
+        public themeService: CustomizerSettingsService,
+        private service: SchoolTransportationService,
+        private router: Router
+    ) {
+        this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+            this.isToggled &#x3D; isToggled;
+        });
+    }
+
+    // RTL Mode
+    toggleRTLEnabledTheme() {
+        this.themeService.toggleRTLEnabledTheme();
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Breadcrumb --&gt;
+&lt;app-breadcrumb
+  [title]&#x3D;&quot;breadcrumbTitle&quot;
+  [paths]&#x3D;&quot;breadcrumbPaths&quot;&gt;
+&lt;/app-breadcrumb&gt;
+
+&lt;!-- Users --&gt;
+&lt;mat-card
+    class&#x3D;&quot;daxa-card users-card mb-25 border-radius bg-white border-none d-block&quot;
+    [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+&gt;
+    &lt;mat-card-header&gt;
+        &lt;mat-card-title&gt;
+            &lt;form class&#x3D;&quot;search-box position-relative&quot;&gt;
+                &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                    search
+                &lt;/i&gt;
+                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;input-search d-block w-100 border-none outline-0&quot; placeholder&#x3D;&quot;Search user...&quot; (keyup)&#x3D;&quot;applyFilter($event)&quot; #input&gt;
+            &lt;/form&gt;
+        &lt;/mat-card-title&gt;
+        &lt;mat-card-subtitle&gt;
+            &lt;a mat-button class&#x3D;&quot;add-new-btn&quot; routerLink&#x3D;&quot;/school-transportation/create&quot;&gt;
+                + Agregar Movilidad Escolar
+            &lt;/a&gt;
+        &lt;/mat-card-subtitle&gt;
+    &lt;/mat-card-header&gt;
+    &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;users-table&quot;&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+
+                    &lt;!-- Checkbox Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;select&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            &lt;mat-checkbox
+                                (change)&#x3D;&quot;$event ? toggleAllRows() : null&quot;
+                                [checked]&#x3D;&quot;selection.hasValue() &amp;&amp; isAllSelected()&quot;
+                                [indeterminate]&#x3D;&quot;selection.hasValue() &amp;&amp; !isAllSelected()&quot;
+                                [aria-label]&#x3D;&quot;checkboxLabel()&quot;
+                            &gt;
+                            &lt;/mat-checkbox&gt;
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+                            &lt;mat-checkbox
+                                (click)&#x3D;&quot;$event.stopPropagation()&quot;
+                                (change)&#x3D;&quot;$event ? selection.toggle(row) : null&quot;
+                                [checked]&#x3D;&quot;selection.isSelected(row)&quot;
+                                [aria-label]&#x3D;&quot;checkboxLabel(row)&quot;
+                            &gt;
+                            &lt;/mat-checkbox&gt;
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Brevete --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;licenseCode&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Brevete&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.licenseCode}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Nombre completo --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;fullName&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Nombre completo&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                        {{element.firstName}} {{element.paternalLastName}} {{element.maternalLastName}}
+                      &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Teléfono --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;phone&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Teléfono&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.phone}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Placa --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;vehiclePlate&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Placa&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.vehiclePlate}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Marca --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;vehicleBrand&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Marca&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.vehicleBrand}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Modelo --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;vehicleModel&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Modelo&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.vehicleModel}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Color --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;vehicleColor&quot;&gt;
+                      &lt;th mat-header-cell *matHeaderCellDef&gt;Color&lt;/th&gt;
+                      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;{{element.vehicleColor}}&lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Action Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Action
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            &lt;div class&#x3D;&quot;action-info&quot;&gt;
+                                &lt;button type&#x3D;&quot;button&quot; mat-button matTooltip&#x3D;&quot;Ver más&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        {{element.action.view}}
+                                    &lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;a mat-button (click)&#x3D;&quot;onEdit(element)&quot; matTooltip&#x3D;&quot;Editar Movilidad&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        {{element.action.edit}}
+                                    &lt;/i&gt;
+                                &lt;/a&gt;
+                                &lt;button type&#x3D;&quot;button&quot; mat-button (click)&#x3D;&quot;onDelete(element)&quot; matTooltip&#x3D;&quot;Eliminar&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        {{element.action.delete}}
+                                    &lt;/i&gt;
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+                    &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+
+                    &lt;!-- Row shown when there is no matching data. --&gt;
+                    &lt;tr class&#x3D;&quot;mat-row&quot; *matNoDataRow&gt;
+                        &lt;td class&#x3D;&quot;mat-cell&quot; colspan&#x3D;&quot;4&quot;&gt;No data matching the filter &quot;{{input.value}}&quot;&lt;/td&gt;
+                    &lt;/tr&gt;
+
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[10, 20, 30]&quot; showFirstLastButtons&gt;&lt;/mat-paginator&gt;
+        &lt;/div&gt;
+    &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./school-transportation-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.users-card {
+            .mat-mdc-card-content {
+                margin: {
+                    left: -20px;
+                    right: -20px;
+                };
+                .users-table {
+                    .mat-mdc-table {
+                        .mat-mdc-header-cell {
+                            &amp;:last-child {
+                                text-align: right;
+                            }
+                            &amp;:first-child {
+                                padding-right: 0;
+                            }
+                        }
+                        .mat-mdc-cell {
+                            &amp;:last-child {
+                                text-align: right;
+                            }
+                            &amp;:first-child {
+                                padding-right: 0;
+                            }
+                        }
+                        .info {
+                            .image {
+                                width: 35px;
+                                line-height: .01;
+                                margin-right: 12px;
+
+                                img {
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .users-table {
+                        .mat-mdc-table {
+                            .mat-mdc-header-cell {
+                                &amp;:last-child {
+                                    text-align: left;
+                                }
+                                &amp;:first-child {
+                                    padding: {
+                                        right: 20px;
+                                        left: 0;
+                                    };
+                                }
+                            }
+                            .mat-mdc-cell {
+                                &amp;:last-child {
+                                    text-align: left;
+                                }
+                                &amp;:first-child {
+                                    padding: {
+                                        right: 20px;
+                                        left: 0;
+                                    };
+                                }
+                            }
+                            .info {
+                                .image {
+                                    margin: {
+                                        right: 0;
+                                        left: 12px;
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.users-card {
+                .mat-mdc-card-content {
+                    .users-table {
+                        .mat-mdc-paginator {
+                            padding: {
+                                top: 15px;
+                                left: 20px;
+                                right: 20px;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.users-card {
+                .mat-mdc-card-header {
+                    .mat-mdc-button {
+                        &amp;.add-new-btn {
+                            margin-top: 12px;
+                        }
+                    }
+                }
+                .mat-mdc-card-content {
+                    margin: {
+                        left: -15px;
+                        right: -15px;
+                    };
+                    .users-table {
+                        .mat-mdc-table {
+                            .info {
+                                .image {
+                                    margin-right: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .users-table {
+                            .mat-mdc-table {
+                                .mat-mdc-header-cell {
+                                    &amp;:first-child {
+                                        padding: {
+                                            right: 15px;
+                                        };
+                                    }
+                                }
+                                .mat-mdc-cell {
+                                    &amp;:first-child {
+                                        padding: {
+                                            right: 15px;
+                                        };
+                                    }
+                                }
+                                .info {
+                                    .image {
+                                        margin: {
+                                            left: 8px;
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.users-card {
+                    .mat-mdc-card-header {
+                        .mat-mdc-card-header-text {
+                            display: block;
+                        }
+                    }
+                    .mat-mdc-card-content {
+                        .users-table {
+                            .mat-mdc-paginator {
+                                padding: {
+                                    top: 10px;
+                                    left: 15px;
+                                    right: 15px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.users-card {
+                .mat-mdc-card-content {
+                    margin: {
+                        left: -20px;
+                        right: -20px;
+                    };
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .users-table {
+                            .mat-mdc-table {
+                                .mat-mdc-header-cell {
+                                    &amp;:first-child {
+                                        padding: {
+                                            right: 20px;
+                                        };
+                                    }
+                                }
+                                .mat-mdc-cell {
+                                    &amp;:first-child {
+                                        padding: {
+                                            right: 20px;
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.users-card {
+                    .mat-mdc-card-content {
+                        .users-table {
+                            .mat-mdc-paginator {
+                                padding: {
+                                    left: 20px;
+                                    right: 20px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Breadcrumb --><app-breadcrumb  [title]="breadcrumbTitle"  [paths]="breadcrumbPaths"></app-breadcrumb><!-- Users --><mat-card    class="daxa-card users-card mb-25 border-radius bg-white border-none d-block"    [class.rtl-enabled]="themeService.isRTLEnabled()">    <mat-card-header>        <mat-card-title>            <form class="search-box position-relative">                <i class="material-symbols-outlined">                    search                </i>                <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search user..." (keyup)="applyFilter($event)" #input>            </form>        </mat-card-title>        <mat-card-subtitle>            <a mat-button class="add-new-btn" routerLink="/school-transportation/create">                + Agregar Movilidad Escolar            </a>        </mat-card-subtitle>    </mat-card-header>    <mat-card-content>        <div class="users-table">            <div class="table-responsive">                <table mat-table [dataSource]="dataSource">                    <!-- Checkbox Column -->                    <ng-container matColumnDef="select">                        <th mat-header-cell *matHeaderCellDef>                            <mat-checkbox                                (change)="$event ? toggleAllRows() : null"                                [checked]="selection.hasValue() && isAllSelected()"                                [indeterminate]="selection.hasValue() && !isAllSelected()"                                [aria-label]="checkboxLabel()"                            >                            </mat-checkbox>                        </th>                        <td mat-cell *matCellDef="let row">                            <mat-checkbox                                (click)="$event.stopPropagation()"                                (change)="$event ? selection.toggle(row) : null"                                [checked]="selection.isSelected(row)"                                [aria-label]="checkboxLabel(row)"                            >                            </mat-checkbox>                        </td>                    </ng-container>                    <!-- Brevete -->                    <ng-container matColumnDef="licenseCode">                      <th mat-header-cell *matHeaderCellDef>Brevete</th>                      <td mat-cell *matCellDef="let element">{{element.licenseCode}}</td>                    </ng-container>                    <!-- Nombre completo -->                    <ng-container matColumnDef="fullName">                      <th mat-header-cell *matHeaderCellDef>Nombre completo</th>                      <td mat-cell *matCellDef="let element">                        {{element.firstName}} {{element.paternalLastName}} {{element.maternalLastName}}                      </td>                    </ng-container>                    <!-- Teléfono -->                    <ng-container matColumnDef="phone">                      <th mat-header-cell *matHeaderCellDef>Teléfono</th>                      <td mat-cell *matCellDef="let element">{{element.phone}}</td>                    </ng-container>                    <!-- Placa -->                    <ng-container matColumnDef="vehiclePlate">                      <th mat-header-cell *matHeaderCellDef>Placa</th>                      <td mat-cell *matCellDef="let element">{{element.vehiclePlate}}</td>                    </ng-container>                    <!-- Marca -->                    <ng-container matColumnDef="vehicleBrand">                      <th mat-header-cell *matHeaderCellDef>Marca</th>                      <td mat-cell *matCellDef="let element">{{element.vehicleBrand}}</td>                    </ng-container>                    <!-- Modelo -->                    <ng-container matColumnDef="vehicleModel">                      <th mat-header-cell *matHeaderCellDef>Modelo</th>                      <td mat-cell *matCellDef="let element">{{element.vehicleModel}}</td>                    </ng-container>                    <!-- Color -->                    <ng-container matColumnDef="vehicleColor">                      <th mat-header-cell *matHeaderCellDef>Color</th>                      <td mat-cell *matCellDef="let element">{{element.vehicleColor}}</td>                    </ng-container>                    <!-- Action Column -->                    <ng-container matColumnDef="action">                        <th mat-header-cell *matHeaderCellDef>                            Action                        </th>                        <td mat-cell *matCellDef="let element">                            <div class="action-info">                                <button type="button" mat-button matTooltip="Ver más" matTooltipPosition="above">                                    <i class="material-symbols-outlined">                                        {{element.action.view}}                                    </i>                                </button>                                <a mat-button (click)="onEdit(element)" matTooltip="Editar Movilidad" matTooltipPosition="above">                                    <i class="material-symbols-outlined">                                        {{element.action.edit}}                                    </i>                                </a>                                <button type="button" mat-button (click)="onDelete(element)" matTooltip="Eliminar" matTooltipPosition="above">                                    <i class="material-symbols-outlined">                                        {{element.action.delete}}                                    </i>                                </button>                            </div>                        </td>                    </ng-container>                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>                    <!-- Row shown when there is no matching data. -->                    <tr class="mat-row" *matNoDataRow>                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>                    </tr>                </table>            </div>            <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>        </div>    </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SchoolTransportationListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolTransportationListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

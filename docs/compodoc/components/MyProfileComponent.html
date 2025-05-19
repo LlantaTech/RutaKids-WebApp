@@ -1,0 +1,1615 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MyProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/profile/pages/my-profile/my-profile.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-my-profile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterLink</code>
+                            <code>RouterOutlet</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatCardModule</code>
+                            <code>RouterLinkActive</code>
+                            <code>NgOptimizedImage</code>
+                                <code><a href="../components/AboutComponent.html" target="_self" >AboutComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./my-profile.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./my-profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/profile/pages/my-profile/my-profile.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/profile/pages/my-profile/my-profile.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/profile/pages/my-profile/my-profile.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/profile/pages/my-profile/my-profile.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/profile/pages/my-profile/my-profile.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import {CustomizerSettingsService} from &quot;../../../shared/services/customizer-settings/customizer-settings.service&quot;;
+import {RouterLink, RouterLinkActive, RouterOutlet} from &quot;@angular/router&quot;;
+import {MatMenuModule} from &quot;@angular/material/menu&quot;;
+import {MatButtonModule} from &quot;@angular/material/button&quot;;
+import {MatCardModule} from &quot;@angular/material/card&quot;;
+import {NgOptimizedImage} from &quot;@angular/common&quot;;
+import {AboutComponent} from &quot;../../components/about/about.component&quot;;
+
+
+@Component({
+  selector: &#x27;app-my-profile&#x27;,
+  standalone: true,
+  imports: [RouterLink, RouterOutlet, MatMenuModule, MatButtonModule, MatCardModule, RouterLinkActive, NgOptimizedImage, AboutComponent],
+  templateUrl: &#x27;./my-profile.component.html&#x27;,
+  styleUrls: [&#x27;./my-profile.component.scss&#x27;]
+})
+export class MyProfileComponent {
+    // isToggled
+    isToggled &#x3D; false;
+
+    constructor(
+        public themeService: CustomizerSettingsService
+    ) {
+        this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+            this.isToggled &#x3D; isToggled;
+        });
+    }
+
+    // Dark Mode
+    toggleTheme() {
+        this.themeService.toggleTheme();
+    }
+
+    // RTL Mode
+    toggleRTLEnabledTheme() {
+        this.themeService.toggleRTLEnabledTheme();
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Breadcrumb --&gt;
+
+&lt;!-- Profile --&gt;
+&lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-xxxl-12 col-md-12&quot;&gt;
+        &lt;mat-card
+            class&#x3D;&quot;daxa-card profile-card mb-25 p-0 border-radius bg-white border-none d-block&quot;
+            [class.component-dark-theme]&#x3D;&quot;themeService.isDark()&quot;
+            [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+        &gt;
+            &lt;mat-card-content&gt;
+                &lt;div class&#x3D;&quot;cover-image position-relative border-top-radius&quot;&gt;
+                    &lt;img ngSrc&#x3D;&quot;assets/images/profile-cover.jpg&quot; width&#x3D;&quot;1810&quot; height&#x3D;&quot;300&quot; alt&#x3D;&quot;profile-cover&quot;&gt;
+                    &lt;button type&#x3D;&quot;button&quot; mat-button class&#x3D;&quot;edit-btn&quot; [matMenuTriggerFor]&#x3D;&quot;editCoverPhotoMenu&quot;&gt;
+                        Edit Cover Photo
+                    &lt;/button&gt;
+                    &lt;mat-menu #editCoverPhotoMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;card-header-menu&quot; xPosition&#x3D;&quot;after&quot;&gt;
+                        &lt;button mat-menu-item&gt;
+                            Upload Photo
+                        &lt;/button&gt;
+                        &lt;button mat-menu-item&gt;
+                            Reposition
+                        &lt;/button&gt;
+                        &lt;button mat-menu-item&gt;
+                            Remove
+                        &lt;/button&gt;
+                    &lt;/mat-menu&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;profile-content&quot;&gt;
+                    &lt;div class&#x3D;&quot;d-md-flex align-items-end justify-content-between&quot;&gt;
+                        &lt;div class&#x3D;&quot;d-md-flex align-items-end&quot;&gt;
+                            &lt;div class&#x3D;&quot;image position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/admin.png&quot; width&#x3D;&quot;320&quot; height&#x3D;&quot;320&quot; alt&#x3D;&quot;profile&quot;&gt;
+                                &lt;button type&#x3D;&quot;button&quot; mat-button class&#x3D;&quot;edit-btn&quot; [matMenuTriggerFor]&#x3D;&quot;editProfilePhotoMenu&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        photo_camera
+                                    &lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;mat-menu #editProfilePhotoMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;card-header-menu&quot; xPosition&#x3D;&quot;after&quot;&gt;
+                                    &lt;button mat-menu-item&gt;
+                                        See Photo
+                                    &lt;/button&gt;
+                                    &lt;button mat-menu-item&gt;
+                                        Upload Photo
+                                    &lt;/button&gt;
+                                    &lt;button mat-menu-item&gt;
+                                        Remove
+                                    &lt;/button&gt;
+                                &lt;/mat-menu&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Mateo &quot;El Temible Teus&quot;
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    Mateo &quot;El Temible Teus&quot;&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;btn-box&quot;&gt;
+                            &lt;button mat-button routerLink&#x3D;&quot;/my-profile/settings&quot; class&#x3D;&quot;btn&quot;&gt;
+                                Editar
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-lg-4 col-md-12&quot;&gt;
+                &lt;mat-card
+                    class&#x3D;&quot;daxa-card friends-card mb-25 border-radius bg-white border-none d-block&quot;
+                    [class.component-dark-theme]&#x3D;&quot;themeService.isDark()&quot;
+                    [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+                &gt;
+                    &lt;mat-card-header&gt;
+                        &lt;mat-card-title&gt;
+                            &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+                                Friends
+                            &lt;/h5&gt;
+                        &lt;/mat-card-title&gt;
+                    &lt;/mat-card-header&gt;
+                    &lt;mat-card-content&gt;
+                        &lt;form class&#x3D;&quot;search-box position-relative&quot;&gt;
+                            &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                search
+                            &lt;/i&gt;
+                            &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;input-search d-block w-100 border-none outline-0&quot; placeholder&#x3D;&quot;Search...&quot;&gt;
+                        &lt;/form&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user15.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user15&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Marcia Baker
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    baker&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user16.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user16&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status off&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Carolyn Barnes
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    barnes&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user17.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user17&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Donna Miller
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    miller&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user14.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user14&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Barbara Cross
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    cross&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user13.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user13&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status off&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Rebecca Block
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    block&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user12.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user12&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status off&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Ramiro McCarty
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    mccarty&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user11.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user11&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Robert Fairweather
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    fairweather&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;user d-flex align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;img position-relative&quot;&gt;
+                                &lt;img ngSrc&#x3D;&quot;assets/images/users/user8.jpg&quot; width&#x3D;&quot;200&quot; height&#x3D;&quot;200&quot; alt&#x3D;&quot;user8&quot;&gt;
+                                &lt;span class&#x3D;&quot;active-status off&quot;&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;title&quot;&gt;
+                                &lt;span class&#x3D;&quot;d-block fw-medium&quot;&gt;
+                                    Nathaniel Hulsey
+                                &lt;/span&gt;
+                                &lt;span class&#x3D;&quot;d-block text-body&quot;&gt;
+                                    hulsey&amp;#64;gmail.com
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/mat-card-content&gt;
+                &lt;/mat-card&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-lg-8 col-md-12&quot;&gt;
+              &lt;app-about&gt;&lt;/app-about&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./my-profile.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.profile-card {
+            .mat-mdc-card-content {
+                .cover-image {
+                  border-top-left-radius: 1rem;
+                  border-top-right-radius: 1rem;
+                  overflow: hidden;
+                    img {
+                      margin-bottom: -4px;
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      display: block;
+                    }
+                    .edit-btn {
+                        &amp;.mat-mdc-button {
+                            border: 0;
+                            right: 20px;
+                            bottom: 20px;
+                            height: auto;
+                            min-width: auto;
+                            min-height: auto;
+                            position: absolute;
+                            padding: 13px 40px;
+                            font-weight: normal;
+                            color: var(--whiteColor);
+                            background-color: var(--daxaColor);
+                        }
+                    }
+                }
+                .profile-content {
+                    margin-top: -104px;
+                    padding: {
+                        left: 20px;
+                        right: 20px;
+                    };
+                    .image {
+                        width: 210px;
+
+                        img {
+                            border: 10px solid var(--whiteColor);
+                        }
+                        .edit-btn {
+                            &amp;.mat-mdc-button {
+                                padding: 0;
+                                width: 50px;
+                                right: 10px;
+                                height: auto;
+                                height: 50px;
+                                bottom: 10px;
+                                min-width: auto;
+                                border-radius: 50%;
+                                position: absolute;
+                                color: var(--blackColor);
+                                border: 1px solid #dae0ec;
+                                background-color: var(--whiteColor);
+
+                                i {
+                                    top: 1px;
+                                    font-size: 20px;
+                                    position: relative;
+                                }
+                            }
+                        }
+                    }
+                    .title {
+                        padding-bottom: 45px;
+                        margin-left: 20px;
+
+                        span {
+                            font-size: 18px;
+
+                            &amp;:not(:first-child) {
+                                margin-top: 5px;
+                                font-size: var(--fontSize);
+                            }
+                        }
+                    }
+                    .btn-box {
+                        padding-bottom: 25px;
+
+                        .mat-mdc-button {
+                            border: 0;
+                            height: auto;
+                            min-width: auto;
+                            min-height: auto;
+                            padding: 10px 15px;
+                            margin-right: 10px;
+                            color: var(--blackColor);
+                            border: 1px solid #c2cada;
+                            background-color: var(--whiteColor);
+
+                            &amp;:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    .nav-links {
+                        margin-top: 35px;
+
+                        li {
+                            margin: {
+                                left: 13px;
+                                right: 13px;
+                            };
+                            a {
+                                color: var(--bodyColor);
+                                padding: {
+                                    left: 20px;
+                                    right: 20px;
+                                    bottom: 14px;
+                                };
+                                &amp;::before {
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    height: 2px;
+                                    content: &#x27;&#x27;;
+                                    position: absolute;
+                                    transform: scaleX(0);
+                                    background: var(--daxaColor);
+                                    transition: var(--transition);
+                                }
+                                &amp;:hover, &amp;.active {
+                                    color: var(--blackColor);
+
+                                    &amp;::before {
+                                        transform: scaleX(1);
+                                    }
+                                }
+                            }
+                            &amp;:first-child {
+                                margin-left: 0;
+                            }
+                            &amp;:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.component-dark-theme {
+                .mat-mdc-card-content {
+                    .profile-content {
+                        .image {
+                            img {
+                                border-color: #1b232d;
+                            }
+                            .edit-btn {
+                                &amp;.mat-mdc-button {
+                                    color: var(--whiteColor);
+                                    background-color: #1b232d;
+                                    border-color: rgba(255, 255, 255, 0.09);
+                                }
+                            }
+                        }
+                        .btn-box {
+                            .mat-mdc-button {
+                                color: var(--whiteColor);
+                                background-color: #1b232d;
+                                border-color: rgba(255, 255, 255, 0.09);
+                            }
+                        }
+                        .nav-links {
+                            li {
+                                a {
+                                    color: rgba(255, 255, 255, .50);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .cover-image {
+                        .edit-btn {
+                            &amp;.mat-mdc-button {
+                                right: auto;
+                                left: 20px;
+                            }
+                        }
+                    }
+                    .profile-content {
+                        .image {
+                            .edit-btn {
+                                &amp;.mat-mdc-button {
+                                    left: 10px;
+                                    right: auto;
+                                }
+                            }
+                        }
+                        .title {
+                            margin: {
+                                left: 0;
+                                right: 20px;
+                            };
+                        }
+                        .btn-box {
+                            .mat-mdc-button {
+                                margin: {
+                                    right: 0;
+                                    left: 10px;
+                                };
+                                &amp;:last-child {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                        .nav-links {
+                            padding-right: 0;
+
+                            li {
+                                &amp;:first-child {
+                                    margin: {
+                                        left: 13px;
+                                        right: 0;
+                                    };
+                                }
+                                &amp;:last-child {
+                                    margin: {
+                                        right: 13px;
+                                        left: 0;
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &amp;.profile-intro-card {
+            .mat-mdc-card-content {
+                .user {
+                    margin-bottom: 15px;
+
+                    .image {
+                        img {
+                            width: 75px;
+                            margin-bottom: -4px;
+                        }
+                    }
+                    .title {
+                        margin-left: 15px;
+
+                        span {
+                            font-size: 18px;
+
+                            &amp;:not(:first-child) {
+                                margin-top: 5px;
+                                font-size: var(--fontSize);
+                            }
+                        }
+                    }
+                }
+                .sub-title {
+                    margin-bottom: 6px;
+                }
+                h5 {
+                    margin-bottom: 12px;
+                }
+                .socials-link {
+                    a {
+                        width: 24px;
+                        height: 24px;
+                        text-align: center;
+                        margin-right: 10px;
+                        color: var(--whiteColor);
+                        background-color: var(--daxaColor);
+
+                        i {
+                            left: 0;
+                            right: 0;
+                            top: 50%;
+                            position: absolute;
+                            transform: translateY(-50%);
+                        }
+                        &amp;.facebook {
+                            background-color: #3A559F;
+                        }
+                        &amp;.twiiter {
+                            background-color: #03A9F4;
+                        }
+                        &amp;.linkedin {
+                            background-color: #007AB9;
+                        }
+                        &amp;.mail {
+                            background-color: #2196F3;
+                        }
+                        &amp;:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .user {
+                        .title {
+                            margin: {
+                                left: 0;
+                                right: 15px;
+                            };
+                        }
+                    }
+                    .socials-link {
+                        a {
+                            margin: {
+                                right: 0;
+                                left: 10px;
+                            };
+                            &amp;:last-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &amp;.followers-card {
+            .mat-mdc-card-content {
+                .follower {
+                    margin-bottom: 20px;
+
+                    .image {
+                        img {
+                            width: 42px;
+                            margin-bottom: -4px;
+                        }
+                    }
+                    .title {
+                        margin-left: 12px;
+
+                        span {
+                            &amp;:not(:first-child) {
+                                margin-top: 3px;
+                                font-size: 14.5px;
+                            }
+                        }
+                    }
+                    .mat-mdc-button {
+                        font-size: 14.5px !important;
+                    }
+                    &amp;:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .follower {
+                        .title {
+                            margin: {
+                                left: 0;
+                                right: 12px;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+        &amp;.photos-card {
+            .mat-mdc-card-content {
+                a {
+                    border-radius: 5px;
+
+                    img {
+                        margin-bottom: -4px;
+                        border-radius: 5px;
+                    }
+                }
+                .row {
+                    margin: -5px;
+
+                    .col-4 {
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+        &amp;.friends-card {
+            .mat-mdc-card-content {
+                .search-box {
+                    margin-bottom: 20px;
+
+                    i {
+                        transform: translateY(-50%);
+                        color: var(--blackColor);
+                        position: absolute;
+                        font-size: 18px;
+                        left: 13px;
+                        top: 50%;
+                    }
+                    .input-search {
+                        height: 40px;
+                        font-size: 14px;
+                        border-radius: 3px;
+                        background: #f4f6fc;
+                        color: var(--blackColor);
+                        padding: {
+                            left: 40px;
+                            right: 15px;
+                        };
+                        &amp;::placeholder {
+                            font-weight: 300;
+                            color: var(--bodyColor);
+                            transition: var(--transition);
+                        }
+                        &amp;:focus {
+                            &amp;::placeholder {
+                                color: transparent;
+                            }
+                        }
+                    }
+                }
+                .user {
+                    margin-bottom: 15px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #f4f6fc;
+
+                    .img {
+                        margin-right: 12px;
+
+                        img {
+                            width: 45px;
+                        }
+                        .active-status {
+                            right: 0;
+                            bottom: 5px;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            background: var(--successColor);
+                            border: 2px solid var(--whiteColor);
+
+                            &amp;.off {
+                                background: var(--dangerColor);
+                            }
+                        }
+                    }
+                    .title {
+                        span {
+                            &amp;:not(:first-child) {
+                                margin-top: 5px;
+                                font-size: 14px;
+                            }
+                            &amp;.voice {
+                                position: relative;
+                                padding-left: 18px;
+
+                                i {
+                                    left: 0;
+                                    top: 50%;
+                                    position: absolute;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
+                    }
+                    &amp;:last-child {
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                        border-bottom: none;
+                    }
+                }
+            }
+            &amp;.component-dark-theme {
+                .mat-mdc-card-content {
+                    .search-box {
+                        i {
+                            color: var(--whiteColor);
+                        }
+                        .input-search {
+                            background: rgba(255, 255, 255, .07);
+                            color: var(--whiteColor);
+
+                            &amp;::placeholder {
+                                color: rgba(255, 255, 255, .50);
+                            }
+                            &amp;:focus {
+                                &amp;::placeholder {
+                                    color: transparent;
+                                }
+                            }
+                        }
+                    }
+                    .user {
+                        border-color: rgba(255, 255, 255, 0.09);
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .search-box {
+                        i {
+                            left: auto;
+                            right: 13px;
+                        }
+                        .input-search {
+                            padding: {
+                                right: 40px;
+                                left: 15px;
+                            };
+                        }
+                    }
+                    .user {
+                        .img {
+                            margin: {
+                                right: 0;
+                                left: 12px;
+                            };
+                            .active-status {
+                                right: auto;
+                                left: 0;
+                            }
+                        }
+                        .title {
+                            span {
+                                &amp;.voice {
+                                    padding: {
+                                        left: 0;
+                                        right: 18px;
+                                    };
+                                    i {
+                                        left: auto;
+                                        right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.profile-card {
+                .mat-mdc-card-content {
+                    .cover-image {
+                        .edit-btn {
+                            &amp;.mat-mdc-button {
+                                right: 0;
+                                bottom: 0;
+                                position: relative;
+                                padding: 11px 25px;
+                                margin: {
+                                    top: 15px;
+                                    left: 15px;
+                                };
+                            }
+                        }
+                    }
+                    .profile-content {
+                        margin-top: 15px;
+                        padding: {
+                            left: 15px;
+                            right: 15px;
+                        };
+                        .image {
+                            width: 150px;
+
+                            img {
+                                border: {
+                                    width: 4px;
+                                    color: #f7f7f7;
+                                };
+                            }
+                            .edit-btn {
+                                &amp;.mat-mdc-button {
+                                    right: 5px;
+                                    bottom: 5px;
+                                    width: 45px;
+                                    height: 45px;
+                                }
+                            }
+                        }
+                        .title {
+                            padding-bottom: 0;
+                            margin: {
+                                left: 0;
+                                top: 15px;
+                            };
+                            span {
+                                font-size: 16px;
+
+                                &amp;:not(:first-child) {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .btn-box {
+                            padding-bottom: 0;
+                            margin-top: 15px;
+
+                            .mat-mdc-button {
+                                padding: 9px 15px;
+                            }
+                        }
+                        .nav-links {
+                            margin-top: 20px;
+
+                            li {
+                                margin: {
+                                    left: 2px;
+                                    right: 2px;
+                                };
+                                a {
+                                    padding: {
+                                        left: 12px;
+                                        right: 12px;
+                                        bottom: 8px;
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .cover-image {
+                            .edit-btn {
+                                &amp;.mat-mdc-button {
+                                    right: auto;
+                                    left: 0;
+                                    margin: {
+                                        left: 0;
+                                        right: 15px;
+                                    };
+                                }
+                            }
+                        }
+                        .profile-content {
+                            .image {
+                                .edit-btn {
+                                    &amp;.mat-mdc-button {
+                                        right: auto;
+                                        left: 5px;
+                                    }
+                                }
+                            }
+                            .title {
+                                margin: {
+                                    right: 0;
+                                };
+                            }
+                            .nav-links {
+                                li {
+                                    &amp;:first-child {
+                                        margin-left: 2px;
+                                    }
+                                    &amp;:last-child {
+                                        margin-right: 2px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.profile-intro-card {
+                .mat-mdc-card-content {
+                    .user {
+                        margin-bottom: 15px;
+
+                        .title {
+                            margin-left: 12px;
+
+                            span {
+                                font-size: 16px;
+
+                                &amp;:not(:first-child) {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .user {
+                            .title {
+                                margin: {
+                                    left: 0;
+                                    right: 12px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.followers-card {
+                .mat-mdc-card-content {
+                    .follower {
+                        margin-bottom: 15px;
+
+                        .title {
+                            span {
+                                &amp;:not(:first-child) {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .mat-mdc-button {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+            }
+            &amp;.friends-card {
+                .mat-mdc-card-content {
+                    .search-box {
+                        margin-bottom: 15px;
+                    }
+                    .user {
+                        margin-bottom: 12px;
+                        padding-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.profile-card {
+                .mat-mdc-card-content {
+                    .profile-content {
+                        .nav-links {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.profile-card {
+                .mat-mdc-card-content {
+                    .profile-content {
+                        .nav-links {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.profile-card {
+                .mat-mdc-card-content {
+                    .profile-content {
+                        .nav-links {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Breadcrumb --><!-- Profile --><div class="row">    <div class="col-xxxl-12 col-md-12">        <mat-card            class="daxa-card profile-card mb-25 p-0 border-radius bg-white border-none d-block"            [class.component-dark-theme]="themeService.isDark()"            [class.rtl-enabled]="themeService.isRTLEnabled()"        >            <mat-card-content>                <div class="cover-image position-relative border-top-radius">                    <img ngSrc="assets/images/profile-cover.jpg" width="1810" height="300" alt="profile-cover">                    <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editCoverPhotoMenu">                        Edit Cover Photo                    </button>                    <mat-menu #editCoverPhotoMenu="matMenu" class="card-header-menu" xPosition="after">                        <button mat-menu-item>                            Upload Photo                        </button>                        <button mat-menu-item>                            Reposition                        </button>                        <button mat-menu-item>                            Remove                        </button>                    </mat-menu>                </div>                <div class="profile-content">                    <div class="d-md-flex align-items-end justify-content-between">                        <div class="d-md-flex align-items-end">                            <div class="image position-relative">                                <img ngSrc="assets/images/admin.png" width="320" height="320" alt="profile">                                <button type="button" mat-button class="edit-btn" [matMenuTriggerFor]="editProfilePhotoMenu">                                    <i class="material-symbols-outlined">                                        photo_camera                                    </i>                                </button>                                <mat-menu #editProfilePhotoMenu="matMenu" class="card-header-menu" xPosition="after">                                    <button mat-menu-item>                                        See Photo                                    </button>                                    <button mat-menu-item>                                        Upload Photo                                    </button>                                    <button mat-menu-item>                                        Remove                                    </button>                                </mat-menu>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Mateo "El Temible Teus"                                </span>                                <span class="d-block text-body">                                    Mateo "El Temible Teus"&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="btn-box">                            <button mat-button routerLink="/my-profile/settings" class="btn">                                Editar                            </button>                        </div>                    </div>                </div>            </mat-card-content>        </mat-card>        <div class="row">            <div class="col-lg-4 col-md-12">                <mat-card                    class="daxa-card friends-card mb-25 border-radius bg-white border-none d-block"                    [class.component-dark-theme]="themeService.isDark()"                    [class.rtl-enabled]="themeService.isRTLEnabled()"                >                    <mat-card-header>                        <mat-card-title>                            <h5 class="mt-0 mb-0">                                Friends                            </h5>                        </mat-card-title>                    </mat-card-header>                    <mat-card-content>                        <form class="search-box position-relative">                            <i class="material-symbols-outlined">                                search                            </i>                            <input type="text" class="input-search d-block w-100 border-none outline-0" placeholder="Search...">                        </form>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user15.jpg" width="200" height="200" alt="user15">                                <span class="active-status"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Marcia Baker                                </span>                                <span class="d-block text-body">                                    baker&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user16.jpg" width="200" height="200" alt="user16">                                <span class="active-status off"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Carolyn Barnes                                </span>                                <span class="d-block text-body">                                    barnes&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user17.jpg" width="200" height="200" alt="user17">                                <span class="active-status"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Donna Miller                                </span>                                <span class="d-block text-body">                                    miller&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user14.jpg" width="200" height="200" alt="user14">                                <span class="active-status"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Barbara Cross                                </span>                                <span class="d-block text-body">                                    cross&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user13.jpg" width="200" height="200" alt="user13">                                <span class="active-status off"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Rebecca Block                                </span>                                <span class="d-block text-body">                                    block&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user12.jpg" width="200" height="200" alt="user12">                                <span class="active-status off"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Ramiro McCarty                                </span>                                <span class="d-block text-body">                                    mccarty&#64;gmail.com                                </span>                            </div>                        </div>                        <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user11.jpg" width="200" height="200" alt="user11">                                <span class="active-status"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Robert Fairweather                                </span>                                <span class="d-block text-body">                                    fairweather&#64;gmail.com                                </span>                            </div>                        </div>                      <div class="user d-flex align-items-center">                            <div class="img position-relative">                                <img ngSrc="assets/images/users/user8.jpg" width="200" height="200" alt="user8">                                <span class="active-status off"></span>                            </div>                            <div class="title">                                <span class="d-block fw-medium">                                    Nathaniel Hulsey                                </span>                                <span class="d-block text-body">                                    hulsey&#64;gmail.com                                </span>                            </div>                        </div>                    </mat-card-content>                </mat-card>            </div>            <div class="col-lg-8 col-md-12">              <app-about></app-about>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MyProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MyProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

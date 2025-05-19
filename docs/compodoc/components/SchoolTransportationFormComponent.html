@@ -1,0 +1,1249 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SchoolTransportationFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-school-transportation-form</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>HttpClientModule</code>
+                            <code>FormsModule</code>
+                            <code>MatCard</code>
+                            <code>MatCardContent</code>
+                            <code>MatCardHeader</code>
+                            <code>MatCardTitle</code>
+                            <code>MatFormField</code>
+                            <code>MatInput</code>
+                            <code>MatLabel</code>
+                            <code>FileUploadModule</code>
+                            <code>MatButton</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./school-transportation-form.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./school-transportation-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#driverControl" >driverControl</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                <a href="#multiple" >multiple</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                            <li>
+                                <a href="#vehicleControl" >vehicleControl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDriverFile" >getDriverFile</a>
+                            </li>
+                            <li>
+                                <a href="#getFormData" >getFormData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getVehicleFile" >getVehicleFile</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#schoolTransportation" >schoolTransportation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelClicked" >cancelClicked</a>
+                            </li>
+                            <li>
+                                <a href="#submitClicked" >submitClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="schoolTransportation"></a>
+                        <b>schoolTransportation</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SchoolTransportation.html" target="_self" >SchoolTransportation</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelClicked"></a>
+                        <b>cancelClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitClicked"></a>
+                        <b>submitClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDriverFile"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getDriverFile</b></span>
+                        <a href="#getDriverFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDriverFile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>File | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFormData"></a>
+                    <span class="name">
+                        <span ><b>getFormData</b></span>
+                        <a href="#getFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFormData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormData</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVehicleFile"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getVehicleFile</b></span>
+                        <a href="#getVehicleFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getVehicleFile()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>File | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="driverControl"></a>
+                    <span class="name">
+                        <span ><b>driverControl</b></span>
+                        <a href="#driverControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FileUploadControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multiple"></a>
+                    <span class="name">
+                        <span ><b>multiple</b></span>
+                        <a href="#multiple"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vehicleControl"></a>
+                    <span class="name">
+                        <span ><b>vehicleControl</b></span>
+                        <a href="#vehicleControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FileUploadControl()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/school-transportation/components/school-transportation-form/school-transportation-form.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Input, OnInit, Output} from &#x27;@angular/core&#x27;;
+import {Editor} from &quot;ngx-editor&quot;;
+import {CustomizerSettingsService} from &quot;../../../shared/services/customizer-settings/customizer-settings.service&quot;;
+import {FormsModule} from &quot;@angular/forms&quot;;
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from &quot;@angular/material/card&quot;;
+import {MatFormField, MatLabel} from &quot;@angular/material/form-field&quot;;
+import {MatInput} from &quot;@angular/material/input&quot;;
+import {FileUploadControl, FileUploadModule} from &quot;@iplab/ngx-file-upload&quot;;
+import {SchoolTransportation} from &quot;../../model/school-transportation&quot;;
+import {CommonModule} from &quot;@angular/common&quot;;
+import {HttpClientModule} from &quot;@angular/common/http&quot;;
+import {MatButton} from &quot;@angular/material/button&quot;;
+
+@Component({
+  selector: &#x27;app-school-transportation-form&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    MatCard,
+    MatCardContent,
+    MatCardHeader,
+    MatCardTitle,
+    MatFormField,
+    MatInput,
+    MatLabel,
+    FileUploadModule,
+    MatButton
+  ],
+  templateUrl: &#x27;./school-transportation-form.component.html&#x27;,
+  styleUrls: [&#x27;./school-transportation-form.component.scss&#x27;]
+})
+export class SchoolTransportationFormComponent {
+
+  driverControl &#x3D; new FileUploadControl();
+  vehicleControl &#x3D; new FileUploadControl();
+
+  @Input() schoolTransportation!: SchoolTransportation;
+  @Output() submitClicked &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() cancelClicked &#x3D; new EventEmitter&lt;void&gt;();
+
+  multiple: boolean &#x3D; false;
+
+  getFormData(): FormData {
+    const formData &#x3D; new FormData();
+
+    Object.entries(this.schoolTransportation).forEach(([key, value]) &#x3D;&gt; {
+      if (value) formData.append(key, value);
+    });
+
+    const driverFile &#x3D; this.getDriverFile();
+    if (driverFile) formData.append(&#x27;driverPhoto&#x27;, driverFile);
+
+    const vehicleFile &#x3D; this.getVehicleFile();
+    if (vehicleFile) formData.append(&#x27;vehiclePhoto&#x27;, vehicleFile);
+
+    return formData;
+  }
+
+  private getDriverFile(): File | null {
+    const items &#x3D; this.driverControl.value as File[];
+    return items?.[0] ?? null;
+  }
+
+  private getVehicleFile(): File | null {
+    const items &#x3D; this.vehicleControl.value as File[];
+    return items?.[0] ?? null;
+  }
+
+  // isToggled
+  isToggled &#x3D; false;
+
+  constructor(
+    public themeService: CustomizerSettingsService
+  ) {
+    this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+      this.isToggled &#x3D; isToggled;
+    });
+  }
+
+  // RTL Mode
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">  &lt;!-- Breadcrumb--&gt;
+
+
+&lt;form&gt;
+  &lt;!-- School-Transportation Form --&gt;
+  &lt;mat-card class&#x3D;&quot;daxa-card create-user-card mb-25 border-radius bg-white border-none d-block&quot;
+            [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;&gt;
+
+    &lt;mat-card-header&gt;
+      &lt;mat-card-title&gt;
+        &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+          Movilidad
+        &lt;/h5&gt;
+      &lt;/mat-card-title&gt;
+    &lt;/mat-card-header&gt;
+
+    &lt;mat-card-content&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;DNI&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar DNI&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.dni&quot; name&#x3D;&quot;dni&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Nº de Licencia&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ej. Q71058278&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.licenseCode&quot; name&#x3D;&quot;licenseCode&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Nombre Completo&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Nombre Completo&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.firstName&quot; name&#x3D;&quot;firstName&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Apellido Paterno&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Apellido Paterno&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.paternalLastName&quot; name&#x3D;&quot;paternalLastName&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Apellido Materno&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Apellido Materno&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.maternalLastName&quot; name&#x3D;&quot;maternalLastName&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Número Telefónico&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Número&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.phone&quot; name&#x3D;&quot;phone&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Correo Electrónico&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Correo (Opcional)&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.email&quot; name&#x3D;&quot;email&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Dirección Completa (Calle y Número)&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ej. Jiron San Ignacio 204&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.address&quot; name&#x3D;&quot;address&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Placa del Vehículo&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ej. P2D-286&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.vehiclePlate&quot; name&#x3D;&quot;vehiclePlate&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Marca del Vehículo&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Marca del Vehículo&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.vehicleBrand&quot; name&#x3D;&quot;vehicleBrand&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Modelo del Vehículo&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Modelo del Vehículo&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.vehicleModel&quot; name&#x3D;&quot;vehicleModel&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+        &lt;div class&#x3D;&quot;col-md-4 col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Color del Vehículo&lt;/label&gt;
+            &lt;mat-form-field&gt;
+              &lt;mat-label&gt;Ingresar Color del Vehículo&lt;/mat-label&gt;
+              &lt;input matInput [(ngModel)]&#x3D;&quot;schoolTransportation.vehicleColor&quot; name&#x3D;&quot;vehicleColor&quot;&gt;
+            &lt;/mat-form-field&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-6 col-sm-12&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Foto del Vehículo&lt;/label&gt;
+            &lt;file-upload class&#x3D;&quot;file-uploader&quot;
+                         [multiple]&#x3D;&quot;multiple&quot;
+                         [control]&#x3D;&quot;vehicleControl&quot;
+            &gt;&lt;/file-upload&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+        &lt;div class&#x3D;&quot;col-md-6 col-sm-12&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;Foto del Chofer&lt;/label&gt;
+            &lt;file-upload class&#x3D;&quot;file-uploader&quot;
+                         [multiple]&#x3D;&quot;multiple&quot;
+                         [control]&#x3D;&quot;driverControl&quot;
+            &gt;&lt;/file-upload&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+        &lt;mat-card-content class&#x3D;&quot;buttons&quot;&gt;
+          &lt;div class&#x3D;&quot;btn-box&quot;&gt;
+            &lt;button mat-button type&#x3D;&quot;submit&quot; (click)&#x3D;&quot;submitClicked.emit()&quot;&gt;Guardar&lt;/button&gt;
+            &lt;button mat-button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelClicked.emit()&quot;&gt;Cancelar&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/mat-card-content&gt;
+
+    &lt;/mat-card-content&gt;
+  &lt;/mat-card&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./school-transportation-form.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.create-user-card {
+            .mat-mdc-card-content {
+                .main-label {
+                    margin-bottom: 13px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.create-user-card {
+                .mat-mdc-card-content {
+                    .file-uploader {
+                        width: 300px;
+                        height: 300px;
+                        border-radius: 8px;
+                        box-sizing: border-box;
+                    }
+                    .btn-box {
+                        .mat-mdc-button {
+                            border: 0;
+                            height: auto;
+                            min-width: auto;
+                            min-height: auto;
+                            padding: 13px 40px;
+                            font-weight: normal;
+                            color: var(--whiteColor);
+                            background-color: var(--daxaColor);
+
+                            &amp;:not(:first-child) {
+                                margin-left: 10px;
+                                background-color: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                &amp;:not(:first-child) {
+                                    margin: {
+                                        left: 0;
+                                        right: 10px;
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.create-user-card {
+                .mat-mdc-card-content {
+                    .main-label {
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.create-user-card {
+                    .mat-mdc-card-content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 13px 18px;
+
+                                &amp;:not(:first-child) {
+                                    margin-left: 8px;
+                                }
+                            }
+                        }
+                    }
+                    &amp;.rtl-enabled {
+                        .mat-mdc-card-content {
+                            .btn-box {
+                                .mat-mdc-button {
+                                    &amp;:not(:first-child) {
+                                        margin: {
+                                            left: 0;
+                                            right: 8px;
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+
+.buttons {
+    margin-bottom: -15px;
+
+    button, a {
+        margin: {
+            right: 15px;
+            bottom: 15px;
+        };
+    }
+    a {
+        &amp;.mat-mdc-fab, &amp;.mat-mdc-mini-fab {
+            color: var(--whiteColor, inherit);
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>  <!-- Breadcrumb--><form>  <!-- School-Transportation Form -->  <mat-card class="daxa-card create-user-card mb-25 border-radius bg-white border-none d-block"            [class.rtl-enabled]="themeService.isRTLEnabled()">    <mat-card-header>      <mat-card-title>        <h5 class="mt-0 mb-0">          Movilidad        </h5>      </mat-card-title>    </mat-card-header>    <mat-card-content>      <div class="row">        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">DNI</label>            <mat-form-field>              <mat-label>Ingresar DNI</mat-label>              <input matInput [(ngModel)]="schoolTransportation.dni" name="dni">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Nº de Licencia</label>            <mat-form-field>              <mat-label>Ej. Q71058278</mat-label>              <input matInput [(ngModel)]="schoolTransportation.licenseCode" name="licenseCode">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Nombre Completo</label>            <mat-form-field>              <mat-label>Ingresar Nombre Completo</mat-label>              <input matInput [(ngModel)]="schoolTransportation.firstName" name="firstName">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Apellido Paterno</label>            <mat-form-field>              <mat-label>Ingresar Apellido Paterno</mat-label>              <input matInput [(ngModel)]="schoolTransportation.paternalLastName" name="paternalLastName">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Apellido Materno</label>            <mat-form-field>              <mat-label>Ingresar Apellido Materno</mat-label>              <input matInput [(ngModel)]="schoolTransportation.maternalLastName" name="maternalLastName">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Número Telefónico</label>            <mat-form-field>              <mat-label>Ingresar Número</mat-label>              <input matInput [(ngModel)]="schoolTransportation.phone" name="phone">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Correo Electrónico</label>            <mat-form-field>              <mat-label>Ingresar Correo (Opcional)</mat-label>              <input matInput [(ngModel)]="schoolTransportation.email" name="email">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Dirección Completa (Calle y Número)</label>            <mat-form-field>              <mat-label>Ej. Jiron San Ignacio 204</mat-label>              <input matInput [(ngModel)]="schoolTransportation.address" name="address">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Placa del Vehículo</label>            <mat-form-field>              <mat-label>Ej. P2D-286</mat-label>              <input matInput [(ngModel)]="schoolTransportation.vehiclePlate" name="vehiclePlate">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Marca del Vehículo</label>            <mat-form-field>              <mat-label>Ingresar Marca del Vehículo</mat-label>              <input matInput [(ngModel)]="schoolTransportation.vehicleBrand" name="vehicleBrand">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Modelo del Vehículo</label>            <mat-form-field>              <mat-label>Ingresar Modelo del Vehículo</mat-label>              <input matInput [(ngModel)]="schoolTransportation.vehicleModel" name="vehicleModel">            </mat-form-field>          </div>        </div>        <div class="col-md-4 col-sm-6">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Color del Vehículo</label>            <mat-form-field>              <mat-label>Ingresar Color del Vehículo</mat-label>              <input matInput [(ngModel)]="schoolTransportation.vehicleColor" name="vehicleColor">            </mat-form-field>          </div>        </div>        <div class="col-md-6 col-sm-12">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Foto del Vehículo</label>            <file-upload class="file-uploader"                         [multiple]="multiple"                         [control]="vehicleControl"            ></file-upload>          </div>        </div>        <div class="col-md-6 col-sm-12">          <div class="mb-25">            <label class="main-label d-block lh-1 text-black">Foto del Chofer</label>            <file-upload class="file-uploader"                         [multiple]="multiple"                         [control]="driverControl"            ></file-upload>          </div>        </div>      </div>        <mat-card-content class="buttons">          <div class="btn-box">            <button mat-button type="submit" (click)="submitClicked.emit()">Guardar</button>            <button mat-button type="button" (click)="cancelClicked.emit()">Cancelar</button>          </div>        </mat-card-content>    </mat-card-content>  </mat-card></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SchoolTransportationFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolTransportationFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

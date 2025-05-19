@@ -1,0 +1,688 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProjectsProgressComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dashboard/pages/projects-progress/projects-progress.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-projects-progress:not(p)</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatCardModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>NgApexchartsModule</code>
+                            <code>NgIf</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./projects-progress.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./projects-progress.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#chart" >chart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#chartOptions" >chartOptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/dashboard/pages/projects-progress/projects-progress.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>platformId</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chart"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>chart</b></span>
+                        <a href="#chart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChartComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;chart&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/dashboard/pages/projects-progress/projects-progress.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chartOptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>chartOptions</b></span>
+                        <a href="#chartOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Partial&lt;ChartOptions&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/dashboard/pages/projects-progress/projects-progress.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, PLATFORM_ID, ViewChild } from &#x27;@angular/core&#x27;;
+import {isPlatformBrowser, NgIf} from &#x27;@angular/common&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import {
+  ApexChart,
+  ApexDataLabels,
+  ApexLegend,
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexTooltip,
+  ChartComponent,
+  NgApexchartsModule
+} from &#x27;ng-apexcharts&#x27;;
+
+export type ChartOptions &#x3D; {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  legend: ApexLegend;
+  responsive: ApexResponsive[];
+  labels: any;
+  tooltip: ApexTooltip;
+  colors: string[];
+};
+
+@Component({
+  selector: &#x27;app-projects-progress:not(p)&#x27;,
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    NgApexchartsModule,
+    NgIf
+  ],
+  templateUrl: &#x27;./projects-progress.component.html&#x27;,
+  styleUrls: [&#x27;./projects-progress.component.scss&#x27;]
+})
+export class ProjectsProgressComponent {
+  @ViewChild(&#x27;chart&#x27;) chart: ChartComponent;
+  public chartOptions?: Partial&lt;ChartOptions&gt;;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.chartOptions &#x3D; {
+        series: [60, 30, 10],
+        chart: {
+          height: 450,
+          type: &#x27;donut&#x27;
+        },
+        labels: [&#x27;In Progress&#x27;, &#x27;Not Started&#x27;, &#x27;Completed&#x27;],
+        legend: {
+          offsetY: 11,
+          fontSize: &#x27;14px&#x27;,
+          position: &#x27;bottom&#x27;,
+          horizontalAlign: &#x27;center&#x27;,
+          labels: {
+            colors: &#x27;#919aa3&#x27;
+          },
+          itemMargin: {
+            horizontal: 12,
+            vertical: 7
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          style: {
+            fontSize: &#x27;14px&#x27;
+          },
+          dropShadow: {
+            enabled: false
+          }
+        },
+        colors: [&#x27;#00cae3&#x27;, &#x27;#0e7aee&#x27;, &#x27;#796df6&#x27;],
+        tooltip: {
+          y: {
+            formatter: function (val: number) {
+              return val + &#x27;%&#x27;;
+            }
+          }
+        }
+      };
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card class&#x3D;&quot;daxa-card projects-progress-card mb-25 border-radius bg-white border-none d-block&quot;&gt;
+  &lt;mat-card-header&gt;
+    &lt;mat-card-title&gt;
+      &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+        Projects Progress
+      &lt;/h5&gt;
+    &lt;/mat-card-title&gt;
+    &lt;!--
+    &lt;mat-card-subtitle&gt;
+      &lt;button type&#x3D;&quot;button&quot; mat-button class&#x3D;&quot;card-header-menu-btn&quot; [matMenuTriggerFor]&#x3D;&quot;cardHeaderMenu&quot;&gt;
+        This Week
+      &lt;/button&gt;
+      &lt;mat-menu #cardHeaderMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;card-header-menu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+        &lt;button mat-menu-item&gt;This Day&lt;/button&gt;
+        &lt;button mat-menu-item&gt;This Week&lt;/button&gt;
+        &lt;button mat-menu-item&gt;This Month&lt;/button&gt;
+        &lt;button mat-menu-item&gt;This Year&lt;/button&gt;
+      &lt;/mat-menu&gt;
+    &lt;/mat-card-subtitle&gt;
+    --&gt;
+  &lt;/mat-card-header&gt;
+
+  &lt;mat-card-content&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;chartOptions&quot;&gt;
+      &lt;apx-chart
+        [series]&#x3D;&quot;chartOptions.series!&quot;
+        [chart]&#x3D;&quot;chartOptions.chart!&quot;
+        [legend]&#x3D;&quot;chartOptions.legend!&quot;
+        [colors]&#x3D;&quot;chartOptions.colors!&quot;
+        [tooltip]&#x3D;&quot;chartOptions.tooltip!&quot;
+        [labels]&#x3D;&quot;chartOptions.labels!&quot;
+        [dataLabels]&#x3D;&quot;chartOptions.dataLabels!&quot;
+        [responsive]&#x3D;&quot;chartOptions.responsive!&quot;&gt;
+      &lt;/apx-chart&gt;
+    &lt;/ng-container&gt;
+  &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./projects-progress.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.projects-progress-card {
+            .mat-mdc-card-header {
+                margin-bottom: 36.5px;
+            }
+            .mat-mdc-card-content {
+                padding-bottom: 36.5px;
+            }
+        }
+    }
+}
+::ng-deep {
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.projects-progress-card {
+                .mat-mdc-card-content {
+                    .apexcharts-tooltip {
+                        .apexcharts-tooltip-series-group {
+                            padding-right: 12px;
+                            border-bottom: 0;
+                        }
+                    }
+                    .apexcharts-canvas {
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.projects-progress-card {
+                .mat-mdc-card-header {
+                    margin-bottom: 15px;
+                }
+                .mat-mdc-card-content {
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.projects-progress-card {
+                    .mat-mdc-card-content {
+                        .apexcharts-tooltip {
+                            .apexcharts-tooltip-series-group {
+                                padding-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card class="daxa-card projects-progress-card mb-25 border-radius bg-white border-none d-block">  <mat-card-header>    <mat-card-title>      <h5 class="mt-0 mb-0">        Projects Progress      </h5>    </mat-card-title>    <!--    <mat-card-subtitle>      <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">        This Week      </button>      <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">        <button mat-menu-item>This Day</button>        <button mat-menu-item>This Week</button>        <button mat-menu-item>This Month</button>        <button mat-menu-item>This Year</button>      </mat-menu>    </mat-card-subtitle>    -->  </mat-card-header>  <mat-card-content>    <ng-container *ngIf="chartOptions">      <apx-chart        [series]="chartOptions.series!"        [chart]="chartOptions.chart!"        [legend]="chartOptions.legend!"        [colors]="chartOptions.colors!"        [tooltip]="chartOptions.tooltip!"        [labels]="chartOptions.labels!"        [dataLabels]="chartOptions.dataLabels!"        [responsive]="chartOptions.responsive!">      </apx-chart>    </ng-container>  </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProjectsProgressComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProjectsProgressComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

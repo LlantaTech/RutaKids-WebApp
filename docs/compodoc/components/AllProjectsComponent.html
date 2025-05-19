@@ -1,0 +1,1399 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AllProjectsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/dashboard/pages/all-projects/all-projects.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-all-projects</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatCardModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>RouterLink</code>
+                            <code>MatTableModule</code>
+                            <code>MatPaginatorModule</code>
+                            <code>NgIf</code>
+                            <code>MatTooltipModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./all-projects.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./all-projects.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns" >displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#paginator" >paginator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#platform" >platform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>, platform: <a href="../injectables/PlatformService.html" target="_self">PlatformService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>platform</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PlatformService.html" target="_self" >PlatformService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MatTableDataSource&lt;PeriodicElement&gt;(ELEMENT_DATA)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <span ><b>displayedColumns</b></span>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;id&#x27;,
+    &#x27;projectName&#x27;,
+    &#x27;client&#x27;,
+    &#x27;startDate&#x27;,
+    &#x27;endDate&#x27;,
+    &#x27;budget&#x27;,
+    &#x27;status&#x27;,
+    &#x27;action&#x27;
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginator"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>paginator</b></span>
+                        <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatPaginator</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatPaginator)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="platform"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>platform</b></span>
+                        <a href="#platform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/PlatformService.html" target="_self" >PlatformService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/dashboard/pages/all-projects/all-projects.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgIf } from &#x27;@angular/common&#x27;;
+import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatPaginator, MatPaginatorModule } from &#x27;@angular/material/paginator&#x27;;
+import { MatTableDataSource, MatTableModule } from &#x27;@angular/material/table&#x27;;
+import { MatTooltipModule } from &#x27;@angular/material/tooltip&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { CustomizerSettingsService } from &#x27;../../../shared/services/customizer-settings/customizer-settings.service&#x27;;
+import {PlatformService} from &quot;../../../shared/services/platform/platform.service&quot;;
+
+@Component({
+  selector: &#x27;app-all-projects&#x27;,
+  standalone: true,
+  imports: [
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    RouterLink,
+    MatTableModule,
+    MatPaginatorModule,
+    NgIf,
+    MatTooltipModule
+  ],
+  templateUrl: &#x27;./all-projects.component.html&#x27;,
+  styleUrls: [&#x27;./all-projects.component.scss&#x27;]
+})
+export class AllProjectsComponent {
+  displayedColumns: string[] &#x3D; [
+    &#x27;id&#x27;,
+    &#x27;projectName&#x27;,
+    &#x27;client&#x27;,
+    &#x27;startDate&#x27;,
+    &#x27;endDate&#x27;,
+    &#x27;budget&#x27;,
+    &#x27;status&#x27;,
+    &#x27;action&#x27;
+  ];
+  dataSource &#x3D; new MatTableDataSource&lt;PeriodicElement&gt;(ELEMENT_DATA);
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  isToggled &#x3D; false;
+
+  constructor(
+    public themeService: CustomizerSettingsService,
+    public platform: PlatformService
+  ) {
+    this.themeService.isToggled$.subscribe((isToggled) &#x3D;&gt; {
+      this.isToggled &#x3D; isToggled;
+    });
+  }
+
+  ngAfterViewInit() {
+    if (this.platform.isBrowser) {
+      this.dataSource.paginator &#x3D; this.paginator;
+    }
+  }
+
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
+}
+
+const ELEMENT_DATA: PeriodicElement[] &#x3D; [
+    {
+        id: &#x27;#951&#x27;,
+        projectName: &#x27;Hotel management system&#x27;,
+        client: &#x27;Vaxo Corporation&#x27;,
+        startDate: &#x27;15 Nov, 2023&#x27;,
+        endDate: &#x27;15 Dec, 2023&#x27;,
+        budget: &#x27;$5,250&#x27;,
+        status: {
+            inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#547&#x27;,
+        projectName: &#x27;Product development&#x27;,
+        client: &#x27;Beja Ltd&#x27;,
+        startDate: &#x27;14 Nov, 2023&#x27;,
+        endDate: &#x27;14 Dec, 2023&#x27;,
+        budget: &#x27;$4,870&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#658&#x27;,
+        projectName: &#x27;Python upgrade&#x27;,
+        client: &#x27;Aegis Industries&#x27;,
+        startDate: &#x27;13 Nov, 2023&#x27;,
+        endDate: &#x27;13 Dec, 2023&#x27;,
+        budget: &#x27;$3,500&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#367&#x27;,
+        projectName: &#x27;Project monitoring&#x27;,
+        client: &#x27;Affort Solutions&#x27;,
+        startDate: &#x27;12 Nov, 2023&#x27;,
+        endDate: &#x27;12 Dec, 2023&#x27;,
+        budget: &#x27;$7,550&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#469&#x27;,
+        projectName: &#x27;Project alpho&#x27;,
+        client: &#x27;Shawn Kennedy&#x27;,
+        startDate: &#x27;11 Nov, 2023&#x27;,
+        endDate: &#x27;11 Dec, 2023&#x27;,
+        budget: &#x27;$2,500&#x27;,
+        status: {
+            inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#431&#x27;,
+        projectName: &#x27;Multi-purpose landing&#x27;,
+        client: &#x27;Addax Ltd&#x27;,
+        startDate: &#x27;10 Nov, 2023&#x27;,
+        endDate: &#x27;10 Dec, 2023&#x27;,
+        budget: &#x27;$1,231&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#542&#x27;,
+        projectName: &#x27;Services &amp; startup agency&#x27;,
+        client: &#x27;Profun Solutions&#x27;,
+        startDate: &#x27;09 Nov, 2023&#x27;,
+        endDate: &#x27;09 Dec, 2023&#x27;,
+        budget: &#x27;$2,412&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#532&#x27;,
+        projectName: &#x27;NFT marketplace&#x27;,
+        client: &#x27;Futo Agency&#x27;,
+        startDate: &#x27;08 Nov, 2023&#x27;,
+        endDate: &#x27;08 Dec, 2023&#x27;,
+        budget: &#x27;$5,412&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#567&#x27;,
+        projectName: &#x27;Money transfer&#x27;,
+        client: &#x27;Alina Smith&#x27;,
+        startDate: &#x27;07 Nov, 2023&#x27;,
+        endDate: &#x27;07 Dec, 2023&#x27;,
+        budget: &#x27;$6,421&#x27;,
+        status: {
+            inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            // completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    },
+    {
+        id: &#x27;#341&#x27;,
+        projectName: &#x27;Project launchpad&#x27;,
+        client: &#x27;Mave Metaverse&#x27;,
+        startDate: &#x27;06 Nov, 2023&#x27;,
+        endDate: &#x27;06 Dec, 2023&#x27;,
+        budget: &#x27;$10,242&#x27;,
+        status: {
+            // inProgress: &#x27;In Progress&#x27;,
+            // pending: &#x27;Pending&#x27;,
+            completed: &#x27;Completed&#x27;,
+            // notStarted: &#x27;Not Started&#x27;,
+        },
+        action: {
+            view: &#x27;visibility&#x27;,
+            delete: &#x27;delete&#x27;
+        }
+    }
+];
+export interface PeriodicElement {
+    id: string;
+    projectName: string;
+    client: string;
+    startDate: string;
+    endDate: string;
+    budget: string;
+    status: any;
+    action: any;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card
+    class&#x3D;&quot;daxa-card all-projects-card mb-25 border-radius bg-white border-none d-block&quot;
+    [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+&gt;
+    &lt;mat-card-header&gt;
+        &lt;mat-card-title&gt;
+            &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+                All Projects
+            &lt;/h5&gt;
+        &lt;/mat-card-title&gt;
+        &lt;mat-card-subtitle&gt;
+            &lt;button type&#x3D;&quot;button&quot; mat-button class&#x3D;&quot;card-header-menu-btn&quot; [matMenuTriggerFor]&#x3D;&quot;cardHeaderMenu&quot;&gt;
+                This Month
+            &lt;/button&gt;
+            &lt;mat-menu #cardHeaderMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;card-header-menu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+                &lt;button mat-menu-item&gt;
+                    This Day
+                &lt;/button&gt;
+                &lt;button mat-menu-item&gt;
+                    This Week
+                &lt;/button&gt;
+                &lt;button mat-menu-item&gt;
+                    This Month
+                &lt;/button&gt;
+                &lt;button mat-menu-item&gt;
+                    This Year
+                &lt;/button&gt;
+            &lt;/mat-menu&gt;
+        &lt;/mat-card-subtitle&gt;
+    &lt;/mat-card-header&gt;
+    &lt;mat-card-content&gt;
+        &lt;div class&#x3D;&quot;all-projects-table&quot;&gt;
+            &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+                &lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+
+                    &lt;!-- ID Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            ID
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            {{element.id}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Project Name Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;projectName&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Project Name
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            {{element.projectName}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Client Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;client&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Client
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; class&#x3D;&quot;text-black&quot;&gt;
+                            {{element.client}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Start Date Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;startDate&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Start Date
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            {{element.startDate}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- End Date Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;endDate&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            End Date
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            {{element.endDate}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Budget Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;budget&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Budget
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            {{element.budget}}
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Status Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;status&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Status
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            &lt;span class&#x3D;&quot;daxa-badge in-progress d-inline-block&quot; *ngIf&#x3D;&quot;element.status.inProgress&quot;&gt;
+                                {{element.status.inProgress}}
+                            &lt;/span&gt;
+                            &lt;span class&#x3D;&quot;daxa-badge pending d-inline-block&quot; *ngIf&#x3D;&quot;element.status.pending&quot;&gt;
+                                {{element.status.pending}}
+                            &lt;/span&gt;
+                            &lt;span class&#x3D;&quot;daxa-badge completed d-inline-block&quot; *ngIf&#x3D;&quot;element.status.completed&quot;&gt;
+                                {{element.status.completed}}
+                            &lt;/span&gt;
+                            &lt;span class&#x3D;&quot;daxa-badge not-started d-inline-block&quot; *ngIf&#x3D;&quot;element.status.notStarted&quot;&gt;
+                                {{element.status.notStarted}}
+                            &lt;/span&gt;
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;!-- Action Column --&gt;
+                    &lt;ng-container matColumnDef&#x3D;&quot;action&quot;&gt;
+                        &lt;th mat-header-cell *matHeaderCellDef&gt;
+                            Action
+                        &lt;/th&gt;
+                        &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+                            &lt;div class&#x3D;&quot;action-info&quot;&gt;
+                                &lt;button type&#x3D;&quot;button&quot; mat-button matTooltip&#x3D;&quot;View Project&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        {{element.action.view}}
+                                    &lt;/i&gt;
+                                &lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; mat-button matTooltip&#x3D;&quot;Delete&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;
+                                    &lt;i class&#x3D;&quot;material-symbols-outlined&quot;&gt;
+                                        {{element.action.delete}}
+                                    &lt;/i&gt;
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/td&gt;
+                    &lt;/ng-container&gt;
+
+                    &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+                    &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;mat-paginator [pageSizeOptions]&#x3D;&quot;[5, 10, 20]&quot; showFirstLastButtons&gt;&lt;/mat-paginator&gt;
+        &lt;/div&gt;
+    &lt;/mat-card-content&gt;
+&lt;/mat-card&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./all-projects.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.all-projects-card {
+            .mat-mdc-card-content {
+                margin: {
+                    left: -20px;
+                    right: -20px;
+                };
+                .all-projects-table {
+                    .mat-mdc-table {
+                        .mat-mdc-header-cell {
+                            padding: {
+                                top: 15px;
+                                bottom: 15px;
+                            };
+                            &amp;:last-child {
+                                text-align: right;
+                            }
+                        }
+                        .mat-mdc-cell {
+                            padding: {
+                                top: 18.5px;
+                                bottom: 18.5px;
+                            };
+                            &amp;:last-child {
+                                text-align: right;
+                            }
+                        }
+                        .daxa-badge {
+                            color: var(--daxaColor);
+                            background: rgba(15, 121, 243, 0.10);
+
+                            &amp;.in-progress {
+                                color: var(--warningColor);
+                                background: rgba(241, 179, 28, 0.10);
+                            }
+                            &amp;.pending {
+                                color: var(--successColor);
+                                background: rgba(46, 212, 126, 0.10);
+                            }
+                            &amp;.not-started {
+                                color: var(--dangerColor);
+                                background: rgba(231, 76, 60, 0.10);
+                            }
+                        }
+                    }
+                }
+            }
+            &amp;.rtl-enabled {
+                .mat-mdc-card-content {
+                    .all-projects-table {
+                        .mat-mdc-table {
+                            .mat-mdc-header-cell {
+                                &amp;:last-child {
+                                    text-align: left;
+                                }
+                            }
+                            .mat-mdc-cell {
+                                &amp;:last-child {
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    .all-projects-table {
+                        .mat-mdc-paginator {
+                            padding: {
+                                top: 15px;
+                                left: 20px;
+                                right: 20px;
+                            };
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    margin: {
+                        left: -15px;
+                        right: -15px;
+                    };
+                    .all-projects-table {
+                        .mat-mdc-table {
+                            .mat-mdc-cell {
+                                padding: {
+                                    top: 15px;
+                                    bottom: 15px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.all-projects-card {
+                    .mat-mdc-card-header {
+                        .mat-mdc-card-header-text {
+                            display: block;
+
+                            .mat-mdc-card-subtitle {
+                                margin-top: 12px;
+                            }
+                        }
+                    }
+                    .mat-mdc-card-content {
+                        .all-projects-table {
+                            .mat-mdc-paginator {
+                                padding: {
+                                    top: 10px;
+                                    left: 15px;
+                                    right: 15px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    margin: {
+                        left: -20px;
+                        right: -20px;
+                    };
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.all-projects-card {
+                    .mat-mdc-card-content {
+                        .all-projects-table {
+                            .mat-mdc-paginator {
+                                padding: {
+                                    left: 20px;
+                                    right: 20px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    .all-projects-table {
+                        .mat-mdc-table {
+                            .mat-mdc-header-cell {
+                                padding: {
+                                    top: 14.5px;
+                                    bottom: 14.5px;
+                                };
+                            }
+                            .mat-mdc-cell {
+                                padding: {
+                                    top: 14px;
+                                    bottom: 14px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    .all-projects-table {
+                        .mat-mdc-table {
+                            .mat-mdc-header-cell {
+                                padding: {
+                                    top: 16px;
+                                    bottom: 16px;
+                                };
+                            }
+                            .mat-mdc-cell {
+                                padding: {
+                                    top: 16px;
+                                    bottom: 16px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.all-projects-card {
+                .mat-mdc-card-content {
+                    .all-projects-table {
+                        .mat-mdc-table {
+                            .mat-mdc-header-cell {
+                                padding: {
+                                    top: 18px;
+                                    bottom: 18px;
+                                };
+                            }
+                            .mat-mdc-cell {
+                                padding: {
+                                    top: 21.3px;
+                                    bottom: 21.3px;
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card    class="daxa-card all-projects-card mb-25 border-radius bg-white border-none d-block"    [class.rtl-enabled]="themeService.isRTLEnabled()">    <mat-card-header>        <mat-card-title>            <h5 class="mt-0 mb-0">                All Projects            </h5>        </mat-card-title>        <mat-card-subtitle>            <button type="button" mat-button class="card-header-menu-btn" [matMenuTriggerFor]="cardHeaderMenu">                This Month            </button>            <mat-menu #cardHeaderMenu="matMenu" class="card-header-menu" xPosition="before">                <button mat-menu-item>                    This Day                </button>                <button mat-menu-item>                    This Week                </button>                <button mat-menu-item>                    This Month                </button>                <button mat-menu-item>                    This Year                </button>            </mat-menu>        </mat-card-subtitle>    </mat-card-header>    <mat-card-content>        <div class="all-projects-table">            <div class="table-responsive">                <table mat-table [dataSource]="dataSource">                    <!-- ID Column -->                    <ng-container matColumnDef="id">                        <th mat-header-cell *matHeaderCellDef>                            ID                        </th>                        <td mat-cell *matCellDef="let element">                            {{element.id}}                        </td>                    </ng-container>                    <!-- Project Name Column -->                    <ng-container matColumnDef="projectName">                        <th mat-header-cell *matHeaderCellDef>                            Project Name                        </th>                        <td mat-cell *matCellDef="let element">                            {{element.projectName}}                        </td>                    </ng-container>                    <!-- Client Column -->                    <ng-container matColumnDef="client">                        <th mat-header-cell *matHeaderCellDef>                            Client                        </th>                        <td mat-cell *matCellDef="let element" class="text-black">                            {{element.client}}                        </td>                    </ng-container>                    <!-- Start Date Column -->                    <ng-container matColumnDef="startDate">                        <th mat-header-cell *matHeaderCellDef>                            Start Date                        </th>                        <td mat-cell *matCellDef="let element">                            {{element.startDate}}                        </td>                    </ng-container>                    <!-- End Date Column -->                    <ng-container matColumnDef="endDate">                        <th mat-header-cell *matHeaderCellDef>                            End Date                        </th>                        <td mat-cell *matCellDef="let element">                            {{element.endDate}}                        </td>                    </ng-container>                    <!-- Budget Column -->                    <ng-container matColumnDef="budget">                        <th mat-header-cell *matHeaderCellDef>                            Budget                        </th>                        <td mat-cell *matCellDef="let element">                            {{element.budget}}                        </td>                    </ng-container>                    <!-- Status Column -->                    <ng-container matColumnDef="status">                        <th mat-header-cell *matHeaderCellDef>                            Status                        </th>                        <td mat-cell *matCellDef="let element">                            <span class="daxa-badge in-progress d-inline-block" *ngIf="element.status.inProgress">                                {{element.status.inProgress}}                            </span>                            <span class="daxa-badge pending d-inline-block" *ngIf="element.status.pending">                                {{element.status.pending}}                            </span>                            <span class="daxa-badge completed d-inline-block" *ngIf="element.status.completed">                                {{element.status.completed}}                            </span>                            <span class="daxa-badge not-started d-inline-block" *ngIf="element.status.notStarted">                                {{element.status.notStarted}}                            </span>                        </td>                    </ng-container>                    <!-- Action Column -->                    <ng-container matColumnDef="action">                        <th mat-header-cell *matHeaderCellDef>                            Action                        </th>                        <td mat-cell *matCellDef="let element">                            <div class="action-info">                                <button type="button" mat-button matTooltip="View Project" matTooltipPosition="above">                                    <i class="material-symbols-outlined">                                        {{element.action.view}}                                    </i>                                </button>                                <button type="button" mat-button matTooltip="Delete" matTooltipPosition="above">                                    <i class="material-symbols-outlined">                                        {{element.action.delete}}                                    </i>                                </button>                            </div>                        </td>                    </ng-container>                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>                </table>            </div>            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>        </div>    </mat-card-content></mat-card></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AllProjectsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AllProjectsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

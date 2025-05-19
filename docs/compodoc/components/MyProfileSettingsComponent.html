@@ -1,0 +1,1225 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MyProfileSettingsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-my-profile-settings</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatCardModule</code>
+                            <code>MatMenuModule</code>
+                            <code>MatButtonModule</code>
+                            <code>RouterLink</code>
+                            <code>FormsModule</code>
+                            <code>MatFormFieldModule</code>
+                            <code>MatInputModule</code>
+                            <code>MatSelectModule</code>
+                            <code>MatDatepickerModule</code>
+                            <code>MatNativeDateModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>FileUploadModule</code>
+                            <code>MatRadioModule</code>
+                            <code>MatCheckboxModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./my-profile-settings.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./my-profile-settings.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#multiple" >multiple</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multiple"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>multiple</b></span>
+                        <a href="#multiple"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profile/pages/my-profile-settings/my-profile-settings.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { MatCardModule } from &#x27;@angular/material/card&#x27;;
+import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatInputModule } from &#x27;@angular/material/input&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { MatDatepickerModule } from &#x27;@angular/material/datepicker&#x27;;
+import { MatNativeDateModule } from &#x27;@angular/material/core&#x27;;
+import {CustomizerSettingsService} from &quot;../../../shared/services/customizer-settings/customizer-settings.service&quot;;
+import { MatRadioModule } from &#x27;@angular/material/radio&#x27;;
+import { MatCheckboxModule } from &#x27;@angular/material/checkbox&#x27;;
+import {FileUploadModule} from &quot;@iplab/ngx-file-upload&quot;;
+
+@Component({
+  selector: &#x27;app-my-profile-settings&#x27;,
+  standalone: true,
+  imports: [MatCardModule, MatMenuModule, MatButtonModule, RouterLink, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, ReactiveFormsModule, FileUploadModule, MatRadioModule, MatCheckboxModule],
+  templateUrl: &#x27;./my-profile-settings.component.html&#x27;,
+  styleUrls: [&#x27;./my-profile-settings.component.scss&#x27;]
+})
+export class MyProfileSettingsComponent {
+      // File Uploader
+    public multiple: boolean &#x3D; false;
+
+    // isToggled
+    isToggled &#x3D; false;
+
+    constructor(
+        public themeService: CustomizerSettingsService
+    ) {
+        this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+            this.isToggled &#x3D; isToggled;
+        });
+    }
+
+    // RTL Mode
+    toggleRTLEnabledTheme() {
+        this.themeService.toggleRTLEnabledTheme();
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Breadcrumb --&gt;
+&lt;div class&#x3D;&quot;breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between&quot;&gt;
+    &lt;h5 class&#x3D;&quot;mb-0&quot;&gt;
+        Settings
+    &lt;/h5&gt;
+    &lt;ol class&#x3D;&quot;breadcrumb list-unstyled mt-0 mb-0 pl-0&quot;&gt;
+        &lt;li class&#x3D;&quot;breadcrumb-item position-relative&quot;&gt;
+            &lt;a routerLink&#x3D;&quot;/&quot; class&#x3D;&quot;d-inline-block position-relative&quot;&gt;
+                &lt;i class&#x3D;&quot;ri-home-8-line&quot;&gt;&lt;/i&gt;
+                Dashboard
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class&#x3D;&quot;breadcrumb-item position-relative&quot;&gt;
+            Profile
+        &lt;/li&gt;
+        &lt;li class&#x3D;&quot;breadcrumb-item position-relative&quot;&gt;
+            Settings
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;!-- Settings --&gt;
+&lt;div class&#x3D;&quot;row&quot;&gt;
+    &lt;div class&#x3D;&quot;col-xxl-7 col-xxxl-8&quot;&gt;
+        &lt;mat-card
+            class&#x3D;&quot;daxa-card settings-card mb-25 border-radius bg-white border-none d-block&quot;
+            [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+        &gt;
+            &lt;mat-card-header&gt;
+                &lt;mat-card-title&gt;
+                    &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+                        Profile Settings
+                    &lt;/h5&gt;
+                &lt;/mat-card-title&gt;
+            &lt;/mat-card-header&gt;
+            &lt;mat-card-content&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                First Name
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    First name
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;Micheal&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Last Name
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Last name
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;Collins&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Email Address
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Email address
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;micheal@gmail.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Phone No
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Phone no
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;+1 444 555 6699&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Password
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Password
+                                &lt;/mat-label&gt;
+                                &lt;input matInput placeholder&#x3D;&quot;************&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Confirm Password
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Confirm password
+                                &lt;/mat-label&gt;
+                                &lt;input matInput placeholder&#x3D;&quot;************&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Address
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Add address here
+                                &lt;/mat-label&gt;
+                                &lt;input matInput placeholder&#x3D;&quot;E.g. 84 S. Arrowhead Court Branford&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Country
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Select
+                                &lt;/mat-label&gt;
+                                &lt;mat-select&gt;
+                                    &lt;mat-option value&#x3D;&quot;option1&quot;&gt;
+                                        Switzerland
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option2&quot;&gt;
+                                        New Zealand
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option3&quot;&gt;
+                                        Germany
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option4&quot;&gt;
+                                        United States
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option5&quot;&gt;
+                                        Japan
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option6&quot;&gt;
+                                        Netherlands
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option7&quot;&gt;
+                                        Sweden
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option8&quot;&gt;
+                                        Canada
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option9&quot;&gt;
+                                        United Kingdom
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option10&quot;&gt;
+                                        Australia
+                                    &lt;/mat-option&gt;
+                                &lt;/mat-select&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Add Your Bio
+                            &lt;/label&gt;
+                            &lt;mat-form-field class&#x3D;&quot;textarea&quot;&gt;
+                                &lt;mat-label&gt;
+                                    What&#x27;s on your mind, Micheal?
+                                &lt;/mat-label&gt;
+                                &lt;textarea matInput placeholder&#x3D;&quot;E.g. It makes me feel...&quot;&gt;&lt;/textarea&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Who will be able to see your profile?
+                            &lt;/label&gt;
+                            &lt;mat-radio-group&gt;
+                                &lt;mat-radio-button value&#x3D;&quot;1&quot;&gt;
+                                    Only me
+                                &lt;/mat-radio-button&gt;
+                                &lt;mat-radio-button value&#x3D;&quot;2&quot;&gt;
+                                    My followers
+                                &lt;/mat-radio-button&gt;
+                                &lt;mat-radio-button value&#x3D;&quot;3&quot;&gt;
+                                    Everyone
+                                &lt;/mat-radio-button&gt;
+                            &lt;/mat-radio-group&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Select Your Skills
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Select
+                                &lt;/mat-label&gt;
+                                &lt;mat-select&gt;
+                                    &lt;mat-option value&#x3D;&quot;option1&quot;&gt;
+                                        Leadership
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option2&quot;&gt;
+                                        Project Management
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option3&quot;&gt;
+                                        Data Analysis
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option4&quot;&gt;
+                                        Teamwork
+                                    &lt;/mat-option&gt;
+                                    &lt;mat-option value&#x3D;&quot;option5&quot;&gt;
+                                        Web Development
+                                    &lt;/mat-option&gt;
+                                &lt;/mat-select&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Your Profession
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Your profession
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;Designer&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Company Name
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Company name
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;Daxa&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Company Website
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Company website
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;http://website.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Facebook
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Facebook
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;facebook@example.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Twitter
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Twitter
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;twitter@example.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Linkedin
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    Linkedin
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;linkedin@example.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                YouTube
+                            &lt;/label&gt;
+                            &lt;mat-form-field&gt;
+                                &lt;mat-label&gt;
+                                    YouTube
+                                &lt;/mat-label&gt;
+                                &lt;input matInput value&#x3D;&quot;youtube@example.com&quot;&gt;
+                            &lt;/mat-form-field&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Upload Your Profile Picture
+                            &lt;/label&gt;
+                            &lt;file-upload class&#x3D;&quot;file-uploader&quot; [multiple]&#x3D;&quot;multiple&quot;&gt;&lt;/file-upload&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                        &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                            &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                                Upload Cover Photo
+                            &lt;/label&gt;
+                            &lt;file-upload class&#x3D;&quot;file-uploader&quot; [multiple]&#x3D;&quot;multiple&quot;&gt;&lt;/file-upload&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;btn-box mt-0&quot;&gt;
+                    &lt;button mat-button&gt;
+                        Save Information
+                    &lt;/button&gt;
+                    &lt;button mat-button&gt;
+                        Cancel
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-xxl-5 col-xxxl-4&quot;&gt;
+        &lt;mat-card
+            class&#x3D;&quot;daxa-card settings-card mb-25 border-radius bg-white border-none d-block&quot;
+            [class.rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+        &gt;
+            &lt;mat-card-header&gt;
+                &lt;mat-card-title&gt;
+                    &lt;h5 class&#x3D;&quot;mt-0 mb-0&quot;&gt;
+                        Privacy Policy
+                    &lt;/h5&gt;
+                &lt;/mat-card-title&gt;
+            &lt;/mat-card-header&gt;
+            &lt;mat-card-content&gt;
+                &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                    &lt;mat-checkbox&gt;
+                        Allow users to show your email
+                    &lt;/mat-checkbox&gt;
+                    &lt;mat-checkbox&gt;
+                        Allow users to show your experiences
+                    &lt;/mat-checkbox&gt;
+                    &lt;mat-checkbox&gt;
+                        Allow users to show your followers
+                    &lt;/mat-checkbox&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;mb-25&quot;&gt;
+                    &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                        Who can tag you?
+                    &lt;/label&gt;
+                    &lt;mat-radio-group&gt;
+                        &lt;mat-radio-button value&#x3D;&quot;1&quot;&gt;
+                            Everyone
+                        &lt;/mat-radio-button&gt;
+                        &lt;mat-radio-button value&#x3D;&quot;2&quot;&gt;
+                            Group Member
+                        &lt;/mat-radio-button&gt;
+                    &lt;/mat-radio-group&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label class&#x3D;&quot;main-label d-block lh-1 text-black&quot;&gt;
+                        Account Deletion Or Transfer
+                    &lt;/label&gt;
+                    &lt;p class&#x3D;&quot;minus&quot;&gt;
+                        Transfer this account to another person or to a company repositories.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;btn-box&quot;&gt;
+                    &lt;button mat-button&gt;
+                        Delete Account
+                    &lt;/button&gt;
+                    &lt;button mat-button&gt;
+                        Transfer Account
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/mat-card-content&gt;
+        &lt;/mat-card&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./my-profile-settings.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.mat-mdc-card {
+    &amp;.daxa-card {
+        &amp;.settings-card {
+            .mat-mdc-card-content {
+                .title {
+                    margin-bottom: 20px;
+                }
+                .main-label {
+                    margin-bottom: 12px;
+                }
+                .minus {
+                    margin-top: -3px;
+                }
+            }
+        }
+    }
+}
+::ng-deep {
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.settings-card {
+                .mat-mdc-card-content {
+                    .mat-mdc-radio-button {
+                        margin-right: 30px;
+
+                        .mdc-radio {
+                            padding: 0 3px 0 0;
+                            cursor: pointer;
+                            margin: 0;
+                        }
+                        .mdc-label {
+                            cursor: pointer;
+                            color: var(--bodyColor);
+                        }
+                        &amp;:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                    .mat-mdc-checkbox {
+                        margin-bottom: 12px;
+                        display: block;
+
+                        .mdc-checkbox {
+                            padding: 0;
+                            margin: 0;
+
+                            .mdc-checkbox__native-control {
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                width: 100%;
+                                height: 100%;
+                            }
+                            .mdc-checkbox__background {
+                                top: 0;
+                                left: 0;
+                            }
+                            .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+                                border-radius: 2px;
+                            }
+                            .mat-mdc-checkbox-touch-target {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .mdc-label {
+                            color: var(--bodyColor);
+                            margin-left: 5px;
+                        }
+                        &amp;:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                    .btn-box {
+                        margin-top: 20px;
+
+                        .mat-mdc-button {
+                            border: 0;
+                            height: auto;
+                            min-width: auto;
+                            min-height: auto;
+                            padding: 13px 40px;
+                            font-weight: normal;
+                            color: var(--whiteColor);
+                            background-color: var(--daxaColor);
+
+                            &amp;:not(:first-child) {
+                                margin-left: 10px;
+                                background-color: var(--dangerColor);
+                            }
+                        }
+                    }
+                }
+                &amp;.rtl-enabled {
+                    .mat-mdc-card-content {
+                        .mat-mdc-radio-button {
+                            margin: {
+                                right: 0;
+                                left: 30px;
+                            };
+                            .mdc-radio {
+                                padding: 0 0 0 3px;
+                            }
+                            &amp;:last-child {
+                                margin-left: 0;
+                            }
+                        }
+                        .mat-mdc-checkbox {
+                            .mdc-label {
+                                margin: {
+                                    left: 0;
+                                    right: 5px;
+                                };
+                            }
+                        }
+                        .btn-box {
+                            .mat-mdc-button {
+                                &amp;:not(:first-child) {
+                                    margin: {
+                                        left: 0;
+                                        right: 10px;
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .mat-mdc-card {
+        &amp;.daxa-card {
+            &amp;.settings-card {
+                .mat-mdc-card-content {
+                    .title {
+                        margin-bottom: 15px;
+                    }
+                    .main-label {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    ::ng-deep {
+        .mat-mdc-card {
+            &amp;.daxa-card {
+                &amp;.settings-card {
+                    .mat-mdc-card-content {
+                        .btn-box {
+                            .mat-mdc-button {
+                                padding: 13px 18px;
+
+                                &amp;:not(:first-child) {
+                                    margin-left: 8px;
+                                }
+                            }
+                        }
+                    }
+                    &amp;.rtl-enabled {
+                        .mat-mdc-card-content {
+                            .btn-box {
+                                .mat-mdc-button {
+                                    &amp;:not(:first-child) {
+                                        margin: {
+                                            left: 0;
+                                            right: 8px;
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Breadcrumb --><div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">    <h5 class="mb-0">        Settings    </h5>    <ol class="breadcrumb list-unstyled mt-0 mb-0 pl-0">        <li class="breadcrumb-item position-relative">            <a routerLink="/" class="d-inline-block position-relative">                <i class="ri-home-8-line"></i>                Dashboard            </a>        </li>        <li class="breadcrumb-item position-relative">            Profile        </li>        <li class="breadcrumb-item position-relative">            Settings        </li>    </ol></div><!-- Settings --><div class="row">    <div class="col-xxl-7 col-xxxl-8">        <mat-card            class="daxa-card settings-card mb-25 border-radius bg-white border-none d-block"            [class.rtl-enabled]="themeService.isRTLEnabled()"        >            <mat-card-header>                <mat-card-title>                    <h5 class="mt-0 mb-0">                        Profile Settings                    </h5>                </mat-card-title>            </mat-card-header>            <mat-card-content>                <div class="row">                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                First Name                            </label>                            <mat-form-field>                                <mat-label>                                    First name                                </mat-label>                                <input matInput value="Micheal">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Last Name                            </label>                            <mat-form-field>                                <mat-label>                                    Last name                                </mat-label>                                <input matInput value="Collins">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Email Address                            </label>                            <mat-form-field>                                <mat-label>                                    Email address                                </mat-label>                                <input matInput value="micheal@gmail.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Phone No                            </label>                            <mat-form-field>                                <mat-label>                                    Phone no                                </mat-label>                                <input matInput value="+1 444 555 6699">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Password                            </label>                            <mat-form-field>                                <mat-label>                                    Password                                </mat-label>                                <input matInput placeholder="************">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Confirm Password                            </label>                            <mat-form-field>                                <mat-label>                                    Confirm password                                </mat-label>                                <input matInput placeholder="************">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Address                            </label>                            <mat-form-field>                                <mat-label>                                    Add address here                                </mat-label>                                <input matInput placeholder="E.g. 84 S. Arrowhead Court Branford">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Country                            </label>                            <mat-form-field>                                <mat-label>                                    Select                                </mat-label>                                <mat-select>                                    <mat-option value="option1">                                        Switzerland                                    </mat-option>                                    <mat-option value="option2">                                        New Zealand                                    </mat-option>                                    <mat-option value="option3">                                        Germany                                    </mat-option>                                    <mat-option value="option4">                                        United States                                    </mat-option>                                    <mat-option value="option5">                                        Japan                                    </mat-option>                                    <mat-option value="option6">                                        Netherlands                                    </mat-option>                                    <mat-option value="option7">                                        Sweden                                    </mat-option>                                    <mat-option value="option8">                                        Canada                                    </mat-option>                                    <mat-option value="option9">                                        United Kingdom                                    </mat-option>                                    <mat-option value="option10">                                        Australia                                    </mat-option>                                </mat-select>                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-12">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Add Your Bio                            </label>                            <mat-form-field class="textarea">                                <mat-label>                                    What\'s on your mind, Micheal?                                </mat-label>                                <textarea matInput placeholder="E.g. It makes me feel..."></textarea>                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-12">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Who will be able to see your profile?                            </label>                            <mat-radio-group>                                <mat-radio-button value="1">                                    Only me                                </mat-radio-button>                                <mat-radio-button value="2">                                    My followers                                </mat-radio-button>                                <mat-radio-button value="3">                                    Everyone                                </mat-radio-button>                            </mat-radio-group>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Select Your Skills                            </label>                            <mat-form-field>                                <mat-label>                                    Select                                </mat-label>                                <mat-select>                                    <mat-option value="option1">                                        Leadership                                    </mat-option>                                    <mat-option value="option2">                                        Project Management                                    </mat-option>                                    <mat-option value="option3">                                        Data Analysis                                    </mat-option>                                    <mat-option value="option4">                                        Teamwork                                    </mat-option>                                    <mat-option value="option5">                                        Web Development                                    </mat-option>                                </mat-select>                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Your Profession                            </label>                            <mat-form-field>                                <mat-label>                                    Your profession                                </mat-label>                                <input matInput value="Designer">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Company Name                            </label>                            <mat-form-field>                                <mat-label>                                    Company name                                </mat-label>                                <input matInput value="Daxa">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Company Website                            </label>                            <mat-form-field>                                <mat-label>                                    Company website                                </mat-label>                                <input matInput value="http://website.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Facebook                            </label>                            <mat-form-field>                                <mat-label>                                    Facebook                                </mat-label>                                <input matInput value="facebook@example.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Twitter                            </label>                            <mat-form-field>                                <mat-label>                                    Twitter                                </mat-label>                                <input matInput value="twitter@example.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Linkedin                            </label>                            <mat-form-field>                                <mat-label>                                    Linkedin                                </mat-label>                                <input matInput value="linkedin@example.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-6">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                YouTube                            </label>                            <mat-form-field>                                <mat-label>                                    YouTube                                </mat-label>                                <input matInput value="youtube@example.com">                            </mat-form-field>                        </div>                    </div>                    <div class="col-sm-12">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Upload Your Profile Picture                            </label>                            <file-upload class="file-uploader" [multiple]="multiple"></file-upload>                        </div>                    </div>                    <div class="col-sm-12">                        <div class="mb-25">                            <label class="main-label d-block lh-1 text-black">                                Upload Cover Photo                            </label>                            <file-upload class="file-uploader" [multiple]="multiple"></file-upload>                        </div>                    </div>                </div>                <div class="btn-box mt-0">                    <button mat-button>                        Save Information                    </button>                    <button mat-button>                        Cancel                    </button>                </div>            </mat-card-content>        </mat-card>    </div>    <div class="col-xxl-5 col-xxxl-4">        <mat-card            class="daxa-card settings-card mb-25 border-radius bg-white border-none d-block"            [class.rtl-enabled]="themeService.isRTLEnabled()"        >            <mat-card-header>                <mat-card-title>                    <h5 class="mt-0 mb-0">                        Privacy Policy                    </h5>                </mat-card-title>            </mat-card-header>            <mat-card-content>                <div class="mb-25">                    <mat-checkbox>                        Allow users to show your email                    </mat-checkbox>                    <mat-checkbox>                        Allow users to show your experiences                    </mat-checkbox>                    <mat-checkbox>                        Allow users to show your followers                    </mat-checkbox>                </div>                <div class="mb-25">                    <label class="main-label d-block lh-1 text-black">                        Who can tag you?                    </label>                    <mat-radio-group>                        <mat-radio-button value="1">                            Everyone                        </mat-radio-button>                        <mat-radio-button value="2">                            Group Member                        </mat-radio-button>                    </mat-radio-group>                </div>                <div>                    <label class="main-label d-block lh-1 text-black">                        Account Deletion Or Transfer                    </label>                    <p class="minus">                        Transfer this account to another person or to a company repositories.                    </p>                </div>                <div class="btn-box">                    <button mat-button>                        Delete Account                    </button>                    <button mat-button>                        Transfer Account                    </button>                </div>            </mat-card-content>        </mat-card>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MyProfileSettingsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MyProfileSettingsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

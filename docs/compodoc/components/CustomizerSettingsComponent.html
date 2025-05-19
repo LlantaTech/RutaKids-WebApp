@@ -1,0 +1,1298 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CustomizerSettingsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/customizer-settings/customizer-settings.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-customizer-settings</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>MatDividerModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatButtonModule</code>
+                            <code>NgScrollbarModule</code>
+                            <code>NgIf</code>
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./customizer-settings.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./customizer-settings.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#platform" >platform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#toggle" >toggle</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCardBorderRadiusTheme" >toggleCardBorderRadiusTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCardBorderTheme" >toggleCardBorderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHeaderTheme" >toggleHeaderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHideSidebarTheme" >toggleHideSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRightSidebarTheme" >toggleRightSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebarTheme" >toggleSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>, platform: <a href="../injectables/PlatformService.html" target="_self">PlatformService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>platform</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PlatformService.html" target="_self" >PlatformService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggle"></a>
+                    <span class="name">
+                        <span ><b>toggle</b></span>
+                        <a href="#toggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCardBorderRadiusTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleCardBorderRadiusTheme</b></span>
+                        <a href="#toggleCardBorderRadiusTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCardBorderRadiusTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCardBorderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleCardBorderTheme</b></span>
+                        <a href="#toggleCardBorderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCardBorderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHeaderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHeaderTheme</b></span>
+                        <a href="#toggleHeaderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHeaderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHideSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHideSidebarTheme</b></span>
+                        <a href="#toggleHideSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHideSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRightSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRightSidebarTheme</b></span>
+                        <a href="#toggleRightSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRightSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebarTheme</b></span>
+                        <a href="#toggleSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="platform"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>platform</b></span>
+                        <a href="#platform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/PlatformService.html" target="_self" >PlatformService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/customizer-settings/customizer-settings.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import {NgClass, NgIf, NgOptimizedImage} from &#x27;@angular/common&#x27;;
+import { MatDividerModule } from &#x27;@angular/material/divider&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { NgScrollbarModule } from &#x27;ngx-scrollbar&#x27;;
+import { CustomizerSettingsService } from &#x27;../../services/customizer-settings/customizer-settings.service&#x27;;
+import {PlatformService} from &quot;../../services/platform/platform.service&quot;;
+
+@Component({
+  selector: &#x27;app-customizer-settings&#x27;,
+  standalone: true,
+  imports: [NgClass, MatDividerModule, MatIconModule, MatButtonModule, NgScrollbarModule, NgIf, NgOptimizedImage],
+  templateUrl: &#x27;./customizer-settings.component.html&#x27;,
+  styleUrls: [&#x27;./customizer-settings.component.scss&#x27;]
+})
+export class CustomizerSettingsComponent {
+  isToggled &#x3D; false;
+
+  constructor(
+    public themeService: CustomizerSettingsService,
+    public platform: PlatformService
+  ) {
+    if (this.platform.isBrowser) {
+      this.themeService.isToggled$.subscribe(isToggled &#x3D;&gt; {
+        this.isToggled &#x3D; isToggled;
+      });
+    }
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
+  toggleSidebarTheme() {
+    this.themeService.toggleSidebarTheme();
+  }
+
+  toggleRightSidebarTheme() {
+    this.themeService.toggleRightSidebarTheme();
+  }
+
+  toggleHideSidebarTheme() {
+    this.themeService.toggleHideSidebarTheme();
+  }
+
+  toggleHeaderTheme() {
+    this.themeService.toggleHeaderTheme();
+  }
+
+  toggleCardBorderTheme() {
+    this.themeService.toggleCardBorderTheme();
+  }
+
+  toggleCardBorderRadiusTheme() {
+    this.themeService.toggleCardBorderRadiusTheme();
+  }
+
+  toggleRTLEnabledTheme() {
+    this.themeService.toggleRTLEnabledTheme();
+  }
+
+  toggle() {
+    this.themeService.toggle();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;platform.isBrowser&quot;&gt;
+
+  &lt;!-- Sidebar --&gt;
+  &lt;div
+      [ngClass]&#x3D;&quot;{&#x27;active&#x27;: isToggled}&quot;
+      class&#x3D;&quot;settings-sidebar bg-white box-shadow&quot;
+      [class.component-dark-theme]&#x3D;&quot;themeService.isDark()&quot;
+      [class.component-rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+  &gt;
+      &lt;div class&#x3D;&quot;settings-header bg-gray d-flex align-items-center justify-content-between&quot;&gt;
+          &lt;div&gt;
+              &lt;h5 class&#x3D;&quot;m-0&quot;&gt;
+                  Configuration Panel
+              &lt;/h5&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+              &lt;img ngSrc&#x3D;&quot;assets/images/logo-icon.svg&quot; width&#x3D;&quot;113&quot; height&#x3D;&quot;133&quot; alt&#x3D;&quot;logo-icon&quot;&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;ng-scrollbar visibility&#x3D;&quot;hover&quot;&gt;
+          &lt;div class&#x3D;&quot;settings-body&quot;&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      RTL Mode
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleRTLEnabledTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Dark Mode
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isDark()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Only Sidebar Dark
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleSidebarTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isSidebarDark()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Only Header Dark
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleHeaderTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isHeaderDark()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Right Sidebar
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleRightSidebarTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isRightSidebar()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20 hide-sidebar&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Hide Sidebar
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleHideSidebarTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isHideSidebar()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Borderd Card
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleCardBorderTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isCardBorder()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;span class&#x3D;&quot;d-block mb-12 fw-medium&quot;&gt;
+                      Card Border Radius
+                  &lt;/span&gt;
+                  &lt;button
+                      (click)&#x3D;&quot;toggleCardBorderRadiusTheme()&quot;
+                      class&#x3D;&quot;switch-btn&quot;
+                      [class.active]&#x3D;&quot;themeService.isCardBorderRadius()&quot;
+                  &gt;
+                  &lt;/button&gt;
+              &lt;/div&gt;
+              &lt;mat-divider&gt;&lt;/mat-divider&gt;
+              &lt;div class&#x3D;&quot;p-20&quot;&gt;
+                  &lt;a mat-flat-button href&#x3D;&quot;#&quot; class&#x3D;&quot;daxa&quot; target&#x3D;&quot;_blank&quot;&gt;
+                      Buy RutaKids
+                  &lt;/a&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/ng-scrollbar&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Settings Button --&gt;
+  &lt;button
+      mat-fab
+      (click)&#x3D;&quot;toggle()&quot;
+      class&#x3D;&quot;daxa settings-btn&quot;
+      [ngClass]&#x3D;&quot;{&#x27;active&#x27;: isToggled}&quot;
+      [class.component-rtl-enabled]&#x3D;&quot;themeService.isRTLEnabled()&quot;
+  &gt;
+      &lt;mat-icon&gt;settings&lt;/mat-icon&gt;
+  &lt;/button&gt;
+
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./customizer-settings.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Sidebar
+.settings-sidebar {
+    bottom: 0;
+    opacity: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    z-index: 2221;
+    position: fixed;
+    visibility: hidden;
+    border-radius: 10px 0 0 10px;
+    transition: var(--transition);
+
+    .settings-header {
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        padding: 20px;
+        position: absolute;
+    }
+    .settings-body {
+        padding-top: 80px;
+
+        .p-20 {
+            padding: 20px;
+        }
+        .switch-btn {
+            width: 60px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 30px;
+            display: inline-block;
+            border: 1px solid #ededed;
+            background-color: transparent;
+
+            &amp;::before {
+                left: 4px;
+                width: 22px;
+                content: &quot;&quot;;
+                bottom: 3px;
+                height: 22px;
+                border-radius: 50%;
+                position: absolute;
+                background-color: #dad9d9;
+                transition: var(--transition);
+            }
+            &amp;.active {
+                &amp;::before {
+                    left: 31px;
+                    background-color: var(--daxaColor) !important;
+                }
+            }
+        }
+    }
+    &amp;.active {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    &amp;.component-rtl-enabled {
+        right: auto;
+        left: -100%;
+
+        &amp;.active {
+            right: auto;
+            left: 0;
+        }
+    }
+    &amp;.component-dark-theme {
+        .settings-body {
+            .switch-btn {
+                border-color: #413e3e !important;
+    
+                &amp;::before {
+                    background-color: var(--whiteColor);
+                }
+                &amp;.active {
+                    &amp;::before {
+                        background-color: var(--heraBlueColor);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Settings Button
+.settings-btn {
+    right: 25px;
+    bottom: 25px;
+    z-index: 2221;
+    position: fixed;
+    transition: var(--transition);
+
+    .mat-icon {
+        animation: rotation 5s infinite linear;
+    }
+    &amp;.active {
+        right: 320px;
+    }
+    &amp;.component-rtl-enabled {
+        right: auto;
+        left: 25px;
+    
+        &amp;.active {
+            right: auto;
+            left: 320px;
+        }
+    }
+}
+@keyframes rotation {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(359deg);
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    // Sidebar
+    .settings-sidebar {
+        width: 260px;
+
+        .settings-header {
+            padding: 15px;
+        }
+        .settings-body {
+            padding-top: 70px;
+    
+            .p-20 {
+                padding: 15px;
+            }
+            .hide-sidebar {
+                pointer-events: none;
+            }
+        }
+    }
+    
+    // Settings Button
+    .settings-btn {
+        right: 15px;
+        width: 50px;
+        bottom: 15px;
+        height: 50px;
+    
+        &amp;.active {
+            right: 265px;
+        }
+        &amp;.component-rtl-enabled {
+            right: auto;
+            left: 15px;
+        
+            &amp;.active {
+                right: auto;
+                left: 265px;
+            }
+        }
+    }
+    
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    // Sidebar
+    .settings-sidebar {
+        .settings-body {
+            .hide-sidebar {
+                pointer-events: none;
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    // Sidebar
+    .settings-sidebar {
+        .settings-body {
+            .hide-sidebar {
+                pointer-events: none;
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="platform.isBrowser">  <!-- Sidebar -->  <div      [ngClass]="{\'active\': isToggled}"      class="settings-sidebar bg-white box-shadow"      [class.component-dark-theme]="themeService.isDark()"      [class.component-rtl-enabled]="themeService.isRTLEnabled()"  >      <div class="settings-header bg-gray d-flex align-items-center justify-content-between">          <div>              <h5 class="m-0">                  Configuration Panel              </h5>          </div>          <div>              <img ngSrc="assets/images/logo-icon.svg" width="113" height="133" alt="logo-icon">          </div>      </div>      <ng-scrollbar visibility="hover">          <div class="settings-body">              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      RTL Mode                  </span>                  <button                      (click)="toggleRTLEnabledTheme()"                      class="switch-btn"                      [class.active]="themeService.isRTLEnabled()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Dark Mode                  </span>                  <button                      (click)="toggleTheme()"                      class="switch-btn"                      [class.active]="themeService.isDark()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Only Sidebar Dark                  </span>                  <button                      (click)="toggleSidebarTheme()"                      class="switch-btn"                      [class.active]="themeService.isSidebarDark()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Only Header Dark                  </span>                  <button                      (click)="toggleHeaderTheme()"                      class="switch-btn"                      [class.active]="themeService.isHeaderDark()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Right Sidebar                  </span>                  <button                      (click)="toggleRightSidebarTheme()"                      class="switch-btn"                      [class.active]="themeService.isRightSidebar()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20 hide-sidebar">                  <span class="d-block mb-12 fw-medium">                      Hide Sidebar                  </span>                  <button                      (click)="toggleHideSidebarTheme()"                      class="switch-btn"                      [class.active]="themeService.isHideSidebar()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Borderd Card                  </span>                  <button                      (click)="toggleCardBorderTheme()"                      class="switch-btn"                      [class.active]="themeService.isCardBorder()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <span class="d-block mb-12 fw-medium">                      Card Border Radius                  </span>                  <button                      (click)="toggleCardBorderRadiusTheme()"                      class="switch-btn"                      [class.active]="themeService.isCardBorderRadius()"                  >                  </button>              </div>              <mat-divider></mat-divider>              <div class="p-20">                  <a mat-flat-button href="#" class="daxa" target="_blank">                      Buy RutaKids                  </a>              </div>          </div>      </ng-scrollbar>  </div>  <!-- Settings Button -->  <button      mat-fab      (click)="toggle()"      class="daxa settings-btn"      [ngClass]="{\'active\': isToggled}"      [class.component-rtl-enabled]="themeService.isRTLEnabled()"  >      <mat-icon>settings</mat-icon>  </button></ng-container></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CustomizerSettingsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomizerSettingsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

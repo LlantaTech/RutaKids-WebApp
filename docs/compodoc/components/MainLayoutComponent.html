@@ -1,0 +1,1530 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llantatech documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">llantatech documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MainLayoutComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/layouts/main-layout/main-layout.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>Location</code>
+                            <code>{
+    provide: LocationStrategy, useClass: PathLocationStrategy
+}</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-main-layout</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>RouterOutlet</code>
+                            <code>RouterLink</code>
+                                <code><a href="../components/SidebarComponent.html" target="_self" >SidebarComponent</a></code>
+                                <code><a href="../components/HeaderComponent.html" target="_self" >HeaderComponent</a></code>
+                                <code><a href="../components/FooterComponent.html" target="_self" >FooterComponent</a></code>
+                                <code><a href="../components/CustomizerSettingsComponent.html" target="_self" >CustomizerSettingsComponent</a></code>
+                                <code><a href="../components/GlobalAlertComponent.html" target="_self" >GlobalAlertComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./main-layout.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./main-layout.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isBrowser" >isBrowser</a>
+                            </li>
+                            <li>
+                                <a href="#isSidebarToggled" >isSidebarToggled</a>
+                            </li>
+                            <li>
+                                <a href="#isToggled" >isToggled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                <a href="#routerSubscription" >routerSubscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#themeService" >themeService</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isBlankPage" >isBlankPage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#recallJsFunctions" >recallJsFunctions</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCardBorderRadiusTheme" >toggleCardBorderRadiusTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCardBorderTheme" >toggleCardBorderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHeaderTheme" >toggleHeaderTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleHideSidebarTheme" >toggleHideSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRightSidebarTheme" >toggleRightSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRTLEnabledTheme" >toggleRTLEnabledTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebarTheme" >toggleSidebarTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, toggleService: <a href="../injectables/ToggleService.html" target="_self">ToggleService</a>, themeService: <a href="../injectables/CustomizerSettingsService.html" target="_self">CustomizerSettingsService</a>, platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toggleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToggleService.html" target="_self" >ToggleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>platformId</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBlankPage"></a>
+                    <span class="name">
+                        <span ><b>isBlankPage</b></span>
+                        <a href="#isBlankPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isBlankPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recallJsFunctions"></a>
+                    <span class="name">
+                        <span ><b>recallJsFunctions</b></span>
+                        <a href="#recallJsFunctions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>recallJsFunctions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCardBorderRadiusTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleCardBorderRadiusTheme</b></span>
+                        <a href="#toggleCardBorderRadiusTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCardBorderRadiusTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCardBorderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleCardBorderTheme</b></span>
+                        <a href="#toggleCardBorderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCardBorderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHeaderTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHeaderTheme</b></span>
+                        <a href="#toggleHeaderTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHeaderTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleHideSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleHideSidebarTheme</b></span>
+                        <a href="#toggleHideSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleHideSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRightSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRightSidebarTheme</b></span>
+                        <a href="#toggleRightSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRightSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRTLEnabledTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleRTLEnabledTheme</b></span>
+                        <a href="#toggleRTLEnabledTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRTLEnabledTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebarTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebarTheme</b></span>
+                        <a href="#toggleSidebarTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebarTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBrowser"></a>
+                    <span class="name">
+                        <span ><b>isBrowser</b></span>
+                        <a href="#isBrowser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSidebarToggled"></a>
+                    <span class="name">
+                        <span ><b>isSidebarToggled</b></span>
+                        <a href="#isSidebarToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isToggled"></a>
+                    <span class="name">
+                        <span ><b>isToggled</b></span>
+                        <a href="#isToggled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Router</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routerSubscription"></a>
+                    <span class="name">
+                        <span ><b>routerSubscription</b></span>
+                        <a href="#routerSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>themeService</b></span>
+                        <a href="#themeService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomizerSettingsService.html" target="_self" >CustomizerSettingsService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="title"></a>
+                    <span class="name">
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;RutaKis - LlantaTech&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/layouts/main-layout/main-layout.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, PLATFORM_ID } from &#x27;@angular/core&#x27;;
+import { CommonModule, isPlatformBrowser, Location, LocationStrategy, PathLocationStrategy } from &#x27;@angular/common&#x27;;
+import { Router, NavigationCancel, NavigationEnd, RouterOutlet, RouterLink } from &#x27;@angular/router&#x27;;
+import { SidebarComponent } from &#x27;../../components/sidebar/sidebar.component&#x27;;
+import { HeaderComponent } from &#x27;../../components/header/header.component&#x27;;
+import { FooterComponent } from &#x27;../../components/footer/footer.component&#x27;;
+import { CustomizerSettingsComponent } from &#x27;../../components/customizer-settings/customizer-settings.component&#x27;;
+import { CustomizerSettingsService } from &#x27;../../services/customizer-settings/customizer-settings.service&#x27;;
+import { ToggleService } from &#x27;../../components/sidebar/toggle.service&#x27;;
+import { GlobalAlertComponent } from &#x27;../../components/global-alert/global-alert.component&#x27;;
+import { filter } from &#x27;rxjs/operators&#x27;;
+
+@Component({
+  selector: &#x27;app-main-layout&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    SidebarComponent,
+    HeaderComponent,
+    FooterComponent,
+    CustomizerSettingsComponent,
+    GlobalAlertComponent
+  ],
+  templateUrl: &#x27;./main-layout.component.html&#x27;,
+  styleUrls: [&#x27;./main-layout.component.scss&#x27;],
+  providers: [
+    Location,
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    }
+  ]
+})
+export class MainLayoutComponent {
+  title &#x3D; &#x27;RutaKis - LlantaTech&#x27;;
+  routerSubscription: any;
+  isBrowser: boolean;
+  isSidebarToggled &#x3D; false;
+  isToggled &#x3D; false;
+
+  constructor(
+    public router: Router,
+    private toggleService: ToggleService,
+    public themeService: CustomizerSettingsService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser &#x3D; isPlatformBrowser(this.platformId);
+
+    this.toggleService.isSidebarToggled$.subscribe(value &#x3D;&gt; {
+      this.isSidebarToggled &#x3D; value;
+    });
+
+    this.themeService.isToggled$.subscribe(value &#x3D;&gt; {
+      this.isToggled &#x3D; value;
+    });
+  }
+
+  ngOnInit() {
+    this.recallJsFunctions();
+  }
+
+  recallJsFunctions() {
+    if (!this.isBrowser) return;
+
+    this.routerSubscription &#x3D; this.router.events
+      .pipe(filter(event &#x3D;&gt; event instanceof NavigationEnd || event instanceof NavigationCancel))
+      .subscribe(event &#x3D;&gt; {
+        if (event instanceof NavigationEnd) {
+          window.scrollTo(0, 0);
+        }
+      });
+  }
+
+  isBlankPage(): boolean {
+    if (!this.isBrowser) return false;
+    const url &#x3D; this.router.url;
+    return [
+      &#x27;/authentication&#x27;,
+      &#x27;/authentication/sign-up&#x27;,
+      &#x27;/authentication/forgot-password&#x27;,
+      &#x27;/authentication/reset-password&#x27;,
+      &#x27;/authentication/lock-screen&#x27;,
+      &#x27;/authentication/logout&#x27;,
+      &#x27;/authentication/confirm-email&#x27;,
+      &#x27;/coming-soon&#x27;
+    ].includes(url);
+  }
+
+  // Métodos de toggle
+  toggleTheme() { this.themeService.toggleTheme(); }
+  toggleSidebarTheme() { this.themeService.toggleSidebarTheme(); }
+  toggleRightSidebarTheme() { this.themeService.toggleRightSidebarTheme(); }
+  toggleHideSidebarTheme() { this.themeService.toggleHideSidebarTheme(); }
+  toggleHeaderTheme() { this.themeService.toggleHeaderTheme(); }
+  toggleCardBorderTheme() { this.themeService.toggleCardBorderTheme(); }
+  toggleCardBorderRadiusTheme() { this.themeService.toggleCardBorderRadiusTheme(); }
+  toggleRTLEnabledTheme() { this.themeService.toggleRTLEnabledTheme(); }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  [ngClass]&#x3D;&quot;{
+    &#x27;blank-page&#x27;: isBlankPage(),
+    &#x27;dark-theme&#x27;: themeService.isDark(),
+    &#x27;card-borderd-theme&#x27;: themeService.isCardBorder(),
+    &#x27;card-border-radius&#x27;: themeService.isCardBorderRadius(),
+    &#x27;rtl-enabled&#x27;: themeService.isRTLEnabled()
+  }&quot;
+&gt;
+  &lt;!-- Sidebar --&gt;
+  &lt;app-sidebar&gt;&lt;/app-sidebar&gt;
+
+  &lt;!-- Main Content --&gt;
+  &lt;div
+    class&#x3D;&quot;main-content transition d-flex flex-column&quot;
+    [ngClass]&#x3D;&quot;{
+      &#x27;active&#x27;: isSidebarToggled,
+      &#x27;right-sidebar&#x27;: themeService.isRightSidebar(),
+      &#x27;hide-sidebar&#x27;: themeService.isHideSidebar()
+    }&quot;
+  &gt;
+    &lt;app-header&gt;&lt;/app-header&gt;
+    &lt;app-global-alert&gt;&lt;/app-global-alert&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+    &lt;div class&#x3D;&quot;flex-grow-1&quot;&gt;&lt;/div&gt;
+    &lt;app-footer&gt;&lt;/app-footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./main-layout.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Main Content
+.main-content {
+    overflow: hidden;
+    min-height: 100vh;
+    padding: {
+        top: 118px;
+        left: 282px;
+        right: 25px;
+    };
+    &amp;.active, &amp;.hide-sidebar {
+        padding-left: 85px;
+    }
+    &amp;.right-sidebar {
+        padding: {
+            left: 25px;
+            right: 282px;
+        };
+        &amp;.active, &amp;.hide-sidebar {
+            padding-right: 85px;
+        }
+    }
+}
+
+// Blank Page
+.blank-page {
+    app-sidebar, app-footer, app-header {
+        display: none !important;
+    }
+    .main-content {
+        padding: 0 !important;
+    }
+}
+
+// RTL
+.rtl-enabled {
+    .main-content {
+        padding: {
+            right: 282px;
+            left: 25px;
+        };
+        &amp;.active, &amp;.hide-sidebar {
+            padding: {
+                left: 25px;
+                right: 85px;
+            };
+        }
+        &amp;.right-sidebar {
+            padding: {
+                right: 25px;
+                left: 282px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding-left: 85px;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    // Main Content
+    .main-content {
+        padding: {
+            top: 151px;
+            left: 15px;
+            right: 15px;
+        };
+        &amp;.active, &amp;.hide-sidebar {
+            padding-left: 15px;
+        }
+        &amp;.right-sidebar {
+            padding: {
+                left: 15px;
+                right: 15px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding-right: 15px;
+            }
+        }
+    }
+
+    // RTL
+    .rtl-enabled {
+        .main-content {
+            padding: {
+                right: 15px;
+                left: 15px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding: {
+                    left: 15px;
+                    right: 15px;
+                };
+            }
+            &amp;.right-sidebar {
+                padding: {
+                    right: 15px;
+                    left: 15px;
+                };
+                &amp;.active, &amp;.hide-sidebar {
+                    padding: {
+                        left: 15px;
+                        right: 15px;
+                    };
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width : 576px) and (max-width : 767px) {
+
+    // Main Content
+    .main-content {
+        padding-top: 156px;
+    }
+
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+    // Main Content
+    .main-content {
+        padding: {
+            left: 25px;
+            right: 25px;
+        };
+        &amp;.active, &amp;.hide-sidebar {
+            padding-left: 25px;
+        }
+        &amp;.right-sidebar {
+            padding-right: 25px;
+
+            &amp;.active, &amp;.hide-sidebar {
+                padding-right: 25px;
+            }
+        }
+    }
+
+    // RTL
+    .rtl-enabled {
+        .main-content {
+            padding: {
+                right: 25px;
+                left: 25px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding: {
+                    left: 25px;
+                    right: 25px;
+                };
+            }
+            &amp;.right-sidebar {
+                padding: {
+                    right: 25px;
+                    left: 25px;
+                };
+                &amp;.active, &amp;.hide-sidebar {
+                    padding: {
+                        left: 25px;
+                        right: 25px;
+                    };
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width : 992px) and (max-width : 1199px) {
+
+    // Main Content
+    .main-content {
+        padding: {
+            left: 25px;
+            right: 25px;
+        };
+        &amp;.active, &amp;.hide-sidebar {
+            padding-left: 25px;
+        }
+        &amp;.right-sidebar {
+            padding-right: 25px;
+
+            &amp;.active, &amp;.hide-sidebar {
+                padding-right: 25px;
+            }
+        }
+    }
+
+    // RTL
+    .rtl-enabled {
+        .main-content {
+            padding: {
+                right: 25px;
+                left: 25px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding: {
+                    left: 25px;
+                    right: 25px;
+                };
+            }
+            &amp;.right-sidebar {
+                padding: {
+                    right: 25px;
+                    left: 25px;
+                };
+                &amp;.active, &amp;.hide-sidebar {
+                    padding: {
+                        left: 25px;
+                        right: 25px;
+                    };
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    // Main Content
+    .main-content {
+        padding-left: 262px;
+
+        &amp;.active, &amp;.hide-sidebar {
+            padding-left: 85px;
+        }
+        &amp;.right-sidebar {
+            padding-right: 262px;
+
+            &amp;.active, &amp;.hide-sidebar {
+                padding-right: 85px;
+            }
+        }
+    }
+
+    // RTL
+    .rtl-enabled {
+        .main-content {
+            padding: {
+                right: 262px;
+                left: 25px;
+            };
+            &amp;.active, &amp;.hide-sidebar {
+                padding: {
+                    left: 25px;
+                    right: 85px;
+                };
+            }
+            &amp;.right-sidebar {
+                padding: {
+                    right: 25px;
+                    left: 262px;
+                };
+                &amp;.active, &amp;.hide-sidebar {
+                    padding: {
+                        left: 85px;
+                        right: 25px;
+                    };
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  [ngClass]="{    \'blank-page\': isBlankPage(),    \'dark-theme\': themeService.isDark(),    \'card-borderd-theme\': themeService.isCardBorder(),    \'card-border-radius\': themeService.isCardBorderRadius(),    \'rtl-enabled\': themeService.isRTLEnabled()  }">  <!-- Sidebar -->  <app-sidebar></app-sidebar>  <!-- Main Content -->  <div    class="main-content transition d-flex flex-column"    [ngClass]="{      \'active\': isSidebarToggled,      \'right-sidebar\': themeService.isRightSidebar(),      \'hide-sidebar\': themeService.isHideSidebar()    }"  >    <app-header></app-header>    <app-global-alert></app-global-alert>    <router-outlet></router-outlet>    <div class="flex-grow-1"></div>    <app-footer></app-footer>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'ActiveProjectsComponent', 'selector': 'app-active-projects'},{'name': 'AllProjectsComponent', 'selector': 'app-all-projects'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationComponent', 'selector': 'app-authentication'},{'name': 'BasicExpansionComponent', 'selector': 'app-basic-expansion'},{'name': 'BlankLayoutComponent', 'selector': 'app-blank-layout'},{'name': 'BlankPageComponent', 'selector': 'app-blank-page'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'CompletedProjectsComponent', 'selector': 'app-completed-projects'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'CreatePrimaryComponent', 'selector': 'app-create-primary'},{'name': 'CreateSchoolRoutesComponent', 'selector': 'app-create-school-routes'},{'name': 'CreateSchoolTransportationComponent', 'selector': 'app-create-school-transportation'},{'name': 'CreateSecondaryComponent', 'selector': 'app-create-secondary'},{'name': 'CustomizerSettingsComponent', 'selector': 'app-customizer-settings'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DistrictFieldComponent', 'selector': 'app-district-field'},{'name': 'EditPrimaryComponent', 'selector': 'app-edit-primary'},{'name': 'EditSchoolRoutesComponent', 'selector': 'app-edit-school-routes'},{'name': 'EditSchoolTransportationComponent', 'selector': 'app-edit-school-transportation'},{'name': 'EditSecondaryComponent', 'selector': 'app-edit-secondary'},{'name': 'FaqPageComponent', 'selector': 'app-faq-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAlertComponent', 'selector': 'app-global-alert'},{'name': 'GradeCardComponent', 'selector': 'app-grade-card'},{'name': 'GradeCardsPrimaryComponent', 'selector': 'app-grade-cards-primary'},{'name': 'GradeCardsSecondaryComponent', 'selector': 'app-grade-cards-secondary'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'InternalErrorComponent', 'selector': 'app-internal-error'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MapSelectorComponent', 'selector': 'app-map-selector'},{'name': 'MyProfileComponent', 'selector': 'app-my-profile'},{'name': 'MyProfileSettingsComponent', 'selector': 'app-my-profile-settings'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationsListComponent', 'selector': 'app-notifications-list'},{'name': 'PrimaryComponent', 'selector': 'app-primary'},{'name': 'PrimaryListComponent', 'selector': 'app-primary-list'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProjectsOverviewComponent', 'selector': 'app-projects-overview'},{'name': 'ProjectsProgressComponent', 'selector': 'app-projects-progress:not(p)'},{'name': 'ProjectsRoadmapComponent', 'selector': 'app-projects-roadmap:not(p)'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SchoolRoutesComponent', 'selector': 'app-school-routes'},{'name': 'SchoolRoutesFormComponent', 'selector': 'app-school-routes-form'},{'name': 'SchoolRoutesListComponent', 'selector': 'app-school-routes-list'},{'name': 'SchoolRoutesOverviewComponent', 'selector': 'app-school-routes-overview'},{'name': 'SchoolRoutesSelectorSchoolTransportationComponent', 'selector': 'app-school-routes-selector-school-transportation'},{'name': 'SchoolRoutesSelectorStudentsComponent', 'selector': 'app-school-routes-selector-students'},{'name': 'SchoolRoutesTableComponent', 'selector': 'app-school-routes-table'},{'name': 'SchoolTransportationComponent', 'selector': 'app-school-transportation'},{'name': 'SchoolTransportationFormComponent', 'selector': 'app-school-transportation-form'},{'name': 'SchoolTransportationListComponent', 'selector': 'app-school-transportation-list'},{'name': 'SecondaryComponent', 'selector': 'app-secondary'},{'name': 'SecondaryListComponent', 'selector': 'app-secondary-list'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'StudentFormComponent', 'selector': 'app-student-form'},{'name': 'StudentsComponent', 'selector': 'app-students'},{'name': 'StudentsListComponent', 'selector': 'app-students-list'},{'name': 'TermsConditionsComponent', 'selector': 'app-terms-conditions'},{'name': 'TotalMembersComponent', 'selector': 'app-total-members'},{'name': 'TotalProjectsComponent', 'selector': 'app-total-projects'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MainLayoutComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MainLayoutComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
