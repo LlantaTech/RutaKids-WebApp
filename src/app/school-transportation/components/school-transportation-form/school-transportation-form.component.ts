@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Editor} from "ngx-editor";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CustomizerSettingsService} from "../../../shared/services/customizer-settings/customizer-settings.service";
 import {FormsModule} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
@@ -8,7 +7,7 @@ import {MatInput} from "@angular/material/input";
 import {FileUploadControl, FileUploadModule} from "@iplab/ngx-file-upload";
 import {SchoolTransportation} from "../../model/school-transportation";
 import {CommonModule} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
+import {} from "@angular/common/http";
 import {MatButton} from "@angular/material/button";
 
 @Component({
@@ -16,7 +15,10 @@ import {MatButton} from "@angular/material/button";
   standalone: true,
   imports: [
     CommonModule,
-    HttpClientModule,
+
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
     FormsModule,
     MatCard,
     MatCardContent,
